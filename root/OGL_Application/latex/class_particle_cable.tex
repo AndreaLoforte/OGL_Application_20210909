@@ -1,0 +1,62 @@
+\hypertarget{class_particle_cable}{}\doxysection{Particle\+Cable Class Reference}
+\label{class_particle_cable}\index{ParticleCable@{ParticleCable}}
+
+
+{\ttfamily \#include $<$plinks.\+h$>$}
+
+Inheritance diagram for Particle\+Cable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_particle_cable}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual unsigned \mbox{\hyperlink{class_particle_cable_acad4066dbb97dfaea0fbce932574f523}{add\+Contact}} (\mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} $\ast$contact, unsigned limit) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_particle_cable_a29ff2f5547ae52784f01666742e3e97d}{max\+Length}}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_particle_cable_a848fa04c6fed05ff0586f948a2627c1c}{restitution}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cables link a pair of particles, generating a contact if they stray too far apart. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_cable_acad4066dbb97dfaea0fbce932574f523}\label{class_particle_cable_acad4066dbb97dfaea0fbce932574f523}} 
+\index{ParticleCable@{ParticleCable}!addContact@{addContact}}
+\index{addContact@{addContact}!ParticleCable@{ParticleCable}}
+\doxysubsubsection{\texorpdfstring{addContact()}{addContact()}}
+{\footnotesize\ttfamily unsigned Particle\+Cable\+::add\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} $\ast$}]{contact,  }\item[{unsigned}]{limit }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Fills the given contact structure with the contact needed to keep the cable from over-\/extending. 
+
+Implements \mbox{\hyperlink{class_particle_link_a4dfa61ae00d357498995a563bc279be9}{Particle\+Link}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_particle_cable_a29ff2f5547ae52784f01666742e3e97d}\label{class_particle_cable_a29ff2f5547ae52784f01666742e3e97d}} 
+\index{ParticleCable@{ParticleCable}!maxLength@{maxLength}}
+\index{maxLength@{maxLength}!ParticleCable@{ParticleCable}}
+\doxysubsubsection{\texorpdfstring{maxLength}{maxLength}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Particle\+Cable\+::max\+Length}
+
+Holds the maximum length of the cable. \mbox{\Hypertarget{class_particle_cable_a848fa04c6fed05ff0586f948a2627c1c}\label{class_particle_cable_a848fa04c6fed05ff0586f948a2627c1c}} 
+\index{ParticleCable@{ParticleCable}!restitution@{restitution}}
+\index{restitution@{restitution}!ParticleCable@{ParticleCable}}
+\doxysubsubsection{\texorpdfstring{restitution}{restitution}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Particle\+Cable\+::restitution}
+
+Holds the restitution (bounciness) of the cable. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{plinks_8h}{plinks.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{plinks_8cpp}{plinks.\+cpp}}\end{DoxyCompactItemize}

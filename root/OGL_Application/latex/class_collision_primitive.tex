@@ -1,0 +1,106 @@
+\hypertarget{class_collision_primitive}{}\doxysection{Collision\+Primitive Class Reference}
+\label{class_collision_primitive}\index{CollisionPrimitive@{CollisionPrimitive}}
+
+
+{\ttfamily \#include $<$collide\+\_\+fine.\+h$>$}
+
+Inheritance diagram for Collision\+Primitive\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_collision_primitive}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_collision_primitive_a1c26bb790a821235b3545f0f35e59b56}{calculate\+Internals}} ()
+\item 
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_collision_primitive_ae17082a3f81574ec9e98fade648d66ab}{get\+Axis}} (unsigned \mbox{\hyperlink{glcorearb_8h_a57f14e05b1900f16a2da82ade47d0c6d}{index}}) const
+\item 
+const \mbox{\hyperlink{class_matrix4}{Matrix4}} \& \mbox{\hyperlink{class_collision_primitive_a882274c8be1f718bdaae8bf0702acadc}{get\+Transform}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rigid_body}{Rigid\+Body}} $\ast$ \mbox{\hyperlink{class_collision_primitive_a398cb70684619ab91d2cba6b1b44d1e9}{body}}
+\item 
+\mbox{\hyperlink{class_matrix4}{Matrix4}} \mbox{\hyperlink{class_collision_primitive_a71120da08f9f8238918afe49a4c5e763}{offset}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix4}{Matrix4}} \mbox{\hyperlink{class_collision_primitive_a9cea9dfe2db5638b3eab73dd03fe28bf}{transform}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_collision_primitive_a18a88b9c2c19ff5924f7341591fa4433}{Intersection\+Tests}}
+\item 
+class \mbox{\hyperlink{class_collision_primitive_a39ee53f0014c1ca96d6b097beff055bb}{Collision\+Detector}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a primitive to detect collisions against. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_collision_primitive_a1c26bb790a821235b3545f0f35e59b56}\label{class_collision_primitive_a1c26bb790a821235b3545f0f35e59b56}} 
+\index{CollisionPrimitive@{CollisionPrimitive}!calculateInternals@{calculateInternals}}
+\index{calculateInternals@{calculateInternals}!CollisionPrimitive@{CollisionPrimitive}}
+\doxysubsubsection{\texorpdfstring{calculateInternals()}{calculateInternals()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Collision\+Primitive\+::calculate\+Internals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calculates the internals for the primitive. \mbox{\Hypertarget{class_collision_primitive_ae17082a3f81574ec9e98fade648d66ab}\label{class_collision_primitive_ae17082a3f81574ec9e98fade648d66ab}} 
+\index{CollisionPrimitive@{CollisionPrimitive}!getAxis@{getAxis}}
+\index{getAxis@{getAxis}!CollisionPrimitive@{CollisionPrimitive}}
+\doxysubsubsection{\texorpdfstring{getAxis()}{getAxis()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector3}{Vector3}} Collision\+Primitive\+::get\+Axis (\begin{DoxyParamCaption}\item[{unsigned}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This is a convenience function to allow access to the axis vectors in the transform for this primitive. \mbox{\Hypertarget{class_collision_primitive_a882274c8be1f718bdaae8bf0702acadc}\label{class_collision_primitive_a882274c8be1f718bdaae8bf0702acadc}} 
+\index{CollisionPrimitive@{CollisionPrimitive}!getTransform@{getTransform}}
+\index{getTransform@{getTransform}!CollisionPrimitive@{CollisionPrimitive}}
+\doxysubsubsection{\texorpdfstring{getTransform()}{getTransform()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_matrix4}{Matrix4}}\& Collision\+Primitive\+::get\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the resultant transform of the primitive, calculated from the combined offset of the primitive and the transform (orientation + position) of the rigid body to which it is attached. 
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_collision_primitive_a39ee53f0014c1ca96d6b097beff055bb}\label{class_collision_primitive_a39ee53f0014c1ca96d6b097beff055bb}} 
+\index{CollisionPrimitive@{CollisionPrimitive}!CollisionDetector@{CollisionDetector}}
+\index{CollisionDetector@{CollisionDetector}!CollisionPrimitive@{CollisionPrimitive}}
+\doxysubsubsection{\texorpdfstring{CollisionDetector}{CollisionDetector}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_collision_detector}{Collision\+Detector}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_collision_primitive_a18a88b9c2c19ff5924f7341591fa4433}\label{class_collision_primitive_a18a88b9c2c19ff5924f7341591fa4433}} 
+\index{CollisionPrimitive@{CollisionPrimitive}!IntersectionTests@{IntersectionTests}}
+\index{IntersectionTests@{IntersectionTests}!CollisionPrimitive@{CollisionPrimitive}}
+\doxysubsubsection{\texorpdfstring{IntersectionTests}{IntersectionTests}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_intersection_tests}{Intersection\+Tests}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+This class exists to help the collision detector and intersection routines, so they should have access to its data. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_collision_primitive_a398cb70684619ab91d2cba6b1b44d1e9}\label{class_collision_primitive_a398cb70684619ab91d2cba6b1b44d1e9}} 
+\index{CollisionPrimitive@{CollisionPrimitive}!body@{body}}
+\index{body@{body}!CollisionPrimitive@{CollisionPrimitive}}
+\doxysubsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_rigid_body}{Rigid\+Body}}$\ast$ Collision\+Primitive\+::body}
+
+The rigid body that is represented by this primitive. \mbox{\Hypertarget{class_collision_primitive_a71120da08f9f8238918afe49a4c5e763}\label{class_collision_primitive_a71120da08f9f8238918afe49a4c5e763}} 
+\index{CollisionPrimitive@{CollisionPrimitive}!offset@{offset}}
+\index{offset@{offset}!CollisionPrimitive@{CollisionPrimitive}}
+\doxysubsubsection{\texorpdfstring{offset}{offset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4}{Matrix4}} Collision\+Primitive\+::offset}
+
+The offset of this primitive from the given rigid body. \mbox{\Hypertarget{class_collision_primitive_a9cea9dfe2db5638b3eab73dd03fe28bf}\label{class_collision_primitive_a9cea9dfe2db5638b3eab73dd03fe28bf}} 
+\index{CollisionPrimitive@{CollisionPrimitive}!transform@{transform}}
+\index{transform@{transform}!CollisionPrimitive@{CollisionPrimitive}}
+\doxysubsubsection{\texorpdfstring{transform}{transform}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_matrix4}{Matrix4}} Collision\+Primitive\+::transform\hspace{0.3cm}{\ttfamily [protected]}}
+
+The resultant transform of the primitive. This is calculated by combining the offset of the primitive with the transform of the rigid body. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{collide__fine_8h}{collide\+\_\+fine.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{collide__fine_8cpp}{collide\+\_\+fine.\+cpp}}\end{DoxyCompactItemize}

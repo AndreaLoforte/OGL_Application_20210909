@@ -1,0 +1,47 @@
+\hypertarget{class_ground_contacts}{}\doxysection{Ground\+Contacts Class Reference}
+\label{class_ground_contacts}\index{GroundContacts@{GroundContacts}}
+
+
+{\ttfamily \#include $<$pworld.\+h$>$}
+
+Inheritance diagram for Ground\+Contacts\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ground_contacts}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_ground_contacts_a99d758ad53035538e948bf1c1dd3bbba}{init}} (\mbox{\hyperlink{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}{Particle\+World\+::\+Particles}} $\ast$particles)
+\item 
+virtual unsigned \mbox{\hyperlink{class_ground_contacts_aa8c7683843976859e900638588ba740b}{add\+Contact}} (\mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} $\ast$contact, unsigned limit) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A contact generator that takes an S\+TL vector of particle pointers and collides them against the ground. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ground_contacts_aa8c7683843976859e900638588ba740b}\label{class_ground_contacts_aa8c7683843976859e900638588ba740b}} 
+\index{GroundContacts@{GroundContacts}!addContact@{addContact}}
+\index{addContact@{addContact}!GroundContacts@{GroundContacts}}
+\doxysubsubsection{\texorpdfstring{addContact()}{addContact()}}
+{\footnotesize\ttfamily unsigned Ground\+Contacts\+::add\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} $\ast$}]{contact,  }\item[{unsigned}]{limit }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Fills the given contact structure with the generated contact. The contact pointer should point to the first available contact in a contact array, where limit is the maximum number of contacts in the array that can be written to. The method returns the number of contacts that have been written. 
+
+Implements \mbox{\hyperlink{class_particle_contact_generator_afb91a6124f25026350cb508af2d5e757}{Particle\+Contact\+Generator}}.
+
+\mbox{\Hypertarget{class_ground_contacts_a99d758ad53035538e948bf1c1dd3bbba}\label{class_ground_contacts_a99d758ad53035538e948bf1c1dd3bbba}} 
+\index{GroundContacts@{GroundContacts}!init@{init}}
+\index{init@{init}!GroundContacts@{GroundContacts}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Ground\+Contacts\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}{Particle\+World\+::\+Particles}} $\ast$}]{particles }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{pworld_8h}{pworld.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{pworld_8cpp}{pworld.\+cpp}}\end{DoxyCompactItemize}

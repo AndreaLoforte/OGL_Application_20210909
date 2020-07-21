@@ -1,0 +1,12 @@
+2020-07-21 00:44:36
+baseObject.cpp : printVShaderLog : VERTEX LOG IS :  : ERROR: 0:2: '' :  incorrect GLSL version: 450
+WARNING: 0:5: 'GL_ARB_explicit_attrib_location' :  extension is not available in current GLSL version
+WARNING: 0:5: 'GL_ARB_explicit_attrib_location' :  extension is not available in current GLSL version
+WARNING: 0:6: 'GL_ARB_explicit_attrib_location' :  extension is not available in current GLSL version
+
+
+baseObject.cpp : setShaders : fragment shader status = 0 (bad)
+baseObject.cpp : printFShaderLog : fshader for shader_program did not compile
+baseObject.cpp : printFShaderLog : FRAGMENT LOG IS :  : ERROR: 0:2: '' :  incorrect GLSL version: 450
+
+

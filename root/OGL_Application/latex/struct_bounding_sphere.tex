@@ -1,0 +1,86 @@
+\hypertarget{struct_bounding_sphere}{}\doxysection{Bounding\+Sphere Struct Reference}
+\label{struct_bounding_sphere}\index{BoundingSphere@{BoundingSphere}}
+
+
+{\ttfamily \#include $<$collide\+\_\+coarse.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_bounding_sphere_a1e6749365dceebd97856fda4fe754344}{Bounding\+Sphere}} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&\mbox{\hyperlink{struct_bounding_sphere_a3786205ab49cce80faa9b8fd579653a6}{centre}}, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{struct_bounding_sphere_a861992f525db486eec3d17e64d392f3c}{radius}})
+\item 
+\mbox{\hyperlink{struct_bounding_sphere_a2ff7d1e78dfc6a18add599340bcfb66e}{Bounding\+Sphere}} (const \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} \&one, const \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} \&two)
+\item 
+bool \mbox{\hyperlink{struct_bounding_sphere_a7593d4717f5fd210ff2c2aa6d29e1514}{overlaps}} (const \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} $\ast$other) const
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{struct_bounding_sphere_a9fa2f9992bbc68bb019ff92cac9ea29f}{get\+Growth}} (const \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} \&other) const
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{struct_bounding_sphere_a7bfb47fc0e671318afb6b29c48d031aa}{get\+Size}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{struct_bounding_sphere_a3786205ab49cce80faa9b8fd579653a6}{centre}}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{struct_bounding_sphere_a861992f525db486eec3d17e64d392f3c}{radius}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a bounding sphere that can be tested for overlap. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_bounding_sphere_a1e6749365dceebd97856fda4fe754344}\label{struct_bounding_sphere_a1e6749365dceebd97856fda4fe754344}} 
+\index{BoundingSphere@{BoundingSphere}!BoundingSphere@{BoundingSphere}}
+\index{BoundingSphere@{BoundingSphere}!BoundingSphere@{BoundingSphere}}
+\doxysubsubsection{\texorpdfstring{BoundingSphere()}{BoundingSphere()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Bounding\+Sphere\+::\+Bounding\+Sphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{centre,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{radius }\end{DoxyParamCaption})}
+
+Creates a new bounding sphere at the given centre and radius. \mbox{\Hypertarget{struct_bounding_sphere_a2ff7d1e78dfc6a18add599340bcfb66e}\label{struct_bounding_sphere_a2ff7d1e78dfc6a18add599340bcfb66e}} 
+\index{BoundingSphere@{BoundingSphere}!BoundingSphere@{BoundingSphere}}
+\index{BoundingSphere@{BoundingSphere}!BoundingSphere@{BoundingSphere}}
+\doxysubsubsection{\texorpdfstring{BoundingSphere()}{BoundingSphere()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Bounding\+Sphere\+::\+Bounding\+Sphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} \&}]{one,  }\item[{const \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} \&}]{two }\end{DoxyParamCaption})}
+
+Creates a bounding sphere to enclose the two given bounding spheres. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_bounding_sphere_a9fa2f9992bbc68bb019ff92cac9ea29f}\label{struct_bounding_sphere_a9fa2f9992bbc68bb019ff92cac9ea29f}} 
+\index{BoundingSphere@{BoundingSphere}!getGrowth@{getGrowth}}
+\index{getGrowth@{getGrowth}!BoundingSphere@{BoundingSphere}}
+\doxysubsubsection{\texorpdfstring{getGrowth()}{getGrowth()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Bounding\+Sphere\+::get\+Growth (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} \&}]{other }\end{DoxyParamCaption}) const}
+
+Reports how much this bounding sphere would have to grow by to incorporate the given bounding sphere. Note that this calculation returns a value not in any particular units (i.\+e. its not a volume growth). In fact the best implementation takes into account the growth in surface area (after the Goldsmith-\/\+Salmon algorithm for tree construction). \mbox{\Hypertarget{struct_bounding_sphere_a7bfb47fc0e671318afb6b29c48d031aa}\label{struct_bounding_sphere_a7bfb47fc0e671318afb6b29c48d031aa}} 
+\index{BoundingSphere@{BoundingSphere}!getSize@{getSize}}
+\index{getSize@{getSize}!BoundingSphere@{BoundingSphere}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Bounding\+Sphere\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the volume of this bounding volume. This is used to calculate how to recurse into the bounding volume tree. For a bounding sphere it is a simple calculation. \mbox{\Hypertarget{struct_bounding_sphere_a7593d4717f5fd210ff2c2aa6d29e1514}\label{struct_bounding_sphere_a7593d4717f5fd210ff2c2aa6d29e1514}} 
+\index{BoundingSphere@{BoundingSphere}!overlaps@{overlaps}}
+\index{overlaps@{overlaps}!BoundingSphere@{BoundingSphere}}
+\doxysubsubsection{\texorpdfstring{overlaps()}{overlaps()}}
+{\footnotesize\ttfamily bool Bounding\+Sphere\+::overlaps (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} $\ast$}]{other }\end{DoxyParamCaption}) const}
+
+Checks if the bounding sphere overlaps with the other given bounding sphere. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_bounding_sphere_a3786205ab49cce80faa9b8fd579653a6}\label{struct_bounding_sphere_a3786205ab49cce80faa9b8fd579653a6}} 
+\index{BoundingSphere@{BoundingSphere}!centre@{centre}}
+\index{centre@{centre}!BoundingSphere@{BoundingSphere}}
+\doxysubsubsection{\texorpdfstring{centre}{centre}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector3}{Vector3}} Bounding\+Sphere\+::centre}
+
+\mbox{\Hypertarget{struct_bounding_sphere_a861992f525db486eec3d17e64d392f3c}\label{struct_bounding_sphere_a861992f525db486eec3d17e64d392f3c}} 
+\index{BoundingSphere@{BoundingSphere}!radius@{radius}}
+\index{radius@{radius}!BoundingSphere@{BoundingSphere}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Bounding\+Sphere\+::radius}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{collide__coarse_8h}{collide\+\_\+coarse.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{collide__coarse_8cpp}{collide\+\_\+coarse.\+cpp}}\end{DoxyCompactItemize}

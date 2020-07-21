@@ -1,0 +1,99 @@
+\hypertarget{class_particle_contact}{}\doxysection{Particle\+Contact Class Reference}
+\label{class_particle_contact}\index{ParticleContact@{ParticleContact}}
+
+
+{\ttfamily \#include $<$pcontact.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{myobject\+N\+S\+::\+Particle}} $\ast$ \mbox{\hyperlink{class_particle_contact_a17a3c3147fe20c5edfa53acf3ed9d76c}{particle}} \mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_particle_contact_a8ebbf122495503ab816942ab4b1fe5a6}{restitution}}
+\item 
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_particle_contact_a6af4bed1014e94cecb8edcafe95d703e}{contact\+Normal}}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_particle_contact_acb08fd81bb6c187bee194e8bca4c69be}{penetration}}
+\item 
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_particle_contact_a1e7dc0b5b8af2a003d192608305e00bc}{particle\+Movement}} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_particle_contact_afe0bd4771e6f1d1f0066be5be78758d5}{resolve}} (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_particle_contact_aca62f7ef61b83105f0fc9df4461596d6}{calculate\+Separating\+Velocity}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_particle_contact_ab2e3f4c3dc9b46966c6ec90e0fe88b6c}{Particle\+Contact\+Resolver}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{class_contact}{Contact}} represents two objects in contact (in this case \mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} representing two Particles). Resolving a contact removes their interpenetration, and applies sufficient impulse to keep them apart. Colliding bodies may also rebound.
+
+The contact has no callable functions, it just holds the contact details. To resolve a set of contacts, use the particle contact resolver class. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_contact_aca62f7ef61b83105f0fc9df4461596d6}\label{class_particle_contact_aca62f7ef61b83105f0fc9df4461596d6}} 
+\index{ParticleContact@{ParticleContact}!calculateSeparatingVelocity@{calculateSeparatingVelocity}}
+\index{calculateSeparatingVelocity@{calculateSeparatingVelocity}!ParticleContact@{ParticleContact}}
+\doxysubsubsection{\texorpdfstring{calculateSeparatingVelocity()}{calculateSeparatingVelocity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Particle\+Contact\+::calculate\+Separating\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+Calculates the separating velocity at this contact. \mbox{\Hypertarget{class_particle_contact_afe0bd4771e6f1d1f0066be5be78758d5}\label{class_particle_contact_afe0bd4771e6f1d1f0066be5be78758d5}} 
+\index{ParticleContact@{ParticleContact}!resolve@{resolve}}
+\index{resolve@{resolve}!ParticleContact@{ParticleContact}}
+\doxysubsubsection{\texorpdfstring{resolve()}{resolve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Particle\+Contact\+::resolve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Resolves this contact, for both velocity and interpenetration. 
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_particle_contact_ab2e3f4c3dc9b46966c6ec90e0fe88b6c}\label{class_particle_contact_ab2e3f4c3dc9b46966c6ec90e0fe88b6c}} 
+\index{ParticleContact@{ParticleContact}!ParticleContactResolver@{ParticleContactResolver}}
+\index{ParticleContactResolver@{ParticleContactResolver}!ParticleContact@{ParticleContact}}
+\doxysubsubsection{\texorpdfstring{ParticleContactResolver}{ParticleContactResolver}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_particle_contact_resolver}{Particle\+Contact\+Resolver}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+The contact resolver object needs access into the contacts to set and effect the contact. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_particle_contact_a6af4bed1014e94cecb8edcafe95d703e}\label{class_particle_contact_a6af4bed1014e94cecb8edcafe95d703e}} 
+\index{ParticleContact@{ParticleContact}!contactNormal@{contactNormal}}
+\index{contactNormal@{contactNormal}!ParticleContact@{ParticleContact}}
+\doxysubsubsection{\texorpdfstring{contactNormal}{contactNormal}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector3}{Vector3}} Particle\+Contact\+::contact\+Normal}
+
+Holds the direction of the contact in world coordinates. \mbox{\Hypertarget{class_particle_contact_a17a3c3147fe20c5edfa53acf3ed9d76c}\label{class_particle_contact_a17a3c3147fe20c5edfa53acf3ed9d76c}} 
+\index{ParticleContact@{ParticleContact}!particle@{particle}}
+\index{particle@{particle}!ParticleContact@{ParticleContact}}
+\doxysubsubsection{\texorpdfstring{particle}{particle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmyobject_n_s_1_1_particle}{myobject\+N\+S\+::\+Particle}}$\ast$ Particle\+Contact\+::particle\mbox{[}2\mbox{]}}
+
+Holds the particles that are involved in the contact. The second of these can be N\+U\+LL, for contacts with the scenery. \mbox{\Hypertarget{class_particle_contact_a1e7dc0b5b8af2a003d192608305e00bc}\label{class_particle_contact_a1e7dc0b5b8af2a003d192608305e00bc}} 
+\index{ParticleContact@{ParticleContact}!particleMovement@{particleMovement}}
+\index{particleMovement@{particleMovement}!ParticleContact@{ParticleContact}}
+\doxysubsubsection{\texorpdfstring{particleMovement}{particleMovement}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector3}{Vector3}} Particle\+Contact\+::particle\+Movement\mbox{[}2\mbox{]}}
+
+Holds the amount each particle is moved by during interpenetration resolution. \mbox{\Hypertarget{class_particle_contact_acb08fd81bb6c187bee194e8bca4c69be}\label{class_particle_contact_acb08fd81bb6c187bee194e8bca4c69be}} 
+\index{ParticleContact@{ParticleContact}!penetration@{penetration}}
+\index{penetration@{penetration}!ParticleContact@{ParticleContact}}
+\doxysubsubsection{\texorpdfstring{penetration}{penetration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Particle\+Contact\+::penetration}
+
+Holds the depth of penetration at the contact. \mbox{\Hypertarget{class_particle_contact_a8ebbf122495503ab816942ab4b1fe5a6}\label{class_particle_contact_a8ebbf122495503ab816942ab4b1fe5a6}} 
+\index{ParticleContact@{ParticleContact}!restitution@{restitution}}
+\index{restitution@{restitution}!ParticleContact@{ParticleContact}}
+\doxysubsubsection{\texorpdfstring{restitution}{restitution}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Particle\+Contact\+::restitution}
+
+Holds the normal restitution coefficient at the contact. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{pcontact_8h}{pcontact.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{pcontact_8cpp}{pcontact.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,50 @@
+\hypertarget{class_particle_bungee}{}\doxysection{Particle\+Bungee Class Reference}
+\label{class_particle_bungee}\index{ParticleBungee@{ParticleBungee}}
+
+
+{\ttfamily \#include $<$pfgen.\+h$>$}
+
+Inheritance diagram for Particle\+Bungee\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_particle_bungee}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_bungee_a829dbe8ff21434ff82525b31d2269105}{Particle\+Bungee}} (\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$other, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} spring\+Constant, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} rest\+Length)
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_particle_bungee_a0e570a99a4a2a51197a08953f450c78b}{update\+Force}} (\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$particle, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A force generator that applies a spring force only when extended. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_particle_bungee_a829dbe8ff21434ff82525b31d2269105}\label{class_particle_bungee_a829dbe8ff21434ff82525b31d2269105}} 
+\index{ParticleBungee@{ParticleBungee}!ParticleBungee@{ParticleBungee}}
+\index{ParticleBungee@{ParticleBungee}!ParticleBungee@{ParticleBungee}}
+\doxysubsubsection{\texorpdfstring{ParticleBungee()}{ParticleBungee()}}
+{\footnotesize\ttfamily Particle\+Bungee\+::\+Particle\+Bungee (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$}]{other,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{spring\+Constant,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{rest\+Length }\end{DoxyParamCaption})}
+
+Creates a new bungee with the given parameters. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_bungee_a0e570a99a4a2a51197a08953f450c78b}\label{class_particle_bungee_a0e570a99a4a2a51197a08953f450c78b}} 
+\index{ParticleBungee@{ParticleBungee}!updateForce@{updateForce}}
+\index{updateForce@{updateForce}!ParticleBungee@{ParticleBungee}}
+\doxysubsubsection{\texorpdfstring{updateForce()}{updateForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Particle\+Bungee\+::update\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$}]{particle,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Applies the spring force to the given particle. 
+
+Implements \mbox{\hyperlink{class_particle_force_generator_a1778250fd05069356b00574e03a6baec}{Particle\+Force\+Generator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{pfgen_8h}{pfgen.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{pfgen_8cpp}{pfgen.\+cpp}}\end{DoxyCompactItemize}

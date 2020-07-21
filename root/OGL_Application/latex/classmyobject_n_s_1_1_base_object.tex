@@ -1,0 +1,172 @@
+\hypertarget{classmyobject_n_s_1_1_base_object}{}\doxysection{myobject\+NS\+::Base\+Object Class Reference}
+\label{classmyobject_n_s_1_1_base_object}\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+
+
+{\ttfamily \#include $<$base\+Object.\+h$>$}
+
+Inheritance diagram for myobject\+NS\+::Base\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.382716cm]{classmyobject_n_s_1_1_base_object}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmyobject_n_s_1_1_base_object_a44c575a55423a9dad865d006b0553176}{Base\+Object}} ()
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_a3c6edf4192a3305d24925e909d2e9044}{render}} (\mbox{\hyperlink{classfpcamera_n_s_1_1fp_camera}{fpcamera\+N\+S\+::fp\+Camera}} \&)
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_a5baa824ef9f910437c24dc7b6d7c478f}{clean}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_a924b8015a8e7fe2953348ce47ef14b0d}{set\+Shaders}} ()
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_ab8dc2b82896460e9f752d1374a8a0f29}{set\+Textures}} ()
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_a8b8042e9d59c02c16a9fdbc95151edcd}{set\+Position}} (float, float, float)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_a779d4834133a169caba4aa7e5419a263}{print\+Shader\+Link\+State}} (const \mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}} \&, const \mbox{\hyperlink{glcorearb_8h_af7575655ac056b187ea385966b95a22d}{G\+Lchar}} $\ast$)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_acf7d67608600d92eb922cf832f62095b}{print\+V\+Shader\+Log}} (const char $\ast$)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_ad204803ed7aa48ea0fceeabf930d6e0f}{print\+F\+Shader\+Log}} (const char $\ast$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_a0dd6f45032ea08d3416ff4bf6d8bfd44}{fullpath}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a68c4714e43d8e827d80759f9cb864f3c}{G\+Luint}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_aa756970fcb86f055c4fa9205f70d78ec}{shader\+\_\+prog}} = 0
+\item 
+\mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_afb633c0b31f5b7b36e27dd3a1c4544f6}{shader\+\_\+prog\+\_\+name}}
+\item 
+\mbox{\hyperlink{classshader_manager_n_s_1_1_shader_manager}{shader\+Manager\+N\+S\+::\+Shader\+Manager}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_aa1b65fa55a49a40bdc75fc607d4c2d85}{smanager}}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_a7f319610d0ab0cbcfb3da777e1ed02da}{vshaders}}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} \mbox{\hyperlink{classmyobject_n_s_1_1_base_object_a46956b2a8349692c29c7f14fa625bdb4}{fshaders}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_a44c575a55423a9dad865d006b0553176}\label{classmyobject_n_s_1_1_base_object_a44c575a55423a9dad865d006b0553176}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!BaseObject@{BaseObject}}
+\index{BaseObject@{BaseObject}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{BaseObject()}{BaseObject()}}
+{\footnotesize\ttfamily myobject\+N\+S\+::\+Base\+Object\+::\+Base\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_a5baa824ef9f910437c24dc7b6d7c478f}\label{classmyobject_n_s_1_1_base_object_a5baa824ef9f910437c24dc7b6d7c478f}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!clean@{clean}}
+\index{clean@{clean}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{clean()}{clean()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} myobject\+N\+S\+::\+Base\+Object\+::clean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classmyobject_n_s_1_1_particle_ae30ce21436c30dcb6920c03880571e57}{myobject\+N\+S\+::\+Particle}}, \mbox{\hyperlink{classmyobject_n_s_1_1_sphere_a960b2065932e713fb3350edc0dacf6f0}{myobject\+N\+S\+::\+Sphere}}, \mbox{\hyperlink{classmyobject_n_s_1_1_frame_of_ref_aaed554bb5fde2439d3db19d0cc6457f5}{myobject\+N\+S\+::\+Frame\+Of\+Ref}}, \mbox{\hyperlink{classmyobject_n_s_1_1_build_a3d93bec519eba21ae110bc46ac523add}{myobject\+N\+S\+::\+Build}}, and \mbox{\hyperlink{classmyobject_n_s_1_1_ground_afa43c079b06af637a61c2b41b63020fa}{myobject\+N\+S\+::\+Ground}}.
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_ad204803ed7aa48ea0fceeabf930d6e0f}\label{classmyobject_n_s_1_1_base_object_ad204803ed7aa48ea0fceeabf930d6e0f}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!printFShaderLog@{printFShaderLog}}
+\index{printFShaderLog@{printFShaderLog}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{printFShaderLog()}{printFShaderLog()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} myobject\+N\+S\+::\+Base\+Object\+::print\+F\+Shader\+Log (\begin{DoxyParamCaption}\item[{const char $\ast$}]{log }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_a779d4834133a169caba4aa7e5419a263}\label{classmyobject_n_s_1_1_base_object_a779d4834133a169caba4aa7e5419a263}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!printShaderLinkState@{printShaderLinkState}}
+\index{printShaderLinkState@{printShaderLinkState}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{printShaderLinkState()}{printShaderLinkState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} myobject\+N\+S\+::\+Base\+Object\+::print\+Shader\+Link\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}} \&}]{status,  }\item[{const \mbox{\hyperlink{glcorearb_8h_af7575655ac056b187ea385966b95a22d}{G\+Lchar}} $\ast$}]{log }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_acf7d67608600d92eb922cf832f62095b}\label{classmyobject_n_s_1_1_base_object_acf7d67608600d92eb922cf832f62095b}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!printVShaderLog@{printVShaderLog}}
+\index{printVShaderLog@{printVShaderLog}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{printVShaderLog()}{printVShaderLog()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} myobject\+N\+S\+::\+Base\+Object\+::print\+V\+Shader\+Log (\begin{DoxyParamCaption}\item[{const char $\ast$}]{log }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_a3c6edf4192a3305d24925e909d2e9044}\label{classmyobject_n_s_1_1_base_object_a3c6edf4192a3305d24925e909d2e9044}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!render@{render}}
+\index{render@{render}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} myobject\+N\+S\+::\+Base\+Object\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classfpcamera_n_s_1_1fp_camera}{fpcamera\+N\+S\+::fp\+Camera}} \&}]{cam }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classmyobject_n_s_1_1_particle_a0b239ce3364f8a5f91a35c4d05a4ce3b}{myobject\+N\+S\+::\+Particle}}, \mbox{\hyperlink{classmyobject_n_s_1_1_frame_of_ref_ac13af32a6e7bdd40df95481c0503a049}{myobject\+N\+S\+::\+Frame\+Of\+Ref}}, \mbox{\hyperlink{classmyobject_n_s_1_1_build_acb02153c42967e52cb763b1a00f85b92}{myobject\+N\+S\+::\+Build}}, and \mbox{\hyperlink{classmyobject_n_s_1_1_ground_af29987196ce01594d8352574331b4c8a}{myobject\+N\+S\+::\+Ground}}.
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_a8b8042e9d59c02c16a9fdbc95151edcd}\label{classmyobject_n_s_1_1_base_object_a8b8042e9d59c02c16a9fdbc95151edcd}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} myobject\+N\+S\+::\+Base\+Object\+::set\+Position (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classmyobject_n_s_1_1_frame_of_ref_ab0f06605793c66b4b21f6450fb176e84}{myobject\+N\+S\+::\+Frame\+Of\+Ref}}, \mbox{\hyperlink{classmyobject_n_s_1_1_build_a96872448b1c38deaf8ab9d6511f208bd}{myobject\+N\+S\+::\+Build}}, and \mbox{\hyperlink{classmyobject_n_s_1_1_ground_a0b9cb4be555dc520930da8709820023d}{myobject\+N\+S\+::\+Ground}}.
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_a924b8015a8e7fe2953348ce47ef14b0d}\label{classmyobject_n_s_1_1_base_object_a924b8015a8e7fe2953348ce47ef14b0d}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!setShaders@{setShaders}}
+\index{setShaders@{setShaders}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{setShaders()}{setShaders()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} myobject\+N\+S\+::\+Base\+Object\+::set\+Shaders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_ab8dc2b82896460e9f752d1374a8a0f29}\label{classmyobject_n_s_1_1_base_object_ab8dc2b82896460e9f752d1374a8a0f29}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!setTextures@{setTextures}}
+\index{setTextures@{setTextures}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{setTextures()}{setTextures()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} myobject\+N\+S\+::\+Base\+Object\+::set\+Textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classmyobject_n_s_1_1_particle_aef64b59f93383093aaa5cd90ce588c57}{myobject\+N\+S\+::\+Particle}}, \mbox{\hyperlink{classmyobject_n_s_1_1_sphere_ace2d203f0f97186dbfcd16b5d8d53d90}{myobject\+N\+S\+::\+Sphere}}, \mbox{\hyperlink{classmyobject_n_s_1_1_frame_of_ref_ab3b3e7b49c633adacc564fde667e0e17}{myobject\+N\+S\+::\+Frame\+Of\+Ref}}, \mbox{\hyperlink{classmyobject_n_s_1_1_build_a50307c28870ed743369a16e71812e034}{myobject\+N\+S\+::\+Build}}, and \mbox{\hyperlink{classmyobject_n_s_1_1_ground_ae43934f450dfd6174749a68b5612ecb3}{myobject\+N\+S\+::\+Ground}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_a46956b2a8349692c29c7f14fa625bdb4}\label{classmyobject_n_s_1_1_base_object_a46956b2a8349692c29c7f14fa625bdb4}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!fshaders@{fshaders}}
+\index{fshaders@{fshaders}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{fshaders}{fshaders}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} myobject\+N\+S\+::\+Base\+Object\+::fshaders\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_a0dd6f45032ea08d3416ff4bf6d8bfd44}\label{classmyobject_n_s_1_1_base_object_a0dd6f45032ea08d3416ff4bf6d8bfd44}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!fullpath@{fullpath}}
+\index{fullpath@{fullpath}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{fullpath}{fullpath}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} myobject\+N\+S\+::\+Base\+Object\+::fullpath}
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_aa756970fcb86f055c4fa9205f70d78ec}\label{classmyobject_n_s_1_1_base_object_aa756970fcb86f055c4fa9205f70d78ec}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!shader\_prog@{shader\_prog}}
+\index{shader\_prog@{shader\_prog}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{shader\_prog}{shader\_prog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a68c4714e43d8e827d80759f9cb864f3c}{G\+Luint}} myobject\+N\+S\+::\+Base\+Object\+::shader\+\_\+prog = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_afb633c0b31f5b7b36e27dd3a1c4544f6}\label{classmyobject_n_s_1_1_base_object_afb633c0b31f5b7b36e27dd3a1c4544f6}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!shader\_prog\_name@{shader\_prog\_name}}
+\index{shader\_prog\_name@{shader\_prog\_name}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{shader\_prog\_name}{shader\_prog\_name}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} myobject\+N\+S\+::\+Base\+Object\+::shader\+\_\+prog\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_aa1b65fa55a49a40bdc75fc607d4c2d85}\label{classmyobject_n_s_1_1_base_object_aa1b65fa55a49a40bdc75fc607d4c2d85}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!smanager@{smanager}}
+\index{smanager@{smanager}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{smanager}{smanager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classshader_manager_n_s_1_1_shader_manager}{shader\+Manager\+N\+S\+::\+Shader\+Manager}} myobject\+N\+S\+::\+Base\+Object\+::smanager\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classmyobject_n_s_1_1_base_object_a7f319610d0ab0cbcfb3da777e1ed02da}\label{classmyobject_n_s_1_1_base_object_a7f319610d0ab0cbcfb3da777e1ed02da}} 
+\index{myobjectNS::BaseObject@{myobjectNS::BaseObject}!vshaders@{vshaders}}
+\index{vshaders@{vshaders}!myobjectNS::BaseObject@{myobjectNS::BaseObject}}
+\doxysubsubsection{\texorpdfstring{vshaders}{vshaders}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a017088c90211fe05aa35db60cf7b05e3}{std\+::string}} myobject\+N\+S\+::\+Base\+Object\+::vshaders\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{base_object_8h}{base\+Object.\+h}}\item 
+src/\mbox{\hyperlink{base_object_8cpp}{base\+Object.\+cpp}}\end{DoxyCompactItemize}

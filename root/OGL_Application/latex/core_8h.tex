@@ -1,0 +1,79 @@
+\hypertarget{core_8h}{}\doxysection{include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/core.h File Reference}
+\label{core_8h}\index{include/PHYSICS\_H/core.h@{include/PHYSICS\_H/core.h}}
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$precision.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_vector3}{Vector3}}
+\item 
+class \mbox{\hyperlink{class_quaternion}{Quaternion}}
+\item 
+class \mbox{\hyperlink{class_matrix4}{Matrix4}}
+\item 
+class \mbox{\hyperlink{class_matrix3}{Matrix3}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{core_8h_a42df0e895b2ac14afdd2b2c46dc9733c}{set\+Sleep\+Epsilon}} (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{glcorearb_8h_a45800f790de8a7cff412864ce4eca566}{value}})
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{core_8h_a16340a0b5d6e8315c962927aa568ae3e}{get\+Sleep\+Epsilon}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{core_8h_a3514ac22a2b7e8920fd888294c2023a7}{sleep\+Epsilon}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The core contains utility functions, helpers and a basic set of mathematical types. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{core_8h_a16340a0b5d6e8315c962927aa568ae3e}\label{core_8h_a16340a0b5d6e8315c962927aa568ae3e}} 
+\index{core.h@{core.h}!getSleepEpsilon@{getSleepEpsilon}}
+\index{getSleepEpsilon@{getSleepEpsilon}!core.h@{core.h}}
+\doxysubsubsection{\texorpdfstring{getSleepEpsilon()}{getSleepEpsilon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} get\+Sleep\+Epsilon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the current value of the sleep epsilon parameter.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{core_8h_a3514ac22a2b7e8920fd888294c2023a7}{sleep\+Epsilon}}
+
+\mbox{\hyperlink{core_8h_a42df0e895b2ac14afdd2b2c46dc9733c}{set\+Sleep\+Epsilon}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The current value of the parameter. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{core_8h_a42df0e895b2ac14afdd2b2c46dc9733c}\label{core_8h_a42df0e895b2ac14afdd2b2c46dc9733c}} 
+\index{core.h@{core.h}!setSleepEpsilon@{setSleepEpsilon}}
+\index{setSleepEpsilon@{setSleepEpsilon}!core.h@{core.h}}
+\doxysubsubsection{\texorpdfstring{setSleepEpsilon()}{setSleepEpsilon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} set\+Sleep\+Epsilon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{value }\end{DoxyParamCaption})}
+
+Sets the current sleep epsilon value\+: the kinetic energy under which a body may be put to sleep. Bodies are put to sleep if they appear to have a stable kinetic energy less than this value. For simulations that often have low values (such as slow moving, or light objects), this may need reducing.
+
+The value is global; all bodies will use it.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{core_8h_a3514ac22a2b7e8920fd888294c2023a7}{sleep\+Epsilon}}
+
+\mbox{\hyperlink{core_8h_a16340a0b5d6e8315c962927aa568ae3e}{get\+Sleep\+Epsilon}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The sleep epsilon value to use from this point on. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{core_8h_a3514ac22a2b7e8920fd888294c2023a7}\label{core_8h_a3514ac22a2b7e8920fd888294c2023a7}} 
+\index{core.h@{core.h}!sleepEpsilon@{sleepEpsilon}}
+\index{sleepEpsilon@{sleepEpsilon}!core.h@{core.h}}
+\doxysubsubsection{\texorpdfstring{sleepEpsilon}{sleepEpsilon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} sleep\+Epsilon}
+
+The cyclone namespace includes all cyclone functions and classes. It is defined as a namespace to allow function and class names to be simple without causing conflicts. Holds the value for energy under which a body will be put to sleep. This is a global value for the whole solution. By default it is 0.\+1, which is fine for simulation when gravity is about 20 units per second squared, masses are about one, and other forces are around that of gravity. It may need tweaking if your simulation is drastically different to this. 

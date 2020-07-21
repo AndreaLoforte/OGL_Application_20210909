@@ -1,0 +1,190 @@
+\hypertarget{class_contact_resolver}{}\doxysection{Contact\+Resolver Class Reference}
+\label{class_contact_resolver}\index{ContactResolver@{ContactResolver}}
+
+
+{\ttfamily \#include $<$contacts.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_contact_resolver_ab5cae0d5f2aee42dbe9c4ba46a46a29b}{Contact\+Resolver}} (unsigned iterations, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_contact_resolver_adfc0db25b5df0dfb1db0cbe2277a506b}{velocity\+Epsilon}}=(\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}) 0.\+01, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_contact_resolver_a8dd5d8df3b07c54561fa4202ec78f7e3}{position\+Epsilon}}=(\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}) 0.\+01)
+\item 
+\mbox{\hyperlink{class_contact_resolver_aff24cd283f8d162e66c995eb732a47a1}{Contact\+Resolver}} (unsigned \mbox{\hyperlink{class_contact_resolver_a3d0e990aa9ad28b1426e4d710f301806}{velocity\+Iterations}}, unsigned \mbox{\hyperlink{class_contact_resolver_a0e819a3aac328aa61fd67f6b6a4c1d02}{position\+Iterations}}, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_contact_resolver_adfc0db25b5df0dfb1db0cbe2277a506b}{velocity\+Epsilon}}=(\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}) 0.\+01, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_contact_resolver_a8dd5d8df3b07c54561fa4202ec78f7e3}{position\+Epsilon}}=(\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}) 0.\+01)
+\item 
+bool \mbox{\hyperlink{class_contact_resolver_a9e03332a81257895ff616d98306c2daa}{is\+Valid}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_contact_resolver_a8fbf19a83fd6796d834fc13d0d898934}{set\+Iterations}} (unsigned \mbox{\hyperlink{class_contact_resolver_a3d0e990aa9ad28b1426e4d710f301806}{velocity\+Iterations}}, unsigned \mbox{\hyperlink{class_contact_resolver_a0e819a3aac328aa61fd67f6b6a4c1d02}{position\+Iterations}})
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_contact_resolver_ac4885dfda55dbe0bd18567a23d71367e}{set\+Iterations}} (unsigned iterations)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_contact_resolver_a445824d22d1a297b8deb7e557aaa09ed}{set\+Epsilon}} (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_contact_resolver_adfc0db25b5df0dfb1db0cbe2277a506b}{velocity\+Epsilon}}, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_contact_resolver_a8dd5d8df3b07c54561fa4202ec78f7e3}{position\+Epsilon}})
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_contact_resolver_a21020a7d05b93a0df7efa27d5b7f5d78}{resolve\+Contacts}} (\mbox{\hyperlink{class_contact}{Contact}} $\ast$contact\+Array, unsigned num\+Contacts, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{class_contact_resolver_a0928b37fb17288c9b2aea7a179013072}{velocity\+Iterations\+Used}}
+\item 
+unsigned \mbox{\hyperlink{class_contact_resolver_ae2737f2b48a5f1e2885748a657a1c2fa}{position\+Iterations\+Used}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_contact_resolver_a53e72ec0f721032e43e06d16a42b8204}{prepare\+Contacts}} (\mbox{\hyperlink{class_contact}{Contact}} $\ast$contact\+Array, unsigned num\+Contacts, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_contact_resolver_a78698c1b37d7f3046eedbdb56a968e5d}{adjust\+Velocities}} (\mbox{\hyperlink{class_contact}{Contact}} $\ast$contact\+Array, unsigned num\+Contacts, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_contact_resolver_a157f39d54ffa4cb7fe99d66d0fc5a5e2}{adjust\+Positions}} (\mbox{\hyperlink{class_contact}{Contact}} $\ast$contacts, unsigned num\+Contacts, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{class_contact_resolver_a3d0e990aa9ad28b1426e4d710f301806}{velocity\+Iterations}}
+\item 
+unsigned \mbox{\hyperlink{class_contact_resolver_a0e819a3aac328aa61fd67f6b6a4c1d02}{position\+Iterations}}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_contact_resolver_adfc0db25b5df0dfb1db0cbe2277a506b}{velocity\+Epsilon}}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_contact_resolver_a8dd5d8df3b07c54561fa4202ec78f7e3}{position\+Epsilon}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The contact resolution routine. One resolver instance can be shared for the whole simulation, as long as you need roughly the same parameters each time (which is normal).\hypertarget{class_contact_resolver_algorithm}{}\doxysubsection{Resolution Algorithm}\label{class_contact_resolver_algorithm}
+The resolver uses an iterative satisfaction algorithm; it loops through each contact and tries to resolve it. Each contact is resolved locally, which may in turn put other contacts in a worse position. The algorithm then revisits other contacts and repeats the process up to a specified iteration limit. It can be proved that given enough iterations, the simulation will get to the correct result. As with all approaches, numerical stability can cause problems that make a correct resolution impossible.\hypertarget{class_contact_resolver_strengths}{}\doxysubsubsection{Strengths}\label{class_contact_resolver_strengths}
+This algorithm is very fast, much faster than other physics approaches. Even using many more iterations than there are contacts, it will be faster than global approaches.
+
+Many global algorithms are unstable under high friction, this approach is very robust indeed for high friction and low restitution values.
+
+The algorithm produces visually believable behaviour. Tradeoffs have been made to err on the side of visual realism rather than computational expense or numerical accuracy.\hypertarget{class_contact_resolver_weaknesses}{}\doxysubsubsection{Weaknesses}\label{class_contact_resolver_weaknesses}
+The algorithm does not cope well with situations with many inter-\/related contacts\+: stacked boxes, for example. In this case the simulation may appear to jiggle slightly, which often dislodges a box from the stack, allowing it to collapse.
+
+Another issue with the resolution mechanism is that resolving one contact may make another contact move sideways against friction, because each contact is handled independently, this friction is not taken into account. If one object is pushing against another, the pushed object may move across its support without friction, even though friction is set between those bodies.
+
+In general this resolver is not suitable for stacks of bodies, but is perfect for handling impact, explosive, and flat resting situations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_contact_resolver_ab5cae0d5f2aee42dbe9c4ba46a46a29b}\label{class_contact_resolver_ab5cae0d5f2aee42dbe9c4ba46a46a29b}} 
+\index{ContactResolver@{ContactResolver}!ContactResolver@{ContactResolver}}
+\index{ContactResolver@{ContactResolver}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{ContactResolver()}{ContactResolver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Contact\+Resolver\+::\+Contact\+Resolver (\begin{DoxyParamCaption}\item[{unsigned}]{iterations,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{velocity\+Epsilon = {\ttfamily (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}})0.01},  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{position\+Epsilon = {\ttfamily (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}})0.01} }\end{DoxyParamCaption})}
+
+Creates a new contact resolver with the given number of iterations per resolution call, and optional epsilon values. \mbox{\Hypertarget{class_contact_resolver_aff24cd283f8d162e66c995eb732a47a1}\label{class_contact_resolver_aff24cd283f8d162e66c995eb732a47a1}} 
+\index{ContactResolver@{ContactResolver}!ContactResolver@{ContactResolver}}
+\index{ContactResolver@{ContactResolver}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{ContactResolver()}{ContactResolver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Contact\+Resolver\+::\+Contact\+Resolver (\begin{DoxyParamCaption}\item[{unsigned}]{velocity\+Iterations,  }\item[{unsigned}]{position\+Iterations,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{velocity\+Epsilon = {\ttfamily (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}})0.01},  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{position\+Epsilon = {\ttfamily (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}})0.01} }\end{DoxyParamCaption})}
+
+Creates a new contact resolver with the given number of iterations for each kind of resolution, and optional epsilon values. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_contact_resolver_a157f39d54ffa4cb7fe99d66d0fc5a5e2}\label{class_contact_resolver_a157f39d54ffa4cb7fe99d66d0fc5a5e2}} 
+\index{ContactResolver@{ContactResolver}!adjustPositions@{adjustPositions}}
+\index{adjustPositions@{adjustPositions}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{adjustPositions()}{adjustPositions()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Contact\+Resolver\+::adjust\+Positions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_contact}{Contact}} $\ast$}]{contacts,  }\item[{unsigned}]{num\+Contacts,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Resolves the positional issues with the given array of constraints, using the given number of iterations. \mbox{\Hypertarget{class_contact_resolver_a78698c1b37d7f3046eedbdb56a968e5d}\label{class_contact_resolver_a78698c1b37d7f3046eedbdb56a968e5d}} 
+\index{ContactResolver@{ContactResolver}!adjustVelocities@{adjustVelocities}}
+\index{adjustVelocities@{adjustVelocities}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{adjustVelocities()}{adjustVelocities()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Contact\+Resolver\+::adjust\+Velocities (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_contact}{Contact}} $\ast$}]{contact\+Array,  }\item[{unsigned}]{num\+Contacts,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Resolves the velocity issues with the given array of constraints, using the given number of iterations. \mbox{\Hypertarget{class_contact_resolver_a9e03332a81257895ff616d98306c2daa}\label{class_contact_resolver_a9e03332a81257895ff616d98306c2daa}} 
+\index{ContactResolver@{ContactResolver}!isValid@{isValid}}
+\index{isValid@{isValid}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Contact\+Resolver\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns true if the resolver has valid settings and is ready to go. \mbox{\Hypertarget{class_contact_resolver_a53e72ec0f721032e43e06d16a42b8204}\label{class_contact_resolver_a53e72ec0f721032e43e06d16a42b8204}} 
+\index{ContactResolver@{ContactResolver}!prepareContacts@{prepareContacts}}
+\index{prepareContacts@{prepareContacts}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{prepareContacts()}{prepareContacts()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Contact\+Resolver\+::prepare\+Contacts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_contact}{Contact}} $\ast$}]{contact\+Array,  }\item[{unsigned}]{num\+Contacts,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Sets up contacts ready for processing. This makes sure their internal data is configured correctly and the correct set of bodies is made alive. \mbox{\Hypertarget{class_contact_resolver_a21020a7d05b93a0df7efa27d5b7f5d78}\label{class_contact_resolver_a21020a7d05b93a0df7efa27d5b7f5d78}} 
+\index{ContactResolver@{ContactResolver}!resolveContacts@{resolveContacts}}
+\index{resolveContacts@{resolveContacts}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{resolveContacts()}{resolveContacts()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Contact\+Resolver\+::resolve\+Contacts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_contact}{Contact}} $\ast$}]{contact\+Array,  }\item[{unsigned}]{num\+Contacts,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})}
+
+Resolves a set of contacts for both penetration and velocity.
+
+Contacts that cannot interact with each other should be passed to separate calls to resolve\+Contacts, as the resolution algorithm takes much longer for lots of contacts than it does for the same number of contacts in small sets.
+
+
+\begin{DoxyParams}{Parameters}
+{\em contact\+Array} & Pointer to an array of contact objects.\\
+\hline
+{\em num\+Contacts} & The number of contacts in the array to resolve.\\
+\hline
+{\em num\+Iterations} & The number of iterations through the resolution algorithm. This should be at least the number of contacts (otherwise some constraints will not be resolved -\/ although sometimes this is not noticable). If the iterations are not needed they will not be used, so adding more iterations may not make any difference. In some cases you would need millions of iterations. Think about the number of iterations as a bound\+: if you specify a large number, sometimes the algorithm W\+I\+LL use it, and you may drop lots of frames.\\
+\hline
+{\em duration} & The duration of the previous integration step. This is used to compensate for forces applied. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_contact_resolver_a445824d22d1a297b8deb7e557aaa09ed}\label{class_contact_resolver_a445824d22d1a297b8deb7e557aaa09ed}} 
+\index{ContactResolver@{ContactResolver}!setEpsilon@{setEpsilon}}
+\index{setEpsilon@{setEpsilon}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{setEpsilon()}{setEpsilon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Contact\+Resolver\+::set\+Epsilon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{velocity\+Epsilon,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{position\+Epsilon }\end{DoxyParamCaption})}
+
+Sets the tolerance value for both velocity and position. \mbox{\Hypertarget{class_contact_resolver_ac4885dfda55dbe0bd18567a23d71367e}\label{class_contact_resolver_ac4885dfda55dbe0bd18567a23d71367e}} 
+\index{ContactResolver@{ContactResolver}!setIterations@{setIterations}}
+\index{setIterations@{setIterations}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{setIterations()}{setIterations()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Contact\+Resolver\+::set\+Iterations (\begin{DoxyParamCaption}\item[{unsigned}]{iterations }\end{DoxyParamCaption})}
+
+Sets the number of iterations for both resolution stages. \mbox{\Hypertarget{class_contact_resolver_a8fbf19a83fd6796d834fc13d0d898934}\label{class_contact_resolver_a8fbf19a83fd6796d834fc13d0d898934}} 
+\index{ContactResolver@{ContactResolver}!setIterations@{setIterations}}
+\index{setIterations@{setIterations}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{setIterations()}{setIterations()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Contact\+Resolver\+::set\+Iterations (\begin{DoxyParamCaption}\item[{unsigned}]{velocity\+Iterations,  }\item[{unsigned}]{position\+Iterations }\end{DoxyParamCaption})}
+
+Sets the number of iterations for each resolution stage. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_contact_resolver_a8dd5d8df3b07c54561fa4202ec78f7e3}\label{class_contact_resolver_a8dd5d8df3b07c54561fa4202ec78f7e3}} 
+\index{ContactResolver@{ContactResolver}!positionEpsilon@{positionEpsilon}}
+\index{positionEpsilon@{positionEpsilon}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{positionEpsilon}{positionEpsilon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Contact\+Resolver\+::position\+Epsilon\hspace{0.3cm}{\ttfamily [protected]}}
+
+To avoid instability penetrations smaller than this value are considered to be not interpenetrating. Too small and the simulation may be unstable, too large and the bodies may interpenetrate visually. A good starting point is the default of0.\+01. \mbox{\Hypertarget{class_contact_resolver_a0e819a3aac328aa61fd67f6b6a4c1d02}\label{class_contact_resolver_a0e819a3aac328aa61fd67f6b6a4c1d02}} 
+\index{ContactResolver@{ContactResolver}!positionIterations@{positionIterations}}
+\index{positionIterations@{positionIterations}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{positionIterations}{positionIterations}}
+{\footnotesize\ttfamily unsigned Contact\+Resolver\+::position\+Iterations\hspace{0.3cm}{\ttfamily [protected]}}
+
+Holds the number of iterations to perform when resolving position. \mbox{\Hypertarget{class_contact_resolver_ae2737f2b48a5f1e2885748a657a1c2fa}\label{class_contact_resolver_ae2737f2b48a5f1e2885748a657a1c2fa}} 
+\index{ContactResolver@{ContactResolver}!positionIterationsUsed@{positionIterationsUsed}}
+\index{positionIterationsUsed@{positionIterationsUsed}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{positionIterationsUsed}{positionIterationsUsed}}
+{\footnotesize\ttfamily unsigned Contact\+Resolver\+::position\+Iterations\+Used}
+
+Stores the number of position iterations used in the last call to resolve contacts. \mbox{\Hypertarget{class_contact_resolver_adfc0db25b5df0dfb1db0cbe2277a506b}\label{class_contact_resolver_adfc0db25b5df0dfb1db0cbe2277a506b}} 
+\index{ContactResolver@{ContactResolver}!velocityEpsilon@{velocityEpsilon}}
+\index{velocityEpsilon@{velocityEpsilon}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{velocityEpsilon}{velocityEpsilon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Contact\+Resolver\+::velocity\+Epsilon\hspace{0.3cm}{\ttfamily [protected]}}
+
+To avoid instability velocities smaller than this value are considered to be zero. Too small and the simulation may be unstable, too large and the bodies may interpenetrate visually. A good starting point is the default of 0.\+01. \mbox{\Hypertarget{class_contact_resolver_a3d0e990aa9ad28b1426e4d710f301806}\label{class_contact_resolver_a3d0e990aa9ad28b1426e4d710f301806}} 
+\index{ContactResolver@{ContactResolver}!velocityIterations@{velocityIterations}}
+\index{velocityIterations@{velocityIterations}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{velocityIterations}{velocityIterations}}
+{\footnotesize\ttfamily unsigned Contact\+Resolver\+::velocity\+Iterations\hspace{0.3cm}{\ttfamily [protected]}}
+
+Holds the number of iterations to perform when resolving velocity. \mbox{\Hypertarget{class_contact_resolver_a0928b37fb17288c9b2aea7a179013072}\label{class_contact_resolver_a0928b37fb17288c9b2aea7a179013072}} 
+\index{ContactResolver@{ContactResolver}!velocityIterationsUsed@{velocityIterationsUsed}}
+\index{velocityIterationsUsed@{velocityIterationsUsed}!ContactResolver@{ContactResolver}}
+\doxysubsubsection{\texorpdfstring{velocityIterationsUsed}{velocityIterationsUsed}}
+{\footnotesize\ttfamily unsigned Contact\+Resolver\+::velocity\+Iterations\+Used}
+
+Stores the number of velocity iterations used in the last call to resolve contacts. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{contacts_8h}{contacts.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{contacts_8cpp}{contacts.\+cpp}}\end{DoxyCompactItemize}

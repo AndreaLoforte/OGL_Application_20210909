@@ -1,0 +1,38 @@
+\hypertarget{class_particle_contact_generator}{}\doxysection{Particle\+Contact\+Generator Class Reference}
+\label{class_particle_contact_generator}\index{ParticleContactGenerator@{ParticleContactGenerator}}
+
+
+{\ttfamily \#include $<$pcontact.\+h$>$}
+
+Inheritance diagram for Particle\+Contact\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.061350cm]{class_particle_contact_generator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual unsigned \mbox{\hyperlink{class_particle_contact_generator_afb91a6124f25026350cb508af2d5e757}{add\+Contact}} (\mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} $\ast$contact, unsigned limit) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the basic polymorphic interface for contact generators applying to particles. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_contact_generator_afb91a6124f25026350cb508af2d5e757}\label{class_particle_contact_generator_afb91a6124f25026350cb508af2d5e757}} 
+\index{ParticleContactGenerator@{ParticleContactGenerator}!addContact@{addContact}}
+\index{addContact@{addContact}!ParticleContactGenerator@{ParticleContactGenerator}}
+\doxysubsubsection{\texorpdfstring{addContact()}{addContact()}}
+{\footnotesize\ttfamily virtual unsigned Particle\+Contact\+Generator\+::add\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} $\ast$}]{contact,  }\item[{unsigned}]{limit }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Fills the given contact structure with the generated contact. The contact pointer should point to the first available contact in a contact array, where limit is the maximum number of contacts in the array that can be written to. The method returns the number of contacts that have been written. 
+
+Implemented in \mbox{\hyperlink{class_particle_constraint_a1654b5aba2757b88530104892730a4a3}{Particle\+Constraint}}, \mbox{\hyperlink{class_particle_link_a4dfa61ae00d357498995a563bc279be9}{Particle\+Link}}, \mbox{\hyperlink{class_particle_rod_constraint_a60124f61e9f285610a74ff3b5dc3000f}{Particle\+Rod\+Constraint}}, \mbox{\hyperlink{class_particle_cable_constraint_a45d2428e8ce71bf7435676c1f1a4f970}{Particle\+Cable\+Constraint}}, \mbox{\hyperlink{class_ground_contacts_aa8c7683843976859e900638588ba740b}{Ground\+Contacts}}, \mbox{\hyperlink{class_particle_rod_afb0a3b8e5ea5da056a7f4e2ce47fe31d}{Particle\+Rod}}, and \mbox{\hyperlink{class_particle_cable_acad4066dbb97dfaea0fbce932574f523}{Particle\+Cable}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{pcontact_8h}{pcontact.\+h}}\end{DoxyCompactItemize}

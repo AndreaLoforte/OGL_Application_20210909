@@ -1,0 +1,180 @@
+\hypertarget{class_particle_world}{}\doxysection{Particle\+World Class Reference}
+\label{class_particle_world}\index{ParticleWorld@{ParticleWorld}}
+
+
+{\ttfamily \#include $<$pworld.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ \mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$ $>$ \mbox{\hyperlink{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}{Particles}}
+\item 
+typedef std\+::vector$<$ \mbox{\hyperlink{class_particle_contact_generator}{Particle\+Contact\+Generator}} $\ast$ $>$ \mbox{\hyperlink{class_particle_world_a92aabb98feac6b14404621969e2779d9}{Contact\+Generators}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_world_ab85d40b2bbda8935b526ecd4c0115971}{Particle\+World}} (unsigned \mbox{\hyperlink{class_particle_world_aa1fa669c126688d8c391013472c7f82a}{max\+Contacts}}, unsigned iterations=0)
+\item 
+\mbox{\hyperlink{class_particle_world_ab7a8e5f6ee41ab4de0acc014e6a0e7c7}{$\sim$\+Particle\+World}} ()
+\item 
+unsigned \mbox{\hyperlink{class_particle_world_afbc828fbd9df914d73822345615b0f9f}{generate\+Contacts}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_particle_world_a597bc4fa8ea88198fa7628815e0d3d29}{integrate}} (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_particle_world_a256a721ea61b82e431b6f8bba427a965}{run\+Physics}} (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_particle_world_a8c7d7ae341a362a116ef44663a55d87f}{start\+Frame}} ()
+\item 
+\mbox{\hyperlink{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}{Particles}} \& \mbox{\hyperlink{class_particle_world_ab45c787854a0175565571997aa17c631}{get\+Particles}} ()
+\item 
+\mbox{\hyperlink{class_particle_world_a92aabb98feac6b14404621969e2779d9}{Contact\+Generators}} \& \mbox{\hyperlink{class_particle_world_a04cec3a1f110bceb8bd9913adabab306}{get\+Contact\+Generators}} ()
+\item 
+\mbox{\hyperlink{class_particle_force_registry}{Particle\+Force\+Registry}} \& \mbox{\hyperlink{class_particle_world_af173ad0642e9e560765deb3864e12d5f}{get\+Force\+Registry}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}{Particles}} \mbox{\hyperlink{class_particle_world_ae3cc28a73ea1e602589adbccf9f2a836}{particles}}
+\item 
+bool \mbox{\hyperlink{class_particle_world_a7db06b81fe20ae3f3b250455e5c726f0}{calculate\+Iterations}}
+\item 
+\mbox{\hyperlink{class_particle_force_registry}{Particle\+Force\+Registry}} \mbox{\hyperlink{class_particle_world_add0f6c489e5a4a78e16a67e02e80156f}{registry}}
+\item 
+\mbox{\hyperlink{class_particle_contact_resolver}{Particle\+Contact\+Resolver}} \mbox{\hyperlink{class_particle_world_a87314026b9ec5e91cf88b157e472699b}{resolver}}
+\item 
+\mbox{\hyperlink{class_particle_world_a92aabb98feac6b14404621969e2779d9}{Contact\+Generators}} \mbox{\hyperlink{class_particle_world_a4bde8f12782b4b01b44d42f5ac1d86e0}{contact\+Generators}}
+\item 
+\mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} $\ast$ \mbox{\hyperlink{class_particle_world_a0492faefdfb8414d88adadd414efd99b}{contacts}}
+\item 
+unsigned \mbox{\hyperlink{class_particle_world_aa1fa669c126688d8c391013472c7f82a}{max\+Contacts}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Keeps track of a set of particles, and provides the means to update them all. 
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_particle_world_a92aabb98feac6b14404621969e2779d9}\label{class_particle_world_a92aabb98feac6b14404621969e2779d9}} 
+\index{ParticleWorld@{ParticleWorld}!ContactGenerators@{ContactGenerators}}
+\index{ContactGenerators@{ContactGenerators}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{ContactGenerators}{ContactGenerators}}
+{\footnotesize\ttfamily typedef std\+::vector$<$\mbox{\hyperlink{class_particle_contact_generator}{Particle\+Contact\+Generator}}$\ast$$>$ \mbox{\hyperlink{class_particle_world_a92aabb98feac6b14404621969e2779d9}{Particle\+World\+::\+Contact\+Generators}}}
+
+\mbox{\Hypertarget{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}\label{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}} 
+\index{ParticleWorld@{ParticleWorld}!Particles@{Particles}}
+\index{Particles@{Particles}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{Particles}{Particles}}
+{\footnotesize\ttfamily typedef std\+::vector$<$\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}}$\ast$$>$ \mbox{\hyperlink{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}{Particle\+World\+::\+Particles}}}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_particle_world_ab85d40b2bbda8935b526ecd4c0115971}\label{class_particle_world_ab85d40b2bbda8935b526ecd4c0115971}} 
+\index{ParticleWorld@{ParticleWorld}!ParticleWorld@{ParticleWorld}}
+\index{ParticleWorld@{ParticleWorld}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{ParticleWorld()}{ParticleWorld()}}
+{\footnotesize\ttfamily Particle\+World\+::\+Particle\+World (\begin{DoxyParamCaption}\item[{unsigned}]{max\+Contacts,  }\item[{unsigned}]{iterations = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Creates a new particle simulator that can handle up to the given number of contacts per frame. You can also optionally give a number of contact-\/resolution iterations to use. If you don\textquotesingle{}t give a number of iterations, then twice the number of contacts will be used. \mbox{\Hypertarget{class_particle_world_ab7a8e5f6ee41ab4de0acc014e6a0e7c7}\label{class_particle_world_ab7a8e5f6ee41ab4de0acc014e6a0e7c7}} 
+\index{ParticleWorld@{ParticleWorld}!````~ParticleWorld@{$\sim$ParticleWorld}}
+\index{````~ParticleWorld@{$\sim$ParticleWorld}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{$\sim$ParticleWorld()}{~ParticleWorld()}}
+{\footnotesize\ttfamily Particle\+World\+::$\sim$\+Particle\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deletes the simulator. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_world_afbc828fbd9df914d73822345615b0f9f}\label{class_particle_world_afbc828fbd9df914d73822345615b0f9f}} 
+\index{ParticleWorld@{ParticleWorld}!generateContacts@{generateContacts}}
+\index{generateContacts@{generateContacts}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{generateContacts()}{generateContacts()}}
+{\footnotesize\ttfamily unsigned Particle\+World\+::generate\+Contacts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calls each of the registered contact generators to report their contacts. Returns the number of generated contacts. \mbox{\Hypertarget{class_particle_world_a04cec3a1f110bceb8bd9913adabab306}\label{class_particle_world_a04cec3a1f110bceb8bd9913adabab306}} 
+\index{ParticleWorld@{ParticleWorld}!getContactGenerators@{getContactGenerators}}
+\index{getContactGenerators@{getContactGenerators}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{getContactGenerators()}{getContactGenerators()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_world_a92aabb98feac6b14404621969e2779d9}{Particle\+World\+::\+Contact\+Generators}} \& Particle\+World\+::get\+Contact\+Generators (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of contact generators. \mbox{\Hypertarget{class_particle_world_af173ad0642e9e560765deb3864e12d5f}\label{class_particle_world_af173ad0642e9e560765deb3864e12d5f}} 
+\index{ParticleWorld@{ParticleWorld}!getForceRegistry@{getForceRegistry}}
+\index{getForceRegistry@{getForceRegistry}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{getForceRegistry()}{getForceRegistry()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_force_registry}{Particle\+Force\+Registry}} \& Particle\+World\+::get\+Force\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the force registry. \mbox{\Hypertarget{class_particle_world_ab45c787854a0175565571997aa17c631}\label{class_particle_world_ab45c787854a0175565571997aa17c631}} 
+\index{ParticleWorld@{ParticleWorld}!getParticles@{getParticles}}
+\index{getParticles@{getParticles}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{getParticles()}{getParticles()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}{Particle\+World\+::\+Particles}} \& Particle\+World\+::get\+Particles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of particles. \mbox{\Hypertarget{class_particle_world_a597bc4fa8ea88198fa7628815e0d3d29}\label{class_particle_world_a597bc4fa8ea88198fa7628815e0d3d29}} 
+\index{ParticleWorld@{ParticleWorld}!integrate@{integrate}}
+\index{integrate@{integrate}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{integrate()}{integrate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Particle\+World\+::integrate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})}
+
+Integrates all the particles in this world forward in time by the given duration. \mbox{\Hypertarget{class_particle_world_a256a721ea61b82e431b6f8bba427a965}\label{class_particle_world_a256a721ea61b82e431b6f8bba427a965}} 
+\index{ParticleWorld@{ParticleWorld}!runPhysics@{runPhysics}}
+\index{runPhysics@{runPhysics}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{runPhysics()}{runPhysics()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Particle\+World\+::run\+Physics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})}
+
+Processes all the physics for the particle world. \mbox{\Hypertarget{class_particle_world_a8c7d7ae341a362a116ef44663a55d87f}\label{class_particle_world_a8c7d7ae341a362a116ef44663a55d87f}} 
+\index{ParticleWorld@{ParticleWorld}!startFrame@{startFrame}}
+\index{startFrame@{startFrame}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{startFrame()}{startFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Particle\+World\+::start\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializes the world for a simulation frame. This clears the force accumulators for particles in the world. After calling this, the particles can have their forces for this frame added. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_particle_world_a7db06b81fe20ae3f3b250455e5c726f0}\label{class_particle_world_a7db06b81fe20ae3f3b250455e5c726f0}} 
+\index{ParticleWorld@{ParticleWorld}!calculateIterations@{calculateIterations}}
+\index{calculateIterations@{calculateIterations}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{calculateIterations}{calculateIterations}}
+{\footnotesize\ttfamily bool Particle\+World\+::calculate\+Iterations\hspace{0.3cm}{\ttfamily [protected]}}
+
+True if the world should calculate the number of iterations to give the contact resolver at each frame. \mbox{\Hypertarget{class_particle_world_a4bde8f12782b4b01b44d42f5ac1d86e0}\label{class_particle_world_a4bde8f12782b4b01b44d42f5ac1d86e0}} 
+\index{ParticleWorld@{ParticleWorld}!contactGenerators@{contactGenerators}}
+\index{contactGenerators@{contactGenerators}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{contactGenerators}{contactGenerators}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_world_a92aabb98feac6b14404621969e2779d9}{Contact\+Generators}} Particle\+World\+::contact\+Generators\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\hyperlink{class_contact}{Contact}} generators. \mbox{\Hypertarget{class_particle_world_a0492faefdfb8414d88adadd414efd99b}\label{class_particle_world_a0492faefdfb8414d88adadd414efd99b}} 
+\index{ParticleWorld@{ParticleWorld}!contacts@{contacts}}
+\index{contacts@{contacts}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{contacts}{contacts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_contact}{Particle\+Contact}}$\ast$ Particle\+World\+::contacts\hspace{0.3cm}{\ttfamily [protected]}}
+
+Holds the list of contacts. \mbox{\Hypertarget{class_particle_world_aa1fa669c126688d8c391013472c7f82a}\label{class_particle_world_aa1fa669c126688d8c391013472c7f82a}} 
+\index{ParticleWorld@{ParticleWorld}!maxContacts@{maxContacts}}
+\index{maxContacts@{maxContacts}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{maxContacts}{maxContacts}}
+{\footnotesize\ttfamily unsigned Particle\+World\+::max\+Contacts\hspace{0.3cm}{\ttfamily [protected]}}
+
+Holds the maximum number of contacts allowed (i.\+e. the size of the contacts array). \mbox{\Hypertarget{class_particle_world_ae3cc28a73ea1e602589adbccf9f2a836}\label{class_particle_world_ae3cc28a73ea1e602589adbccf9f2a836}} 
+\index{ParticleWorld@{ParticleWorld}!particles@{particles}}
+\index{particles@{particles}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{particles}{particles}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_world_a20c27eda82b47d7069b4f32a0ffe104d}{Particles}} Particle\+World\+::particles\hspace{0.3cm}{\ttfamily [protected]}}
+
+Holds the particles \mbox{\Hypertarget{class_particle_world_add0f6c489e5a4a78e16a67e02e80156f}\label{class_particle_world_add0f6c489e5a4a78e16a67e02e80156f}} 
+\index{ParticleWorld@{ParticleWorld}!registry@{registry}}
+\index{registry@{registry}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{registry}{registry}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_force_registry}{Particle\+Force\+Registry}} Particle\+World\+::registry\hspace{0.3cm}{\ttfamily [protected]}}
+
+Holds the force generators for the particles in this world. \mbox{\Hypertarget{class_particle_world_a87314026b9ec5e91cf88b157e472699b}\label{class_particle_world_a87314026b9ec5e91cf88b157e472699b}} 
+\index{ParticleWorld@{ParticleWorld}!resolver@{resolver}}
+\index{resolver@{resolver}!ParticleWorld@{ParticleWorld}}
+\doxysubsubsection{\texorpdfstring{resolver}{resolver}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_contact_resolver}{Particle\+Contact\+Resolver}} Particle\+World\+::resolver\hspace{0.3cm}{\ttfamily [protected]}}
+
+Holds the resolver for contacts. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{pworld_8h}{pworld.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{pworld_8cpp}{pworld.\+cpp}}\end{DoxyCompactItemize}

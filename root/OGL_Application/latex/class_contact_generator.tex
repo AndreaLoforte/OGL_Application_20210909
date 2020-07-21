@@ -1,0 +1,28 @@
+\hypertarget{class_contact_generator}{}\doxysection{Contact\+Generator Class Reference}
+\label{class_contact_generator}\index{ContactGenerator@{ContactGenerator}}
+
+
+{\ttfamily \#include $<$contacts.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual unsigned \mbox{\hyperlink{class_contact_generator_a2f2988d31f09eb1b043be8848d46df54}{add\+Contact}} (\mbox{\hyperlink{class_contact}{Contact}} $\ast$contact, unsigned limit) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the basic polymorphic interface for contact generators applying to rigid bodies. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_contact_generator_a2f2988d31f09eb1b043be8848d46df54}\label{class_contact_generator_a2f2988d31f09eb1b043be8848d46df54}} 
+\index{ContactGenerator@{ContactGenerator}!addContact@{addContact}}
+\index{addContact@{addContact}!ContactGenerator@{ContactGenerator}}
+\doxysubsubsection{\texorpdfstring{addContact()}{addContact()}}
+{\footnotesize\ttfamily virtual unsigned Contact\+Generator\+::add\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_contact}{Contact}} $\ast$}]{contact,  }\item[{unsigned}]{limit }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Fills the given contact structure with the generated contact. The contact pointer should point to the first available contact in a contact array, where limit is the maximum number of contacts in the array that can be written to. The method returns the number of contacts that have been written. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{contacts_8h}{contacts.\+h}}\end{DoxyCompactItemize}

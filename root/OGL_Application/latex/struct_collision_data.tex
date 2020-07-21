@@ -1,0 +1,106 @@
+\hypertarget{struct_collision_data}{}\doxysection{Collision\+Data Struct Reference}
+\label{struct_collision_data}\index{CollisionData@{CollisionData}}
+
+
+{\ttfamily \#include $<$collide\+\_\+fine.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{struct_collision_data_a0ed3c42195099290e62ca3885e309086}{has\+More\+Contacts}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_collision_data_a007674d62876d72ccf9cc43b693d4205}{reset}} (unsigned max\+Contacts)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{struct_collision_data_a150f0f2321501f3c121df873c6de9428}{add\+Contacts}} (unsigned \mbox{\hyperlink{glcorearb_8h_a619bc20e8198de3bd3f3d7fc34de66b2}{count}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_contact}{Contact}} $\ast$ \mbox{\hyperlink{struct_collision_data_a100f2954d00ec6bc08e7c1a1462cfac9}{contact\+Array}}
+\item 
+\mbox{\hyperlink{class_contact}{Contact}} $\ast$ \mbox{\hyperlink{struct_collision_data_a35fec9f4df39833e0e5ae90e2339d510}{contacts}}
+\item 
+int \mbox{\hyperlink{struct_collision_data_aa73f08662d2f081c96633503316de9b0}{contacts\+Left}}
+\item 
+unsigned \mbox{\hyperlink{struct_collision_data_a4061adfb3f63bfb5f47b3da5fc19d266}{contact\+Count}}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{struct_collision_data_a46bcee4568baef010c041d00e02917d1}{friction}}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{struct_collision_data_aff8318ad0e0b245ab2caa0cbc9b0ac7a}{restitution}}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{struct_collision_data_a200d1ad17be2c35928f02bd06e21adde}{tolerance}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A helper structure that contains information for the detector to use in building its contact data. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_collision_data_a150f0f2321501f3c121df873c6de9428}\label{struct_collision_data_a150f0f2321501f3c121df873c6de9428}} 
+\index{CollisionData@{CollisionData}!addContacts@{addContacts}}
+\index{addContacts@{addContacts}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{addContacts()}{addContacts()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Collision\+Data\+::add\+Contacts (\begin{DoxyParamCaption}\item[{unsigned}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Notifies the data that the given number of contacts have been added. \mbox{\Hypertarget{struct_collision_data_a0ed3c42195099290e62ca3885e309086}\label{struct_collision_data_a0ed3c42195099290e62ca3885e309086}} 
+\index{CollisionData@{CollisionData}!hasMoreContacts@{hasMoreContacts}}
+\index{hasMoreContacts@{hasMoreContacts}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{hasMoreContacts()}{hasMoreContacts()}}
+{\footnotesize\ttfamily bool Collision\+Data\+::has\+More\+Contacts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if there are more contacts available in the contact data. \mbox{\Hypertarget{struct_collision_data_a007674d62876d72ccf9cc43b693d4205}\label{struct_collision_data_a007674d62876d72ccf9cc43b693d4205}} 
+\index{CollisionData@{CollisionData}!reset@{reset}}
+\index{reset@{reset}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Collision\+Data\+::reset (\begin{DoxyParamCaption}\item[{unsigned}]{max\+Contacts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Resets the data so that it has no used contacts recorded. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_collision_data_a100f2954d00ec6bc08e7c1a1462cfac9}\label{struct_collision_data_a100f2954d00ec6bc08e7c1a1462cfac9}} 
+\index{CollisionData@{CollisionData}!contactArray@{contactArray}}
+\index{contactArray@{contactArray}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{contactArray}{contactArray}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_contact}{Contact}}$\ast$ Collision\+Data\+::contact\+Array}
+
+Holds the base of the collision data\+: the first contact in the array. This is used so that the contact pointer (below) can be incremented each time a contact is detected, while this pointer points to the first contact found. \mbox{\Hypertarget{struct_collision_data_a4061adfb3f63bfb5f47b3da5fc19d266}\label{struct_collision_data_a4061adfb3f63bfb5f47b3da5fc19d266}} 
+\index{CollisionData@{CollisionData}!contactCount@{contactCount}}
+\index{contactCount@{contactCount}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{contactCount}{contactCount}}
+{\footnotesize\ttfamily unsigned Collision\+Data\+::contact\+Count}
+
+Holds the number of contacts found so far. \mbox{\Hypertarget{struct_collision_data_a35fec9f4df39833e0e5ae90e2339d510}\label{struct_collision_data_a35fec9f4df39833e0e5ae90e2339d510}} 
+\index{CollisionData@{CollisionData}!contacts@{contacts}}
+\index{contacts@{contacts}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{contacts}{contacts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_contact}{Contact}}$\ast$ Collision\+Data\+::contacts}
+
+Holds the contact array to write into. \mbox{\Hypertarget{struct_collision_data_aa73f08662d2f081c96633503316de9b0}\label{struct_collision_data_aa73f08662d2f081c96633503316de9b0}} 
+\index{CollisionData@{CollisionData}!contactsLeft@{contactsLeft}}
+\index{contactsLeft@{contactsLeft}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{contactsLeft}{contactsLeft}}
+{\footnotesize\ttfamily int Collision\+Data\+::contacts\+Left}
+
+Holds the maximum number of contacts the array can take. \mbox{\Hypertarget{struct_collision_data_a46bcee4568baef010c041d00e02917d1}\label{struct_collision_data_a46bcee4568baef010c041d00e02917d1}} 
+\index{CollisionData@{CollisionData}!friction@{friction}}
+\index{friction@{friction}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{friction}{friction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Collision\+Data\+::friction}
+
+Holds the friction value to write into any collisions. \mbox{\Hypertarget{struct_collision_data_aff8318ad0e0b245ab2caa0cbc9b0ac7a}\label{struct_collision_data_aff8318ad0e0b245ab2caa0cbc9b0ac7a}} 
+\index{CollisionData@{CollisionData}!restitution@{restitution}}
+\index{restitution@{restitution}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{restitution}{restitution}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Collision\+Data\+::restitution}
+
+Holds the restitution value to write into any collisions. \mbox{\Hypertarget{struct_collision_data_a200d1ad17be2c35928f02bd06e21adde}\label{struct_collision_data_a200d1ad17be2c35928f02bd06e21adde}} 
+\index{CollisionData@{CollisionData}!tolerance@{tolerance}}
+\index{tolerance@{tolerance}!CollisionData@{CollisionData}}
+\doxysubsubsection{\texorpdfstring{tolerance}{tolerance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Collision\+Data\+::tolerance}
+
+Holds the collision tolerance, even uncolliding objects this close should have collisions generated. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{collide__fine_8h}{collide\+\_\+fine.\+h}}\end{DoxyCompactItemize}

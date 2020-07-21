@@ -1,0 +1,57 @@
+\hypertarget{class_intersection_tests}{}\doxysection{Intersection\+Tests Class Reference}
+\label{class_intersection_tests}\index{IntersectionTests@{IntersectionTests}}
+
+
+{\ttfamily \#include $<$collide\+\_\+fine.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_intersection_tests_a43ff753a79923bc1457843a43519dd08}{sphere\+And\+Half\+Space}} (const \mbox{\hyperlink{class_collision_sphere}{Collision\+Sphere}} \&sphere, const \mbox{\hyperlink{class_collision_plane}{Collision\+Plane}} \&plane)
+\item 
+static bool \mbox{\hyperlink{class_intersection_tests_ae76e2a8a59c91f9330f658320b2f7797}{sphere\+And\+Sphere}} (const \mbox{\hyperlink{class_collision_sphere}{Collision\+Sphere}} \&one, const \mbox{\hyperlink{class_collision_sphere}{Collision\+Sphere}} \&two)
+\item 
+static bool \mbox{\hyperlink{class_intersection_tests_aef0a19ad2bcf33da404c5d83ab4b6d57}{box\+And\+Box}} (const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&one, const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&two)
+\item 
+static bool \mbox{\hyperlink{class_intersection_tests_a50abbf0f282bd48c98fab0763e3ebf47}{box\+And\+Half\+Space}} (const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&box, const \mbox{\hyperlink{class_collision_plane}{Collision\+Plane}} \&plane)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A wrapper class that holds fast intersection tests. These can be used to drive the coarse collision detection system or as an early out in the full collision tests below. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_intersection_tests_aef0a19ad2bcf33da404c5d83ab4b6d57}\label{class_intersection_tests_aef0a19ad2bcf33da404c5d83ab4b6d57}} 
+\index{IntersectionTests@{IntersectionTests}!boxAndBox@{boxAndBox}}
+\index{boxAndBox@{boxAndBox}!IntersectionTests@{IntersectionTests}}
+\doxysubsubsection{\texorpdfstring{boxAndBox()}{boxAndBox()}}
+{\footnotesize\ttfamily bool Intersection\+Tests\+::box\+And\+Box (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&}]{one,  }\item[{const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&}]{two }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_intersection_tests_a50abbf0f282bd48c98fab0763e3ebf47}\label{class_intersection_tests_a50abbf0f282bd48c98fab0763e3ebf47}} 
+\index{IntersectionTests@{IntersectionTests}!boxAndHalfSpace@{boxAndHalfSpace}}
+\index{boxAndHalfSpace@{boxAndHalfSpace}!IntersectionTests@{IntersectionTests}}
+\doxysubsubsection{\texorpdfstring{boxAndHalfSpace()}{boxAndHalfSpace()}}
+{\footnotesize\ttfamily bool Intersection\+Tests\+::box\+And\+Half\+Space (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&}]{box,  }\item[{const \mbox{\hyperlink{class_collision_plane}{Collision\+Plane}} \&}]{plane }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Does an intersection test on an arbitrarily aligned box and a half-\/space.
+
+The box is given as a transform matrix, including position, and a vector of half-\/sizes for the extend of the box along each local axis.
+
+The half-\/space is given as a direction (i.\+e. unit) vector and the offset of the limiting plane from the origin, along the given direction. \mbox{\Hypertarget{class_intersection_tests_a43ff753a79923bc1457843a43519dd08}\label{class_intersection_tests_a43ff753a79923bc1457843a43519dd08}} 
+\index{IntersectionTests@{IntersectionTests}!sphereAndHalfSpace@{sphereAndHalfSpace}}
+\index{sphereAndHalfSpace@{sphereAndHalfSpace}!IntersectionTests@{IntersectionTests}}
+\doxysubsubsection{\texorpdfstring{sphereAndHalfSpace()}{sphereAndHalfSpace()}}
+{\footnotesize\ttfamily bool Intersection\+Tests\+::sphere\+And\+Half\+Space (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_collision_sphere}{Collision\+Sphere}} \&}]{sphere,  }\item[{const \mbox{\hyperlink{class_collision_plane}{Collision\+Plane}} \&}]{plane }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_intersection_tests_ae76e2a8a59c91f9330f658320b2f7797}\label{class_intersection_tests_ae76e2a8a59c91f9330f658320b2f7797}} 
+\index{IntersectionTests@{IntersectionTests}!sphereAndSphere@{sphereAndSphere}}
+\index{sphereAndSphere@{sphereAndSphere}!IntersectionTests@{IntersectionTests}}
+\doxysubsubsection{\texorpdfstring{sphereAndSphere()}{sphereAndSphere()}}
+{\footnotesize\ttfamily bool Intersection\+Tests\+::sphere\+And\+Sphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_collision_sphere}{Collision\+Sphere}} \&}]{one,  }\item[{const \mbox{\hyperlink{class_collision_sphere}{Collision\+Sphere}} \&}]{two }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{collide__fine_8h}{collide\+\_\+fine.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{collide__fine_8cpp}{collide\+\_\+fine.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,78 @@
+\hypertarget{class_particle_constraint}{}\doxysection{Particle\+Constraint Class Reference}
+\label{class_particle_constraint}\index{ParticleConstraint@{ParticleConstraint}}
+
+
+{\ttfamily \#include $<$plinks.\+h$>$}
+
+Inheritance diagram for Particle\+Constraint\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_particle_constraint}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual unsigned \mbox{\hyperlink{class_particle_constraint_a1654b5aba2757b88530104892730a4a3}{add\+Contact}} (\mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} $\ast$contact, unsigned limit) const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Particle $\ast$ \mbox{\hyperlink{class_particle_constraint_a8c1221989cbd940e78ec3206b7c453a3}{particle}}
+\item 
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_particle_constraint_a303ef4ab8b59d9ef2a635c2ea5372810}{anchor}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_particle_constraint_a258da7b373861a6e6f5b0dd10de10f5e}{current\+Length}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Constraints are just like links, except they connect a particle to an immovable anchor point. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_constraint_a1654b5aba2757b88530104892730a4a3}\label{class_particle_constraint_a1654b5aba2757b88530104892730a4a3}} 
+\index{ParticleConstraint@{ParticleConstraint}!addContact@{addContact}}
+\index{addContact@{addContact}!ParticleConstraint@{ParticleConstraint}}
+\doxysubsubsection{\texorpdfstring{addContact()}{addContact()}}
+{\footnotesize\ttfamily virtual unsigned Particle\+Constraint\+::add\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle_contact}{Particle\+Contact}} $\ast$}]{contact,  }\item[{unsigned}]{limit }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Geneates the contacts to keep this link from being violated. This class can only ever generate a single contact, so the pointer can be a pointer to a single element, the limit parameter is assumed to be at least one (zero isn\textquotesingle{}t valid) and the return value is either 0, if the cable wasn\textquotesingle{}t over-\/extended, or one if a contact was needed.
+
+NB\+: This method is declared in the same way (as pure virtual) in the parent class, but is replicated here for documentation purposes. 
+
+Implements \mbox{\hyperlink{class_particle_contact_generator_afb91a6124f25026350cb508af2d5e757}{Particle\+Contact\+Generator}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_particle_rod_constraint_a60124f61e9f285610a74ff3b5dc3000f}{Particle\+Rod\+Constraint}}, and \mbox{\hyperlink{class_particle_cable_constraint_a45d2428e8ce71bf7435676c1f1a4f970}{Particle\+Cable\+Constraint}}.
+
+\mbox{\Hypertarget{class_particle_constraint_a258da7b373861a6e6f5b0dd10de10f5e}\label{class_particle_constraint_a258da7b373861a6e6f5b0dd10de10f5e}} 
+\index{ParticleConstraint@{ParticleConstraint}!currentLength@{currentLength}}
+\index{currentLength@{currentLength}!ParticleConstraint@{ParticleConstraint}}
+\doxysubsubsection{\texorpdfstring{currentLength()}{currentLength()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Particle\+Constraint\+::current\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+Returns the current length of the link. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_particle_constraint_a303ef4ab8b59d9ef2a635c2ea5372810}\label{class_particle_constraint_a303ef4ab8b59d9ef2a635c2ea5372810}} 
+\index{ParticleConstraint@{ParticleConstraint}!anchor@{anchor}}
+\index{anchor@{anchor}!ParticleConstraint@{ParticleConstraint}}
+\doxysubsubsection{\texorpdfstring{anchor}{anchor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector3}{Vector3}} Particle\+Constraint\+::anchor}
+
+The point to which the particle is anchored. \mbox{\Hypertarget{class_particle_constraint_a8c1221989cbd940e78ec3206b7c453a3}\label{class_particle_constraint_a8c1221989cbd940e78ec3206b7c453a3}} 
+\index{ParticleConstraint@{ParticleConstraint}!particle@{particle}}
+\index{particle@{particle}!ParticleConstraint@{ParticleConstraint}}
+\doxysubsubsection{\texorpdfstring{particle}{particle}}
+{\footnotesize\ttfamily Particle$\ast$ Particle\+Constraint\+::particle}
+
+Holds the particles connected by this constraint. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{plinks_8h}{plinks.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{plinks_8cpp}{plinks.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,110 @@
+\hypertarget{class_application}{}\doxysection{Application Class Reference}
+\label{class_application}\index{Application@{Application}}
+
+
+{\ttfamily \#include $<$application.\+h$>$}
+
+Inheritance diagram for Application\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_application}
+\end{center}
+\end{figure}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_application_a1532f2869d8242ed3b097f0e8cb80baa}{init}} ()
+\item 
+static \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_application_a4d99b9c505186e7154f92ece36c94312}{startup}} ()
+\item 
+static \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_application_ad434bdac305884ce971ded815384c976}{shutdown}} ()
+\item 
+static \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_application_af05b8cef6550cfffca18cce8c4321349}{key\+\_\+callback}} (G\+L\+F\+Wwindow $\ast$, int, int, int, int)
+\item 
+static \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_application_ad3749c108d020001e5576c1698ecaf8e}{gl\+Info}} (\mbox{\hyperlink{glcorearb_8h_aea1419aa8aec5854bd9807b45171029d}{G\+Lboolean}})
+\item 
+static \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_application_a9ce7bbb8bbc90ca99662171104c2476e}{on\+Resize}} (G\+L\+F\+Wwindow $\ast$, \mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}}, \mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static G\+L\+F\+Wwindow $\ast$ \mbox{\hyperlink{class_application_a1bf8348af5ed01de749c12121bff36ec}{window}}
+\item 
+static \mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}} \mbox{\hyperlink{class_application_a02d657e28b37752b7dcb449771a769f6}{window\+\_\+width}} = 800
+\item 
+static \mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}} \mbox{\hyperlink{class_application_ade41cc7d728b0ff849b52ea286718aaf}{window\+\_\+height}} = 600
+\item 
+static \mbox{\hyperlink{glcorearb_8h_a31aeedaeef29442c9c015ab355c8f5ab}{G\+Lfloat}} \mbox{\hyperlink{class_application_a48da06c36e9d5b4ed25d4d13e2ac207c}{aspect}} =(float) \mbox{\hyperlink{class_application_a02d657e28b37752b7dcb449771a769f6}{Application\+::window\+\_\+width}}/(float)\mbox{\hyperlink{class_application_ade41cc7d728b0ff849b52ea286718aaf}{Application\+::window\+\_\+height}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_application_ad3749c108d020001e5576c1698ecaf8e}\label{class_application_ad3749c108d020001e5576c1698ecaf8e}} 
+\index{Application@{Application}!glInfo@{glInfo}}
+\index{glInfo@{glInfo}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{glInfo()}{glInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Application\+::gl\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{glcorearb_8h_aea1419aa8aec5854bd9807b45171029d}{G\+Lboolean}}}]{flag = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_application_a1532f2869d8242ed3b097f0e8cb80baa}\label{class_application_a1532f2869d8242ed3b097f0e8cb80baa}} 
+\index{Application@{Application}!init@{init}}
+\index{init@{init}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily int Application\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_application_af05b8cef6550cfffca18cce8c4321349}\label{class_application_af05b8cef6550cfffca18cce8c4321349}} 
+\index{Application@{Application}!key\_callback@{key\_callback}}
+\index{key\_callback@{key\_callback}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{key\_callback()}{key\_callback()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Application\+::key\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{key,  }\item[{int}]{scancode,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_application_a9ce7bbb8bbc90ca99662171104c2476e}\label{class_application_a9ce7bbb8bbc90ca99662171104c2476e}} 
+\index{Application@{Application}!onResize@{onResize}}
+\index{onResize@{onResize}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{onResize()}{onResize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Application\+::on\+Resize (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{\mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}}}]{width,  }\item[{\mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}}}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_application_ad434bdac305884ce971ded815384c976}\label{class_application_ad434bdac305884ce971ded815384c976}} 
+\index{Application@{Application}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Application\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_application_a4d99b9c505186e7154f92ece36c94312}\label{class_application_a4d99b9c505186e7154f92ece36c94312}} 
+\index{Application@{Application}!startup@{startup}}
+\index{startup@{startup}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{startup()}{startup()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Application\+::startup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_application_a48da06c36e9d5b4ed25d4d13e2ac207c}\label{class_application_a48da06c36e9d5b4ed25d4d13e2ac207c}} 
+\index{Application@{Application}!aspect@{aspect}}
+\index{aspect@{aspect}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{aspect}{aspect}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a31aeedaeef29442c9c015ab355c8f5ab}{G\+Lfloat}} Application\+::aspect =(float) \mbox{\hyperlink{class_application_a02d657e28b37752b7dcb449771a769f6}{Application\+::window\+\_\+width}}/(float)\mbox{\hyperlink{class_application_ade41cc7d728b0ff849b52ea286718aaf}{Application\+::window\+\_\+height}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_application_a1bf8348af5ed01de749c12121bff36ec}\label{class_application_a1bf8348af5ed01de749c12121bff36ec}} 
+\index{Application@{Application}!window@{window}}
+\index{window@{window}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily G\+L\+F\+Wwindow $\ast$ Application\+::window\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_application_ade41cc7d728b0ff849b52ea286718aaf}\label{class_application_ade41cc7d728b0ff849b52ea286718aaf}} 
+\index{Application@{Application}!window\_height@{window\_height}}
+\index{window\_height@{window\_height}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{window\_height}{window\_height}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}} Application\+::window\+\_\+height = 600\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_application_a02d657e28b37752b7dcb449771a769f6}\label{class_application_a02d657e28b37752b7dcb449771a769f6}} 
+\index{Application@{Application}!window\_width@{window\_width}}
+\index{window\_width@{window\_width}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{window\_width}{window\_width}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_acebcc1c5663f14ebde1d16831e5fed94}{G\+Lint}} Application\+::window\+\_\+width = 800\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{application_8h}{application.\+h}}\item 
+src/\mbox{\hyperlink{application_8cpp}{application.\+cpp}}\end{DoxyCompactItemize}

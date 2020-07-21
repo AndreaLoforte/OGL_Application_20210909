@@ -1,0 +1,38 @@
+\hypertarget{class_particle_force_generator}{}\doxysection{Particle\+Force\+Generator Class Reference}
+\label{class_particle_force_generator}\index{ParticleForceGenerator@{ParticleForceGenerator}}
+
+
+{\ttfamily \#include $<$pfgen.\+h$>$}
+
+Inheritance diagram for Particle\+Force\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.481482cm]{class_particle_force_generator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_particle_force_generator_a1778250fd05069356b00574e03a6baec}{update\+Force}} (\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$particle, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A force generator can be asked to add a force to one or more particles. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_force_generator_a1778250fd05069356b00574e03a6baec}\label{class_particle_force_generator_a1778250fd05069356b00574e03a6baec}} 
+\index{ParticleForceGenerator@{ParticleForceGenerator}!updateForce@{updateForce}}
+\index{updateForce@{updateForce}!ParticleForceGenerator@{ParticleForceGenerator}}
+\doxysubsubsection{\texorpdfstring{updateForce()}{updateForce()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Particle\+Force\+Generator\+::update\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$}]{particle,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Overload this in implementations of the interface to calculate and update the force applied to the given particle. 
+
+Implemented in \mbox{\hyperlink{class_particle_buoyancy_a2679f07b22b0e310e5abdebba362d48e}{Particle\+Buoyancy}}, \mbox{\hyperlink{class_particle_bungee_a0e570a99a4a2a51197a08953f450c78b}{Particle\+Bungee}}, \mbox{\hyperlink{class_particle_spring_a8a6723f7f39d832d75ff6f92e68f0145}{Particle\+Spring}}, \mbox{\hyperlink{class_particle_fake_spring_a969793baaa872e9e4ba6f2995db05108}{Particle\+Fake\+Spring}}, \mbox{\hyperlink{class_particle_anchored_bungee_aa5c518626e7c5e13be102d57e66b4724}{Particle\+Anchored\+Bungee}}, \mbox{\hyperlink{class_particle_anchored_spring_aca78f7b8e111c1f18710dcb88d457e86}{Particle\+Anchored\+Spring}}, \mbox{\hyperlink{class_particle_drag_a2648500fc18a9a02428bca00a346d8f9}{Particle\+Drag}}, and \mbox{\hyperlink{class_particle_gravity_ab9379101ae2352679f03c8eb31e7b3e6}{Particle\+Gravity}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{pfgen_8h}{pfgen.\+h}}\end{DoxyCompactItemize}

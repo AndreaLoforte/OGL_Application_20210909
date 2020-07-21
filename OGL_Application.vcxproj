@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{13A9FEB8-91B9-45B7-AE50-829B679FC55C}</ProjectGuid>
+    <RootNamespace>OGLApplication</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>.\root\OGL_Application\include\SB7\GLFW;.\root\OGL_Application\include\SB7;.\root\OGL_Application\include\PHYSICS_H;.\root\OGL_Application\include\DRAWING_H;.\root\OGL_Application\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\cameraTransformations;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\ApplicationObject;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects\UI;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects\characters;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\bin\winx64-visualStudio;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio\;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;.\root\OGL_Application\DEPENDENCIES\SB7\;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(IncludePath)</AdditionalIncludeDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ShowIncludes>true</ShowIncludes>
+      <AdditionalOptions>/I".\root\OGL_Application\include" 
+/I".\root\OGL_Application\include\PHYSICS_H"
+/I".\root\OGL_Application\include\SB7"
+/I".\root\OGL_Application\include\SB7\GLFW" /I".\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include"
+ /wd4996 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link />
+    <Link>
+      <AdditionalDependencies>opengl32.lib;glfw3dll.lib;freetype.lib;glew32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="root\OGL_Application\include\app.h" />
+    <ClInclude Include=".\root\OGL_Application\include\application.h" />
+    <ClInclude Include=".\root\OGL_Application\include\baseObject.h" />
+    <ClInclude Include="root\OGL_Application\include\cameraTransformations\cameraManager.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\boxAABB.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\frameofref.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\grid.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\my_particle.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\object1.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\projectile.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\sphere.h" />
+    <ClInclude Include="root\OGL_Application\include\cameraTransformations\fpcamera.h" />
+    <ClInclude Include=".\root\OGL_Application\include\GLFWwindow.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\gun.h" />
+    <ClInclude Include=".\root\OGL_Application\include\inputs.h" />
+    <ClInclude Include=".\root\OGL_Application\include\log.h" />
+    <ClInclude Include=".\root\OGL_Application\include\mymathlib.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\body.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\collide_coarse.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\collide_fine.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\contacts.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\core.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\particle.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\pcontact.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\pfgen.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\physics.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\plinks.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\precision.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\pworld.h" />
+    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\world.h" />
+    <ClInclude Include=".\root\OGL_Application\include\render.h" />
+    <ClInclude Include=".\root\OGL_Application\include\SB7\gl3w.h" />
+    <ClInclude Include=".\root\OGL_Application\include\SB7\glcorearb.h" />
+    <ClInclude Include=".\root\OGL_Application\include\SB7\sb7ktx.h" />
+    <ClInclude Include=".\root\OGL_Application\include\shadermanager.h" />
+    <ClInclude Include=".\root\OGL_Application\include\shaders.h" />
+    <ClInclude Include=".\root\OGL_Application\include\vmath.h" />
+    <ClInclude Include="root\OGL_Application\include\ApplicationObject\applicationDerivedObject.h" />
+    <ClInclude Include="root\OGL_Application\include\ApplicationObject\applicationObject.h" />
+    <ClInclude Include="root\OGL_Application\include\ApplicationObject\applicationObjectManager.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\characters\enemy.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\characters\playerCharacter.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\assets.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\build_b.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\point.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\surface.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\PrintHelper.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\userInterface.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonMap.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttons.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\text.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonsList.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\triangle_b.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\triangle_tb.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\viewfinder.h" />
+    <ClInclude Include="root\OGL_Application\include\extern_definitions.h" />
+    <ClInclude Include="root\OGL_Application\include\IA.h" />
+    <ClInclude Include="root\OGL_Application\include\ApplicationObject\objectCollector.h" />
+    <ClInclude Include="root\OGL_Application\include\objectControlsInterface.h" />
+    <ClInclude Include="root\OGL_Application\include\PHYSICS_H\AdvancedPhysics\advancedCD.h" />
+    <ClInclude Include="root\OGL_Application\include\PHYSICS_H\AdvancedPhysics\collide_fine_advanced.h" />
+    <ClInclude Include="root\OGL_Application\include\PHYSICS_H\ObjectContainer.h" />
+    <ClInclude Include="root\OGL_Application\include\PHYSICS_H\RTCDsolids.h" />
+    <ClInclude Include="root\OGL_Application\include\PHYSICS_H\RTCDspecializedTest.h" />
+    <ClInclude Include="root\OGL_Application\include\saveloadhelper.h" />
+    <ClInclude Include="root\OGL_Application\include\sound.h" />
+    <ClInclude Include="root\OGL_Application\include\timing.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include=".\root\OGL_Application\src\app.cpp" />
+    <ClCompile Include=".\root\OGL_Application\src\application.cpp" />
+    <ClCompile Include=".\root\OGL_Application\src\baseObject.cpp" />
+    <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp" />
+    <ClCompile Include="root\OGL_Application\src\cameraTransformations\cameraManager.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\boxAABB.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\frameofref.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\grid.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\object1.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\my_particle.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\UI\buttons2.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\UI\userInterface.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\UI\buttonMap.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\UI\buttons.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\UI\printHelper.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\projectile.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\sphere.cpp" />
+    <ClCompile Include=".\root\OGL_Application\src\external_src\gl3w.c" />
+    <ClCompile Include=".\root\OGL_Application\src\external_src\sb7ktx.cpp" />
+    <ClCompile Include="root\OGL_Application\src\cameraTransformations\fpcamera.cpp" />
+    <ClCompile Include=".\root\OGL_Application\src\log.cpp" />
+    <ClCompile Include=".\root\OGL_Application\src\main.cpp" />
+    <ClCompile Include=".\root\OGL_Application\src\mymathlib.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\UI\buttonsList.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\boxSphere.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\body.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\collide_coarse.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\collide_fine.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\contacts.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\core.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\particle.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\pcontact.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\pfgen.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\plinks.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\pworld.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\world.cpp" />
+    <ClCompile Include=".\root\OGL_Application\src\shadermanager.cpp" />
+    <ClCompile Include=".\root\OGL_Application\src\shaders.cpp" />
+    <ClCompile Include="root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c" />
+    <ClCompile Include="root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\image_DXT.c" />
+    <ClCompile Include="root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\image_helper.c" />
+    <ClCompile Include="root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\SOIL2.c" />
+    <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationDerivedObject.cpp" />
+    <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationObject.cpp" />
+    <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationObjectManager.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\characters\enemy.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\characters\playerCharacter.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Collectors\derivedObjectCollector.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Collectors\objectCollector.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\assets.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\build_b.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\gun.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\point.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\surface.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\UI\text.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\triangle_b.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\triangle_tb.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\viewfinder.cpp" />
+    <ClCompile Include="root\OGL_Application\src\IA.cpp" />
+    <ClCompile Include="root\OGL_Application\src\input\inputCursor.cpp" />
+    <ClCompile Include="root\OGL_Application\src\input\inputEditMode.cpp" />
+    <ClCompile Include="root\OGL_Application\src\input\inputESC.cpp" />
+    <ClCompile Include="root\OGL_Application\src\input\inputMove.cpp" />
+    <ClCompile Include="root\OGL_Application\src\input\inputs.cpp" />
+    <ClCompile Include="root\OGL_Application\src\input\inputsControlMode.cpp" />
+    <ClCompile Include="root\OGL_Application\src\input\objectControlsInterface.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\advancedCD.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\boxplane.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\spheresphere.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\spherePlane.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\physics.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\RTCDsolids.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Physics\RTCDspecializedTest.cpp" />
+    <ClCompile Include="root\OGL_Application\src\saveloadhelper\saveloadhelper.cpp" />
+    <ClCompile Include="root\OGL_Application\src\saveloadhelper\saveloadhelper_applicationObject.cpp" />
+    <ClCompile Include="root\OGL_Application\src\saveloadhelper\saveloadhelper_camera.cpp" />
+    <ClCompile Include="root\OGL_Application\src\saveloadhelper\saveloadhelper_FileMap.cpp" />
+    <ClCompile Include="root\OGL_Application\src\sound.cpp" />
+    <ClCompile Include="root\OGL_Application\src\timing.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="root\OGL_Application\src\Objects\Shaders\grid\grid.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\grid\grid.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\object1\object1.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\object1\object1.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\particle\particle.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\particle\particle.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\projectile\projectile.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\projectile\projectile.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\sphere\sphere.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\build\build.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\build\build.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\characters\enemy\enemy.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\characters\enemy\enemy.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\characters\playercharacter\playercharacter.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\characters\playercharacter\playercharacter.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\frameOfRef\frameOfRef.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\frameOfRef\frameOfRef.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\gun_for\gun_for.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\gun_for\gun_for.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\point\point.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\point\point.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\sphere\sphere.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\surface\surface.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\surface\surface.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\text\text.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\text\text.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\triangle\triangle.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\triangle\triangle.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\triangle_tb\triangle_tb.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\triangle_tb\triangle_tb.vert" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\viewfinder\viewfinder.frag" />
+    <None Include="root\OGL_Application\src\Objects\Shaders\viewfinder\viewfinder.vert" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

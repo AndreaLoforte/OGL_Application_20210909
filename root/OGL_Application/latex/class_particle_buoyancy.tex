@@ -1,0 +1,50 @@
+\hypertarget{class_particle_buoyancy}{}\doxysection{Particle\+Buoyancy Class Reference}
+\label{class_particle_buoyancy}\index{ParticleBuoyancy@{ParticleBuoyancy}}
+
+
+{\ttfamily \#include $<$pfgen.\+h$>$}
+
+Inheritance diagram for Particle\+Buoyancy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_particle_buoyancy}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_buoyancy_abf846e3de347f7d76f53dc7090867f68}{Particle\+Buoyancy}} (\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} max\+Depth, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} volume, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} water\+Height, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} liquid\+Density=1000.\+0f)
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_particle_buoyancy_a2679f07b22b0e310e5abdebba362d48e}{update\+Force}} (\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$particle, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A force generator that applies a buoyancy force for a plane of liquid parrallel to XZ plane. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_particle_buoyancy_abf846e3de347f7d76f53dc7090867f68}\label{class_particle_buoyancy_abf846e3de347f7d76f53dc7090867f68}} 
+\index{ParticleBuoyancy@{ParticleBuoyancy}!ParticleBuoyancy@{ParticleBuoyancy}}
+\index{ParticleBuoyancy@{ParticleBuoyancy}!ParticleBuoyancy@{ParticleBuoyancy}}
+\doxysubsubsection{\texorpdfstring{ParticleBuoyancy()}{ParticleBuoyancy()}}
+{\footnotesize\ttfamily Particle\+Buoyancy\+::\+Particle\+Buoyancy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{max\+Depth,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{volume,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{water\+Height,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{liquid\+Density = {\ttfamily 1000.0f} }\end{DoxyParamCaption})}
+
+Creates a new buoyancy force with the given parameters. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_buoyancy_a2679f07b22b0e310e5abdebba362d48e}\label{class_particle_buoyancy_a2679f07b22b0e310e5abdebba362d48e}} 
+\index{ParticleBuoyancy@{ParticleBuoyancy}!updateForce@{updateForce}}
+\index{updateForce@{updateForce}!ParticleBuoyancy@{ParticleBuoyancy}}
+\doxysubsubsection{\texorpdfstring{updateForce()}{updateForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Particle\+Buoyancy\+::update\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$}]{particle,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Applies the buoyancy force to the given particle. 
+
+Implements \mbox{\hyperlink{class_particle_force_generator_a1778250fd05069356b00574e03a6baec}{Particle\+Force\+Generator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{pfgen_8h}{pfgen.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{pfgen_8cpp}{pfgen.\+cpp}}\end{DoxyCompactItemize}

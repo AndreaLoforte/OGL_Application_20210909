@@ -1,0 +1,50 @@
+\hypertarget{class_particle_fake_spring}{}\doxysection{Particle\+Fake\+Spring Class Reference}
+\label{class_particle_fake_spring}\index{ParticleFakeSpring@{ParticleFakeSpring}}
+
+
+{\ttfamily \#include $<$pfgen.\+h$>$}
+
+Inheritance diagram for Particle\+Fake\+Spring\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_particle_fake_spring}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_fake_spring_aeed82dd8bf5e3837ec095f394a68dd44}{Particle\+Fake\+Spring}} (\mbox{\hyperlink{class_vector3}{Vector3}} $\ast$anchor, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} spring\+Constant, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} damping)
+\item 
+virtual \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_particle_fake_spring_a969793baaa872e9e4ba6f2995db05108}{update\+Force}} (\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$particle, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} duration)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A force generator that fakes a stiff spring force, and where one end is attached to a fixed point in space. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_particle_fake_spring_aeed82dd8bf5e3837ec095f394a68dd44}\label{class_particle_fake_spring_aeed82dd8bf5e3837ec095f394a68dd44}} 
+\index{ParticleFakeSpring@{ParticleFakeSpring}!ParticleFakeSpring@{ParticleFakeSpring}}
+\index{ParticleFakeSpring@{ParticleFakeSpring}!ParticleFakeSpring@{ParticleFakeSpring}}
+\doxysubsubsection{\texorpdfstring{ParticleFakeSpring()}{ParticleFakeSpring()}}
+{\footnotesize\ttfamily Particle\+Fake\+Spring\+::\+Particle\+Fake\+Spring (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector3}{Vector3}} $\ast$}]{anchor,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{spring\+Constant,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{damping }\end{DoxyParamCaption})}
+
+Creates a new spring with the given parameters. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_fake_spring_a969793baaa872e9e4ba6f2995db05108}\label{class_particle_fake_spring_a969793baaa872e9e4ba6f2995db05108}} 
+\index{ParticleFakeSpring@{ParticleFakeSpring}!updateForce@{updateForce}}
+\index{updateForce@{updateForce}!ParticleFakeSpring@{ParticleFakeSpring}}
+\doxysubsubsection{\texorpdfstring{updateForce()}{updateForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Particle\+Fake\+Spring\+::update\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmyobject_n_s_1_1_particle}{Particle}} $\ast$}]{particle,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Applies the spring force to the given particle. 
+
+Implements \mbox{\hyperlink{class_particle_force_generator_a1778250fd05069356b00574e03a6baec}{Particle\+Force\+Generator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{pfgen_8h}{pfgen.\+h}}\item 
+src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/\mbox{\hyperlink{pfgen_8cpp}{pfgen.\+cpp}}\end{DoxyCompactItemize}

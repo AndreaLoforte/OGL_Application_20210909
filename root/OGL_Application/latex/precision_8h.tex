@@ -1,0 +1,119 @@
+\hypertarget{precision_8h}{}\doxysection{include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/precision.h File Reference}
+\label{precision_8h}\index{include/PHYSICS\_H/precision.h@{include/PHYSICS\_H/precision.h}}
+{\ttfamily \#include $<$float.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{precision_8h_a61df8c6544a4c2dabae7825eeb67b0bd}{D\+O\+U\+B\+L\+E\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON}}
+\item 
+\#define \mbox{\hyperlink{precision_8h_a70fc4e60483cc1a5cb39dd935640cadc}{R\+E\+A\+L\+\_\+\+M\+AX}}~D\+B\+L\+\_\+\+M\+AX
+\item 
+\#define \mbox{\hyperlink{precision_8h_a62fde4217f637e745572c33e37e8d842}{real\+\_\+sqrt}}~sqrt
+\item 
+\#define \mbox{\hyperlink{precision_8h_a8dfc5ed815226c7c6b4cbb7497b8269c}{real\+\_\+abs}}~fabs
+\item 
+\#define \mbox{\hyperlink{precision_8h_a794a500a3b790ab2475f9c89b631fefd}{real\+\_\+sin}}~sin
+\item 
+\#define \mbox{\hyperlink{precision_8h_a90aee8fe5c75893ee4824ffdb980d83a}{real\+\_\+cos}}~cos
+\item 
+\#define \mbox{\hyperlink{precision_8h_aa7ef619b91b3578381c3034144c57b85}{real\+\_\+exp}}~exp
+\item 
+\#define \mbox{\hyperlink{precision_8h_ad4b35674d9a186dfcb92f988a1dc014f}{real\+\_\+pow}}~pow
+\item 
+\#define \mbox{\hyperlink{precision_8h_a54a1672ee009885701363111bdebc4ad}{real\+\_\+fmod}}~fmod
+\item 
+\#define \mbox{\hyperlink{precision_8h_a7c1ff2c4b00ca1d4ec6f83424ea66075}{real\+\_\+epsilon}}~D\+B\+L\+\_\+\+E\+P\+S\+I\+L\+ON
+\item 
+\#define \mbox{\hyperlink{precision_8h_a90a776e0934d8ad6c271f2655b9dd626}{R\+\_\+\+PI}}~3.\+14159265358979
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef double \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Because Cyclone is designed to work at either single or double precision, mathematical functions such as sqrt cannot be used in the source code or headers. This file provides defines for the real number type and mathematical formulae that work on it.
+
+\begin{DoxyNote}{Note}
+All the contents of this file need to be changed to compile Cyclone at a different precision. 
+\end{DoxyNote}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{precision_8h_a61df8c6544a4c2dabae7825eeb67b0bd}\label{precision_8h_a61df8c6544a4c2dabae7825eeb67b0bd}} 
+\index{precision.h@{precision.h}!DOUBLE\_PRECISION@{DOUBLE\_PRECISION}}
+\index{DOUBLE\_PRECISION@{DOUBLE\_PRECISION}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{DOUBLE\_PRECISION}{DOUBLE\_PRECISION}}
+{\footnotesize\ttfamily \#define D\+O\+U\+B\+L\+E\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON}
+
+\mbox{\Hypertarget{precision_8h_a90a776e0934d8ad6c271f2655b9dd626}\label{precision_8h_a90a776e0934d8ad6c271f2655b9dd626}} 
+\index{precision.h@{precision.h}!R\_PI@{R\_PI}}
+\index{R\_PI@{R\_PI}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{R\_PI}{R\_PI}}
+{\footnotesize\ttfamily \#define R\+\_\+\+PI~3.\+14159265358979}
+
+\mbox{\Hypertarget{precision_8h_a8dfc5ed815226c7c6b4cbb7497b8269c}\label{precision_8h_a8dfc5ed815226c7c6b4cbb7497b8269c}} 
+\index{precision.h@{precision.h}!real\_abs@{real\_abs}}
+\index{real\_abs@{real\_abs}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{real\_abs}{real\_abs}}
+{\footnotesize\ttfamily \#define real\+\_\+abs~fabs}
+
+\mbox{\Hypertarget{precision_8h_a90aee8fe5c75893ee4824ffdb980d83a}\label{precision_8h_a90aee8fe5c75893ee4824ffdb980d83a}} 
+\index{precision.h@{precision.h}!real\_cos@{real\_cos}}
+\index{real\_cos@{real\_cos}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{real\_cos}{real\_cos}}
+{\footnotesize\ttfamily \#define real\+\_\+cos~cos}
+
+\mbox{\Hypertarget{precision_8h_a7c1ff2c4b00ca1d4ec6f83424ea66075}\label{precision_8h_a7c1ff2c4b00ca1d4ec6f83424ea66075}} 
+\index{precision.h@{precision.h}!real\_epsilon@{real\_epsilon}}
+\index{real\_epsilon@{real\_epsilon}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{real\_epsilon}{real\_epsilon}}
+{\footnotesize\ttfamily \#define real\+\_\+epsilon~D\+B\+L\+\_\+\+E\+P\+S\+I\+L\+ON}
+
+\mbox{\Hypertarget{precision_8h_aa7ef619b91b3578381c3034144c57b85}\label{precision_8h_aa7ef619b91b3578381c3034144c57b85}} 
+\index{precision.h@{precision.h}!real\_exp@{real\_exp}}
+\index{real\_exp@{real\_exp}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{real\_exp}{real\_exp}}
+{\footnotesize\ttfamily \#define real\+\_\+exp~exp}
+
+\mbox{\Hypertarget{precision_8h_a54a1672ee009885701363111bdebc4ad}\label{precision_8h_a54a1672ee009885701363111bdebc4ad}} 
+\index{precision.h@{precision.h}!real\_fmod@{real\_fmod}}
+\index{real\_fmod@{real\_fmod}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{real\_fmod}{real\_fmod}}
+{\footnotesize\ttfamily \#define real\+\_\+fmod~fmod}
+
+\mbox{\Hypertarget{precision_8h_a70fc4e60483cc1a5cb39dd935640cadc}\label{precision_8h_a70fc4e60483cc1a5cb39dd935640cadc}} 
+\index{precision.h@{precision.h}!REAL\_MAX@{REAL\_MAX}}
+\index{REAL\_MAX@{REAL\_MAX}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{REAL\_MAX}{REAL\_MAX}}
+{\footnotesize\ttfamily \#define R\+E\+A\+L\+\_\+\+M\+AX~D\+B\+L\+\_\+\+M\+AX}
+
+\mbox{\Hypertarget{precision_8h_ad4b35674d9a186dfcb92f988a1dc014f}\label{precision_8h_ad4b35674d9a186dfcb92f988a1dc014f}} 
+\index{precision.h@{precision.h}!real\_pow@{real\_pow}}
+\index{real\_pow@{real\_pow}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{real\_pow}{real\_pow}}
+{\footnotesize\ttfamily \#define real\+\_\+pow~pow}
+
+\mbox{\Hypertarget{precision_8h_a794a500a3b790ab2475f9c89b631fefd}\label{precision_8h_a794a500a3b790ab2475f9c89b631fefd}} 
+\index{precision.h@{precision.h}!real\_sin@{real\_sin}}
+\index{real\_sin@{real\_sin}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{real\_sin}{real\_sin}}
+{\footnotesize\ttfamily \#define real\+\_\+sin~sin}
+
+\mbox{\Hypertarget{precision_8h_a62fde4217f637e745572c33e37e8d842}\label{precision_8h_a62fde4217f637e745572c33e37e8d842}} 
+\index{precision.h@{precision.h}!real\_sqrt@{real\_sqrt}}
+\index{real\_sqrt@{real\_sqrt}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{real\_sqrt}{real\_sqrt}}
+{\footnotesize\ttfamily \#define real\+\_\+sqrt~sqrt}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{precision_8h_a11d147c64891830c9e79b3315b1b2e21}\label{precision_8h_a11d147c64891830c9e79b3315b1b2e21}} 
+\index{precision.h@{precision.h}!real@{real}}
+\index{real@{real}!precision.h@{precision.h}}
+\doxysubsubsection{\texorpdfstring{real}{real}}
+{\footnotesize\ttfamily typedef double \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}
+

@@ -1,0 +1,238 @@
+COLLECTOR_
+grid
+OCisOnFlag
+0
+AOobjectName
+grid
+AOinstanceNumber
+4
+AOTrMatrix
+1 0 1.86265e-08 0 
+0 1 0 0 
+-1.86265e-08 0 1 0 
+30 -12 9 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.3 0.5 0.7 0.9
+AOisOnFlag
+1
+DOsize
+1000 0 1000
+--------ENDCOLLECTOR--------
+COLLECTOR_
+surface
+OCisOnFlag
+0
+AOobjectName
+surface
+AOinstanceNumber
+5
+AOTrMatrix
+-0.998762 -0.04364 0.023754 0 
+-0.0216938 -0.0470902 -0.998651 0 
+0.0446988 -0.99793 0.0460849 0 
+51 75 21 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0 0.3 0.5 0.9
+AOisOnFlag
+1
+DOsize
+200 0 100
+--------ENDCOLLECTOR--------
+COLLECTOR_
+surface
+OCisOnFlag
+0
+AOobjectName
+surface
+AOinstanceNumber
+6
+AOTrMatrix
+0.156517 -0.00188205 0.987671 0 
+-0.986038 -0.0578099 0.156148 0 
+0.0568032 -0.998325 -0.010904 0 
+-522 81 -762 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.04 0.4 0.8 1
+AOisOnFlag
+1
+DOsize
+200 0 100
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOTrMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 -7.1078 0 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.764842 0 0 0.4
+AOisOnFlag
+1
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOTrMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 -7.12539 0 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.764842 0 0 0.4
+AOisOnFlag
+1
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOTrMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 -7.11225 0 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.764842 0 0 0.4
+AOisOnFlag
+1
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOTrMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 -7.22806 0 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.764842 0 0 0.4
+AOisOnFlag
+1
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOTrMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 -7.15743 0 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.764842 0 0 0.4
+AOisOnFlag
+1
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOTrMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 -7.20333 0 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.764842 0 0 0.4
+AOisOnFlag
+1
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+object1
+OCisOnFlag
+0
+AOobjectName
+object1
+AOinstanceNumber
+0
+AOTrMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+--------ENDCOLLECTOR--------

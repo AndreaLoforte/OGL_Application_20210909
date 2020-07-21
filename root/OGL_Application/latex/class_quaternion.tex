@@ -1,0 +1,166 @@
+\hypertarget{class_quaternion}{}\doxysection{Quaternion Class Reference}
+\label{class_quaternion}\index{Quaternion@{Quaternion}}
+
+
+{\ttfamily \#include $<$core.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_quaternion_abcc01358aada56ea5f0db4da18aaf77d}{Quaternion}} ()
+\item 
+\mbox{\hyperlink{class_quaternion_a99c610c31793a58fc284e0acd759b12f}{Quaternion}} (const \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{glcorearb_8h_abe08814c2f72843fde4d8df41440d5a0}{r}}, const \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_quaternion_add0a0d14a637f6c201fe5d1083635c59}{i}}, const \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_quaternion_a278770e721d4bef78799780c2fa751fb}{j}}, const \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_quaternion_aba5007145fef6f1a707026d679f6e4cd}{k}})
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_quaternion_abcb5d53d3312eca0f169d625f5d56dac}{normalise}} ()
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_quaternion_a7e558ca8b32ec49453064bae5c5d681c}{operator$\ast$=}} (const \mbox{\hyperlink{class_quaternion}{Quaternion}} \&multiplier)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_quaternion_a129a74ffd5d2088105275b90cb074800}{add\+Scaled\+Vector}} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&vector, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} scale)
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{class_quaternion_af1abc8138b2699428364492bc20f32d9}{rotate\+By\+Vector}} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&vector)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_quaternion_aecaa2cd74473fd2c8f3399080e6c621e}{r}}\\
+\>\>\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_quaternion_add0a0d14a637f6c201fe5d1083635c59}{i}}\\
+\>\>\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_quaternion_a278770e721d4bef78799780c2fa751fb}{j}}\\
+\>\>\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_quaternion_aba5007145fef6f1a707026d679f6e4cd}{k}}\\
+\>\} \\
+\>\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} \mbox{\hyperlink{class_quaternion_a58f70bd4ca88be9aca2e274ce8ae40e3}{data}} \mbox{[}4\mbox{]}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds a three degree of freedom orientation.
+
+Quaternions have several mathematical properties that make them useful for representing orientations, but require four items of data to hold the three degrees of freedom. These four items of data can be viewed as the coefficients of a complex number with three imaginary parts. The mathematics of the quaternion is then defined and is roughly correspondent to the math of 3D rotations. A quaternion is only a valid rotation if it is normalised\+: i.\+e. it has a length of 1.
+
+\begin{DoxyNote}{Note}
+Angular velocity and acceleration can be correctly represented as vectors. Quaternions are only needed for orientation. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_quaternion_abcc01358aada56ea5f0db4da18aaf77d}\label{class_quaternion_abcc01358aada56ea5f0db4da18aaf77d}} 
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The default constructor creates a quaternion representing a zero rotation. \mbox{\Hypertarget{class_quaternion_a99c610c31793a58fc284e0acd759b12f}\label{class_quaternion_a99c610c31793a58fc284e0acd759b12f}} 
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{r,  }\item[{const \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{i,  }\item[{const \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{j,  }\item[{const \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The explicit constructor creates a quaternion with the given components.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The real component of the rigid body\textquotesingle{}s orientation quaternion.\\
+\hline
+{\em i} & The first complex component of the rigid body\textquotesingle{}s orientation quaternion.\\
+\hline
+{\em j} & The second complex component of the rigid body\textquotesingle{}s orientation quaternion.\\
+\hline
+{\em k} & The third complex component of the rigid body\textquotesingle{}s orientation quaternion.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The given orientation does not need to be normalised, and can be zero. This function will not alter the given values, or normalise the quaternion. To normalise the quaternion (and make a zero quaternion a legal rotation), use the normalise function.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_quaternion_abcb5d53d3312eca0f169d625f5d56dac}{normalise}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_quaternion_a129a74ffd5d2088105275b90cb074800}\label{class_quaternion_a129a74ffd5d2088105275b90cb074800}} 
+\index{Quaternion@{Quaternion}!addScaledVector@{addScaledVector}}
+\index{addScaledVector@{addScaledVector}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{addScaledVector()}{addScaledVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Quaternion\+::add\+Scaled\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{vector,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds the given vector to this, scaled by the given amount. This is used to update the orientation quaternion by a rotation and time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The vector to add.\\
+\hline
+{\em scale} & The amount of the vector to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_quaternion_abcb5d53d3312eca0f169d625f5d56dac}\label{class_quaternion_abcb5d53d3312eca0f169d625f5d56dac}} 
+\index{Quaternion@{Quaternion}!normalise@{normalise}}
+\index{normalise@{normalise}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{normalise()}{normalise()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Quaternion\+::normalise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Normalises the quaternion to unit length, making it a valid orientation quaternion. \mbox{\Hypertarget{class_quaternion_a7e558ca8b32ec49453064bae5c5d681c}\label{class_quaternion_a7e558ca8b32ec49453064bae5c5d681c}} 
+\index{Quaternion@{Quaternion}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Quaternion\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_quaternion}{Quaternion}} \&}]{multiplier }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplies the quaternion by the given quaternion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em multiplier} & The quaternion by which to multiply. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_quaternion_af1abc8138b2699428364492bc20f32d9}\label{class_quaternion_af1abc8138b2699428364492bc20f32d9}} 
+\index{Quaternion@{Quaternion}!rotateByVector@{rotateByVector}}
+\index{rotateByVector@{rotateByVector}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{rotateByVector()}{rotateByVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} Quaternion\+::rotate\+By\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_quaternion_a3b6b7f0ee3567a9f586bf3ca3a63a2a9}\label{class_quaternion_a3b6b7f0ee3567a9f586bf3ca3a63a2a9}} 
+\doxysubsubsection{\texorpdfstring{"@8}{@8}}
+{\footnotesize\ttfamily union \{ ... \} }
+
+\mbox{\Hypertarget{class_quaternion_a58f70bd4ca88be9aca2e274ce8ae40e3}\label{class_quaternion_a58f70bd4ca88be9aca2e274ce8ae40e3}} 
+\index{Quaternion@{Quaternion}!data@{data}}
+\index{data@{data}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Quaternion\+::data\mbox{[}4\mbox{]}}
+
+Holds the quaternion data in array form. \mbox{\Hypertarget{class_quaternion_add0a0d14a637f6c201fe5d1083635c59}\label{class_quaternion_add0a0d14a637f6c201fe5d1083635c59}} 
+\index{Quaternion@{Quaternion}!i@{i}}
+\index{i@{i}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Quaternion\+::i}
+
+Holds the first complex component of the quaternion. \mbox{\Hypertarget{class_quaternion_a278770e721d4bef78799780c2fa751fb}\label{class_quaternion_a278770e721d4bef78799780c2fa751fb}} 
+\index{Quaternion@{Quaternion}!j@{j}}
+\index{j@{j}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{j}{j}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Quaternion\+::j}
+
+Holds the second complex component of the quaternion. \mbox{\Hypertarget{class_quaternion_aba5007145fef6f1a707026d679f6e4cd}\label{class_quaternion_aba5007145fef6f1a707026d679f6e4cd}} 
+\index{Quaternion@{Quaternion}!k@{k}}
+\index{k@{k}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{k}{k}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Quaternion\+::k}
+
+Holds the third complex component of the quaternion. \mbox{\Hypertarget{class_quaternion_aecaa2cd74473fd2c8f3399080e6c621e}\label{class_quaternion_aecaa2cd74473fd2c8f3399080e6c621e}} 
+\index{Quaternion@{Quaternion}!r@{r}}
+\index{r@{r}!Quaternion@{Quaternion}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} Quaternion\+::r}
+
+Holds the real component of the quaternion. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+H/\mbox{\hyperlink{core_8h}{core.\+h}}\end{DoxyCompactItemize}

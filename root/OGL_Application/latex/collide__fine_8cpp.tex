@@ -1,0 +1,43 @@
+\hypertarget{collide__fine_8cpp}{}\doxysection{src/\+P\+H\+Y\+S\+I\+C\+S\+\_\+\+S\+R\+C/collide\+\_\+fine.cpp File Reference}
+\label{collide__fine_8cpp}\index{src/PHYSICS\_SRC/collide\_fine.cpp@{src/PHYSICS\_SRC/collide\_fine.cpp}}
+{\ttfamily \#include $<$collide\+\_\+fine.\+h$>$}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{collide__fine_8cpp_ae70c1d8e843329f8fb34f0f663867ca0}{T\+E\+S\+T\+\_\+\+O\+V\+E\+R\+L\+AP}}(axis)~overlap\+On\+Axis(one, two, (axis), to\+Centre)
+\item 
+\#define \mbox{\hyperlink{collide__fine_8cpp_ac4320340a08f008015c5706a986c069a}{C\+H\+E\+C\+K\+\_\+\+O\+V\+E\+R\+L\+AP}}(axis,  \mbox{\hyperlink{glcorearb_8h_a57f14e05b1900f16a2da82ade47d0c6d}{index}})~if (!try\+Axis(one, two, (axis), to\+Centre, (\mbox{\hyperlink{glcorearb_8h_a57f14e05b1900f16a2da82ade47d0c6d}{index}}), pen, best)) return 0;
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} \mbox{\hyperlink{collide__fine_8cpp_a659995202ec30c58d87f7a726fe2c571}{fill\+Point\+Face\+Box\+Box}} (const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&one, const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&two, const \mbox{\hyperlink{class_vector3}{Vector3}} \&to\+Centre, \mbox{\hyperlink{struct_collision_data}{Collision\+Data}} $\ast$\mbox{\hyperlink{glcorearb_8h_a77bef421a06300ba60fc8c18453bcaef}{data}}, unsigned best, \mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}} pen)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{collide__fine_8cpp_ac4320340a08f008015c5706a986c069a}\label{collide__fine_8cpp_ac4320340a08f008015c5706a986c069a}} 
+\index{collide\_fine.cpp@{collide\_fine.cpp}!CHECK\_OVERLAP@{CHECK\_OVERLAP}}
+\index{CHECK\_OVERLAP@{CHECK\_OVERLAP}!collide\_fine.cpp@{collide\_fine.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK\_OVERLAP}{CHECK\_OVERLAP}}
+{\footnotesize\ttfamily \#define C\+H\+E\+C\+K\+\_\+\+O\+V\+E\+R\+L\+AP(\begin{DoxyParamCaption}\item[{}]{axis,  }\item[{}]{\mbox{\hyperlink{glcorearb_8h_a57f14e05b1900f16a2da82ade47d0c6d}{index}} }\end{DoxyParamCaption})~if (!try\+Axis(one, two, (axis), to\+Centre, (\mbox{\hyperlink{glcorearb_8h_a57f14e05b1900f16a2da82ade47d0c6d}{index}}), pen, best)) return 0;}
+
+\mbox{\Hypertarget{collide__fine_8cpp_ae70c1d8e843329f8fb34f0f663867ca0}\label{collide__fine_8cpp_ae70c1d8e843329f8fb34f0f663867ca0}} 
+\index{collide\_fine.cpp@{collide\_fine.cpp}!TEST\_OVERLAP@{TEST\_OVERLAP}}
+\index{TEST\_OVERLAP@{TEST\_OVERLAP}!collide\_fine.cpp@{collide\_fine.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_OVERLAP}{TEST\_OVERLAP}}
+{\footnotesize\ttfamily \#define T\+E\+S\+T\+\_\+\+O\+V\+E\+R\+L\+AP(\begin{DoxyParamCaption}\item[{}]{axis }\end{DoxyParamCaption})~overlap\+On\+Axis(one, two, (axis), to\+Centre)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{collide__fine_8cpp_a659995202ec30c58d87f7a726fe2c571}\label{collide__fine_8cpp_a659995202ec30c58d87f7a726fe2c571}} 
+\index{collide\_fine.cpp@{collide\_fine.cpp}!fillPointFaceBoxBox@{fillPointFaceBoxBox}}
+\index{fillPointFaceBoxBox@{fillPointFaceBoxBox}!collide\_fine.cpp@{collide\_fine.cpp}}
+\doxysubsubsection{\texorpdfstring{fillPointFaceBoxBox()}{fillPointFaceBoxBox()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{glcorearb_8h_a950fc91edb4504f62f1c577bf4727c29}{void}} fill\+Point\+Face\+Box\+Box (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&}]{one,  }\item[{const \mbox{\hyperlink{class_collision_box}{Collision\+Box}} \&}]{two,  }\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{to\+Centre,  }\item[{\mbox{\hyperlink{struct_collision_data}{Collision\+Data}} $\ast$}]{data,  }\item[{unsigned}]{best,  }\item[{\mbox{\hyperlink{precision_8h_a11d147c64891830c9e79b3315b1b2e21}{real}}}]{pen }\end{DoxyParamCaption})}
+
