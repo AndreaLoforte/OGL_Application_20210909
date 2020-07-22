@@ -153,42 +153,82 @@ namespace saveloadNS {
 	
 
 
+	//CameraSavings::CameraSavings(ifstream& in)
+	//{
+
+	//	
+	//	if (in.is_open())
+	//	{
+	//		in.seekg(0);
+	//		while (!in.eof() && (std::fpos_t/*casting is needed to avoid ambiguous operator !=*/)in.tellg()>=0)
+	//		{
+	//			getline(in, s);
+	//			std::fpos_t cursor_pos = in.tellg();
+	//			size_t lineLength = s.length();
+	//			std::fpos_t line_beg = cursor_pos - lineLength - 2; //2 extra char "\n"
+	//			fileMap.insert(s, line_beg);
+	//			in.seekg(cursor_pos + lineLength);
+	//		}
+
+	//		totalLines = fileMap.getSize();
+
+	//		countChar();
+	//		if (totalChars == 0)
+	//		{
+	//			FileIsEmpty = true;
+	//			return;
+	//		}
+
+
+	//		countChar();
+	//		
+	//		setAllCameraMap();
+	//		
+	//		loadCameraMapsIntoDataStructure();
+
+	//	}
+
+
+	//}
+
+
+
 	CameraSavings::CameraSavings(ifstream& in)
 	{
 
+		std::size_t cursorpos = 0;
 		if (in.is_open())
 		{
-			while (!in.eof() && in.tellg() != -1)
+			in.seekg(cursorpos);
+			while (!in.eof())
 			{
 				getline(in, s);
-				size_t cursor_pos = in.tellg();
+				//in.seekg(0)
+				
 				size_t lineLength = s.length();
-				size_t line_beg = cursor_pos - lineLength - 2; //2 extra char "\n"
+				cursorpos += lineLength+2;//2 extra char "\n"
+				std::size_t line_beg = cursorpos - lineLength - 2; //2 extra char "\n"
 				fileMap.insert(s, line_beg);
-
+				//in.seekg(cursorpos + lineLength);
 			}
 
 			totalLines = fileMap.getSize();
 
-			countChar();
-			if (totalChars == 0)
+			
+			if (fileMap.getCharNumber() == 0)
 			{
 				FileIsEmpty = true;
 				return;
 			}
 
-
-			countChar();
-			
 			setAllCameraMap();
-			
+
 			loadCameraMapsIntoDataStructure();
 
 		}
 
 
 	}
-
 
 
 

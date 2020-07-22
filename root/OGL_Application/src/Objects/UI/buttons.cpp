@@ -214,6 +214,7 @@ namespace uiNS {
 		if (action == GLFW_RELEASE) return;
 
 		string buttonID = UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y);
+		if (buttonID == "CLICK_NO_BUTTON") return;
 		if (buttonID == ButtonMap::BACKBUTTON)
 		{
 			ButtonInterface*b = ButtonMap::getButtonByID({ buttonID });

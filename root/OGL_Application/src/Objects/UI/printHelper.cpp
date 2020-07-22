@@ -79,28 +79,29 @@ namespace textRendererNS {
 
 	}
 
-	void PrintHelper::initBuffer() {
-
-		
-		GLfloat vertices[6][4];
-		for (int i = 0; i < VBO_size; i++)
-		{
-			glNamedBufferStorage(VBO[i], sizeof(vertices), vertices, GL_DYNAMIC_STORAGE_BIT);
-		}
-	}
-
+	
+	/*static attribute of the class*/
 	GLuint PrintHelper::classVBBI = 0;
 
 	void PrintHelper::create() 
 	{
 		VBO = new GLuint;
 		VBO_size = 1;
-		glCreateBuffers(VBO_size, &VBO[0]);
+		glGenBuffers(VBO_size, &VBO[0]);
 		initBuffer();
 		glGenVertexArrays(1, &VAO);
 		instanceVBBI = classVBBI;
 		classVBBI++;
 	}
 
+	void PrintHelper::initBuffer() {
+
+
+		GLfloat vertices[6][4];
+		for (int i = 0; i < VBO_size; i++)
+		{
+			glNamedBufferStorage(VBO[i], sizeof(vertices), vertices, GL_DYNAMIC_STORAGE_BIT);
+		}
+	}
 
 }

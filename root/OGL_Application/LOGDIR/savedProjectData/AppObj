@@ -82,7 +82,7 @@ AOTrMatrix
 1 0 0 0 
 0 1 0 0 
 0 0 1 0 
-0 -7.1078 0 1 
+0 -7.10357 0 1 
 AOposition
 0 0 0
 AOorientation
@@ -106,7 +106,7 @@ AOTrMatrix
 1 0 0 0 
 0 1 0 0 
 0 0 1 0 
-0 -7.12539 0 1 
+0 -7.14179 0 1 
 AOposition
 0 0 0
 AOorientation
@@ -130,7 +130,7 @@ AOTrMatrix
 1 0 0 0 
 0 1 0 0 
 0 0 1 0 
-0 -7.11225 0 1 
+0 -5796.95 0 1 
 AOposition
 0 0 0
 AOorientation
@@ -154,7 +154,7 @@ AOTrMatrix
 1 0 0 0 
 0 1 0 0 
 0 0 1 0 
-0 -7.22806 0 1 
+0 -7.15719 0 1 
 AOposition
 0 0 0
 AOorientation
@@ -178,7 +178,7 @@ AOTrMatrix
 1 0 0 0 
 0 1 0 0 
 0 0 1 0 
-0 -7.15743 0 1 
+0 -7.11948 0 1 
 AOposition
 0 0 0
 AOorientation
@@ -202,7 +202,7 @@ AOTrMatrix
 1 0 0 0 
 0 1 0 0 
 0 0 1 0 
-0 -7.20333 0 1 
+0 -7.12232 0 1 
 AOposition
 0 0 0
 AOorientation
@@ -234,5 +234,29 @@ AOorientation
 AOcolor
 0.5 0.5 0.5 0.5
 AOisOnFlag
+0
+--------ENDCOLLECTOR--------
+COLLECTOR_
+playercharacter
+OCisOnFlag
+0
+AOobjectName
+playercharacter
+AOinstanceNumber
+0
+AOTrMatrix
+-0.746841 -0.17193 0.642393 0 
+-0.658855 0.322345 -0.679708 0 
+-0.0902104 -0.930878 -0.354018 0 
+947.729 5 -877.626 1 
+AOposition
+947.729 5 -877.626
+AOorientation
+-0.235316 -0.266853 0.778346 -0.517329
+AOcolor
+0 0.764842 0.764842 0.8
+AOisOnFlag
 1
+DOsize
+5
 --------ENDCOLLECTOR--------

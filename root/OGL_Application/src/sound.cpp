@@ -15,7 +15,7 @@ namespace soundNS {
 	static const string rumRogers_soundtrack_filename = "RumRogersCottage_edited.ogg";
 
 	map<CollisionPair, string> soundMap::collisionSoundMap;
-	textRendererNS::PrintHelper soundMap::ph{ "soundMap",-0.9,-0.5 };
+	textRendererNS::PrintHelper soundMap::ph{ "soundMap",-0.9f,-0.5f };
 
 
 	irrklang::ISoundEngine* soundMap::engine = irrklang::createIrrKlangDevice();

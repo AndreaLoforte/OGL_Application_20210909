@@ -252,7 +252,7 @@ namespace saveloadNS {
 
 		if (in.is_open())
 		{
-			while (!in.eof() && in.tellg() != -1)
+			while (!in.eof() && (int/*casting is needed to avoid ambiguous operator !=*/)in.tellg() != -1)
 			{
 				getline(in, s);
 				size_t cursor_pos = in.tellg();
@@ -264,15 +264,15 @@ namespace saveloadNS {
 
 			totalLines = fileMap.getSize();
 
-			countChar();
-			if (totalChars == 0)
+			
+			if (fileMap.getCharNumber() == 0)
 			{
 				FileIsEmpty = true;
 				return;
 			}
 
 
-			countChar();
+			
 			setAllCollectorsMap();
 			loadCollectorMapsIntoDataStructure();
 

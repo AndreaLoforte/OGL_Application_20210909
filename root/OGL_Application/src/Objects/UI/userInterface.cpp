@@ -11,7 +11,7 @@ namespace uiNS {
 	double UserInterface::cursor_x, UserInterface::cursor_y;
 	vector<ButtonInterface*> UserInterface::buttonFlow;
 	StartButton* UserInterface::start;
-	textRendererNS::PrintHelper UserInterface::ph{ "uiInterface",-0.9,0.9 };
+	textRendererNS::PrintHelper UserInterface::ph{ "uiInterface",-0.9f,0.9f};
 
 
 

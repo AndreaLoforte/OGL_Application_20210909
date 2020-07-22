@@ -20,14 +20,14 @@ namespace saveloadNS {
 	of the file, with information of the cursor position
 	for each row (cursor position depends on number of chars in the line)*/
 	class FileMap {
-
+	public:
 		/*collect each line of the file*/
 		vector<string> fileLines;
 		/*for each line, collect the 
 		respective cursor position*/
-		vector<size_t> filePos;
+		vector<std::fpos_t> filePos;
 		unsigned size = 0;
-	public:
+		unsigned charnumber = 0;
 		void insert(string s, size_t pos);
 
 		/*get the i-th line in the file*/
@@ -36,7 +36,12 @@ namespace saveloadNS {
 		size_t getPos(unsigned i);
 		/*get the map size*/
 		unsigned& getSize();
-
+		unsigned& getCharNumber()
+		{
+			for (int i = 0; i < fileLines.size(); i++)
+				charnumber += fileLines[i].length();
+			return charnumber;
+		}
 		/*funzione che ritorna tutte le stringhe della 
 		mappa contenute dentro il range specificato*/
 		vector<string> getContentInRange(size_t, size_t);
@@ -91,28 +96,7 @@ namespace saveloadNS {
 
 
 
-	class FileHelper {
-		
-		/*fileMap , maps the entire file*/
-		FileMap fileMap;
-		string s;
-		unsigned totalLines = 0;
-		unsigned totalChars = 0;
-
-
-	public:
-		FileHelper(){}
-		FileHelper(ifstream& in);
-		bool FileIsEmpty = false;
-		void countChar();
-		virtual unsigned getTotalLines() { return totalLines; }
-		virtual unsigned& getTotalChars() { return totalChars; }
-		void writeFile(ofstream &out);
-
-		void printCollectors();
-		
-
-	};
+	class FileHelper {};
 
 
 
@@ -191,10 +175,8 @@ namespace saveloadNS {
 
 		/*fileMap , maps the entire file*/
 		FileMap fileMap;
-		string s;
-		unsigned totalLines = 0;
-		unsigned totalChars = 0;
-
+		string s = "";
+		
 		/*following map are specific for
 		object or parameters inside object*/
 	
@@ -209,11 +191,14 @@ namespace saveloadNS {
 		vector<CameraDataStructure> cameras;
 
 	public:
+		unsigned totalLines = 0;
+		unsigned totalChars = 0;
+		
 
 		CameraSavings(ifstream& in);
 		bool FileIsEmpty = false;
-		unsigned getTotalLines() override { return totalLines; }
-		unsigned& getTotalChars() override{ return totalChars; }
+		unsigned getTotalLines()  { return fileMap.fileLines.size(); }
+		unsigned& getTotalChars() { return totalChars; }
 	
 		vector<CameraDataStructure>* getCameras() { return &cameras; }
 		/*il metodo setAllCameraMap carica tutte

@@ -54,6 +54,8 @@ namespace textRendererNS {
 		}
 
 		glUseProgram(shader_prog);
+		/*do not bind same VAO multiple time !*/
+		glBindVertexArray(ph.VAO);
 
 		static GLint textSampler_loc = glGetUniformLocation(shader_prog, "textSampler");//fragment
 		static GLint textcolor_loc = glGetUniformLocation(shader_prog, "textColor");//fragment
@@ -133,23 +135,24 @@ namespace textRendererNS {
 
 				// Update content of VBO memory					
 				glBindBuffer(GL_ARRAY_BUFFER, ph.VBO[buffer_index]);
-				glNamedBufferSubData(ph.VBO[buffer_index], 0, sizeof(vertices), vertices);
+				glNamedBufferSubData(ph.VBO[buffer_index], 0/*offset*/, sizeof(vertices), vertices);
+				
 
 				glVertexArrayAttribBinding(ph.VAO, vertex_loc, ph.instanceVBBI);
 				glVertexArrayVertexBuffer(ph.VAO, ph.instanceVBBI, ph.VBO[buffer_index], 0 /*offset*/, sizeof(GLfloat) * 4);
-				glVertexArrayAttribFormat(ph.VAO, vertex_loc, 4/*num coord per vert*/, GL_FLOAT, GL_FALSE, 0);
+				glVertexArrayAttribFormat(ph.VAO, vertex_loc, 4/*num coord per vert*/, GL_FLOAT, GL_FALSE, 0/*relative offset*/);
 
 				glActiveTexture(GL_TEXTURE0);
 				glBindTexture(GL_TEXTURE_2D, ch.TextureID);
-				glBindVertexArray(ph.VAO);
+				
 				glEnableVertexArrayAttrib(ph.VAO, vertex_loc);
 
 
 
 				glUniform1i(textSampler_loc, 0);
-				
+
 				glUniform1f(char_advance_loc, integral_x_advance);
-			
+
 				glUniform2fv(xy_offset_loc, 1, xy_offset);
 
 				glDrawArrays(GL_TRIANGLES, 0, 6);
@@ -161,17 +164,9 @@ namespace textRendererNS {
 				integral_x_advance += x_advance;
 
 				buffer_index++;
-				//ph.incrementBufferIndex();
-				
-
 			}
-			glDisableVertexArrayAttrib(ph.VAO, vertex_loc);
-			
-			
-			//ph.mapIDbutton_button.setButtonFrame(text_frame);
 		}
-		
-
+		glDisableVertexArrayAttrib(ph.VAO, vertex_loc);
 	}
 
 	void TextRenderer::printMatrix44(std::string& out, vmath::mat4& matrix, std::string matrixName) {
@@ -207,7 +202,7 @@ namespace textRendererNS {
 
 		setShaders();
 		
-		Load("C:/Users/aloforte/source/repos/OGL_Application/root/OGL_Application/DEPENDENCIES/arial.ttf", 1);
+		Load("./root/OGL_Application/DEPENDENCIES/arial.ttf", 1);
 
 		for (int i = 0; i < printList.size(); i++)
 			printList[i]->create();

@@ -23,7 +23,7 @@ namespace textRendererNS {
 		~PrintHelper() {
 			delete[] VBO;
 		}
-		float color_text[4]{ 0.3,0.6,0.8,1.0 };
+		float color_text[4]{ 0.3f,0.6f,0.8f,1.0f };
 
 		ButtonsList mapIDbutton_button;
 
@@ -32,7 +32,7 @@ namespace textRendererNS {
 		GLuint VAO;
 		GLuint *VBO;
 		static GLuint classVBBI;
-		GLuint instanceVBBI;
+		GLuint instanceVBBI; 
 		size_t buffer_index = 0;
 
 

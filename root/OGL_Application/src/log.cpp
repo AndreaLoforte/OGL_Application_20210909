@@ -27,7 +27,7 @@ namespace logNS {
 
 
 	std::string Logger::LOGDIR{ Application::getApplicationRootDir() + "/root/OGL_Application/LOGDIR/" };
-	std::string Logger::STOREDDATADIR{ LOGDIR + "/savedProjectData/" };
+	std::string Logger::STOREDDATADIR{ LOGDIR + "savedProjectData/" };
 	std::vector<std::string> Logger::files_fullpath{ LOGDIR };
 	std::vector<std::string> Logger::log_list;
 	bool Logger::FIRST_LOG_ACCESS = true;

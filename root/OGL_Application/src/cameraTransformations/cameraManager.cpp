@@ -51,8 +51,11 @@ namespace fpcameraNS {
 			cameraList.push_back(new PanoramicCamera());
 		};
 
-		std::ifstream in(logNS::Logger::STOREDDATADIR + TAG_OBJECT_CAMERA);
+		
+		std::string dir(logNS::Logger::STOREDDATADIR + TAG_OBJECT_CAMERA);
+		std::ifstream in(dir);
 		saveloadNS::CameraSavings fh(in);
+
 
 		if (!fh.FileIsEmpty)
 		{

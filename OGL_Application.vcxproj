@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -71,11 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\root\OGL_Application\include\SB7\GLFW;.\root\OGL_Application\include\SB7;.\root\OGL_Application\include\PHYSICS_H;.\root\OGL_Application\include\DRAWING_H;.\root\OGL_Application\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\root\OGL_Application\include\SB7\GLFW;.\root\OGL_Application\include\SB7;.\root\OGL_Application\include\PHYSICS_H;.\root\OGL_Application\include\ApplicationObject;.\root\OGL_Application\include\cameraTransformations;.\root\OGL_Application\include\Objects;.\root\OGL_Application\include\;.\root\OGL_Application\include\Objects\UI;.\root\OGL_Application\include\Objects\characters;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\cameraTransformations;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\ApplicationObject;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects\UI;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects\characters;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\bin\winx64-visualStudio;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio\;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;.\root\OGL_Application\DEPENDENCIES\SB7\;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;$(LibraryPath)</LibraryPath>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -84,7 +85,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;glfw3dll.lib;freetype.lib;glew32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\bin\winx64-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -92,19 +98,19 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(IncludePath)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H\AdvancedPhysics;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\include\GLFW;.\root\OGL_Application\DEPENDENCIES\SB7;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\root\OGL_Application\include\;.\root\OGL_Application\include\cameraTransformations;.\root\OGL_Application\include\ApplicationObject;.\root\OGL_Application\include\Objects;.\root\OGL_Application\include\Objects\UI;.\root\OGL_Application\include\Objects\characters;.\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ShowIncludes>true</ShowIncludes>
-      <AdditionalOptions>/I".\root\OGL_Application\include" 
-/I".\root\OGL_Application\include\PHYSICS_H"
-/I".\root\OGL_Application\include\SB7"
-/I".\root\OGL_Application\include\SB7\GLFW" /I".\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include"
- /wd4996 %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
     <Link>
       <AdditionalDependencies>opengl32.lib;glfw3dll.lib;freetype.lib;glew32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\bin\winx64-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
