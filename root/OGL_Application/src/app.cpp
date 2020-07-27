@@ -6,9 +6,15 @@
 #include<fstream>
 
 std::string App::projectDataFileName{ "AppObj" };
-bool App::paused = false;
+
+textRendererNS::PrintHelper App::ph{ "App" };
+
+
 
 void App::switchPhysics() {}
+
+
+
 
 std::string App::getNewProjectDataFilename()
 {
@@ -109,7 +115,7 @@ void App::update(){
 	fpcameraNS::CameraManager::update();
 	userInterface.update();
 
-	if (!paused)
+	if (!UserInterface::paused)
 	{
 		TimingData::update();
 		globalNS::DURATION = 0.1;// TimingData::get().lastFrameDuration * 0.005f;

@@ -78,7 +78,7 @@ namespace aiNS {
 	void myfirstIA::follow(collectorNS::ActiveObject* obj,collectorNS::ActiveObject* target)
 	{
 		if (!target) return;
-		if (!AIon || !obj->isOn || !target->isAlive) return;
+		if (!AIon || !obj->isOn ||!target->isOn || !target->isAlive) return;
 		static float i = 0.0;
 		static const int M = 10;
 
@@ -100,7 +100,8 @@ namespace aiNS {
 		//la uso per settare la posizione AOposition che passerò poi a gun come firespot
 		mybody->setPosition(mymathlibNS::conversionLibrary::cycloneVec3TostdArray(myposition));
 		std::array<float, 3> distance_v
-		{ targetpos[0] - myposition[0] ,
+		{ 
+			targetpos[0] - myposition[0] ,
 			targetpos[1] - myposition[1] ,
 			targetpos[2] - myposition[2]
 		};
@@ -230,7 +231,7 @@ namespace aiNS {
 		const unsigned& repFreq,
 		myobjectNS::OCGun& gun)
 	{
-		if (!AIon || !obj->isOn || target->isOn || !target->isAlive) return;
+		if (!AIon || !obj->isOn || !target->isOn || !target->isAlive) return;
 
 		if (targetDistanceNorm > activationDistance)
 			return;

@@ -36,12 +36,11 @@
 		static void loadProjectData(string);
 		
 	public:
-		App() {
-		}
+		App() {}
 		~App() {}
 
 		textRendererNS::TextRenderer textRenderer{ "text" };
-		textRendererNS::PrintHelper ph{ "App" };
+		static textRendererNS::PrintHelper ph;
 
 		void render(double);
 		void startup();
@@ -54,25 +53,8 @@
 		static void SaveProjectData(string);//static perchè richiamata da controls che non ha istanze di app.
 
 		static std::string projectDataFileName;
-		static bool paused;
 		static std::string getNewProjectDataFilename();
 		static std::string switchProjectDataFile();
-		void pause()
-		{
-		
-			if (paused)
-			{
-				paused = false;
-				ph.eraseFromMap("PAUSED");
-			}
-			else
-			{
-				ph.mapNewString("PAUSED",
-					textRendererNS::NEWLINE4+ textRendererNS::TAB16);
-				paused = true;
-			}
-				
-		}
 		logNS::Logger log;
 	};
 

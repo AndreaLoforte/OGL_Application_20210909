@@ -56,6 +56,7 @@ namespace uiNS {
 	{
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
+		UserInterface::paused = true;
 
 		auto L_key_callbackControl = [](GLFWwindow* w, int key, int scancode, int action, int mods)
 		{
@@ -284,7 +285,9 @@ namespace uiNS {
 	void ControlModeButton::action()
 	{
 		UserInterface::deleteButtonsByBranch(ButtonMap::STARTINGBUTTON);
-	
+		UserInterface::paused = false;
+
+
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		auto L_key_callbackControl = [](GLFWwindow* w, int key, int scancode, int action, int mods)
 		{

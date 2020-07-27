@@ -19,9 +19,10 @@ namespace uiNS {
 		static StartButton* start;
 		static vector<ButtonInterface*> buttonFlow;
 		static double cursor_x, cursor_y;
-
+		static bool paused;
 		UserInterface(InputsNS::Controls * c);
 		void init();
+		static void pause();
 		static std::string cursorVStext(const double& x, const double& y);
 		/*void cursorButtonCallBack(GLFWwindow*, int, int, int);
 		void cursorPositionCallBack(GLFWwindow*, double, double);*/

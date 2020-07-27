@@ -79,59 +79,60 @@ namespace InputsNS{
 		}
 
 	
-			switch (key) {
-			case GLFW_KEY_INSERT:
-			{
-				ph.eraseFromMap("CONTROLMODE");
-				mode = 1;
-				setAllCallbackFunction(Application::window);
-			}
+		switch (key) 
+		{
+		case GLFW_KEY_INSERT:
+		{
+			ph.eraseFromMap("CONTROLMODE");
+			mode = 1;
+			setAllCallbackFunction(Application::window);
+		}
+		break;
+		case GLFW_KEY_P:
+			UserInterface::pause();
 			break;
-			case GLFW_KEY_P:
-				//App.pause();
-				break;
-			case GLFW_KEY_W:
-				fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
-				break;
-			case GLFW_KEY_C:
-				fpcameraNS::CameraManager::switchCamera();
-				break;
-			case GLFW_KEY_S:
-				fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
-				break;
-			case GLFW_KEY_D:
-				fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
-				break;
-			case GLFW_KEY_A:
-				fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
-				break;
+		case GLFW_KEY_W:
+			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
+			break;
+		case GLFW_KEY_C:
+			fpcameraNS::CameraManager::switchCamera();
+			break;
+		case GLFW_KEY_S:
+			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
+			break;
+		case GLFW_KEY_D:
+			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
+			break;
+		case GLFW_KEY_A:
+			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
+			break;
 
-			case GLFW_KEY_UP:
-				fpcameraNS::CameraManager::getActiveCameraLH().rotXccw();
-				break;
-			case GLFW_KEY_DOWN:
-				fpcameraNS::CameraManager::getActiveCameraLH().rotXcw();
-				break;
-			case GLFW_KEY_RIGHT:
-				fpcameraNS::CameraManager::getActiveCameraLH().rotYcw();
-				break;
-			case GLFW_KEY_LEFT:
-				fpcameraNS::CameraManager::getActiveCameraLH().rotYccw();
-				break;
-			case GLFW_KEY_1:
-				fpcameraNS::CameraManager::getActiveCameraLH().moveUp();
-				break;
-			case GLFW_KEY_2:
-				fpcameraNS::CameraManager::getActiveCameraLH().moveDown();
-				break;
-			case GLFW_KEY_R:
-				app_pt->resetAll();
-				break;
-			case GLFW_KEY_I:
-				fpcameraNS::CameraManager::switchPrintInfos();
-				break;
+		case GLFW_KEY_UP:
+			fpcameraNS::CameraManager::getActiveCameraLH().rotXccw();
+			break;
+		case GLFW_KEY_DOWN:
+			fpcameraNS::CameraManager::getActiveCameraLH().rotXcw();
+			break;
+		case GLFW_KEY_RIGHT:
+			fpcameraNS::CameraManager::getActiveCameraLH().rotYcw();
+			break;
+		case GLFW_KEY_LEFT:
+			fpcameraNS::CameraManager::getActiveCameraLH().rotYccw();
+			break;
+		case GLFW_KEY_1:
+			fpcameraNS::CameraManager::getActiveCameraLH().moveUp();
+			break;
+		case GLFW_KEY_2:
+			fpcameraNS::CameraManager::getActiveCameraLH().moveDown();
+			break;
+		case GLFW_KEY_R:
+			app_pt->resetAll();
+			break;
+		case GLFW_KEY_I:
+			fpcameraNS::CameraManager::switchPrintInfos();
+			break;
 
-			}//switch
+		}//switch
 
 	}//Controls::key_callback
 

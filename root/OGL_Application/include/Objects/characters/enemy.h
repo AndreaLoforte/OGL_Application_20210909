@@ -73,7 +73,7 @@ namespace myobjectNS {
 		Enemy enemy{ "enemy" };
 		/*brain must be initialized after enemy otherwise
 		its constructor will throw exception when using enemy methods*/
-		aiNS::myfirstIA brain{ myobjectNS::PlayerCharacterOC::getPlayer() };
+		aiNS::myfirstIA brain{ this };
 		
 		//collettore da costruire passandogli un contenitore
 		OCGun gun{ &enemycoll };

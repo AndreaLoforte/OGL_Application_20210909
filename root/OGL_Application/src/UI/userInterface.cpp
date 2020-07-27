@@ -11,9 +11,10 @@ namespace uiNS {
 	double UserInterface::cursor_x, UserInterface::cursor_y;
 	vector<ButtonInterface*> UserInterface::buttonFlow;
 	StartButton* UserInterface::start;
+	bool UserInterface::paused{ true };
 	textRendererNS::PrintHelper UserInterface::ph{ "uiInterface",-0.9f,0.9f};
 	InputsNS::Controls* UserInterface::control;
-
+	
 
 	void UserInterface::printExistingObjects()
 	{
@@ -86,6 +87,26 @@ namespace uiNS {
 			getParentButton()->getButtonID(),
 			b->getButtonID(),
 			b->getButtonID());
+
+	}
+
+
+
+
+	void UserInterface::pause()
+	{
+
+		if (paused)
+		{
+			paused = false;
+			UserInterface::ph.eraseFromMap("PAUSED");
+
+		}
+		else
+		{
+			UserInterface::mapButtonOnParentBranch("PAUSED", "PAUSE");
+			paused = true;
+		}
 
 	}
 
