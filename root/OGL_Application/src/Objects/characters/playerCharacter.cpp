@@ -224,7 +224,6 @@ namespace myobjectNS {
 		{
 			main = new PlayerCharacterOC();
 			mainIsSet = true;
-			isAlive = true;
 			InputsNS::Controls::setPlayer(this);
 			return main;
 		}

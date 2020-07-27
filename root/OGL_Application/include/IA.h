@@ -60,7 +60,7 @@ namespace aiNS {
 			myRB = mybody->getRB();
 			myposition = myRB->position;
 		}
-		myfirstIA(myobjectNS::PlayerCharacterOC* tgt):target(tgt) {}
+
 		/*funzione che impone all'oggetto passato di seguire il mainCharacter*/
 		void follow(myobjectNS::ApplicationObject*, myobjectNS::ApplicationObject*, const float& distance);
 		void follow(collectorNS::ActiveObject* obj, collectorNS::ActiveObject* target);

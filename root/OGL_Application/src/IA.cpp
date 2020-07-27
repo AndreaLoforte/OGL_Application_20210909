@@ -230,10 +230,7 @@ namespace aiNS {
 		const unsigned& repFreq,
 		myobjectNS::OCGun& gun)
 	{
-		if (!AIon || !obj->isOn || !target->isAlive) return;
-
-		
-
+		if (!AIon || !obj->isOn || target->isOn || !target->isAlive) return;
 
 		if (targetDistanceNorm > activationDistance)
 			return;
