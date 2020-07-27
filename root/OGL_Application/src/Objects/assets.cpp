@@ -34,7 +34,7 @@ namespace AssetNS {
 
 	void Assets::init() {
 
-		//OGGETTI DA CUI COSTRUISCO COLLETTORI
+		//OGGETTI DA CUI COSTRUISCO COLLETTOR
 
 
 		//assetAOList.push_back(new myobjectNS::Particle("particle"));
