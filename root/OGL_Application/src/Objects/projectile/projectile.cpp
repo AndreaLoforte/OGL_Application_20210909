@@ -10,15 +10,14 @@ namespace myobjectNS{
 
 	void Projectile::render(const fpcameraNS::Transformation& cam)
 	{
-		
+		glBindVertexArray(VAO);
 		glUseProgram(shader_prog);
-		glVertexAttrib1f(3, radius);
-
-		//glUniformMatrix4fv(2, 1, GL_FALSE, cam.inverseM);
 		glUniformMatrix4fv(2, 1, GL_FALSE, AOTrMatrix);
 		glUniformMatrix4fv(1, 1, GL_FALSE, cam.getPlayerCamera());
 		glPointSize(3.0);
 		glDrawArrays(GL_POINTS, 0, 700);
+		glBindVertexArray(0);
+
 
 	}
 
@@ -62,9 +61,9 @@ void Projectile::shoot(const std::array<float,3>& fireSpot,const std::array<floa
 	body->getGLTransform(AOTrMatrix);
 
 
-	velocity[0] = direction[0] * vel_module;
-	velocity[1] = direction[1] * vel_module;
-	velocity[2] = direction[2] * vel_module;
+	velocity[0] =direction[0] * vel_module;
+	velocity[1] =direction[1] * vel_module;
+	velocity[2] =direction[2] * vel_module;
 
 	body->setLinearDamping(1.0);
 	body->setAngularDamping(0.0);
@@ -114,14 +113,14 @@ void Projectile::setRigidBodyParameters() {
  
 
 void Projectile::create() {
-	//static bool created = false;
-	
-	/*buildo lo shader solo una volta!!*/
-	//if (!created)
-	{
+
 		setShaders();
-		//created = true;
-	}
+		
+		glCreateVertexArrays(1, &VAO);
+		glBindVertexArray(VAO);
+		glVertexAttrib1f(3, radius);
+
+
 }
 
 

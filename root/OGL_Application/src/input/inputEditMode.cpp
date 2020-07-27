@@ -58,7 +58,7 @@ namespace InputsNS{
 		{
 			if (key == GLFW_KEY_1)
 			{
-				textRendererNS::TextRenderer::printExistingObject("DELETE");
+				UserInterface::printExistingObjects();
 				objectlist = true;
 				chooseDelete = true;
 				return;
@@ -66,7 +66,7 @@ namespace InputsNS{
 			}
 			if (key == GLFW_KEY_2)
 			{
-				textRendererNS::TextRenderer::printAssetObjectList("CREATE");
+				UserInterface::printAssetObjectsList();
 				objectlist = true;
 				chooseCreate = true;
 				return;

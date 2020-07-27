@@ -12,7 +12,7 @@ namespace myobjectNS{
   class Projectile final :public ObjectSphere, public BaseObject{
 	  friend class myphysicsNS::CollisorePolimorfo;
 	  friend class Gun;
-	  GLuint vao;
+	  GLuint VAO;
 	  vmath::mat4 tr_m;
 	  GLfloat position[3]{ 0.0,0.0,0.0 };
 	  mymathlibNS::Quaternion orientation;

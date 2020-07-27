@@ -18,12 +18,13 @@
 
 namespace myobjectNS{
 
-	static const string SHADERSROOTDIR = "/root/OGL_Application/src/Objects/Shaders/";
+	static const string SHADERSROOTDIR = "/root/OGL_Application/src/Objects/";
 	static const string VERTEXSHADERSEXT = ".vert";
 	static const string FRAGMENTSHADERSEXT = ".frag";
 
 	class BaseObject {
-	public:		
+	public:
+		GLuint VAO;
 		GLuint shader_prog;
 		std::string shader_prog_name;
 		shaderManagerNS::ShaderManager smanager;

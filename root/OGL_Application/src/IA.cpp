@@ -13,7 +13,7 @@ namespace aiNS {
 	using namespace textRendererNS;
 
 
-	myobjectNS::PlayerCharacterOC * AI::target = myobjectNS::PlayerCharacterOC::getPlayer();
+	myobjectNS::PlayerCharacterOC * AI::target;// = myobjectNS::PlayerCharacterOC::getPlayer();
 	textRendererNS::PrintHelper AI::ph{ "AI" };
 
 
@@ -77,6 +77,7 @@ namespace aiNS {
 
 	void myfirstIA::follow(collectorNS::ActiveObject* obj,collectorNS::ActiveObject* target)
 	{
+		if (!target) return;
 		if (!AIon || !obj->isOn || !target->isAlive) return;
 		static float i = 0.0;
 		static const int M = 10;
@@ -202,8 +203,7 @@ namespace aiNS {
 
 	void myfirstIA::update()
 	{
-		seekAndDest = target->isAlive;
-		
+		seekAndDest = target->isAlive;	
 	}
 
 	void myfirstIA::shoot(

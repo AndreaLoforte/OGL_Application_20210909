@@ -13,7 +13,7 @@ namespace myobjectNS{
 		friend class myphysicsNS::CollisorePolimorfo;
 		static unsigned instanceCounter;
 		GLuint groundTex;
-	
+		GLuint VAO;
 	public:
 		Grid(std::string sh_prog_name):
 			ObjectPlane(sh_prog_name,100,0,100),

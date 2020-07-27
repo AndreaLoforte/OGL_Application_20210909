@@ -11,9 +11,12 @@ namespace myobjectNS {
 		GLuint modelviewT_loc = glGetUniformLocation(shader_prog, "modelviewT");
 		GLuint physicsT_loc = glGetUniformLocation(shader_prog, "physicsT");
 
+
+		glUniform4fv(0, 1, AOcolor);
 		glUniformMatrix4fv(physicsT_loc, 1, GL_FALSE, AOTrMatrix);
 		glUniformMatrix4fv(modelviewT_loc, 1, GL_FALSE, cam.getPlayerCamera());
 		
+
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		glBindVertexArray(0);//unbind current vao
 		

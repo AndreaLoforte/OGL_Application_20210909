@@ -33,18 +33,6 @@ namespace myobjectNS {
 
 	}
 
-
-
-
-	void PlayerCharacter::render()
-	{
-
-	}
-
-
-
-
-
 	void PlayerCharacter::update(const float& duration) {
 
 		cameraTransformation(this);
@@ -235,8 +223,8 @@ namespace myobjectNS {
 		else
 		{
 			main = new PlayerCharacterOC();
-			// = instanceCounter;
 			mainIsSet = true;
+			isAlive = true;
 			InputsNS::Controls::setPlayer(this);
 			return main;
 		}
@@ -249,7 +237,6 @@ namespace myobjectNS {
 		else
 		{
 			main = new PlayerCharacterOC();
-			// = instanceCounter;
 			mainIsSet = true;
 			return main;
 		}

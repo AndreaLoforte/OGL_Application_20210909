@@ -7,25 +7,22 @@ namespace myobjectNS{
 
   void FrameOfRef::render(const fpcameraNS::Transformation& cam)
   {
-	  
-    glUseProgram(shader_prog);
-    glUniformMatrix4fv(10,1,GL_FALSE,cam.getPlayerCamera());
-    /*glUniform1f(11,length);*/
-	glLineWidth(5);
-    glDrawArrays(GL_LINES,0,6);
-	
-	
-  }
+	 
+	  glBindVertexArray(VAO);
+	  glUseProgram(shader_prog);
+	  glUniformMatrix4fv(10, 1, GL_FALSE, cam.getPlayerCamera());
+	  /*glUniform1f(11,length);*/
+	  glLineWidth(5);
+	  glDrawArrays(GL_LINES, 0, 6);
+	  glBindVertexArray(-1);
 
-
-  void FrameOfRef::render()
-  {
 
   }
 
   void FrameOfRef::create() {
 
 	 setShaders();
+	 glCreateVertexArrays(1, &VAO);
   }
 
 
@@ -38,5 +35,12 @@ namespace myobjectNS{
 	  
 
   }
+
+  FrameOfRef* FrameOfRef::getNewInstance() {
+	  FrameOfRef *f(new FrameOfRef("frameOfRef"));
+	  return f;
+
+  }
+
 }
 

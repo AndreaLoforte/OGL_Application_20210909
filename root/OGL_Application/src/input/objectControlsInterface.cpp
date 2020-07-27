@@ -1,8 +1,7 @@
 #include<objectControlsInterface.h>
-#include<applicationObjectManager.h>
 #include<applicationDerivedObject.h>
-
-
+#include<applicationObjectManager.h>
+#include<userInterface.h>
 namespace objectControlsNS {
 
 	using namespace textRendererNS;
@@ -10,7 +9,7 @@ namespace objectControlsNS {
 	bool ObjectControlsI::mustPrint = true;
 	textRendererNS::PrintHelper ObjectControlsI::ph{ "ObjectControlsInterface" };
 
-	static const string EDITOBJECT;
+	
 
 	void ObjectControlsI::ObjectPhysicsSwitcher(myobjectNS::ApplicationObject* obj)
 	{
@@ -25,13 +24,13 @@ namespace objectControlsNS {
 		if (obj->isOn)
 		{
 			obj->canSleep(true);
-			ph.mapNewString(EDITOBJECT, "OBJECT OFF");
+			ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "OBJECT OFF");
 			
 		}
 		else
 		{
 			obj->canSleep(false);
-			ph.mapNewString(EDITOBJECT, "OBJECT ON");
+			ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "OBJECT ON");
 		}
 		
 
@@ -42,27 +41,24 @@ namespace objectControlsNS {
 	void ObjectControlsI::key_callbackEditSize(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 
-		if (action != GLFW_RELEASE || mustPrint)
-		{
-			ph.mapNewString(EDITOBJECT,"Scroll to set Colors");
-
+		if (action == GLFW_RELEASE) return;
 			if (key == GLFW_KEY_ESCAPE)
 			{
-				ph.eraseFromMap(EDITOBJECT);
+				ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
 				controls.setScrollCallback(window);
 				controls.setAllCallbackFunction(window);
 				mustPrint = true;
 				return;
 			}
 
-
-
 			if (myobjectNS::ApplicationObjectManager::getEditableObject()->getBody()->AOobjectClass ==
 				myobjectNS::classSphere)
 			{
-				ph.mapNewString(
-					EDITOBJECT, "Type the new radius : ");
+				uiNS::UserInterface::ph.mapButtonOnBranch(
+					uiNS::UserInterface::getParentButton()->getButtonID(),
+					uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type the new radius : ");
 
+			
 				float radius = controls.typing(key, action);
 				if (radius <= 0) return;
 				else
@@ -75,7 +71,7 @@ namespace objectControlsNS {
 			if (myobjectNS::ApplicationObjectManager::getEditableObject()->getBody()->AOobjectClass ==
 				myobjectNS::classBox)
 			{
-				ph.mapNewString(EDITOBJECT,
+				ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON,
 					NEWLINE + NEWLINE + "Type 3 dimensions w,h, d : " + NEWLINE);
 
 
@@ -83,7 +79,7 @@ namespace objectControlsNS {
 				static bool typefirst = true, typesecond = false, typethird = false;
 				if (typefirst)
 				{
-					ph.mapNewString(EDITOBJECT, "enter first dimension");
+					ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter first dimension");
 					x = controls.typing(key, action);
 					if (x <= 0) return;
 					else
@@ -95,7 +91,7 @@ namespace objectControlsNS {
 				}
 				if (typesecond)
 				{
-					ph.mapNewString(EDITOBJECT, "enter second dimension");
+					ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter second dimension");
 					y = controls.typing(key, action);
 					if (y <= 0) return;
 					else
@@ -107,7 +103,7 @@ namespace objectControlsNS {
 				}
 				if (typethird)
 				{
-					ph.mapNewString(EDITOBJECT, "enter third dimension");
+					ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter third dimension");
 					z = controls.typing(key, action);
 					if (z <= 0) return;
 					else
@@ -127,14 +123,14 @@ namespace objectControlsNS {
 				myobjectNS::classPlane)
 			{
 				ph.mapNewString(
-					EDITOBJECT, NEWLINE + NEWLINE + "Type 2 dimensions w, h : " + NEWLINE);
+					uiNS::ButtonMap::EDITOBJECTMODEBUTTON, NEWLINE + NEWLINE + "Type 2 dimensions w, h : " + NEWLINE);
 
 
 				static float x, y;
 				static bool typefirst = true, typesecond = false;
 				if (typefirst)
 				{
-					ph.mapNewString(EDITOBJECT, "enter first dimension");
+					ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter first dimension");
 					x = controls.typing(key, action);
 					if (x <= 0) return;
 					else
@@ -146,7 +142,7 @@ namespace objectControlsNS {
 				}
 				if (typesecond)
 				{
-					ph.mapNewString(EDITOBJECT, "enter second dimension");
+					ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter second dimension");
 					y = controls.typing(key, action);
 					if (y <= 0) return;
 					else
@@ -163,7 +159,7 @@ namespace objectControlsNS {
 					(myobjectNS::ApplicationObjectManager::getEditableObject()->getBody())->changeDimensions(x, y);
 			}
 
-		}
+		
 		
 
 	}
@@ -186,7 +182,7 @@ namespace objectControlsNS {
 			{
 				controls.setScrollCallback(window);
 				//myobjectNS::TextRenderer::clearEditMenuString();
-				ph.eraseFromMap(EDITOBJECT);
+				ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
 				controls.setAllCallbackFunction(window);
 				mustPrint = true;
 				return;
@@ -195,9 +191,9 @@ namespace objectControlsNS {
 			if (mustPrint)
 			{
 				ph.mapNewString
-				(EDITOBJECT, "Scroll to set sizes");
+				(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Scroll to set sizes");
 				ph.mapNewString
-				(EDITOBJECT, "Enter the color components r,g,b,a in range [0,100]" + NEWLINE);
+				(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Enter the color components r,g,b,a in range [0,100]" + NEWLINE);
 				mustPrint = false;
 				return;
 			}
@@ -230,10 +226,10 @@ namespace objectControlsNS {
 
 		void ObjectControlsI::setKeyCallbackEditSize(GLFWwindow * window)
 		{
-			auto l_key_callbackeditsize = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
+			auto l_key_callbackeditsize = [](GLFWwindow* w, int key, int scancode, int action, int mods)
 			{
 				//casto w a puntatore alla funzione key_callback di controls
-				static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(w))->key_callbackEditSize(w, i1, i2, i3, i4);
+				static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(w))->key_callbackEditSize(w, key, scancode, action, mods);
 			};
 			glfwSetKeyCallback(window, l_key_callbackeditsize);
 			static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(window))->key_callbackEditSize(window, 0, 0, 0, 0);
@@ -267,7 +263,7 @@ namespace objectControlsNS {
 
 			if (mode == 0)
 			{
-				ph.eraseFromMap(EDITOBJECT);
+				ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
 				//myobjectNS::TextRenderer::clearEditMenuString();
 				mustPrint = true;
 				setKeyCallbackEditSize(w);
@@ -276,7 +272,7 @@ namespace objectControlsNS {
 			}
 			if (mode == 1)
 			{
-				ph.eraseFromMap(EDITOBJECT);
+				ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
 				//myobjectNS::TextRenderer::clearEditMenuString();
 				setKeyCallbackEditColor(w);
 				mustPrint = true;

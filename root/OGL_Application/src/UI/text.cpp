@@ -210,45 +210,7 @@ namespace textRendererNS {
 	}
 
 
-
-	void TextRenderer::printExistingObject(const string& branchID)
-	{
-		/*generatin a new list to print existing object*/
-		//printList.push_back(new PrintHelper({ "TextRenderer" }));
-		//for (int i = 0; i < myobjectNS::ApplicationObjectManager::ApplicationCollectorList.size(); i++)
-		//{
-		//	string s = myobjectNS::ApplicationObjectManager::ApplicationCollectorList[i]->getCollectorID();//+"_"+std::to_string(i);
-		//	printList.back()->mapButtonOnBranch(branchID,s, s);
-		//}
-
-	}
-
-	void TextRenderer::printAssetObjectList(const string& branchID)
-	{
-
-		/*std::map<std::string, int>* assetIndex = AssetNS::Assets::getAssetIndex();
-		std::map<std::string, int>::iterator it = assetIndex->begin();
-
-		printList.push_back(new PrintHelper({ "TextRenderer" }));
-
-		for (it; it != assetIndex->end(); it++)
-			printList.back()->mapButtonOnBranch(branchID,it->first, it->first);*/
-		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 	string TextRenderer::Matrix44ToString(const vmath::mat4& matrix, std::string matrixName) {
 		string text;
 		text.append(logNS::Logger::matrix44ToString(matrix, matrixName));

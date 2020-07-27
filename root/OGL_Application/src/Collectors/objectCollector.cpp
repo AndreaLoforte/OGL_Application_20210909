@@ -14,10 +14,12 @@ namespace collectorNS {
 
 	void ApplicationObjectCollector::canSleep(bool v)
 	{
+		isOn = !v;
+		//newColl->getSubObject(j)->AOcanSleep(collectorData.AOobjects[j].isOn);
 		for (int i = 0; i < Pcontainer->size(); i++)
 		{
 			Pcontainer->at(i)->AOcanSleep(v);
-			Pcontainer->at(i)->getRB()->isAwake = !v;
+			//Pcontainer->at(i)->getRB()->isAwake = !v;
 		}
 	}
 

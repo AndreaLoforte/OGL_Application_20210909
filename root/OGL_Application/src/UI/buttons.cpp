@@ -19,14 +19,17 @@ namespace uiNS {
 		x_max = x_min + textScale * bName.length()*0.06;
 		
 		/*height is non linear function of text scale!*/
-		height = textScale*0.1 ;
-		y_min = y_max - height;
+		//below my best guess as far : 
+		constexpr float f1 = 0.05;
 		
-		y_max = y_min + height;
+		float f2 = f1 * (8- textScale*.9);/*5 per 0.3 e 2, 8 per 0.6-1.3*/
+		height = (f1*textScale + pow(f1*textScale, 1.0-textScale*f2)); 
+		y_min -= height;
+		
 		/*frames have impact only in the 
 		interaction with the cursor*/
 		y_min_frame = y_min+0.03;
-		y_max_frame = y_max+0.06;// +textScale;
+		y_max_frame = y_max+0.06;
 
 	}
 
@@ -52,9 +55,12 @@ namespace uiNS {
 	void StartButton::action()
 	{
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-		auto L_key_callbackControl = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
+
+
+		auto L_key_callbackControl = [](GLFWwindow* w, int key, int scancode, int action, int mods)
 		{
-			static_cast<InputsNS::Controls*>(glfwGetWindowUserPointer(w))->key_callbackControl(w, i1, i2, i3, i4);
+			if (action == GLFW_RELEASE) return;
+			static_cast<InputsNS::Controls*>(glfwGetWindowUserPointer(w))->key_callbackControl(w, key, scancode, action, mods);
 		};
 		glfwSetKeyCallback(Application::window, L_key_callbackControl);
 
@@ -143,9 +149,10 @@ namespace uiNS {
 	
 	void EditGameButton::setControls()
 	{
-		auto L_key_callbackControl = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
+		auto L_key_callbackControl = [](GLFWwindow* w, int key, int scancode, int action, int mods)
 		{
-			static_cast<InputsNS::Controls*>(glfwGetWindowUserPointer(w))->key_callbackControl(w, i1, i2, i3, i4);
+			if (action == GLFW_RELEASE) return;
+			static_cast<InputsNS::Controls*>(glfwGetWindowUserPointer(w))->key_callbackControl(w, key, scancode, action, mods);
 		};
 		glfwSetKeyCallback(Application::window, L_key_callbackControl);
 
@@ -174,7 +181,7 @@ namespace uiNS {
 	void CreateObjectButton::action()
 	{
 		
-		printAssetObjectList();
+		UserInterface::printAssetObjectsList();
 		UserInterface::setButton(ButtonMap::BACKBUTTON);
 
 		auto L_mouse_button_callback = [](GLFWwindow* w, int i1, int i2, int i3)
@@ -189,23 +196,7 @@ namespace uiNS {
 	}
 
 
-	void CreateObjectButton::printAssetObjectList()
-	{
-
-		UserInterface::deleteAllButtons();
-		UserInterface::ph.resetPosition();
-
-		std::map<std::string, int>* assetIndex = AssetNS::Assets::getAssetIndex();
-		std::map<std::string, int>::iterator it = assetIndex->begin();
-
-
-		for (it; it != assetIndex->end(); it++)
-			UserInterface::ph.mapButtonOnBranch(
-				UserInterface::getParentButton()->getButtonID(),
-				it->first,
-				it->first);
-
-	}
+	
 
 
 
@@ -251,7 +242,7 @@ namespace uiNS {
 
 	void DeleteObjectButton::action()
 	{
-		printExistingObject();
+		UserInterface::printExistingObjects();
 		
 
 		auto L_mouse_button_callback = [](GLFWwindow* w, int i1, int i2, int i3)
@@ -259,33 +250,11 @@ namespace uiNS {
 			static_cast<DeleteObjectButton*>(glfwGetWindowUserPointer(w))->selectObject(w, i1, i2, i3);
 		};
 		glfwSetMouseButtonCallback(Application::window, L_mouse_button_callback);
-
-
 		return;
 	}
 
 
-	void DeleteObjectButton::printExistingObject()
-	{
-		UserInterface::deleteAllButtons();
-		UserInterface::ph.resetPosition();
-		UserInterface::setButton(ButtonMap::BACKBUTTON);
-
-		for (int i = 0; i < myobjectNS::ApplicationObjectManager::ApplicationCollectorList.size(); i++)
-		{
-			string s = 
-				myobjectNS::ApplicationObjectManager::
-				ApplicationCollectorList[i]->getCollectorID();//+"_"+std::to_string(i);
-
-			UserInterface::ph.mapButtonOnBranch(
-				UserInterface::getParentButton()->getButtonID(),
-				s,
-				s);
-		}
-
-		
-	}
-
+	
 
 
 	void DeleteObjectButton::selectObject(GLFWwindow* w,int button, int action, int mode)
@@ -317,9 +286,10 @@ namespace uiNS {
 		UserInterface::deleteButtonsByBranch(ButtonMap::STARTINGBUTTON);
 	
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-		auto L_key_callbackControl = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
+		auto L_key_callbackControl = [](GLFWwindow* w, int key, int scancode, int action, int mods)
 		{
-			static_cast<InputsNS::Controls*>(glfwGetWindowUserPointer(w))->key_callbackControl(w, i1, i2, i3, i4);
+			if (action == GLFW_RELEASE) return;
+			static_cast<InputsNS::Controls*>(glfwGetWindowUserPointer(w))->key_callbackControl(w, key, scancode, action, mods);
 		};
 		glfwSetKeyCallback(Application::window, L_key_callbackControl);
 

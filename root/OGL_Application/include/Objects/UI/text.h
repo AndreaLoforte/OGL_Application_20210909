@@ -75,8 +75,6 @@ namespace textRendererNS {
 		static void printvmathVector4(const vmath::vec4 vec, std::string vecName);
 		static void printvmathVector4(std::string&,const vmath::vec4 vec, std::string vecName);
 		static void printEditableObjectInfos();
-		static void printExistingObject(const string&);
-		static void printAssetObjectList(const string&);
 
 		
 		

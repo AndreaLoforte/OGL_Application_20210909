@@ -225,35 +225,28 @@ int Controls::chooseObject(int key) {
 }
 
 
-
-
+std::string TYPINGID = "TYPING";
 
 //funzione utile all'inserimento di un numero intero di al massimo 4 cifre
 int Controls::typing(int key, int action) {
+
 	
-	
-		static int iterationIndex = 0;
-		static string n;
+	static int iterationIndex = 0;
+	static string n;
 
-		if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 0)
-		{
-			//se premo invio senza aver inserito chiedo di reinserire
-			ph.mapNewString("typingIdentation",  "type a number then enter");
-			return -1;
-		}
-
-		if (key == GLFW_KEY_BACKSPACE)
-		{
-			//cancello quanto inserito
-			ph.eraseFromMap("typingIdentation");
-			objNumberChoosed.clear();
-			iterationIndex = 0;
-			return -1;
-		}
+	if (key == GLFW_KEY_BACKSPACE)
+	{
+		//cancello quanto inserito
+		UserInterface::ph.eraseFromMap(TYPINGID);
+		n.clear();
+		objNumberChoosed.clear();
+		iterationIndex = 0;
+		return -1;
+	}
 
 
-		if (
-			(key == GLFW_KEY_0 ||
+	if (
+		(key == GLFW_KEY_0 ||
 			key == GLFW_KEY_1 ||
 			key == GLFW_KEY_2 ||
 			key == GLFW_KEY_3 ||
@@ -263,55 +256,55 @@ int Controls::typing(int key, int action) {
 			key == GLFW_KEY_7 ||
 			key == GLFW_KEY_8 ||
 			key == GLFW_KEY_9))
+	{
+		if (action != GLFW_RELEASE)
 		{
-			if (action != GLFW_RELEASE)
-			{
-				objNumberChoosed.push_back(glfw_KeyConversion[key]);
-				n += std::to_string(objNumberChoosed[iterationIndex++]);
-				ph.mapNewString("typing", n);
-				
-			}
-			return -2;
-		}
+			objNumberChoosed.push_back(glfw_KeyConversion[key]);
+			n += std::to_string(objNumberChoosed[iterationIndex++]);
+			UserInterface::mapButtonOnParentBranch(TYPINGID, n);
 
-		if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 1)
-		{
+		}
+		return -2;
+	}
 
-			int result = objectIndex[0][0][0][objNumberChoosed[0]];
-			iterationIndex = 0;
-			objNumberChoosed.clear();
-			n.clear();
-			ph.eraseFromMap("typing");
-			return result;
-		}
-		if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 2)
-		{
-			int result = objectIndex[0][0][objNumberChoosed[0]][objNumberChoosed[1]];
-			iterationIndex = 0;
-			n.clear();
-			objNumberChoosed.clear();
-			ph.eraseFromMap("typing");
-			return result;
-		}
-		if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 3)
-		{
-			int result = objectIndex[0][objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]];
-			iterationIndex = 0;
-			n.clear();
-			objNumberChoosed.clear();
-			ph.eraseFromMap("typing");
-			return result;
-		}
-		if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 4)
-		{
-			int result = objectIndex[objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]][objNumberChoosed[3]];
-			iterationIndex = 0;
-			n.clear();
-			objNumberChoosed.clear();
-			ph.eraseFromMap("typing");
-			return result;
-		}
-	
+	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 1)
+	{
+
+		int result = objectIndex[0][0][0][objNumberChoosed[0]];
+		iterationIndex = 0;
+		objNumberChoosed.clear();
+		n.clear();
+		UserInterface::ph.eraseFromMap(TYPINGID);
+		return result;
+	}
+	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 2)
+	{
+		int result = objectIndex[0][0][objNumberChoosed[0]][objNumberChoosed[1]];
+		iterationIndex = 0;
+		n.clear();
+		objNumberChoosed.clear();
+		UserInterface::ph.eraseFromMap(TYPINGID);
+		return result;
+	}
+	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 3)
+	{
+		int result = objectIndex[0][objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]];
+		iterationIndex = 0;
+		n.clear();
+		objNumberChoosed.clear();
+		UserInterface::ph.eraseFromMap(TYPINGID);
+		return result;
+	}
+	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 4)
+	{
+		int result = objectIndex[objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]][objNumberChoosed[3]];
+		iterationIndex = 0;
+		n.clear();
+		objNumberChoosed.clear();
+		UserInterface::ph.eraseFromMap(TYPINGID);
+		return result;
+	}
+
 
 	return -100;
 
@@ -325,26 +318,23 @@ bool Controls::NInsertion(int key, int action, int numberToInsert, vector<float>
 	static vector<bool> totalInsertion(numberToInsert, false);
 	static vector<float> insertedNumbers(numberToInsert, -1);
 	static unsigned insertionIndex = 0;
-	insertionSelector[insertionIndex ] = true;
+	insertionSelector[insertionIndex] = true;
 
-
-	if (insertionSelector[insertionIndex] &&  insertionIndex < numberToInsert)
+	
+	if (insertionSelector[insertionIndex] && insertionIndex < numberToInsert)
+	{
+		UserInterface::mapButtonOnParentBranch("COLORCOMPONENT", "enter component " + to_string(insertionIndex + 1));
+		insertedNumbers[insertionIndex] = typing(key, action);
+		if (insertedNumbers[insertionIndex] < 0) return false;
+		else
 		{
-		
-			insertedNumbers[insertionIndex] = typing(key, action);
-			if (insertedNumbers[insertionIndex] < 0) return false;
-			else
-			{
-				insertionSelector[insertionIndex] = false;
-				totalInsertion[insertionIndex] = true;
-				if(insertionIndex < numberToInsert-1)
+			insertionSelector[insertionIndex] = false;
+			totalInsertion[insertionIndex] = true;
+			if (insertionIndex < numberToInsert - 1)
 				insertionSelector[++insertionIndex] = true;
-
-				
-				ph.mapNewString("Ninsert", "digit new Number");
-				
-			}
 		}
+		UserInterface::mapButtonOnParentBranch("COLORCOMPONENT", "enter component " + to_string(insertionIndex + 1));
+	}
 
 	bool insertionCompleted = true;
 	for (int i = 0; i < totalInsertion.size(); i++)
@@ -357,60 +347,13 @@ bool Controls::NInsertion(int key, int action, int numberToInsert, vector<float>
 		insertionSelector = vector<bool>(numberToInsert, false);
 		totalInsertion = vector<bool>(numberToInsert, false);
 		insertionIndex = 0;
-		ph.eraseFromMap("Ninsert");
+		UserInterface::mapButtonOnParentBranch("COLORCOMPONENT", "enter component " + to_string(insertionIndex + 1));
 	}
-		
+
 	return insertionCompleted;
 
 
 }
-
-
-
-
-
-
-void Controls::printMode() {
-	/*switch (mode) {
-	case 0:
-		ph.mapNewString("PRINTMODE", NEWLINE +"CONTROL MODE (H for more commands)");
-		break;
-	case 1:
-		ph.mapNewString("PRINTMODE", NEWLINE +"EDIT OBJECT MODE (H for more commands)");
-		break;
-	case 2:
-		ph.mapNewString("PRINTMODE", NEWLINE+"EDIT GAME MODE (H for more commands)");
-		break;
-	}*/
-		
-	
-	/*
-		ph.mapNewString("PRINTMODE", NEWLINE + "CONTROL MODE (H for more commands)");
-	
-	
-		ph.mapNewString("PRINTMODE", NEWLINE + "EDIT OBJECT MODE (H for more commands)");
-
-
-		ph.mapNewString("PRINTMODE", NEWLINE + "EDIT GAME MODE (H for more commands)");*/
-
-	
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     

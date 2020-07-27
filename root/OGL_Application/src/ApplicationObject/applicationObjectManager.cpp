@@ -62,13 +62,13 @@ void ApplicationObjectManager::loadData(string filename) {
 					//newColl->collector ritorna in ogni caso il collettore della classe padre ApplicationObjectCollector
 					//bisogna fetchare il collettore corretto usando il polimorfismo!
 					newColl->setCollectorName(collectorData.collectorsID);
-					newColl->isOn = collectorData.isOn;
+					newColl->canSleep(!collectorData.isOn);
 					newColl->getSubObject(j)->setPosition(collectorData.AOobjects[j].AOposition);
 					newColl->getSubObject(j)->AOTrMatrix = collectorData.AOobjects[j].AOTrMatrix;
 					newColl->getSubObject(j)->setOrientation(collectorData.AOobjects[j].AOorientation);
 					newColl->getSubObject(j)->setColor(collectorData.AOobjects[j].AOcolor);
 					newColl->getSubObject(j)->setSize(collectorData.AOobjects[j].AOsize);
-					newColl->getSubObject(j)->AOcanSleep(collectorData.AOobjects[j].isOn);
+					
 				}
 
 				ApplicationCollectorList.push_back(newColl);

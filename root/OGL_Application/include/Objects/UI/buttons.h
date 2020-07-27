@@ -65,7 +65,7 @@ namespace uiNS {
 		void action() override;
 		void selectObject(GLFWwindow*, int, int, int);
 		const std::string& getButtonID() override { return button.buttonID; }
-		void printAssetObjectList();
+		
 	};
 
 	class BackButton : public ButtonInterface
@@ -88,7 +88,6 @@ namespace uiNS {
 		void action() override;
 		void selectObject(GLFWwindow* w, int button, int action, int mode);
 		const std::string& getButtonID() override { return button.buttonID; }
-		static void printExistingObject();
 	};
 
 	class StartButton : public ButtonInterface
@@ -166,6 +165,11 @@ namespace uiNS {
 		const std::string& getButtonID() override { return button.buttonID; }
 		void cursorPositionCallBack(GLFWwindow* w, double x, double y);
 		void cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode);
+		void editObject(GLFWwindow* w, int button, int action, int mode);
+		void key_callbackEditColor(GLFWwindow* window, int key, int scancode, int action, int mods);
+		void key_callbackEditSize(GLFWwindow* window, int key, int scancode, int action, int mods);
+		void ObjectSwitch(collectorNS::ApplicationObjectCollector* obj);
+		void key_callbackMove(GLFWwindow* window, int key, int scancode, int action, int mods);
 	};
 
 

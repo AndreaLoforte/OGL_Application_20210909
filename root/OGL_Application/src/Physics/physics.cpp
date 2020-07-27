@@ -56,30 +56,34 @@ namespace myphysicsNS {
 		//Poichè non sappiamo a priori come avverranno le chiamate a questa funzione dobbiamo considerare
 		//tutte le possibili casistiche per chiamare il collision detector nell'ordine corretto
 
+
+		using namespace myobjectNS;
+
 		/*SFERA - SFERA*/
-		if (CollisorID1 == 0 && CollisorID2 == 0) {
+		if (CollisorID1 == SPHERECOLLISORID && CollisorID2 == SPHERECOLLISORID) {
 			sphere1 = dynamic_cast<myobjectNS::ObjectSphere*> (o1);
 			sphere2 = dynamic_cast<myobjectNS::ObjectSphere*> (o2);
 			if (sphere1->AOcollectorOwnershipID == sphere2->AOcollectorOwnershipID) return;
 			CollisionDetector::ACD.sphereAndSphere(*sphere1, *sphere2, &cdata);
 		}
 
-		/* DISATTIVATO */
-		if (CollisorID1 == 0 && CollisorID2 == 1) {
+		/* UNAVAILABLE */
+		if (CollisorID1 == SPHERECOLLISORID && CollisorID2 == PLANECOLLISORID) {
 			sphere1 = dynamic_cast<myobjectNS::ObjectSphere*> (o1);
 			plane1 = dynamic_cast<myobjectNS::ObjectPlane*> (o2);
-			/*tutti i piani adesso vengono costruiti come collisionFinitePlane. Necessario creare nuovi oggetti per halfSpace e infinite Plane*/
+			/*tutti i piani adesso vengono costruiti come collisionFinitePlane. 
+			Necessario creare nuovi oggetti per halfSpace e infinite Plane*/
 			//bool collide = CollisionDetector::sphereAndHalfSpace(*sphere1, *plane1, &cdata);
 		}
 
 		/*SFERA - PIANO FINITO*/
 		{
-			if (CollisorID1 == 0 && CollisorID2 == 3) {
+			if (CollisorID1 == SPHERECOLLISORID && CollisorID2 == FINITEPLANECOLLISORID) {
 				sphere1 = dynamic_cast<myobjectNS::ObjectSphere*> (o1);
 				plane1 = dynamic_cast<myobjectNS::ObjectPlane*> (o2);
 				CollisionDetector::ACD.sphereAndFinitePlane(*sphere1, *plane1, &cdata);
 			}
-			if (CollisorID1 == 3 && CollisorID2 == 0) {
+			if (CollisorID1 == FINITEPLANECOLLISORID && CollisorID2 == SPHERECOLLISORID) {
 				sphere1 = dynamic_cast<myobjectNS::ObjectSphere*> (o2);
 				plane1 = dynamic_cast<myobjectNS::ObjectPlane*> (o1);
 				CollisionDetector::ACD.sphereAndFinitePlane(*sphere1, *plane1, &cdata);
@@ -88,32 +92,29 @@ namespace myphysicsNS {
 
 		/*BOX - PIANO FINITO*/
 		{
-			if (CollisorID1 == 3 && CollisorID2 == 2)
+			if (CollisorID1 == FINITEPLANECOLLISORID && CollisorID2 == BOXCOLLISORID)
 			{
 				box1 = dynamic_cast<myobjectNS::ObjectBox*> (o2);
 				plane1 = dynamic_cast<myobjectNS::ObjectPlane*> (o1);
 				CollisionDetector::ACD.boxAndFinitePlane(*box1, *plane1, &cdata);
 			}
-			if (CollisorID1 == 2 && CollisorID2 == 3) {
-				plane1 = dynamic_cast<myobjectNS::ObjectPlane*> (o1);
-				box1 = dynamic_cast<myobjectNS::ObjectBox*> (o2);
+			if (CollisorID1 == BOXCOLLISORID && CollisorID2 == FINITEPLANECOLLISORID) {
+				plane1 = dynamic_cast<myobjectNS::ObjectPlane*> (o2);
+				box1 = dynamic_cast<myobjectNS::ObjectBox*> (o1);
 				CollisionDetector::ACD.boxAndFinitePlane(*box1, *plane1, &cdata);
 			}
 		}
 
-
-
-
 		/*BOX - SFERA*/
 		{
-			if (CollisorID1 == 0 && CollisorID2 == 2) 
+			if (CollisorID1 == SPHERECOLLISORID && CollisorID2 == BOXCOLLISORID) 
 			{
 				sphere1 = dynamic_cast<myobjectNS::ObjectSphere*> (o1);
 				box1 = dynamic_cast<myobjectNS::ObjectBox*> (o2);
 				//CollisionDetector::ACD.BoxAndSphere(*box1, *sphere1, &cdata);
 				CollisionDetector::boxAndSphere(*box1, *sphere1, &cdata);
 			}
-			if (CollisorID1 == 2 && CollisorID2 == 0) {
+			if (CollisorID1 == BOXCOLLISORID && CollisorID2 == SPHERECOLLISORID) {
 				box1 = dynamic_cast<myobjectNS::ObjectBox*> (o1);
 				sphere1 = dynamic_cast<myobjectNS::ObjectSphere*> (o2);
 				//CollisionDetector::ACD.BoxAndSphere(*box1, *sphere1, &cdata);
@@ -122,12 +123,12 @@ namespace myphysicsNS {
 		}
 
 		{//BOX - HALF SPACE---DISATTIVATO
-			if (CollisorID1 == 1 && CollisorID2 == 2) {
+			if (CollisorID1 == HALFSPACECOLLISORID && CollisorID2 == BOXCOLLISORID) {
 				plane1 = dynamic_cast<myobjectNS::ObjectPlane*> (o1);
 				box1 = dynamic_cast<myobjectNS::ObjectBox*> (o2);
 				//CollisionDetector::boxAndHalfSpace(*box1, *plane1, &cdata);
 			}
-			if (CollisorID1 == 2 && CollisorID2 == 1) {
+			if (CollisorID1 == BOXCOLLISORID && CollisorID2 == HALFSPACECOLLISORID) {
 				box1 = dynamic_cast<myobjectNS::ObjectBox*> (o1);
 				plane1 = dynamic_cast<myobjectNS::ObjectPlane*> (o2);
 				//CollisionDetector::boxAndHalfSpace(*box1, *plane1, &cdata);
@@ -136,7 +137,7 @@ namespace myphysicsNS {
 		}
 		
 		//SFERA - HALF SPACE
-		if (CollisorID1 == 1 && CollisorID2 == 0)
+		if (CollisorID1 == HALFSPACECOLLISORID && CollisorID2 == SPHERECOLLISORID)
 		{
 			plane1 = dynamic_cast<myobjectNS::ObjectPlane*> (o1);
 			sphere1 = dynamic_cast<myobjectNS::ObjectSphere*> (o2);
@@ -145,16 +146,12 @@ namespace myphysicsNS {
 
 		
 		//BOX-BOX
-		if (CollisorID1 == 2 && CollisorID2 == 2) {
+		if (CollisorID1 == BOXCOLLISORID && CollisorID2 == BOXCOLLISORID) {
 			box1 = dynamic_cast<myobjectNS::ObjectBox*> (o1);
 			box2 = dynamic_cast<myobjectNS::ObjectBox*> (o2);
 			CollisionDetector::boxAndBox(*box1, *box2, &cdata);
 		}
 		
-
-
-
-
 	}
 
 

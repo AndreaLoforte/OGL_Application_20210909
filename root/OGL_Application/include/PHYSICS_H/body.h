@@ -163,7 +163,7 @@
          * by the integration functions or affected by collisions
          * with the world.
          */
-        bool isAwake;
+        bool isAwake = false;
 
         /**
          * Some bodies may never be allowed to fall asleep.

@@ -97,11 +97,13 @@ namespace myobjectNS{
 		virtual void setHealt(const int&){}
 		virtual void switchPhysics(const bool v){}
 		virtual RigidBody* getRB();
-		virtual void AOcanSleep(const bool v)
+		void AOcanSleep(const bool v)
 		{
 			AOisOn = !v;
+			DOcanSleep(v);
 		}
-
+		
+		virtual void DOcanSleep(const bool&){}
 
 
 		virtual void setCollectorOwnership(const std::string s)

@@ -17,16 +17,10 @@ namespace myobjectNS {
   
 
 
-	std::string  ObjectPlane::showParameters() {
+	std::string  ObjectPlane::showParameters() 
+	{
 
 		std::string editableObjInfos= "must define getEditableObject()->AOTrMatrix in case of collectors";
-		/*myobjectNS::TextRenderer::printMatrix44(editableObjInfos,
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOTrMatrix,
-			NEWLINE + "Transformation Matrix of " + AOobjectName);*/
-
-		/*TextRenderer::printScalar1(editableObjInfos, offsetNorm, "Plane : offset");
-		TextRenderer::printvmathVector4(editableObjInfos, planeNormal, "Plane : planeNormal");*/
-
 		return editableObjInfos;
 	}
 
@@ -63,18 +57,12 @@ namespace myobjectNS {
 	std::string ObjectBox::showParameters() {
 
 		std::string editableObjInfos = "infos not available : must define getEditableObject() for a collector";
-	/*	myobjectNS::TextRenderer::printMatrix44(editableObjInfos,
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOTrMatrix,
-			"^Transformation Matrix of " + AOobjectName);
-*/
 		return editableObjInfos;
 	}
 
 
 
-	void ObjectBox::setParameters() {
-
-	}
+	void ObjectBox::setParameters() {}
 
 	
 	std::string ObjectSphere::showParameters() {
@@ -252,6 +240,6 @@ namespace myobjectNS {
 		return body;
 	}
 
-
+	
 
 }

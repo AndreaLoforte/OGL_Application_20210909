@@ -8,7 +8,7 @@
 #include<objectCollector.h>
 #include<IA.h>
 #include<gun.h>
-
+#include<playerCharacter.h>
 
 
 namespace myobjectNS {
@@ -73,7 +73,7 @@ namespace myobjectNS {
 		Enemy enemy{ "enemy" };
 		/*brain must be initialized after enemy otherwise
 		its constructor will throw exception when using enemy methods*/
-		aiNS::myfirstIA brain{ this };
+		aiNS::myfirstIA brain{ myobjectNS::PlayerCharacterOC::getPlayer() };
 		
 		//collettore da costruire passandogli un contenitore
 		OCGun gun{ &enemycoll };
@@ -88,11 +88,11 @@ namespace myobjectNS {
 		void OCupdate(const float&) override;
 		void canSleep(bool v) override
 		{
+			enemy.AOcanSleep(v);
 			/*turn off/on AI*/
 			brain.AIon = !v;
 			/*turn off/on physics body*/
-			enemy.AOcanSleep(v);
-			
+			enemy.body->setAwake(!v);
 			/*turn off/on collector*/
 			isOn = !v;
 		}

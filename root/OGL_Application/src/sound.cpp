@@ -62,7 +62,7 @@ namespace soundNS {
 		{
 			
 			//engine->play2D(sound);
-			engine->play3D(sound, { 0.0,0.0,0.0 });
+			engine->play3D(sound, { 0.0,0.0,0.0 },false,true);
 			engine->setDefault3DSoundMinDistance(50.0f);
 			//sound->setVolume(0.7);
 			

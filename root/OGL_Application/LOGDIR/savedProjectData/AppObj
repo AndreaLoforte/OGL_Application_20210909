@@ -1,35 +1,11 @@
 COLLECTOR_
-grid
+surface
 OCisOnFlag
-0
+1
 AOobjectName
-grid
+surface
 AOinstanceNumber
 4
-AOTrMatrix
-1 0 1.86265e-08 0 
-0 1 0 0 
--1.86265e-08 0 1 0 
-30 -12 9 1 
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
-AOcolor
-0.3 0.5 0.7 0.9
-AOisOnFlag
-1
-DOsize
-1000 0 1000
---------ENDCOLLECTOR--------
-COLLECTOR_
-surface
-OCisOnFlag
-0
-AOobjectName
-surface
-AOinstanceNumber
-5
 AOTrMatrix
 -0.998762 -0.04364 0.023754 0 
 -0.0216938 -0.0470902 -0.998651 0 
@@ -47,179 +23,59 @@ DOsize
 200 0 100
 --------ENDCOLLECTOR--------
 COLLECTOR_
-surface
+build
 OCisOnFlag
-0
-AOobjectName
-surface
-AOinstanceNumber
-6
-AOTrMatrix
-0.156517 -0.00188205 0.987671 0 
--0.986038 -0.0578099 0.156148 0 
-0.0568032 -0.998325 -0.010904 0 
--522 81 -762 1 
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
-AOcolor
-0.04 0.4 0.8 1
-AOisOnFlag
 1
-DOsize
-200 0 100
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-0
 AOobjectName
-enemy
+build
 AOinstanceNumber
 0
 AOTrMatrix
 1 0 0 0 
 0 1 0 0 
 0 0 1 0 
-0 -7.10357 0 1 
+0 81 0 1 
 AOposition
-0 0 0
+0 81 0
 AOorientation
 1 0 0 0
 AOcolor
-0.764842 0 0 0.4
+0.5 0.5 0.5 0.5
 AOisOnFlag
 1
 DOsize
-5
+5 10 8
 --------ENDCOLLECTOR--------
 COLLECTOR_
-enemy
+grid
 OCisOnFlag
-0
+1
 AOobjectName
-enemy
+grid
 AOinstanceNumber
-0
+4
 AOTrMatrix
 1 0 0 0 
 0 1 0 0 
 0 0 1 0 
-0 -7.14179 0 1 
+0 0 0 1 
 AOposition
 0 0 0
 AOorientation
 1 0 0 0
 AOcolor
-0.764842 0 0 0.4
+0.4 0.7 0.3 1
 AOisOnFlag
 1
 DOsize
-5
+100 0 200
 --------ENDCOLLECTOR--------
 COLLECTOR_
-enemy
+frameOfRef
 OCisOnFlag
-0
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOTrMatrix
-1 0 0 0 
-0 1 0 0 
-0 0 1 0 
-0 -5796.95 0 1 
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
-AOcolor
-0.764842 0 0 0.4
-AOisOnFlag
 1
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-0
 AOobjectName
-enemy
-AOinstanceNumber
-0
-AOTrMatrix
-1 0 0 0 
-0 1 0 0 
-0 0 1 0 
-0 -7.15719 0 1 
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
-AOcolor
-0.764842 0 0 0.4
-AOisOnFlag
-1
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-0
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOTrMatrix
-1 0 0 0 
-0 1 0 0 
-0 0 1 0 
-0 -7.11948 0 1 
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
-AOcolor
-0.764842 0 0 0.4
-AOisOnFlag
-1
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-0
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOTrMatrix
-1 0 0 0 
-0 1 0 0 
-0 0 1 0 
-0 -7.12232 0 1 
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
-AOcolor
-0.764842 0 0 0.4
-AOisOnFlag
-1
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-object1
-OCisOnFlag
-0
-AOobjectName
-object1
+frameOfRef
 AOinstanceNumber
 0
 AOTrMatrix
@@ -234,27 +90,27 @@ AOorientation
 AOcolor
 0.5 0.5 0.5 0.5
 AOisOnFlag
-0
+1
 --------ENDCOLLECTOR--------
 COLLECTOR_
-playercharacter
+enemy
 OCisOnFlag
-0
+1
 AOobjectName
-playercharacter
+enemy
 AOinstanceNumber
 0
 AOTrMatrix
--0.746841 -0.17193 0.642393 0 
--0.658855 0.322345 -0.679708 0 
--0.0902104 -0.930878 -0.354018 0 
-947.729 5 -877.626 1 
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+-6 4.9019 -72 1 
 AOposition
-947.729 5 -877.626
+-6 30 -72
 AOorientation
--0.235316 -0.266853 0.778346 -0.517329
+1 0 0 0
 AOcolor
-0 0.764842 0.764842 0.8
+0.764842 0 0 0.4
 AOisOnFlag
 1
 DOsize

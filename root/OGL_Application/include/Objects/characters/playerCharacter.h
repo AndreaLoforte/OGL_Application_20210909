@@ -49,7 +49,6 @@ namespace myobjectNS {
 		void create()override;
 		//void specializedSave(std::ofstream&)override;
 		void render(const fpcameraNS::Transformation&) override;
-		void render();
 		void setRigidBodyParameters();
 		void reset() override;
 		void OSsetParameters() override;

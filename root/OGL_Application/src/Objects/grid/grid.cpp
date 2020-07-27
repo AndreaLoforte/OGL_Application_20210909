@@ -8,7 +8,7 @@ namespace myobjectNS {
 	void Grid::render(const fpcameraNS::Transformation& cam)
 	{
 
-
+		glBindVertexArray(VAO);
 		glUseProgram(shader_prog);
 		glUniformMatrix4fv(10, 1, GL_FALSE, cam.getPlayerCamera());
 		glUniformMatrix4fv(0, 1, GL_FALSE, AOTrMatrix);
@@ -19,6 +19,8 @@ namespace myobjectNS {
 
 		glLineWidth(1);
 		glDrawArrays(GL_LINES, 0, 40);
+
+		glBindVertexArray(0);
 	}
 
 	void Grid::render()
@@ -33,6 +35,8 @@ namespace myobjectNS {
 	void Grid::create() {
 
 		//setShaders();
+		glCreateVertexArrays(1,&VAO);
+		
 		//setRigidBodyParameters();
 	}
 

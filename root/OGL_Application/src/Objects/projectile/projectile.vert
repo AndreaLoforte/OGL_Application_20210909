@@ -30,8 +30,7 @@ for(int M = 0; M < 7; M++){
 				vertices = vertices*rotation;
 
 			  gl_Position = transformMatrix*physics_transformation_matrix*vertices;
-				//gl_Position =  physics_transformation_matrix*vertices;
-				//gl_Position = transformMatrix * vertices;
+				
 		}
 } 
 

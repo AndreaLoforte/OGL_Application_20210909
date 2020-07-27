@@ -31,14 +31,14 @@ namespace InputsNS{
 		//bool ispressed1 = false, ispressed2 = false;
         static myobjectNS::PlayerCharacterOC* player;
 		static bool playerIsOn;
-		App* app_pt;
+		
 		bool moveMode = false;
 		uiNS::UserInterface* userInterface;
         static GLboolean hideCursor; 
 		int scrollCallbackCallerID = 0;
 		static textRendererNS::PrintHelper ph;
     public:
-    
+		App* app_pt;
 		unsigned mode = 0; //0 : control mode, 1 = moveMode, 2 = editMode
 
 	~Controls() {}
@@ -48,7 +48,6 @@ namespace InputsNS{
 		initObjectIndex();
         
     }
-		void printMode();
         void key_callbackControl(GLFWwindow*,int,int,int,int);
 		void key_callbackMove(GLFWwindow*, int, int, int, int);
 		void key_callbackEdit(GLFWwindow*, int, int, int, int);

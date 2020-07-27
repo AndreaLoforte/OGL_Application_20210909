@@ -53,7 +53,7 @@ public:
 	std::string collectorName;
 	std::string collectorID;
 	unsigned collectorNumber;
-	bool isOn;
+	bool isOn = false;
 	
 	/*dove risiedono gli oggetti veri e propri*/
 	

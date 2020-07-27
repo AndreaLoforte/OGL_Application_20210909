@@ -57,12 +57,8 @@ namespace InputsNS{
 		if (mods == GLFW_MOD_CONTROL)
 			setScrollCallbackCallerID(1);
 
-
-		/*switch volume di gioco : da implementare*/
-		static bool V = false;
-		if (key == GLFW_KEY_V)V = action == GLFW_PRESS;
-		if (V) {
-			V = false;
+		if (key == GLFW_KEY_V)
+		 {
 			soundNS::soundMap::startSounds();
 		}
 
@@ -77,16 +73,12 @@ namespace InputsNS{
 		if (mods == GLFW_MOD_CONTROL)
 		if (key == GLFW_KEY_S)
 		{
-			ph.mapNewString("CONTROLMODE","SAVED");
+			UserInterface::mapButtonOnParentBranch("SAVE","SAVED");
 			App::SaveProjectData(App::projectDataFileName);
+			return;
 		}
 
-
-
-		
-
-		if (action != GLFW_RELEASE)
-		{
+	
 			switch (key) {
 			case GLFW_KEY_INSERT:
 			{
@@ -140,7 +132,6 @@ namespace InputsNS{
 				break;
 
 			}//switch
-		}//if(action != GLFW_RELEASE)
 
 	}//Controls::key_callback
 

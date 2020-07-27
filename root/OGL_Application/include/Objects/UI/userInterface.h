@@ -12,14 +12,12 @@ namespace uiNS {
 
 	class UserInterface
 	{
-
-			
-		InputsNS::Controls* control;
+		
 	public:
+		static InputsNS::Controls* control;
 		static textRendererNS::PrintHelper ph;
 		static StartButton* start;
 		static vector<ButtonInterface*> buttonFlow;
-		
 		static double cursor_x, cursor_y;
 
 		UserInterface(InputsNS::Controls * c);
@@ -66,6 +64,10 @@ namespace uiNS {
 			}
 		}
 
+		static void printExistingObjects();
+		static void printAssetObjectsList();
+		static void mapButtonOnParentBranch(const string&, const string&);
+		
 
 	};
 

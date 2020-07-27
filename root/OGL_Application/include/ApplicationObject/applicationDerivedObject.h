@@ -26,6 +26,13 @@ namespace myobjectNS
 	static const std::string classBox{ "Box" };
 
 
+	constexpr int HALFSPACECOLLISORID = -1;/*TBD*/
+	constexpr int PLANECOLLISORID = -3;/*TBD*/
+	constexpr int FINITEPLANECOLLISORID = 3;
+	constexpr int SPHERECOLLISORID = 0;
+	constexpr int BOXCOLLISORID = 2;
+	constexpr int AABBCOLLISORID = 2.1;/*TBD*/
+
 	class ObjectSphere : public ApplicationObject, public CollisionSphere {
 	protected:
 		float DOradius = 5.0;
@@ -34,7 +41,7 @@ namespace myobjectNS
 	public:
 		ObjectSphere(ObjectSphere*);
 		ObjectSphere(std::string s = classSphere);
-		int getCollisorID() override { AOCollisorID = 0; return AOCollisorID; }
+		int getCollisorID() override { AOCollisorID = SPHERECOLLISORID; return AOCollisorID; }
 		std::string showParameters() override;
 		ObjectSphere* getNewInstance()override;
 		void render(const fpcameraNS::Transformation& cam) override { FinalRender(cam); }
@@ -58,16 +65,15 @@ namespace myobjectNS
 
 		void switchPhysics(const bool v) override { body->setAwake(v); }
 		RigidBody * getRB()override;
-		void AOcanSleep(const bool v) override
+		void DOcanSleep(const bool& v) override
 		{
-			//body->canSleep = v;
-			body->isAwake = !v;
-			AOisOn = v;
+			body->canSleep = v;
+
 		}
 
 	};
 
-
+	
 
 
 	class ObjectPlane : public ApplicationObject, public advancedPhysicsNS::CollisionFinitePlane {
@@ -77,7 +83,7 @@ namespace myobjectNS
 	public:
 		ObjectPlane(ObjectPlane*, const size_t& L1, const size_t& L2, const size_t& L3);
 		ObjectPlane(const std::string& s,const size_t&L1, const size_t& L2, const size_t& L3);
-		int getCollisorID() override { AOCollisorID = 3; return AOCollisorID; }
+		int getCollisorID() override { AOCollisorID = FINITEPLANECOLLISORID; return AOCollisorID; }
 		std::string showParameters()override;
 		vmath::vec4 planeNormal{ 0.0,1.0,0.0,1.0 };
 		void AOtrX(int sign) override;
@@ -116,10 +122,10 @@ namespace myobjectNS
 
 		void switchPhysics(const bool v) override { body->setAwake(v); }
 		RigidBody * getRB()override;
-		void AOcanSleep(const bool v) override
+		void DOcanSleep(const bool& v) override
 		{
 			body->canSleep = v;
-			AOisOn = v;
+
 		}
 
 	};
@@ -135,7 +141,7 @@ namespace myobjectNS
 	public:
 		ObjectBox(ObjectBox*, const float& l1, const float& l2, const float& l3);
 		ObjectBox(const std::string& s,const float& l1,const float& l2, const float& l3);
-		int getCollisorID() override { AOCollisorID = 2; return AOCollisorID; }
+		int getCollisorID() override { AOCollisorID = BOXCOLLISORID; return AOCollisorID; }
 		std::string getRBObjectID() override { return body->RBobjectID; }
 		std::string showParameters()override;
 		void setParameters() override;
@@ -149,20 +155,20 @@ namespace myobjectNS
 			L1 = w;
 			L2 = h;
 			L3 = d;
+			halfSize[0] = L1/2;
+			halfSize[1] = L2/2;
+			halfSize[2] = L3/2;
 			create();
-		}
-		void setSize(const std::vector<float>& sz) override
-		{
-			changeDimensions(sz[0], sz[1], sz[2]);
 		}
 
 		void switchPhysics(const bool v) override { body->setAwake(v); }
-		void AOcanSleep(const bool v) override
+		void DOcanSleep(const bool& v) override
 		{
 			body->canSleep = v;
-			AOisOn = v;
+			body->isAwake = true;			
 		}
 		RigidBody * getRB()override;
+		
 	};
 
 
@@ -175,7 +181,7 @@ namespace myobjectNS
 	public:
 		ObjectAABB(ObjectBox*, const float& l1, const float& l2, const float& l3);
 		ObjectAABB(const std::string& s, const float& l1, const float& l2, const float& l3);
-		int getCollisorID() override { AOCollisorID = 2.1; return AOCollisorID; }
+		int getCollisorID() override { AOCollisorID = AABBCOLLISORID; return AOCollisorID; }
 		std::string getRBObjectID() override { return body->RBobjectID; }
 		std::string showParameters()override;
 		void setParameters() override;
@@ -195,10 +201,10 @@ namespace myobjectNS
 		}
 
 		void switchPhysics(const bool v) override { body->setAwake(v); }
-		void AOcanSleep(const bool v) override
+		void DOcanSleep(const bool& v) override
 		{
 			body->canSleep = v;
-			AOisOn = v;
+
 		}
 		RigidBody * getRB()override;
 	};

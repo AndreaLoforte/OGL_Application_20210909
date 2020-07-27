@@ -6,8 +6,9 @@ namespace uiNS {
 	const string NonButtonMap::NEXTOBJECT = "NEXT OBJECT";
 	const string NonButtonMap::PREVOBJECT = "PREVIOUS OBJECT";
 	const string NonButtonMap::SELECTOBJECT = "SELECT OBJECT";
-	const string NonButtonMap::ADJUSTSIZE = "ADJUST SIZE";
-	const string NonButtonMap::ADJUSTCOLOR = "ADJUST COLOR";
+	const string NonButtonMap::ADJUSTSIZE = "CHANGE SIZE";
+	const string NonButtonMap::ADJUSTCOLOR = "CHANGE COLOR";
+	const string NonButtonMap::OBJECTPOSITION = "CHANGE POSITION";
 	const string NonButtonMap::OBJECTSWITCH = "TURN ON/OFF";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";

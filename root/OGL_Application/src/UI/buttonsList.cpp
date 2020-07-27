@@ -59,8 +59,8 @@ namespace textRendererNS {
 		buttonsListIter it = getIteratorOf(key);
 		if (it == buttons.end())
 		{
-			/*LINESPACING = 0.1 * scale;
-			ypos -= LINESPACING;*/
+			/*must guarantee that ypos is always updated in case we erase some string*/
+			if(buttons.size() > 0 )	ypos = buttons.back().button.y_min;
 			uiNS::Button b({ key, content, xpos,ypos, scale });
 			buttons.push_back(b);
 			buttons.back().button.parentNodes.clear();
@@ -104,6 +104,7 @@ namespace textRendererNS {
 		buttonsListIter element_to_delete = getIteratorOf(id);
 		if (element_to_delete != buttons.end())
 		{
+			
 			buttons.erase(element_to_delete);
 			--buttonslistSize;
 		}

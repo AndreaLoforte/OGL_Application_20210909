@@ -12,6 +12,58 @@ namespace uiNS {
 	vector<ButtonInterface*> UserInterface::buttonFlow;
 	StartButton* UserInterface::start;
 	textRendererNS::PrintHelper UserInterface::ph{ "uiInterface",-0.9f,0.9f};
+	InputsNS::Controls* UserInterface::control;
+
+
+	void UserInterface::printExistingObjects()
+	{
+		UserInterface::deleteAllButtons();
+		UserInterface::ph.resetPosition();
+		UserInterface::setButton(ButtonMap::BACKBUTTON);
+
+		for (int i = 0; i < myobjectNS::ApplicationObjectManager::ApplicationCollectorList.size(); i++)
+		{
+			string s =
+				myobjectNS::ApplicationObjectManager::
+				ApplicationCollectorList[i]->getCollectorID();//+"_"+std::to_string(i);
+
+			UserInterface::ph.mapButtonOnBranch(
+				UserInterface::getParentButton()->getButtonID(),
+				s,
+				s);
+		}
+	}
+
+
+
+
+	void UserInterface::mapButtonOnParentBranch(const string& stringID, const string& stringValue)
+	{
+		ph.mapButtonOnBranch(
+			getParentButton()->getButtonID(),
+			stringID,
+			stringValue);
+	}
+
+
+
+	void UserInterface::printAssetObjectsList()
+	{
+
+		UserInterface::deleteAllButtons();
+		UserInterface::ph.resetPosition();
+
+		std::map<std::string, int>* assetIndex = AssetNS::Assets::getAssetIndex();
+		std::map<std::string, int>::iterator it = assetIndex->begin();
+
+
+		for (it; it != assetIndex->end(); it++)
+			UserInterface::ph.mapButtonOnBranch(
+				UserInterface::getParentButton()->getButtonID(),
+				it->first,
+				it->first);
+
+	}
 
 
 
@@ -48,9 +100,9 @@ namespace uiNS {
 			return buttonFlow.at(0);
 	}
 
-	UserInterface::UserInterface(InputsNS::Controls * c) :control(c)
+	UserInterface::UserInterface(InputsNS::Controls * c) 
 	{
-		
+		control = c;
 		control->setUserInterface(this);
 		using namespace textRendererNS;
 		textRendererNS::TextRenderer::printList.push_back(&ph);
@@ -101,7 +153,7 @@ namespace uiNS {
 	}
 
 	
-	
+
 
 
 	

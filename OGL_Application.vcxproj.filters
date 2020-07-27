@@ -425,41 +425,8 @@
     <ClCompile Include="root\OGL_Application\src\Objects\assets.cpp">
       <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\build_b.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\frameofref.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
     <ClCompile Include="root\OGL_Application\src\Objects\gun.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\my_particle.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\object1.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\point.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\projectile.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\sphere.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\surface.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\triangle_b.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\triangle_tb.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\viewfinder.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
     <ClCompile Include="root\OGL_Application\src\Objects\characters\enemy.cpp">
       <Filter>Source Files\characters</Filter>
@@ -527,136 +494,169 @@
     <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\boxAABB.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\grid.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
     <ClCompile Include="root\OGL_Application\src\cameraTransformations\fpcamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="root\OGL_Application\src\cameraTransformations\cameraManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\UI\buttonMap.cpp">
+    <ClCompile Include="root\OGL_Application\src\Objects\boxAABB\boxAABB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\UI\buttons.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\UI\buttonsList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\UI\printHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\UI\text.cpp">
+    <ClCompile Include="root\OGL_Application\src\Objects\build\build_b.cpp">
       <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\UI\userInterface.cpp">
+    <ClCompile Include="root\OGL_Application\src\Objects\frameOfRef\frameofref.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\grid\grid.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\object1\object1.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\particle\my_particle.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\point\point.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\projectile\projectile.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\sphere\sphere.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\surface\surface.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\triangle\triangle_b.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\triangle_tb\triangle_tb.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\viewfinder\viewfinder.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\buttonEditObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\UI\buttons2.cpp">
+    <ClCompile Include="root\OGL_Application\src\UI\buttonMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\buttons.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\buttonsList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\printHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\text.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\userInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="root\OGL_Application\src\Objects\Shaders\build\build.frag">
+    <None Include="root\OGL_Application\src\Objects\build\build.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\build\build.vert">
+    <None Include="root\OGL_Application\src\Objects\build\build.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\characters\enemy\enemy.frag">
+    <None Include="root\OGL_Application\src\Objects\characters\enemy\enemy.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\enemy</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\characters\enemy\enemy.vert">
+    <None Include="root\OGL_Application\src\Objects\characters\enemy\enemy.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\enemy</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\characters\playercharacter\playercharacter.frag">
+    <None Include="root\OGL_Application\src\Objects\characters\playercharacter\playercharacter.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\playercharacter</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\characters\playercharacter\playercharacter.vert">
+    <None Include="root\OGL_Application\src\Objects\characters\playercharacter\playercharacter.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\playercharacter</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\frameOfRef\frameOfRef.frag">
+    <None Include="root\OGL_Application\src\Objects\frameOfRef\frameOfRef.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\frameOfRef</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\frameOfRef\frameOfRef.vert">
+    <None Include="root\OGL_Application\src\Objects\frameOfRef\frameOfRef.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\frameOfRef</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\gun_for\gun_for.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\gun_for</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\gun_for\gun_for.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\gun_for</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\object1\object1.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\object1\object1.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\particle\particle.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\particle</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\particle\particle.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\particle</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\point\point.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\point</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\point\point.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\point</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\projectile\projectile.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\projectile</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\projectile\projectile.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\projectile</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\sphere\sphere.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\sphere</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\sphere\sphere.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\sphere</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\surface\surface.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\surface</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\surface\surface.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\surface</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\text\text.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\text</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\text\text.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\text</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\triangle\triangle.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\triangle\triangle.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\triangle_tb\triangle_tb.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle_tb</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\triangle_tb\triangle_tb.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle_tb</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\viewfinder\viewfinder.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\viewfinder</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\viewfinder\viewfinder.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\viewfinder</Filter>
-    </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\grid\grid.frag">
+    <None Include="root\OGL_Application\src\Objects\grid\grid.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\ground</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\Shaders\grid\grid.vert">
+    <None Include="root\OGL_Application\src\Objects\grid\grid.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\ground</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\gun_for\gun_for.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\gun_for</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\gun_for\gun_for.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\gun_for</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\object1\object1.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\object1\object1.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\particle\particle.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\particle</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\particle\particle.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\particle</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\point\point.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\point</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\point\point.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\point</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\projectile\projectile.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\projectile</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\projectile\projectile.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\projectile</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\sphere\sphere.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\sphere</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\sphere\sphere.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\sphere</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\surface\surface.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\surface</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\surface\surface.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\surface</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\text\text.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\text</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\text\text.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\text</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\triangle\triangle.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\triangle\triangle.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\triangle_tb\triangle_tb.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle_tb</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\triangle_tb\triangle_tb.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle_tb</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\viewfinder\viewfinder.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\viewfinder</Filter>
+    </None>
+    <None Include="root\OGL_Application\src\Objects\viewfinder\viewfinder.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\viewfinder</Filter>
     </None>
   </ItemGroup>
 </Project>

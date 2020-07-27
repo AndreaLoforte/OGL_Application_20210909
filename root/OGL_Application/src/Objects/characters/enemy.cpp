@@ -76,8 +76,6 @@ void Enemy::setRigidBodyParameters() {
 	body->setLinearDamping(1.0);
 	body->setAngularDamping(1.0);
 
-	body->setAwake(true);
-
 	body->setMass(bodyMass);
 
 	body->setPosition(AOposition[0], AOposition[1], AOposition[2]);
@@ -122,12 +120,10 @@ void EnemyOC::OCupdate(const float& duration)
 
 EnemyOC::EnemyOC() : ActiveObject("enemy", &enemycoll)
 {
-
 	enemycoll.push_back(&enemy);
 	brain.setTarget(myobjectNS::PlayerCharacterOC::getPlayer());
 	gun.setCollectorOwnership(collectorID);
 	enemy.setCollectorOwnership(collectorID);
-	
 }
 
 
