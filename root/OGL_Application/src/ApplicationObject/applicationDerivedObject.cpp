@@ -25,32 +25,32 @@ namespace myobjectNS {
 	}
 
 
-		void ObjectPlane::AOtrX(int sign)	{
-			AOTrMatrix = vmath::translate(AOshift[0] * sign, 0.0f, 0.0f)*AOTrMatrix;
-			setParameters();
-		}
-		void ObjectPlane::AOtrY(int sign)	{
-			AOTrMatrix = vmath::translate(0.0f, AOshift[0] * sign, 0.0f)*AOTrMatrix;
-			setParameters();
-		}
-		void ObjectPlane::AOtrZ(int sign)	{
-			AOTrMatrix = vmath::translate(0.0f, 0.0f, AOshift[0] * sign)*AOTrMatrix;
-			setParameters();
-		}
-		void ObjectPlane::AOrotX(int sign)	{
-			AOTrMatrix *= vmath::rotate(AOrot[0] * sign, vmath::vec3(1.0f, .0f, 0.0f));
-			setParameters();
-		}
-		void ObjectPlane::AOrotY(int sign)	{
-			AOTrMatrix *= vmath::rotate(AOrot[0] * sign, vmath::vec3(.0f, 1.0f, 0.0f));
-			/*sempre specificare f per float!*/
-			setParameters();
-		}
-		void ObjectPlane::AOrotZ(int sign)	{
-			AOTrMatrix *= vmath::rotate(AOrot[0] * sign, vmath::vec3(.0f, 0.0f, 1.0f));
-			/*sempre specificare f per float!*/
-			setParameters();
-		}
+		//void ObjectPlane::AOtrX(int sign)	{
+		//	AOTrMatrix = vmath::translate(AOshift[0] * sign, 0.0f, 0.0f)*AOTrMatrix;
+		//	setParameters();
+		//}
+		//void ObjectPlane::AOtrY(int sign)	{
+		//	AOTrMatrix = vmath::translate(0.0f, AOshift[0] * sign, 0.0f)*AOTrMatrix;
+		//	setParameters();
+		//}
+		//void ObjectPlane::AOtrZ(int sign)	{
+		//	AOTrMatrix = vmath::translate(0.0f, 0.0f, AOshift[0] * sign)*AOTrMatrix;
+		//	setParameters();
+		//}
+		//void ObjectPlane::AOrotX(int sign)	{
+		//	AOTrMatrix *= vmath::rotate(AOrot[0] * sign, vmath::vec3(1.0f, .0f, 0.0f));
+		//	setParameters();
+		//}
+		//void ObjectPlane::AOrotY(int sign)	{
+		//	AOTrMatrix *= vmath::rotate(AOrot[0] * sign, vmath::vec3(.0f, 1.0f, 0.0f));
+		//	/*sempre specificare f per float!*/
+		//	setParameters();
+		//}
+		//void ObjectPlane::AOrotZ(int sign)	{
+		//	AOTrMatrix *= vmath::rotate(AOrot[0] * sign, vmath::vec3(.0f, 0.0f, 1.0f));
+		//	/*sempre specificare f per float!*/
+		//	setParameters();
+		//}
 
 		
 

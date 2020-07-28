@@ -46,8 +46,8 @@ void Enemy::render()
 void Enemy::update(const float& duration){
 
 		
-	body->integrate(duration);
-	calculateInternals();
+	/*body->integrate(duration);
+	calculateInternals();*/
 	body->getGLTransform(AOTrMatrix);
 
 	static float i = 70.0;
@@ -110,7 +110,7 @@ void EnemyOC::OCupdate(const float& duration)
 	brain.follow(this, brain.target);
 
 	for (int i = 0; i < enemycoll.size(); i++)
-		enemycoll[i]->update(duration);
+		enemycoll[i]->AOupdate(duration);
 
 	/*tenere shoot dopo l'integratore altrimenti già
 	al primo frame il proiettile è già molto distante dal fireSpot*/

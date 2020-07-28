@@ -2,7 +2,7 @@
 #include<inputs.h>
 
 GLFWwindow* Application::window;
-GLint Application::window_width = 1200;
+GLint Application::window_width = 1400;
 GLint Application::window_height = 800;
 GLfloat Application::aspect =  Application::window_width/(float)Application::window_height;
 std::string Application::application_root_dir{ Application::getApplicationRootDir() };

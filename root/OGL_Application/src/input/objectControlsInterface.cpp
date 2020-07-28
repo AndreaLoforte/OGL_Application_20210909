@@ -51,7 +51,7 @@ namespace objectControlsNS {
 				return;
 			}
 
-			if (myobjectNS::ApplicationObjectManager::getEditableObject()->getBody()->AOobjectClass ==
+			if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
 				myobjectNS::classSphere)
 			{
 				uiNS::UserInterface::ph.mapButtonOnBranch(
@@ -63,12 +63,12 @@ namespace objectControlsNS {
 				if (radius <= 0) return;
 				else
 					static_cast<myobjectNS::ObjectSphere*>
-					(myobjectNS::ApplicationObjectManager::getEditableObject()->getBody())->changeRadius(radius);
+					(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeRadius(radius);
 			}
 
 
 
-			if (myobjectNS::ApplicationObjectManager::getEditableObject()->getBody()->AOobjectClass ==
+			if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
 				myobjectNS::classBox)
 			{
 				ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON,
@@ -113,13 +113,13 @@ namespace objectControlsNS {
 						typethird = false;
 					}
 					static_cast<myobjectNS::ObjectBox*>
-						(myobjectNS::ApplicationObjectManager::getEditableObject()->getBody())->changeDimensions(x, y, z);
+						(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeDimensions(x, y, z);
 				}
 			}
 
 
 
-			if (myobjectNS::ApplicationObjectManager::getEditableObject()->getBody()->AOobjectClass ==
+			if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
 				myobjectNS::classPlane)
 			{
 				ph.mapNewString(
@@ -156,7 +156,7 @@ namespace objectControlsNS {
 
 
 				static_cast<myobjectNS::ObjectPlane*>
-					(myobjectNS::ApplicationObjectManager::getEditableObject()->getBody())->changeDimensions(x, y);
+					(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeDimensions(x, y);
 			}
 
 		
@@ -203,7 +203,7 @@ namespace objectControlsNS {
 			{
 				mymathlibNS::stdVectorProdFloat(color, 0.01);
 				static_cast<myobjectNS::ObjectSphere*>
-					(myobjectNS::ApplicationObjectManager::getEditableObject()->getBody())->changeColor(color);
+					(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeColor(color);
 			}
 		}
 	}

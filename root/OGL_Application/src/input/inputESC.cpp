@@ -11,13 +11,11 @@ namespace InputsNS{
 
 void Controls::key_callbackESC(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	
-	ph.mapNewString
-	("ESCAPEMODE",
-		NEWLINE + NEWLINE + "Y : Save changes end quit " +
-		NEWLINE + "S : save on new file and quit" +
-		NEWLINE + "L : load next project data file" +
-		NEWLINE + "N : cancel " +
-		NEWLINE + "ESC exit without save");
+	UserInterface::mapButtonOnParentBranch("ESCOPT1","Y : Save changes end quit ");
+	UserInterface::mapButtonOnParentBranch("ESCOPT2", "L : load next project data file");
+	UserInterface::mapButtonOnParentBranch("ESCOPT3", "N : cancel ");
+	UserInterface::mapButtonOnParentBranch("ESCOPT4", "ESC exit without save");
+
 
 	if (action == GLFW_RELEASE) return;
 

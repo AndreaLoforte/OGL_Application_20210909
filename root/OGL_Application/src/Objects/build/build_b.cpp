@@ -28,15 +28,11 @@ namespace myobjectNS {
 
 	void Build_b::update(const float& duration){
 
-		body->integrate(duration);
-		CollisionPrimitive::calculateInternals();
+		/*body->integrate(duration);
+		CollisionPrimitive::calculateInternals();*/
 
 		//metto body->transformMatrix in physics_transformation
 		body->getGLTransform(AOTrMatrix);
-
-		//VOGLIO VEDERE LA MATRICE DI TRASFORMAZIONE FISICA E QUELLA DEL COLLISORE
-	/*	TextRendererTest::printMatrix44(physics_transformation, "build : physicsT");
-		TextRendererTest::printMatrix43(CollisionPrimitive::transform, "build : Transform");*/
 
 	}
 
@@ -61,7 +57,7 @@ namespace myobjectNS {
 		body->setLinearDamping(1.0);
 		body->setAngularDamping(1.0);
 
-		body->setAwake(false);
+		body->setAwake(true);
 
 		body->setInverseMass(.1);
 		body->setMass(10.0);

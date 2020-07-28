@@ -12,7 +12,7 @@
 #include<extern_definitions.h>
 #include<sound.h>
 #include<timing.h>
-#include<IA.h>
+#include<AI.h>
 #include<userInterface.h>
 
 

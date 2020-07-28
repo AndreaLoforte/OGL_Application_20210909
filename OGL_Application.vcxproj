@@ -197,7 +197,7 @@
     <ClInclude Include="root\OGL_Application\include\Objects\triangle_tb.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\viewfinder.h" />
     <ClInclude Include="root\OGL_Application\include\extern_definitions.h" />
-    <ClInclude Include="root\OGL_Application\include\IA.h" />
+    <ClInclude Include="root\OGL_Application\include\AI.h" />
     <ClInclude Include="root\OGL_Application\include\ApplicationObject\objectCollector.h" />
     <ClInclude Include="root\OGL_Application\include\objectControlsInterface.h" />
     <ClInclude Include="root\OGL_Application\include\PHYSICS_H\AdvancedPhysics\advancedCD.h" />
@@ -255,8 +255,8 @@
     <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationDerivedObject.cpp" />
     <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationObject.cpp" />
     <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationObjectManager.cpp" />
-    <ClCompile Include="root\OGL_Application\src\Objects\characters\enemy.cpp" />
-    <ClCompile Include="root\OGL_Application\src\Objects\characters\playerCharacter.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\characters\enemy\enemy.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\characters\playercharacter\playerCharacter.cpp" />
     <ClCompile Include="root\OGL_Application\src\Collectors\derivedObjectCollector.cpp" />
     <ClCompile Include="root\OGL_Application\src\Collectors\objectCollector.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\assets.cpp" />
@@ -268,7 +268,7 @@
     <ClCompile Include="root\OGL_Application\src\Objects\triangle\triangle_b.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\triangle_tb\triangle_tb.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\viewfinder\viewfinder.cpp" />
-    <ClCompile Include="root\OGL_Application\src\IA.cpp" />
+    <ClCompile Include="root\OGL_Application\src\AI.cpp" />
     <ClCompile Include="root\OGL_Application\src\input\inputCursor.cpp" />
     <ClCompile Include="root\OGL_Application\src\input\inputEditMode.cpp" />
     <ClCompile Include="root\OGL_Application\src\input\inputESC.cpp" />

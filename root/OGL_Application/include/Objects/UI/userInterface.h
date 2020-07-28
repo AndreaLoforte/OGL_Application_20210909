@@ -20,6 +20,8 @@ namespace uiNS {
 		static vector<ButtonInterface*> buttonFlow;
 		static double cursor_x, cursor_y;
 		static bool paused;
+		static bool physicsOn;
+		static bool AIon;
 		UserInterface(InputsNS::Controls * c);
 		void init();
 		static void pause();
@@ -68,7 +70,12 @@ namespace uiNS {
 		static void printExistingObjects();
 		static void printAssetObjectsList();
 		static void mapButtonOnParentBranch(const string&, const string&);
-		
+		static void setFlags(const bool& pause, const bool& aion, const bool& physicson)
+		{
+			paused = pause;
+			AIon = aion;
+			physicsOn = physicson;
+		}
 
 	};
 

@@ -93,6 +93,7 @@ public:
 	void virtual AOrotX(int sign);
 	void virtual AOrotY(int sign);
 	void virtual AOrotZ(int sign);
+	void AOtr(const int& shiftX, const int& shiftY, const int& shiftZ);
 	
 	virtual std::string getInfos() 
 	{

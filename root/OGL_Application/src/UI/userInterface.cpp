@@ -12,6 +12,8 @@ namespace uiNS {
 	vector<ButtonInterface*> UserInterface::buttonFlow;
 	StartButton* UserInterface::start;
 	bool UserInterface::paused{ true };
+	bool UserInterface::physicsOn{ true };
+	bool UserInterface::AIon{ true };
 	textRendererNS::PrintHelper UserInterface::ph{ "uiInterface",-0.9f,0.9f};
 	InputsNS::Controls* UserInterface::control;
 	

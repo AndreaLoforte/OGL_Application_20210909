@@ -5,6 +5,7 @@
 #include<objectControlsInterface.h>
 #include<inputs.h>
 #include<app.h>
+#include<AI.h>
 namespace uiNS
 {
 
@@ -13,7 +14,7 @@ namespace uiNS
 	void EditObjectModeButton::action()
 	{
 		UserInterface::deleteAllButtons();
-
+		UserInterface::setFlags(false, false, false);
 		UserInterface::ph.mapButtonOnBranch(ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
 		UserInterface::ph.mapButtonOnBranch(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::SELECTOBJECT, NonButtonMap::SELECTOBJECT);
 		
@@ -119,7 +120,7 @@ namespace uiNS
 
 		if (buttonID == NonButtonMap::OBJECTSWITCH)
 		{
-			ObjectSwitch(myobjectNS::ApplicationObjectManager::getEditableObject());
+			ObjectSwitch(myobjectNS::ApplicationObjectManager::getEditableCollector());
 			return;
 		}
 
@@ -150,6 +151,76 @@ namespace uiNS
 
 
 
+	void camRelativeShiftZ(const int& sign)
+	{
+		using namespace myobjectNS;
+		using namespace mymathlibNS;
+
+		const fpcameraNS::Transformation* cam{ fpcameraNS::CameraManager::getActiveCameraPT() };
+		const array<float, 3> camPos = cam->getCamGLBCoords();
+		ApplicationObject* obj = ApplicationObjectManager::getEditableCollector()->getBody();
+		const array<float, 3> objPos = obj->AOposition;
+			//ApplicationObjectManager::getEditableCollector()->getBody()->AOposition;
+
+		array<float, 3> object_cam_distance =
+		{
+			camPos[0] - objPos[0],
+			/*camPos[1] - objPos[1]*/0.0,
+			camPos[2] - objPos[2],
+		};
+
+		array<float, 3> obj_cam_normalized = mymathlibNS::stdLibHelper::array3Normalize(object_cam_distance);
+		array<float, 3> obj_cam_ortogonal{ obj_cam_normalized[2],obj_cam_normalized[1],obj_cam_normalized[0] };
+		
+
+		const array<float, 3> absoluteZDir{ 0.0,0.0,-sign * 1.0 };
+		const array<float, 3> absoluteXDir{ -sign * 1.0,0.0,0.0 };
+		
+
+		ApplicationObjectManager::getEditableCollector()->AOtr(
+			stdLibHelper::array3fScalarProduct(absoluteXDir, obj_cam_normalized)*100,
+			0.0,
+			stdLibHelper::array3fScalarProduct(absoluteZDir, obj_cam_normalized)*100);
+		/*myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrX(stdLibHelper::array3fScalarProduct(absoluteXDir, obj_cam_normalized)*10 );
+		myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrZ(stdLibHelper::array3fScalarProduct(absoluteZDir, obj_cam_normalized)*10 );*/
+
+	}
+
+
+	void camRelativeShiftX(const int& sign)
+	{
+		const fpcameraNS::Transformation* cam{ fpcameraNS::CameraManager::getActiveCameraPT() };
+		const array<float, 3> camPos = cam->getCamGLBCoords();
+		const array<float, 3> objPos =
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOposition;
+
+		array<float, 3> object_cam_distance =
+		{
+			camPos[0] - objPos[0],
+			/*camPos[1] - objPos[1]*/0.0,
+			camPos[2] - objPos[2],
+		};
+
+		array<float, 3> obj_cam_normalized = mymathlibNS::stdLibHelper::array3Normalize(object_cam_distance);
+		array<float, 3> obj_cam_ortogonal
+		{ mymathlibNS::stdLibHelper::array3Normalize(
+			mymathlibNS::stdLibHelper::array3VectorProduct(obj_cam_normalized,{0,1,0})
+			)};
+
+
+		const array<float, 3> absoluteZDir{ 0.0,0.0,-sign * 1.0 };
+		const array<float, 3> absoluteXDir{ -sign * 1.0,0.0,0.0 };
+		using namespace mymathlibNS;
+
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtr(
+				stdLibHelper::array3fScalarProduct(absoluteXDir, obj_cam_ortogonal)*100,
+				0.0,
+				stdLibHelper::array3fScalarProduct(absoluteZDir, obj_cam_ortogonal)*100);
+		/*myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrX(stdLibHelper::array3fScalarProduct(absoluteXDir, obj_cam_ortogonal)*10 );
+		myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrZ(stdLibHelper::array3fScalarProduct(absoluteZDir, obj_cam_ortogonal)*10 );*/
+
+	}
+
 
 	void EditObjectModeButton::key_callbackMove(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
@@ -159,13 +230,13 @@ namespace uiNS
 
 			if (key == GLFW_KEY_LEFT)
 			{
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotZ(-1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotZ(-1);
 
 				return;
 			}
 			if (key == GLFW_KEY_RIGHT)
 			{
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotZ(1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotZ(1);
 
 				return;
 			}
@@ -180,35 +251,39 @@ namespace uiNS
 			fpcameraNS::CameraManager::switchCamera();
 			break;
 		case GLFW_KEY_W:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrZ(-1);
+			//camRelativeShiftZ(1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrZ(-1);
 			break;
 		case GLFW_KEY_S:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrZ(1);
+			//camRelativeShiftZ(-1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrZ(1);
 			break;
 		case GLFW_KEY_D:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrX(1);
+			//camRelativeShiftX(1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrX(-1);
 			break;
 		case GLFW_KEY_A:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrX(-1);
+			//camRelativeShiftX(-1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrX(1);
 			break;
 		case GLFW_KEY_1:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrY(-1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrY(-1);
 			break;
 		case GLFW_KEY_2:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrY(1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrY(1);
 			break;
 
 		case GLFW_KEY_UP:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotX(1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotX(1);
 			break;
 		case GLFW_KEY_DOWN:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotX(-1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotX(-1);
 			break;
 		case GLFW_KEY_RIGHT:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotY(-1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotY(-1);
 			break;
 		case GLFW_KEY_LEFT:
-			myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotY(1);
+			myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotY(1);
 			break;
 		case GLFW_KEY_R:
 			fpcameraNS::CameraManager::resetAll();
@@ -220,7 +295,7 @@ namespace uiNS
 
 
 
-
+	
 
 
 	void EditObjectModeButton::ObjectSwitch(collectorNS::ApplicationObjectCollector* obj)
@@ -254,7 +329,7 @@ namespace uiNS
 			UserInterface::ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
 		}
 
-		if (myobjectNS::ApplicationObjectManager::getEditableObject()->getBody()->AOobjectClass ==
+		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
 			myobjectNS::classSphere)
 		{
 			uiNS::UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type the new radius : ");
@@ -264,12 +339,12 @@ namespace uiNS
 			if (radius <= 0) return;
 			else
 				static_cast<myobjectNS::ObjectSphere*>
-				(myobjectNS::ApplicationObjectManager::getEditableObject()->getBody())->changeRadius(radius);
+				(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeRadius(radius);
 		}
 
 
 
-		if (myobjectNS::ApplicationObjectManager::getEditableObject()->getBody()->AOobjectClass ==
+		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
 			myobjectNS::classBox)
 		{
 			UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON,"Type 3 dimensions : " );
@@ -313,13 +388,13 @@ namespace uiNS
 					typethird = false;
 				}
 				static_cast<myobjectNS::ObjectBox*>
-					(myobjectNS::ApplicationObjectManager::getEditableObject()->getBody())->changeDimensions(x, y, z);
+					(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeDimensions(x, y, z);
 			}
 		}
 
 
 
-		if (myobjectNS::ApplicationObjectManager::getEditableObject()->getBody()->AOobjectClass ==
+		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
 			myobjectNS::classPlane)
 		{
 			UserInterface::mapButtonOnParentBranch(
@@ -356,7 +431,7 @@ namespace uiNS
 
 
 			static_cast<myobjectNS::ObjectPlane*>
-				(myobjectNS::ApplicationObjectManager::getEditableObject()->getBody())->changeDimensions(x, y);
+				(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeDimensions(x, y);
 		}
 
 
@@ -389,7 +464,7 @@ namespace uiNS
 		if (UserInterface::control->NInsertion(key, action, 4, color))
 		{
 			mymathlibNS::stdVectorProdFloat(color, 0.01);
-			static_cast<myobjectNS::ApplicationObject*>(myobjectNS::ApplicationObjectManager::getEditableObject()->getBody())->changeColor(color);
+			static_cast<myobjectNS::ApplicationObject*>(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeColor(color);
 		}
 	}
 	

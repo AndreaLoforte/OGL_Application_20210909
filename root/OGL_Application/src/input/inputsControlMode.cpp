@@ -9,16 +9,15 @@ namespace InputsNS{
 	using namespace textRendererNS;
 
 	void Controls::key_callbackControl(GLFWwindow* window, int key, int scancode, int action, int mods)
-	{
-		bool ispressed1 = false, ispressed2 = false;
-		
+	{		
 		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		{
 			/*primo ESC pulisco la stringa statica, 
 				secondo ESC vado in modalita ESC*/
-				ph.eraseFromMap("CONTROLMODE");
+				/*ph.eraseFromMap("CONTROLMODE");*/
 				mode = 3;
 				setAllCallbackFunction(window);
+			
 		}
 
 
@@ -73,7 +72,7 @@ namespace InputsNS{
 		if (mods == GLFW_MOD_CONTROL)
 		if (key == GLFW_KEY_S)
 		{
-			UserInterface::mapButtonOnParentBranch("SAVE","SAVED");
+			UserInterface::mapButtonOnParentBranch(UserInterface::getParentButton()->getButtonID(),"SAVED");
 			App::SaveProjectData(App::projectDataFileName);
 			return;
 		}

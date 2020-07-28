@@ -10,6 +10,7 @@
 #include<saveloadhelper.h>
 #include<body.h>
 #include<cameraManager.h>
+#include<userInterface.h>
 
 namespace myobjectNS
 {
@@ -26,9 +27,9 @@ void ApplicationObject::save(std::ofstream& out) {
 	out << AOobjectName << std::endl;
 	out << saveloadNS::CollectorSavings::AOINSTANCENUMBERTAG << std::endl;
 	out << AOinstanceNumber << std::endl;
-	out << saveloadNS::CollectorSavings::AOTRMATRIXTAG << std::endl;
+	/*out << saveloadNS::CollectorSavings::AOTRMATRIXTAG << std::endl;
 	logNS::Logger::saveMatrix44(out, AOTrMatrix);
-	out << std::endl;
+	out << std::endl;*/
 	out << saveloadNS::CollectorSavings::AOPOSITIONTAG << std::endl;
 	out << AOposition[0] << " " << AOposition[1] << " " << AOposition[2] << std::endl;
 	out << saveloadNS::CollectorSavings::AOORIENTATIONTAG << std::endl;
@@ -57,8 +58,8 @@ ApplicationObject* ApplicationObject::load(std::ifstream& in, std::size_t start_
 	
 	ApplicationObject*newObj = AssetNS::Assets::getNewObject(collName);
 
-	in >> flushTag;
-	logNS::Logger::loadMatrix44(in, newObj->AOTrMatrix, in.tellg(), stop_at);
+	/*in >> flushTag;
+	logNS::Logger::loadMatrix44(in, newObj->AOTrMatrix, in.tellg(), stop_at);*/
 
 	in >> flushTag;
 	in >> newObj->AOposition[0];
@@ -99,16 +100,29 @@ std::string ApplicationObject::AOprintInfos() {
 
 
 
+void ApplicationObject::AOtr(const int& shiftX, const int& shiftY, const int& shiftZ)
+{
+	constexpr float shift = .1;
+	AOposition[0] += shiftX * shift;
+	AOposition[1] += shiftY * shift;
+	AOposition[2] += shiftZ * shift;
+	setParameters();
+}
+
+
+void ApplicationObject::AOupdate(const float& duration)
+{
+	this->update(duration);
+	if (UserInterface::physicsOn)
+		this->updatePhysics(duration);
+}
 
 
 void ApplicationObject::AOtrX(int sign) {
-	/*sempre specificare f per float!*/
 	AOposition[0] += sign * AOshift[0];
 	setParameters();
 }
 void ApplicationObject::AOtrY(int sign) { 
-	/*sempre specificare f per float!*/
-
 	AOposition[1] += sign * AOshift[0];
 	setParameters();
 }
@@ -117,7 +131,6 @@ void ApplicationObject::AOtrZ(int sign) {
 	setParameters();
 }
 void ApplicationObject::AOrotX(int sign) { 
-	/*sempre specificare f per float!*/
 	mymathlibNS::Quaternion newRot(mymathlibNS::Quaternion::getQuaternionfromXAngle(sign * AOrot[0]));
 	AOorientation = mymathlibNS::Quaternion::getProduct(AOorientation, newRot);
 	

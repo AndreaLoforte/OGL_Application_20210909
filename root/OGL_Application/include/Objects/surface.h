@@ -39,8 +39,9 @@ namespace myobjectNS{
 
 		void clean() {}
 		void render(const fpcameraNS::Transformation&) override;
+		void renderSurface();
+		void renderCollisionPrimitive();
 		void update(const float&) override;
-		void render();
 		void setColor(float, float, float, float);
 		void create()override;
 		void AOsetShaders() override { setShaders(); }
@@ -51,6 +52,7 @@ namespace myobjectNS{
 			return s; 
 		}
 		int getCollisorID() override { return AOCollisorID; }
+
 	};
  
 

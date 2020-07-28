@@ -155,6 +155,23 @@ vmath::mat4  transpose(const vmath::mat4& input_matrix);
 		 return (a[0] * a[0] + a[1] * a[1] + a[2] * a[2]);
 	 }
 
+	 static float array3fScalarProduct(const array<float, 3>& a1, const array<float, 3>& a2)
+	 {
+		 return { a1[0] * a2[0] + a1[1] * a2[1] + a1[2] * a2[2] };
+	 }
+
+	 static array<float, 3> array3Normalize(const array<float, 3>& a)
+	 {
+		 float n(norm(a));
+		 return { a[0] / n, a[1] / n, a[2] / n };
+	 }
+
+	 static array<float, 3> array3VectorProduct(const array<float, 3>& a, const array<float, 3>& b)
+	 {
+		 return { a[1] * b[2] - a[2] * b[1],a[0] * b[2] - a[2] * b[0],a[0] * b[1] - a[1] * b[0] };
+	 }
+
+
   };
 
 

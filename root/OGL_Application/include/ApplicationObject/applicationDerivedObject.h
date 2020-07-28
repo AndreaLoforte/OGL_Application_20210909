@@ -71,6 +71,12 @@ namespace myobjectNS
 
 		}
 
+		void updatePhysics(const float& duration) override
+		{
+			body->integrate(duration);
+			calculateInternals();
+		}
+
 	};
 
 	
@@ -86,12 +92,6 @@ namespace myobjectNS
 		int getCollisorID() override { AOCollisorID = FINITEPLANECOLLISORID; return AOCollisorID; }
 		std::string showParameters()override;
 		vmath::vec4 planeNormal{ 0.0,1.0,0.0,1.0 };
-		void AOtrX(int sign) override;
-		void AOtrY(int sign) override;
-		void AOtrZ(int sign) override;
-		void AOrotX(int sign)override;
-		void AOrotY(int sign)override;
-		void AOrotZ(int sign)override;
 		void create()override{}
 		ObjectPlane* getNewInstance()override;
 		std::string getRBObjectID() override { return body->RBobjectID; }
@@ -125,7 +125,11 @@ namespace myobjectNS
 		void DOcanSleep(const bool& v) override
 		{
 			body->canSleep = v;
-
+		}
+		void updatePhysics(const float& duration) override
+		{
+			body->integrate(duration);
+			calculateInternals();
 		}
 
 	};
@@ -165,10 +169,16 @@ namespace myobjectNS
 		void DOcanSleep(const bool& v) override
 		{
 			body->canSleep = v;
-			body->isAwake = true;			
+			body->isAwake = !v;			
 		}
 		RigidBody * getRB()override;
 		
+		void updatePhysics(const float& duration) override
+		{
+			body->integrate(duration);
+			calculateInternals();
+		}
+
 	};
 
 
@@ -207,6 +217,14 @@ namespace myobjectNS
 
 		}
 		RigidBody * getRB()override;
+
+
+		void updatePhysics(const float& duration) override
+		{
+			body->integrate(duration);
+			calculateInternals();
+		}
+
 	};
 
 

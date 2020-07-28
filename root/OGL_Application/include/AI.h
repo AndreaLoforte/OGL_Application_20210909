@@ -33,6 +33,8 @@ namespace aiNS {
 
 	class myfirstIA {
 	public:
+		
+		/*flag AI activity for a active object*/
 		bool AIon = false;
 		
 		myobjectNS::PlayerCharacterOC* target;

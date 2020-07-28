@@ -3,7 +3,7 @@
 
 #include<baseObject.h>
 #include<applicationDerivedObject.h>
-#include<IA.h>
+#include<AI.h>
 #include<gun.h>
 
 

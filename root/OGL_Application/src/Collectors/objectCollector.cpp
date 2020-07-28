@@ -1,6 +1,7 @@
 #include<string>
 #include<objectCollector.h>
 #include<applicationDerivedObject.h>
+#include<cameraManager.h>
 
 namespace collectorNS {
 
@@ -200,17 +201,18 @@ namespace collectorNS {
 	}
 
 
+	void ApplicationObjectCollector::AOtr(const int& shiftX = 0,const int& shiftY = 0, const int& shiftZ = 0) {
+		for (int i = 0; i < Pcontainer->size(); i++)
+			Pcontainer->at(i)->AOtr(shiftX, shiftY, shiftZ);
+	}
 
 
 
 	void ApplicationObjectCollector::AOtrX(int sign) {
-		/*sempre specificare f per float!*/
 		for (int i = 0; i < Pcontainer->size(); i++)
 			Pcontainer->at(i)->AOtrX(sign);
 	}
 	void ApplicationObjectCollector::AOtrY(int sign) {
-		/*sempre specificare f per float!*/
-
 		for (int i = 0; i < Pcontainer->size(); i++)
 			Pcontainer->at(i)->AOtrY(sign);
 	}

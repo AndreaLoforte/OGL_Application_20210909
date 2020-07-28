@@ -284,6 +284,7 @@ namespace uiNS {
 
 	void ControlModeButton::action()
 	{
+		UserInterface::setFlags(false, true, true);
 		UserInterface::deleteButtonsByBranch(ButtonMap::STARTINGBUTTON);
 		UserInterface::paused = false;
 

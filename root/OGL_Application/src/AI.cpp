@@ -1,4 +1,4 @@
-#include<IA.h>
+#include<AI.h>
 #include<playerCharacter.h>
 #include<gun.h>
 #include<contacts.h>
@@ -7,15 +7,16 @@
 #include<app.h>
 #include<random>
 #include<functional>
+#include<userInterface.h>
 namespace aiNS {
 
 	
 	using namespace textRendererNS;
 
 
-	myobjectNS::PlayerCharacterOC * AI::target;// = myobjectNS::PlayerCharacterOC::getPlayer();
+	myobjectNS::PlayerCharacterOC * AI::target;// = myobjectNS::PlayerCharacterOC::getPlayer()
 	textRendererNS::PrintHelper AI::ph{ "AI" };
-
+	
 
 
 
@@ -78,7 +79,7 @@ namespace aiNS {
 	void myfirstIA::follow(collectorNS::ActiveObject* obj,collectorNS::ActiveObject* target)
 	{
 		if (!target) return;
-		if (!AIon || !obj->isOn ||!target->isOn || !target->isAlive) return;
+		if (!AIon || !obj->isOn ||!target->isOn || !target->isAlive || !UserInterface::AIon) return;
 		static float i = 0.0;
 		static const int M = 10;
 
@@ -109,7 +110,7 @@ namespace aiNS {
 		targetDistanceNorm = mymathlibNS::stdLibHelper::norm(distance_v);
 		if (targetDistanceNorm > activationDistance)
 		{
-			moveInsideBoundaries();
+			moveRandomly();
 			return;
 		}
 		static float distance = 30.0f;
@@ -231,7 +232,7 @@ namespace aiNS {
 		const unsigned& repFreq,
 		myobjectNS::OCGun& gun)
 	{
-		if (!AIon || !obj->isOn || !target->isOn || !target->isAlive) return;
+		if (!AIon || !obj->isOn || !target->isOn || !target->isAlive || !UserInterface::AIon) return;
 
 		if (targetDistanceNorm > activationDistance)
 			return;

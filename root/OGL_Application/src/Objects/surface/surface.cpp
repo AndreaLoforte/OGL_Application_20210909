@@ -1,5 +1,5 @@
 #include<surface.h>
-
+#include<cameraManager.h>
 
 namespace myobjectNS {
 
@@ -9,14 +9,19 @@ namespace myobjectNS {
 	void Surface::render(const fpcameraNS::Transformation& cam)
 	{
 		
+		renderSurface();
+		renderCollisionPrimitive();
 
+	}
 
+	void Surface::renderSurface()
+	{
 		glUseProgram(shader_prog);
 		glBindVertexArray(VAO);
 		static GLuint modelviewMAttribLocation = glGetUniformLocation(shader_prog, "modelviewM");
 		static GLuint transfMAttribLocation = glGetUniformLocation(shader_prog, "transfM");
 		static GLuint colorAttribLoc = glGetUniformLocation(shader_prog, "color");
-		glUniformMatrix4fv(modelviewMAttribLocation, 1, GL_FALSE, cam.getPlayerCamera());
+		glUniformMatrix4fv(modelviewMAttribLocation, 1, GL_FALSE, fpcameraNS::CameraManager::getActiveCamera().getPlayerCamera());
 		glUniformMatrix4fv(transfMAttribLocation, 1, GL_FALSE, AOTrMatrix);
 		glUniform4fv(colorAttribLoc, 1, AOcolor);
 		glLineWidth(1);
@@ -24,17 +29,28 @@ namespace myobjectNS {
 		glBindVertexArray(0);
 
 	}
-
-	void Surface::render()
+	void Surface::renderCollisionPrimitive()
 	{
-	
-
+		glUseProgram(shader_prog);
+		glBindVertexArray(VAO);
+		static GLuint modelviewMAttribLocation = glGetUniformLocation(shader_prog, "modelviewM");
+		static GLuint transfMAttribLocation = glGetUniformLocation(shader_prog, "transfM");
+		static GLuint colorAttribLoc = glGetUniformLocation(shader_prog, "color");
+		glUniformMatrix4fv(modelviewMAttribLocation, 1, GL_FALSE, fpcameraNS::CameraManager::getActiveCamera().getPlayerCamera());
+		glUniformMatrix4fv(transfMAttribLocation, 1, GL_FALSE, mymathlibNS::conversionLibrary::mat43Conversion_tovmath44T(CollisionPrimitive::transform));
+		
+		static float collisorColor[4]{ 1.0,1.0,1.0,.5};
+		glUniform4fv(colorAttribLoc, 1, collisorColor);
+		glLineWidth(1);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
+		glBindVertexArray(0);
 	}
 
 
 	void Surface::update(const float& duration) {
 
-		
+		body->integrate(duration);
+		calculateInternals();
 	}
 
 
@@ -64,14 +80,7 @@ namespace myobjectNS {
 		body->setAngularDamping(1.0);
 
 		body->setAwake(true);
-
-		/* body->setInverseMass(10.0);*/
 		body->setMass(10000000000000.0);
-
-		body->setPosition(AOposition[0], AOposition[0], AOposition[0]);
-		body->setOrientation(AOorientation[0], AOorientation[1], AOorientation[2], AOorientation[3]);	
-
-	
 	}
 
 
@@ -80,9 +89,12 @@ namespace myobjectNS {
 	void Surface::setParameters(){
 
 		//////////////////////////////////////////////////////////////////////////
-
-
-		body->transformMatrix = mymathlibNS::conversionLibrary::mat44Conversion_toMat43Cyclone(AOTrMatrix);
+		body->setPosition(AOposition[0], AOposition[1], AOposition[2]);
+		body->setOrientation(AOorientation[0], AOorientation[1], AOorientation[2], AOorientation[3]);
+		body->_calculateTransformMatrix(body->transformMatrix, body->position, body->orientation);
+		body->getGLTransform(AOTrMatrix);
+		
+		//body->transformMatrix = mymathlibNS::conversionLibrary::mat44Conversion_toMat43Cyclone(AOTrMatrix);
 		/*aggiorno la matrice di collisionFinitePlane*/
 		calculateInternals();
 
@@ -116,6 +128,8 @@ namespace myobjectNS {
 		offset[1] = traslaz[1] * planeNormal[1];
 		offset[2] = traslaz[2] * planeNormal[2];
 		offsetNorm = offset[0] + offset[1] + offset[2];
+
+		
 
 		setRigidBodyParameters();
 

@@ -6,7 +6,7 @@
 #include<assert.h>
 #include<physics.h>
 #include<objectCollector.h>
-#include<IA.h>
+#include<AI.h>
 #include<gun.h>
 #include<playerCharacter.h>
 

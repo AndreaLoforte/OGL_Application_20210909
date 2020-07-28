@@ -55,13 +55,13 @@ void Controls::key_callbackMove(GLFWwindow* window, int key, int scancode, int a
 
 			if (key == GLFW_KEY_LEFT)
 			{
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotZ(-1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotZ(-1);
 
 				return;
 			}
 			if (key == GLFW_KEY_RIGHT)
 			{
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotZ(1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotZ(1);
 
 				return;
 			}
@@ -80,7 +80,7 @@ void Controls::key_callbackMove(GLFWwindow* window, int key, int scancode, int a
 		//ATTIVA-DISATTIVA OGGETTO (fisica, ia, etc..)
 		if (mods == GLFW_MOD_CONTROL && key == GLFW_KEY_A)
 		{
-			objectControlsNS::ObjectControlsI::ObjectSwitch(myobjectNS::ApplicationObjectManager::getEditableObject());
+			objectControlsNS::ObjectControlsI::ObjectSwitch(myobjectNS::ApplicationObjectManager::getEditableCollector());
 			return;
 
 		}
@@ -115,35 +115,35 @@ void Controls::key_callbackMove(GLFWwindow* window, int key, int scancode, int a
 				fpcameraNS::CameraManager::switchCamera();
 				break;
 			case GLFW_KEY_W:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrZ(-1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrZ(-1);
 				break;
 			case GLFW_KEY_S:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrZ(1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrZ(1);
 				break;
 			case GLFW_KEY_D:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrX(1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrX(1);
 				break;
 			case GLFW_KEY_A:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrX(-1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrX(-1);
 				break;
 			case GLFW_KEY_1:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrY(-1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrY(-1);
 				break;
 			case GLFW_KEY_2:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOtrY(1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrY(1);
 				break;
 
 			case GLFW_KEY_UP:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotX(1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotX(1);
 				break;
 			case GLFW_KEY_DOWN:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotX(-1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotX(-1);
 				break;
 			case GLFW_KEY_RIGHT:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotY(-1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotY(-1);
 				break;
 			case GLFW_KEY_LEFT:
-				myobjectNS::ApplicationObjectManager::getEditableObject()->AOrotY(1);
+				myobjectNS::ApplicationObjectManager::getEditableCollector()->AOrotY(1);
 				break;
 			case GLFW_KEY_R:
 				fpcameraNS::CameraManager::resetAll();

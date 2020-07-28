@@ -64,7 +64,7 @@ void ApplicationObjectManager::loadData(string filename) {
 					newColl->setCollectorName(collectorData.collectorsID);
 					newColl->canSleep(!collectorData.isOn);
 					newColl->getSubObject(j)->setPosition(collectorData.AOobjects[j].AOposition);
-					newColl->getSubObject(j)->AOTrMatrix = collectorData.AOobjects[j].AOTrMatrix;
+					//newColl->getSubObject(j)->AOTrMatrix = collectorData.AOobjects[j].AOTrMatrix;
 					newColl->getSubObject(j)->setOrientation(collectorData.AOobjects[j].AOorientation);
 					newColl->getSubObject(j)->setColor(collectorData.AOobjects[j].AOcolor);
 					newColl->getSubObject(j)->setSize(collectorData.AOobjects[j].AOsize);
@@ -84,7 +84,7 @@ void ApplicationObjectManager::loadData(string filename) {
 
 
 
-collectorNS::ApplicationObjectCollector * ApplicationObjectManager::getEditableObject()
+collectorNS::ApplicationObjectCollector * ApplicationObjectManager::getEditableCollector()
 {	
 	return ApplicationCollectorList[editableObjIndex];
 }

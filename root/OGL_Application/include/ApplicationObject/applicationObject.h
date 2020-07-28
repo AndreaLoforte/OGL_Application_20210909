@@ -46,8 +46,9 @@ namespace myobjectNS{
 		void AOcreateObject() { this->create(); }
 		virtual void create() {};
 		virtual void AOsetShaders() {};
-		void AOupdate(const float& duration) { this->update(duration); }
+		void AOupdate(const float& duration);
 		virtual void update(const float& duration) {}
+		virtual void updatePhysics(const float& duration){}
 		virtual void setParameters() {}
 		void virtual AOtrX(int sign) ;
 		void virtual AOtrY(int sign) ;
@@ -55,6 +56,7 @@ namespace myobjectNS{
 		void virtual AOrotX(int sign) ;
 		void virtual AOrotY(int sign);
 		void virtual AOrotZ(int sign);
+		void AOtr(const int& shiftX, const int& shiftY, const int& shiftZ);
 		std::string AOprintInfos();
 		virtual std::string showParameters() { return "No Infos to shows for this object"; }
 		void AOgetNewInstance() { this->getNewInstance(); }

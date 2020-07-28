@@ -38,7 +38,7 @@ void Sphere::render()
 
 void Sphere::update(const float& duration){
 
-    body->integrate(duration);
+   body->integrate(duration);
 
 	/*funzione di collisionPrimitive : 
 	aggiorna la matrice per il calcolo delle collisioni*/

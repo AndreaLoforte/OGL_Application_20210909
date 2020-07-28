@@ -50,7 +50,7 @@ namespace myobjectNS{
 		
 		
 		///////METODI PUBBLICI
-		static collectorNS::ApplicationObjectCollector * getEditableObject();
+		static collectorNS::ApplicationObjectCollector * getEditableCollector();
 		static std::string getEditableObjectName();	
 		static void nextObject();
 		static void prevObject();
