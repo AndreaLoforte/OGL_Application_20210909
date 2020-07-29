@@ -22,33 +22,33 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{13A9FEB8-91B9-45B7-AE50-829B679FC55C}</ProjectGuid>
     <RootNamespace>OGLApplication</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -146,6 +146,7 @@
     <ClInclude Include=".\root\OGL_Application\include\baseObject.h" />
     <ClInclude Include="root\OGL_Application\include\cameraTransformations\cameraManager.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\boxAABB.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\cluster.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\frameofref.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\grid.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\my_particle.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="root\OGL_Application\include\Objects\build_b.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\point.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\surface.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonEditObject.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\UI\PrintHelper.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\UI\userInterface.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonMap.h" />
@@ -216,11 +218,15 @@
     <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp" />
     <ClCompile Include="root\OGL_Application\src\cameraTransformations\cameraManager.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\boxAABB\boxAABB.cpp" />
+    <ClCompile Include="root\OGL_Application\src\Objects\cluster.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\frameOfRef\frameofref.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\grid\grid.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\object1\object1.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\particle\my_particle.cpp" />
-    <ClCompile Include="root\OGL_Application\src\UI\buttonEditObject.cpp" />
+    <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject.cpp" />
+    <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp" />
+    <ClCompile Include="root\OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp" />
+    <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_moveObject.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\userInterface.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\buttonMap.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\buttons.cpp" />
@@ -232,7 +238,7 @@
     <ClCompile Include="root\OGL_Application\src\cameraTransformations\fpcamera.cpp" />
     <ClCompile Include=".\root\OGL_Application\src\log.cpp" />
     <ClCompile Include=".\root\OGL_Application\src\main.cpp" />
-    <ClCompile Include=".\root\OGL_Application\src\mymathlib.cpp" />
+    <ClCompile Include="root\OGL_Application\src\LibAndTools\mymathlib.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\buttonsList.cpp" />
     <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\boxSphere.cpp" />
     <ClCompile Include="root\OGL_Application\src\Physics\body.cpp" />

@@ -128,6 +128,11 @@ bool ApplicationObjectManager::setEditableObject(const string& s)
 }
 
 
+
+
+
+
+
 /*funzione che - passato AOobjectName ritorna indice collettore e
 indice posizione nel collettore*/
 std::pair<int,int> ApplicationObjectManager::getObjectListIndexByAOobjectName(std::string s) {
@@ -173,6 +178,7 @@ collectorNS::ApplicationObjectCollector* ApplicationObjectManager::getObject(std
 			return ApplicationCollectorList[objPos.first];
 }
 
+/*this method returns the collector specified via argument by its collectorID*/
 collectorNS::ApplicationObjectCollector* ApplicationObjectManager::getCollector(const std::string& collectorID)
 {
 	std::map< std::string, int>::iterator it = collectorIDMap.find(collectorID);

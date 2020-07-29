@@ -1,15 +1,21 @@
 #include<buttonMap.h>
 #include<userInterface.h>
 #include<buttons.h>
+#include<buttonEditObject.h>
 namespace uiNS {
 
 	const string NonButtonMap::NEXTOBJECT = "NEXT OBJECT";
 	const string NonButtonMap::PREVOBJECT = "PREVIOUS OBJECT";
 	const string NonButtonMap::SELECTOBJECT = "SELECT OBJECT";
+	const string NonButtonMap::SELECTCLUSTER = "SELECT CLUSTER";
+	const string NonButtonMap::EDITCLUSTER = "EDIT CLUSTER";
 	const string NonButtonMap::ADJUSTSIZE = "CHANGE SIZE";
 	const string NonButtonMap::ADJUSTCOLOR = "CHANGE COLOR";
 	const string NonButtonMap::OBJECTPOSITION = "CHANGE POSITION";
 	const string NonButtonMap::OBJECTSWITCH = "TURN ON/OFF";
+	const string NonButtonMap::CLUSTERSWITCH = "SWITCH CLUSTER";
+	const string NonButtonMap::CLUSTERPOSITION = "CLUSTER POSITION";
+	const string NonButtonMap::CLUSTERCOLOR = "CLUSTER COLOR";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";

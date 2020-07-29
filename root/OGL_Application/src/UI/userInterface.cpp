@@ -38,15 +38,79 @@ namespace uiNS {
 	}
 
 
-
-
-	void UserInterface::mapButtonOnParentBranch(const string& stringID, const string& stringValue)
+	void UserInterface::back()
 	{
-		ph.mapButtonOnBranch(
-			getParentButton()->getButtonID(),
-			stringID,
-			stringValue);
+		vector<ButtonInterface*>::iterator it;
+		size_t size = buttonFlow.size();
+
+		it = buttonFlow.begin();
+		for (int i = 0; i < size-1; i++)
+			it++;
+		buttonFlow.erase(it);
+		buttonFlow.back()->action();
+
 	}
+	
+	void UserInterface::ShowBackButton()
+	{
+		UserInterface::mapButtonOnParentBranch(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
+
+	}
+
+
+	void UserInterface::enableBack(const string& buttonID)
+	{
+		UserInterface::ShowBackButton();
+		if (buttonID == ButtonMap::BACKBUTTON)
+			UserInterface::back();
+	}
+	
+
+
+	void UserInterface::setFlags(const bool& pause, const bool& aion, const bool& physicson)
+	{
+		paused = pause;
+		AIon = aion;
+		physicsOn = physicson;
+	}
+
+	void UserInterface::turnOffAllButtons()
+	{
+		for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
+		{
+			if (ph.mapIDbutton_button.buttons[i].isHighligted)
+				ph.mapIDbutton_button.buttons[i].turnOff();
+		}
+	}
+
+	void UserInterface::highlightButton(ButtonInterface* BI)
+	{
+		for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
+		{
+			if (ph.mapIDbutton_button.buttons[i].isHighligted)
+				ph.mapIDbutton_button.buttons[i].turnOff();
+		}
+		BI->Highligt();
+	}
+
+	ButtonInterface* UserInterface::getButtonFromList(const string& bid)
+	{
+		for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
+			if (ph.mapIDbutton_button.buttons[i].getButtonID() == bid)
+				return &ph.mapIDbutton_button.buttons[i];
+	}
+
+
+
+	void UserInterface::update()
+	{
+		for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
+		{
+			ph.mapIDbutton_button.buttons[i].update();
+		}
+	}
+
+	
 
 
 
@@ -68,6 +132,18 @@ namespace uiNS {
 
 	}
 
+	void UserInterface::mapButtonOnParentBranch(const string& stringID, const string& stringValue, const float& scale)
+	{
+		/*ph.mapButtonOnBranch(
+			getParentButton()->getButtonID(),
+			stringID,
+			stringValue);*/
+
+		ph.mapButtonOnBranch(
+			getParentButton()->getButtonID(),
+			stringID,
+			stringValue, scale);
+	}
 
 
 	void UserInterface::setButton(const string& bID)

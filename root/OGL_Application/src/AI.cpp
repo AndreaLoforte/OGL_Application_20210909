@@ -79,20 +79,10 @@ namespace aiNS {
 	void myfirstIA::follow(collectorNS::ActiveObject* obj,collectorNS::ActiveObject* target)
 	{
 		if (!target) return;
-		if (!AIon || !obj->isOn ||!target->isOn || !target->isAlive || !UserInterface::AIon) return;
+		if (!AIon || !obj->isOn || !UserInterface::AIon) return;
 		static float i = 0.0;
 		static const int M = 10;
 
-		/*mymathlibNS::Quaternion orientation;
-		static const mymathlibNS::Quaternion orientation_offset(mymathlibNS::Quaternion::getQuaternionfromYAngle(90.0));
-		orientation = mymathlibNS::Quaternion::getProduct(orientation_offset, pc.getPlayer()->getOrientation());*/
-
-		/*deve guardare nella direzione dell'oggetto seguito
-		non nella stessa direzione dell'oggetto seguito*/
-
-		/*mymathlibNS::Quaternion moving_offset(mymathlibNS::Quaternion::getQuaternionfromXAngle(i++ / M));
-		orientation = mymathlibNS::Quaternion::getProduct(moving_offset, orientation);
-		obj->setOrientation(orientation);*/
 
 		std::array<float, 3> targetpos = target->getBody()->getPosition();
 
@@ -108,7 +98,7 @@ namespace aiNS {
 		};
 
 		targetDistanceNorm = mymathlibNS::stdLibHelper::norm(distance_v);
-		if (targetDistanceNorm > activationDistance)
+		if (!target->isOn || !target->isAlive || targetDistanceNorm > activationDistance)
 		{
 			moveRandomly();
 			return;

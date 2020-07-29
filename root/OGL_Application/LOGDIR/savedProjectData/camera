@@ -2,9 +2,9 @@
 CameraID
 GROUNDCAMERA
 GlobalCoordinates
--1121.98 -5 1159.05 
+-1108.31 -5 1168.43 
 Orientation
-0.208687 -0.00582921 -0.977617 0.0273067
+0.487821 0.0392493 -0.869291 -0.0699422
 PreviousMatrix
 1 0 0 0 
 0 1 0 0 
@@ -20,9 +20,9 @@ ReversePreviousXrotationMatrix
 CameraID
 FLYINGCAMERA
 GlobalCoordinates
--1524.5 -212.296 1.60726 
+-1923.45 -364.187 -10.3308 
 Orientation
--0.701704 -0.0644769 0.706615 0.0649296
+-0.712367 -0.100116 0.687919 0.0966815
 PreviousMatrix
 1 0 0 0 
 0 1 0 0 
@@ -38,7 +38,7 @@ ReversePreviousXrotationMatrix
 CameraID
 PANORAMICCAMERA
 GlobalCoordinates
-3 -760 -4031 
+3 -820 -4331 
 Orientation
 0.0340261 -0.000326624 0.999376 -0.00959317
 PreviousMatrix

@@ -54,28 +54,28 @@ namespace textRendererNS {
 	/*aggiunge una nuova coppia di stringhe alla mappa se non trova la chiave
 	altrimenti aggiorna il contenuto trovato alla chiave specificata
 	(inserisce il branch di appartenenza)*/
-	void ButtonsList::mapStringOnBranch(string branchID, string key, string content, float scale)
+	void ButtonsList::mapStringOnBranch(string branchID, string stringID, string stringcontent, float scale)
 	{
-		buttonsListIter it = getIteratorOf(key);
+		buttonsListIter it = getIteratorOf(stringID);
 		if (it == buttons.end())
 		{
 			/*must guarantee that ypos is always updated in case we erase some string*/
 			if(buttons.size() > 0 )	ypos = buttons.back().button.y_min;
-			uiNS::Button b({ key, content, xpos,ypos, scale });
+			uiNS::Button b({ stringID, stringcontent, xpos,ypos, scale });
 			buttons.push_back(b);
 			buttons.back().button.parentNodes.clear();
 			buttons.back().button.parentNodes.push_back(branchID);
 			++buttonslistSize;
-			text_tot_size += content.length();
+			text_tot_size += stringcontent.length();
 			ypos = b.y_min;
 		}
 
 		else
 		{
-			it->button.buttonName = content;
+			it->button.buttonName = stringcontent;
 			it->button.parentNodes.push_back(branchID);
 			text_tot_size -= it->button.buttonName.length();
-			text_tot_size += content.length();
+			text_tot_size += stringcontent.length();
 		}
 	}
 

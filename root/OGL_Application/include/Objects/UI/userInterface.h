@@ -26,56 +26,26 @@ namespace uiNS {
 		void init();
 		static void pause();
 		static std::string cursorVStext(const double& x, const double& y);
-		/*void cursorButtonCallBack(GLFWwindow*, int, int, int);
-		void cursorPositionCallBack(GLFWwindow*, double, double);*/
 		static void deleteButtonsByBranch(const string& branchID);
 		static void deleteAllButtons();
 		static ButtonInterface* getParentButton();
 		static void setButton(const string& buttonID);
 		static void setButton(const string& branchID, const string& buttonID);
-		static ButtonInterface* getButtonFromList(const string& bid)
-		{
-			for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
-				if (ph.mapIDbutton_button.buttons[i].getButtonID() == bid)
-					return &ph.mapIDbutton_button.buttons[i];
-		}
+		static ButtonInterface* getButtonFromList(const string& bid);
+		static void update();
 
-		static void update()
-		{
-			for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
-			{
-				ph.mapIDbutton_button.buttons[i].update();
-			}
-		}
+		static void highlightButton(ButtonInterface* BI);
 
-		static void highlightButton(ButtonInterface* BI)
-		{
-			for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
-			{
-				if (ph.mapIDbutton_button.buttons[i].isHighligted)
-					ph.mapIDbutton_button.buttons[i].turnOff();
-			}
-			BI->Highligt();
-		}
-
-		static void turnOffAllButtons()
-		{
-			for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
-			{
-				if (ph.mapIDbutton_button.buttons[i].isHighligted)
-					ph.mapIDbutton_button.buttons[i].turnOff();
-			}
-		}
+		static void turnOffAllButtons();
 
 		static void printExistingObjects();
 		static void printAssetObjectsList();
-		static void mapButtonOnParentBranch(const string&, const string&);
-		static void setFlags(const bool& pause, const bool& aion, const bool& physicson)
-		{
-			paused = pause;
-			AIon = aion;
-			physicsOn = physicson;
-		}
+		static void mapButtonOnParentBranch(const string&, const string&, const float& = 0.3);
+		static void setFlags(const bool& pause, const bool& aion, const bool& physicson);
+
+		static void back();
+		static void ShowBackButton();
+		static void enableBack(const string&);
 
 	};
 

@@ -12,7 +12,7 @@ void printMatrix(const vmath::mat4&);
  void printMatrix44(const float*);
 int  power(int,int);
 float determinant44(const vmath::mat4&);
-float cofactor(const vmath::mat4&,const int&,const int&);
+float cofactor(const vmath::mat4&,const int&,const int&);	
 vmath::vec4 mat44vec4Product(vmath::mat4,vmath::vec4);
 void inverseMatrix(const vmath::mat4&,vmath::mat4&);
 vmath::mat4  inverseMatrix(const vmath::mat4& input_mat);

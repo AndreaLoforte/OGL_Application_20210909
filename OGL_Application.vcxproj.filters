@@ -321,6 +321,12 @@
     <ClInclude Include="root\OGL_Application\include\AI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\Objects\cluster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonEditObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".\root\OGL_Application\src\app.cpp">
@@ -336,9 +342,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include=".\root\OGL_Application\src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include=".\root\OGL_Application\src\mymathlib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include=".\root\OGL_Application\src\shadermanager.cpp">
@@ -530,9 +533,6 @@
     <ClCompile Include="root\OGL_Application\src\Objects\viewfinder\viewfinder.cpp">
       <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\buttonEditObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="root\OGL_Application\src\UI\buttonMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -559,6 +559,24 @@
     </ClCompile>
     <ClCompile Include="root\OGL_Application\src\Objects\characters\playercharacter\playerCharacter.cpp">
       <Filter>Source Files\characters</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_moveObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\Objects\cluster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\LibAndTools\mymathlib.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

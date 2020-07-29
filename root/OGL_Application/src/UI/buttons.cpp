@@ -55,8 +55,11 @@ namespace uiNS {
 	void StartButton::action()
 	{
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+		/*glfwSetInputMode(Application::window, GLFW_STICKY_KEYS, 1);
+		glfwSetWindowUserPointer(Application::window, this);*/
 
 		UserInterface::paused = true;
+		UserInterface::deleteAllButtons();
 
 		auto L_key_callbackControl = [](GLFWwindow* w, int key, int scancode, int action, int mods)
 		{
@@ -72,18 +75,17 @@ namespace uiNS {
 		};
 		glfwSetCursorPosCallback(Application::window, L_cursor_callback);
 
-		auto L_mouse_button_callback = [](GLFWwindow* w, int i1, int i2, int i3)
+		auto L_mouse_button_callback = [](GLFWwindow* w, int button, int action, int mods)
 		{
-			static_cast<StartButton*>(glfwGetWindowUserPointer(w))->cursorButtonCallBack(w, i1, i2, i3);
+			static_cast<StartButton*>(glfwGetWindowUserPointer(w))->cursorButtonCallBack(w, button, action, mods);
 		};
 		glfwSetMouseButtonCallback(Application::window, L_mouse_button_callback);
 
-		glfwSetInputMode(Application::window, GLFW_STICKY_KEYS, 1);
-		glfwSetWindowUserPointer(Application::window, this);
+		
 
 		using namespace textRendererNS;
 
-		UserInterface::ph.resetPosition();
+		//UserInterface::ph.resetPosition();
 		UserInterface::setButton(ButtonMap::CONTROLMODEBUTTON);
 		UserInterface::setButton(ButtonMap::EDITOBJECTMODEBUTTON);
 		UserInterface::setButton( ButtonMap::EDITGAMEMODEBUTTON);
@@ -285,6 +287,7 @@ namespace uiNS {
 	void ControlModeButton::action()
 	{
 		UserInterface::setFlags(false, true, true);
+		//UserInterface::deleteAllButtons();
 		UserInterface::deleteButtonsByBranch(ButtonMap::STARTINGBUTTON);
 		UserInterface::paused = false;
 
