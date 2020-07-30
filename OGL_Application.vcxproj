@@ -75,7 +75,7 @@
     <LibraryPath>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\cameraTransformations;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\ApplicationObject;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects\UI;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects\characters;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\LibAndFacility;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\cameraTransformations;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\ApplicationObject;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects\UI;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\include\Objects\characters;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;C:\Users\aloforte\source\repos\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;$(LibraryPath)</LibraryPath>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
@@ -98,7 +98,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H\AdvancedPhysics;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\include\GLFW;.\root\OGL_Application\DEPENDENCIES\SB7;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\root\OGL_Application\include\;.\root\OGL_Application\include\cameraTransformations;.\root\OGL_Application\include\ApplicationObject;.\root\OGL_Application\include\Objects;.\root\OGL_Application\include\Objects\UI;.\root\OGL_Application\include\Objects\characters;.\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\root\OGL_Application\include\shadersFacility;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H\AdvancedPhysics;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\include\GLFW;.\root\OGL_Application\DEPENDENCIES\SB7;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\root\OGL_Application\include\;.\root\OGL_Application\include\cameraTransformations;.\root\OGL_Application\include\ApplicationObject;.\root\OGL_Application\include\Objects;.\root\OGL_Application\include\Objects\UI;.\root\OGL_Application\include\LibAndFacility;.\root\OGL_Application\include\Objects\characters;.\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ShowIncludes>true</ShowIncludes>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -145,6 +145,8 @@
     <ClInclude Include=".\root\OGL_Application\include\application.h" />
     <ClInclude Include=".\root\OGL_Application\include\baseObject.h" />
     <ClInclude Include="root\OGL_Application\include\cameraTransformations\cameraManager.h" />
+    <ClInclude Include="root\OGL_Application\include\LibAndFacility\conversionLIB.h" />
+    <ClInclude Include="root\OGL_Application\include\LibAndFacility\toStringLib.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\boxAABB.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\cluster.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\frameofref.h" />
@@ -158,7 +160,7 @@
     <ClInclude Include="root\OGL_Application\include\Objects\gun.h" />
     <ClInclude Include=".\root\OGL_Application\include\inputs.h" />
     <ClInclude Include=".\root\OGL_Application\include\log.h" />
-    <ClInclude Include=".\root\OGL_Application\include\mymathlib.h" />
+    <ClInclude Include="root\OGL_Application\include\LibAndFacility\mymathlib.h" />
     <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\body.h" />
     <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\collide_coarse.h" />
     <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\collide_fine.h" />
@@ -176,8 +178,8 @@
     <ClInclude Include=".\root\OGL_Application\include\SB7\gl3w.h" />
     <ClInclude Include=".\root\OGL_Application\include\SB7\glcorearb.h" />
     <ClInclude Include=".\root\OGL_Application\include\SB7\sb7ktx.h" />
-    <ClInclude Include=".\root\OGL_Application\include\shadermanager.h" />
-    <ClInclude Include=".\root\OGL_Application\include\shaders.h" />
+    <ClInclude Include="root\OGL_Application\include\shadersFacility\shadermanager.h" />
+    <ClInclude Include="root\OGL_Application\include\shadersFacility\shaders.h" />
     <ClInclude Include=".\root\OGL_Application\include\vmath.h" />
     <ClInclude Include="root\OGL_Application\include\ApplicationObject\applicationDerivedObject.h" />
     <ClInclude Include="root\OGL_Application\include\ApplicationObject\applicationObject.h" />
@@ -217,6 +219,7 @@
     <ClCompile Include=".\root\OGL_Application\src\baseObject.cpp" />
     <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp" />
     <ClCompile Include="root\OGL_Application\src\cameraTransformations\cameraManager.cpp" />
+    <ClCompile Include="root\OGL_Application\src\LibAndFacility\conversionLIB.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\boxAABB\boxAABB.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\cluster.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\frameOfRef\frameofref.cpp" />
@@ -238,7 +241,7 @@
     <ClCompile Include="root\OGL_Application\src\cameraTransformations\fpcamera.cpp" />
     <ClCompile Include=".\root\OGL_Application\src\log.cpp" />
     <ClCompile Include=".\root\OGL_Application\src\main.cpp" />
-    <ClCompile Include="root\OGL_Application\src\LibAndTools\mymathlib.cpp" />
+    <ClCompile Include="root\OGL_Application\src\LibAndFacility\mymathlib.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\buttonsList.cpp" />
     <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\boxSphere.cpp" />
     <ClCompile Include="root\OGL_Application\src\Physics\body.cpp" />

@@ -7,6 +7,7 @@
 #include<app.h>
 #include<AI.h>
 #include<cluster.h>
+#include<toStringLib.h>
 
 using namespace myobjectNS;
 
@@ -22,9 +23,10 @@ namespace uiNS
 		UserInterface::mapButtonOnParentBranch(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
 		UserInterface::mapButtonOnParentBranch(NonButtonMap::SELECTOBJECT, NonButtonMap::SELECTOBJECT);
 		UserInterface::mapButtonOnParentBranch(NonButtonMap::SELECTCLUSTER, NonButtonMap::SELECTCLUSTER);
+		UserInterface::mapButtonOnParentBranch(NonButtonMap::CLUSTERLIST, NonButtonMap::CLUSTERLIST);
 
 		std::string buttonID{ UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y) };
-		if (buttonID == "CLICK_NO_BUTTON") return;
+		if (buttonID == NonButtonMap::NOBUTTON) return;
 		if (buttonID == ButtonMap::BACKBUTTON)
 		{
 			//UserInterface::buttonFlow.back()->action();
@@ -32,12 +34,12 @@ namespace uiNS
 			//UserInterface::start->action();
 			return;
 		}
-		auto L_mouse_button_callbackEOM = [](GLFWwindow* w, int button, int action, int mods)
+		auto L_mouse_button_callback = [](GLFWwindow* w, int button, int action, int mods)
 		{
 			if (action == GLFW_RELEASE) return;
 			static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->cursorButtonCallBack(w, button, action, mods);
 		};
-		glfwSetMouseButtonCallback(Application::window, L_mouse_button_callbackEOM);
+		glfwSetMouseButtonCallback(Application::window, L_mouse_button_callback);
 
 
 	}
@@ -50,11 +52,18 @@ namespace uiNS
 			2) do click a NonButton
 			3) do click a Button*/
 			std::string buttonID{ UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y) };
-			if (buttonID == "CLICK_NO_BUTTON") return;
+			if (buttonID == NonButtonMap::NOBUTTON) return;
 			if (buttonID == NonButtonMap::SELECTOBJECT)
 			{
 				UserInterface::printExistingObjects();
 			}
+
+			if (buttonID == NonButtonMap::CLUSTERLIST)
+			{
+				clusterNS::ClusterManager::printClusterList();
+			}
+
+
 			if (buttonID == NonButtonMap::SELECTCLUSTER)
 			{
 				UserInterface::deleteAllButtons();
@@ -108,6 +117,8 @@ namespace uiNS
 	void EditObjectModeButton::editObject(GLFWwindow* w, int button, int action, int mods)
 	{
 		
+		//UserInterface::deleteNonButtonsByBranch(NonButtonMap::OBJECTPOSITION);
+
 		std::string buttonID{ UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y) };
 
 		if (buttonID == NonButtonMap::ADJUSTSIZE)
@@ -146,54 +157,10 @@ namespace uiNS
 			return;
 		}
 
-		if (buttonID == NonButtonMap::CLUSTERSWITCH)
-		{
-			auto L_clusterSwitch = [](GLFWwindow* w, int button, int action, int mods)
-			{
-				if (action == GLFW_RELEASE) return;
-				//casto w a puntatore alla funzione key_callback di Controls
-				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->clusterSwitch();// w, key, scancode, action, mods);
-			};
-			glfwSetMouseButtonCallback(w, L_clusterSwitch);
-			clusterSwitch();
-			return;
-		}
-
-		if (buttonID == NonButtonMap::CLUSTERPOSITION)
-		{
-			auto L_clusterPosition = [](GLFWwindow* w, int key,int scancode, int action, int mods)
-			{
-				if (action == GLFW_RELEASE) return;
-				//casto w a puntatore alla funzione key_callback di Controls
-				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->key_callbackMoveCluster(w,key,scancode,action,mods);// w, key, scancode, action, mods);
-			};
-			glfwSetKeyCallback(w, L_clusterPosition);
-			key_callbackMoveCluster(w, 0, 0, 0, 0);
-			return;
-		}
-
-
-		if (buttonID == NonButtonMap::CLUSTERCOLOR)
-		{
-			auto L_clusterColor = [](GLFWwindow* w, int key, int scancode, int action, int mods)
-			{
-				if (action == GLFW_RELEASE) return;
-				//casto w a puntatore alla funzione key_callback di Controls
-				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->key_callbackClusterColor(w, key, scancode, action, mods);// w, key, scancode, action, mods);
-			};
-			glfwSetKeyCallback(w, L_clusterColor);
-			key_callbackClusterColor(w, 0, 0, 0, 0);
-			return;
-		}
+	
 
 		if (buttonID == NonButtonMap::OBJECTPOSITION)
 		{
-
-			UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON,
-				"Move the "+
-				myobjectNS::ApplicationObjectManager::getEditableObjectName()+
-				" object using A,S,D,W,1,2 and directional Arrows");
-
 			auto L_key_callbackMoveObject = [](GLFWwindow* w, int key, int scancode, int action, int mods)
 			{
 				if (action == GLFW_RELEASE) return;
@@ -201,6 +168,19 @@ namespace uiNS
 				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->key_callbackMove(w, key, scancode, action, mods);
 			};
 			glfwSetKeyCallback(Application::window, L_key_callbackMoveObject);
+			key_callbackMove(Application::window, 0, 0, 1, 0);
+
+			/*to implement : user abilitation for dragging objects by using mouse*/
+
+			auto L_cursor_callbackMoveObject = [](GLFWwindow* w, int button, int action, int mods)
+			{
+				if (action == GLFW_RELEASE) return;
+				//casto w a puntatore alla funzione key_callback di Controls
+				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->cursor_callbackMoveObject(w, button, action, mods);
+			};
+			glfwSetMouseButtonCallback(Application::window, L_cursor_callbackMoveObject);
+
+
 			return;
 		}
 
@@ -251,30 +231,31 @@ namespace uiNS
 	{
 		if (key == GLFW_KEY_ESCAPE)
 		{
-			//controls.setScrollCallback(window);
-			//myobjectNS::TextRenderer::clearEditMenuString();
 			UserInterface::ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
-			//controls.setAllCallbackFunction(window);
-
 			return;
 		}
 
 		collectorNS::ApplicationObjectCollector* objcoll = myobjectNS::ApplicationObjectManager::getEditableCollector();
-		vmath::vec4 currentColor = objcoll->getBody()->AOcolor;
-
-		/*UserInterface::mapButtonOnParentBranch
-		(uiNS::ButtonMap::EDITOBJECTMODEBUTTON,objcoll->collectorID+" color : "+mymathlibNS:);*/
 
 		UserInterface::mapButtonOnParentBranch
-		(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Enter the color components r,g,b,a in range [0,100]");
+		("EDITCOLOR",objcoll->collectorID + " color : " + tostringNS::vmathTostring::vec4Tostring(objcoll->getBody()->AOcolor));
+
+		
 
 		static vector<float> color;
+		UserInterface::mapButtonOnParentBranch
+		("EDITCOLOR", "Enter the color components r,g,b,a in range [0,100]  : " + UserInterface::typer.NInsertion2(key, action, 4, color));
 
-		if (UserInterface::control->NInsertion(key, action, 4, color))
+		if (UserInterface::typer.completed_total)
 		{
 			mymathlibNS::stdVectorProdFloat(color, 0.01);
 			static_cast<myobjectNS::ApplicationObject*>(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeColor(color);
+
+			UserInterface::mapButtonOnParentBranch
+			("EDITCOLOR",objcoll->collectorID + " color : " + tostringNS::vmathTostring::vec4Tostring(objcoll->getBody()->AOcolor));
 		}
+
+		
 	}
 	
 

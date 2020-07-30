@@ -1,45 +1,32 @@
 #include<cluster.h>
-namespace myobjectNS {
+#include<userInterface.h>
+namespace clusterNS {
+
+	std::map<std::string, Cluster> ClusterManager::clusterMap;
+	ClusterManager::clusterIT ClusterManager::it;
 
 
-	/*void Cluster::push_back(collectorNS::ApplicationObjectCollector* obj)
+	void ClusterManager::printClusterList()
 	{
-		if (counter < size)
+		for (it = clusterMap.begin(); it != clusterMap.end(); it++)
 		{
-			group[counter].pointer = obj;
-			counter++;
-		}
+			UserInterface::mapButtonOnParentBranch(it->first,it->first+ " : ",0.30);
 
-		else
-		{
-			Backup();
-			AllocateSpace();
-			Restore();
-			group[counter].pointer = obj;
+			for (int i = 0; i < it->second.group.size(); i++)
+			{
+				UserInterface::mapButtonOnParentBranch(it->second.group[i]->collectorID,it->second.group[i]->collectorID);
+			}
 		}
 	}
 
-	void Cluster::Backup()
+
+	void ClusterManager::saveCluster(const Cluster& c)
 	{
-		backup = new ObjectPointer[counter];
-		for (int i = 0; i < counter; i++)
-			backup[i].pointer = group[i].pointer;
-		delete group;
+
+
+
 	}
 
-	void Cluster::Restore()
-	{
-
-		for (int i = 0; i < counter; i++)
-			group[i].pointer = backup[i].pointer;
-		delete backup;
-	}
-
-	void Cluster::AllocateSpace()
-	{
-		size = 2 * counter;
-		group = new ObjectPointer[size];
-	}*/
 
 	
 }

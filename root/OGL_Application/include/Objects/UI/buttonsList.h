@@ -40,7 +40,7 @@ namespace textRendererNS {
 		altrimenti aggiorna il contenuto trovato alla chiave specificata*/
 		void mapString(string key, string content);
 		//void mapStringOnBranch(string branchID, string key, string content);
-		void mapStringOnBranch(string branchID, string key, string content, float scale = 0.3);
+		uiNS::ButtonInterface* mapStringOnBranch(string branchID, string key, string content, float scale = 0.3);
 		void resetPosition()
 		{
 			xpos = x_beg_pos;

@@ -24,7 +24,9 @@ namespace myobjectNS{
 		int AOinstanceNumber = 0;
 		std::string AOinstanceID;
 		int stride = 3.0;
-		std::array<float, 3> AOshift{ 3.0,0.0,0.0 }, AOrot{ 3.0,0.0,0.0 };
+		float deltaRot = 3.0;
+		float deltaShift = 3.0;
+		std::array<float,3> AOrot{ 0.0,0.0,0.0 };
 		std::vector<float> AOsize;
 		mymathlibNS::Quaternion AOorientation{ 1.0,0.0,0.0,0.0 };//quaternione unitario
 		std::array<float, 3> AOposition;
@@ -69,8 +71,9 @@ namespace myobjectNS{
 		void save(std::ofstream&);
 		virtual void specializedSave(std::ofstream&){}
 		virtual ApplicationObject* load(std::ifstream&, std::size_t, std::size_t);
-		void setPosition(std::array<float, 3> pos) { AOposition = pos; }
-		void setPosition(const GLfloat arr[3]) { AOposition[0] = arr[0]; AOposition[1] = arr[1]; AOposition[2] = arr[2]; }
+		void setPosition(std::array<float, 3> pos) ;
+		void setPosition(const GLfloat arr[3]);
+		void setRotation(const std::array<float, 3>&);
 		const std::array<float, 3>& getPosition() { return AOposition; }
 		void setOrientation(mymathlibNS::Quaternion q) { AOorientation = q; }
 		const mymathlibNS::Quaternion& getOrientation() { return AOorientation; }

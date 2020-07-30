@@ -1,7 +1,7 @@
 #include<playerCharacter.h>
 #include<assert.h>
 #include<cameraManager.h>
-
+#include<conversionLIB.h>
 namespace myobjectNS {
 
 	PlayerCharacter* PlayerCharacter::main;
@@ -82,7 +82,7 @@ namespace myobjectNS {
 
 	void PlayerCharacter::cameraTransformation(myobjectNS::ApplicationObject* obj)
 	{
-		lookat = mymathlibNS::conversionLibrary::floatArrayTostdArray(fpcameraNS::CameraManager::getActiveCamera().lookat);
+		lookat = conversionLibNS::conversionLibrary::floatArrayTostdArray(fpcameraNS::CameraManager::getActiveCamera().lookat);
 
 
 		static float i = 0.0;

@@ -1,6 +1,6 @@
 #include<surface.h>
 #include<cameraManager.h>
-
+#include<conversionLIB.h>
 namespace myobjectNS {
 
 	unsigned Surface::instanceCounter = 0;
@@ -10,7 +10,7 @@ namespace myobjectNS {
 	{
 		
 		renderSurface();
-		renderCollisionPrimitive();
+		//renderCollisionPrimitive();
 
 	}
 
@@ -37,7 +37,7 @@ namespace myobjectNS {
 		static GLuint transfMAttribLocation = glGetUniformLocation(shader_prog, "transfM");
 		static GLuint colorAttribLoc = glGetUniformLocation(shader_prog, "color");
 		glUniformMatrix4fv(modelviewMAttribLocation, 1, GL_FALSE, fpcameraNS::CameraManager::getActiveCamera().getPlayerCamera());
-		glUniformMatrix4fv(transfMAttribLocation, 1, GL_FALSE, mymathlibNS::conversionLibrary::mat43Conversion_tovmath44T(CollisionPrimitive::transform));
+		glUniformMatrix4fv(transfMAttribLocation, 1, GL_FALSE, conversionLibNS::conversionLibrary::mat43Conversion_tovmath44T(CollisionPrimitive::transform));
 		
 		static float collisorColor[4]{ 1.0,1.0,1.0,.5};
 		glUniform4fv(colorAttribLoc, 1, collisorColor);

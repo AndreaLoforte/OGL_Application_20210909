@@ -100,7 +100,7 @@ namespace uiNS {
 		UserInterface::cursor_x = x;
 		UserInterface::cursor_y = y;
 		std::string buttonID{ UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y) };
-		if (buttonID == "CLICK_NO_BUTTON")
+		if (buttonID == NonButtonMap::NOBUTTON)
 		{
 			UserInterface::turnOffAllButtons();
 			return;
@@ -117,7 +117,7 @@ namespace uiNS {
 		{
 			/*must use pointer to enable polymorphism*/
 			std::string buttonID{ UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y) };
-			if (buttonID == "CLICK_NO_BUTTON") return;
+			if (buttonID == NonButtonMap::NOBUTTON) return;
 			ButtonInterface *b = ButtonMap::getButtonByID({ buttonID });
 			if (!b)
 				return;
@@ -208,7 +208,7 @@ namespace uiNS {
 		if (action == GLFW_RELEASE) return;
 
 		string buttonID = UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y);
-		if (buttonID == "CLICK_NO_BUTTON") return;
+		if (buttonID == NonButtonMap::NOBUTTON) return;
 		if (buttonID == ButtonMap::BACKBUTTON)
 		{
 			ButtonInterface*b = ButtonMap::getButtonByID({ buttonID });

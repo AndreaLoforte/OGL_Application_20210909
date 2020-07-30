@@ -23,10 +23,12 @@ namespace uiNS {
 		static bool physicsOn;
 		static bool AIon;
 		UserInterface(InputsNS::Controls * c);
+		static InputsNS::Typer typer;
 		void init();
 		static void pause();
 		static std::string cursorVStext(const double& x, const double& y);
 		static void deleteButtonsByBranch(const string& branchID);
+		static void deleteNonButtonsByBranch(const string& branchID);
 		static void deleteAllButtons();
 		static ButtonInterface* getParentButton();
 		static void setButton(const string& buttonID);

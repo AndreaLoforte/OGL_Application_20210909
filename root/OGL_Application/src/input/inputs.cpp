@@ -11,13 +11,14 @@ namespace InputsNS{
 	bool Controls::playerIsOn = false;//settato a true quando il puntatore a gun di controls viene settato
 	myobjectNS::PlayerCharacterOC* Controls::player;
 	GLboolean Controls::hideCursor = true;
-	std::vector<int> Controls::objNumberChoosed;
-	std::map<int, int> Controls::glfw_KeyConversion
+
+	std::vector<int> Typer::objNumberChoosed;
+	std::map<int, int> Typer::glfw_KeyConversion
 	{ {48,0},{49,1},{50,2},{51,3},{52,4},{53,5},{54,6},{55,7},{56,8},{57,9} };
 
 
 
-	void Controls::initObjectIndex() {
+	void Typer::initObjectIndex() {
 
 		for(int l = 0; l < L ; l++)
 		for (int m = 0; m < M; m++) {
@@ -32,9 +33,6 @@ namespace InputsNS{
 						....
 		*/
 	}
-
-	void Controls::save() {}
-	void Controls::load() {}
 
 
 	void Controls::setAllCallbackFunction(GLFWwindow* window)
@@ -142,7 +140,7 @@ namespace InputsNS{
 		button interface*/
 		//mode = 0;
 		initControls(Application::window);
-		initObjectIndex();
+		//initObjectIndex();
 		app_pt = application;
 
 	}
@@ -154,71 +152,71 @@ int Controls::chooseObject(int key) {
 	static int iterationIndex = 0;
 	int result;
 
-	auto lambda_reset = [&]
-	{
-		iterationIndex = 0;
-		objNumberChoosed.clear();
-		ph.eraseFromMap("chooseObject_INSERTION");
-		return result;
-	};
+	//auto lambda_reset = [&]
+	//{
+	//	iterationIndex = 0;
+	//	objNumberChoosed.clear();
+	//	ph.eraseFromMap("chooseObject_INSERTION");
+	//	return result;
+	//};
 
-	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 0)
-	{
-		ph.mapNewString("chooseObject",NEWLINE + "select an object and type enter" + NEWLINE);
-		return -1;//ERROR
-	}
+	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 0)
+	//{
+	//	ph.mapNewString("chooseObject",NEWLINE + "select an object and type enter" + NEWLINE);
+	//	return -1;//ERROR
+	//}
 
-	if (key == GLFW_KEY_BACKSPACE)
-	{
-		ph.eraseFromMap("chooseObject_INSERTION");
-		objNumberChoosed.clear();
-		iterationIndex = 0;
-		return -1;
-	}
+	//if (key == GLFW_KEY_BACKSPACE)
+	//{
+	//	ph.eraseFromMap("chooseObject_INSERTION");
+	//	objNumberChoosed.clear();
+	//	iterationIndex = 0;
+	//	return -1;
+	//}
 
-	
-	if (key == GLFW_KEY_0 ||
-		key == GLFW_KEY_1 ||
-		key == GLFW_KEY_2 ||
-		key == GLFW_KEY_3 ||
-		key == GLFW_KEY_4 ||
-		key == GLFW_KEY_5 ||
-		key == GLFW_KEY_6 ||
-		key == GLFW_KEY_7 ||
-		key == GLFW_KEY_8 ||
-		key == GLFW_KEY_9)
-	{
+	//
+	//if (key == GLFW_KEY_0 ||
+	//	key == GLFW_KEY_1 ||
+	//	key == GLFW_KEY_2 ||
+	//	key == GLFW_KEY_3 ||
+	//	key == GLFW_KEY_4 ||
+	//	key == GLFW_KEY_5 ||
+	//	key == GLFW_KEY_6 ||
+	//	key == GLFW_KEY_7 ||
+	//	key == GLFW_KEY_8 ||
+	//	key == GLFW_KEY_9)
+	//{
 
-		objNumberChoosed.push_back(glfw_KeyConversion.at(key));
-		ph.concatenate("chooseObject_INSERTION",std::to_string(objNumberChoosed[iterationIndex++]));
-		return -2;//WAIT FOR SECOND NUMBER
-	}
+	//	objNumberChoosed.push_back(glfw_KeyConversion.at(key));
+	//	ph.concatenate("chooseObject_INSERTION",std::to_string(objNumberChoosed[iterationIndex++]));
+	//	return -2;//WAIT FOR SECOND NUMBER
+	//}
 
-	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 1)
-	{
+	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 1)
+	//{
 
-		result = objectIndex[0][0][0][objNumberChoosed[0]];
-		return lambda_reset();
-	
-	}
-	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 2)
-	{
-		result = objectIndex[0][0][objNumberChoosed[0]][objNumberChoosed[1]];
-		return lambda_reset();
+	//	result = objectIndex[0][0][0][objNumberChoosed[0]];
+	//	return lambda_reset();
+	//
+	//}
+	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 2)
+	//{
+	//	result = objectIndex[0][0][objNumberChoosed[0]][objNumberChoosed[1]];
+	//	return lambda_reset();
 
-	}
-	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 3)
-	{
-		result = objectIndex[0][objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]];
-		return lambda_reset();
+	//}
+	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 3)
+	//{
+	//	result = objectIndex[0][objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]];
+	//	return lambda_reset();
 
-	}
-	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 4)
-	{
-		result = objectIndex[objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]][objNumberChoosed[3]];
-		return lambda_reset();
+	//}
+	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 4)
+	//{
+	//	result = objectIndex[objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]][objNumberChoosed[3]];
+	//	return lambda_reset();
 
-	}
+	//}
 
 
 	return -1;
@@ -228,20 +226,17 @@ int Controls::chooseObject(int key) {
 std::string TYPINGID = "TYPING";
 
 //funzione utile all'inserimento di un numero intero di al massimo 4 cifre
-int Controls::typing(int key, int action) {
+int Typer::typing(int key, int action) {
 
 	
 	static int iterationIndex = 0;
-	static string n;
+	
 
 	if (key == GLFW_KEY_BACKSPACE)
 	{
-		//cancello quanto inserito
-		UserInterface::ph.eraseFromMap(TYPINGID);
-		n.clear();
-		objNumberChoosed.clear();
+		/*objNumberChoosed.clear();
 		iterationIndex = 0;
-		return -1;
+		return -1;*/
 	}
 
 
@@ -260,9 +255,7 @@ int Controls::typing(int key, int action) {
 		if (action != GLFW_RELEASE)
 		{
 			objNumberChoosed.push_back(glfw_KeyConversion[key]);
-			n += std::to_string(objNumberChoosed[iterationIndex++]);
-			UserInterface::mapButtonOnParentBranch(TYPINGID, n);
-
+			total_string += std::to_string(objNumberChoosed[iterationIndex++]);
 		}
 		return -2;
 	}
@@ -273,35 +266,27 @@ int Controls::typing(int key, int action) {
 		int result = objectIndex[0][0][0][objNumberChoosed[0]];
 		iterationIndex = 0;
 		objNumberChoosed.clear();
-		n.clear();
-		UserInterface::ph.eraseFromMap(TYPINGID);
 		return result;
 	}
 	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 2)
 	{
 		int result = objectIndex[0][0][objNumberChoosed[0]][objNumberChoosed[1]];
 		iterationIndex = 0;
-		n.clear();
 		objNumberChoosed.clear();
-		UserInterface::ph.eraseFromMap(TYPINGID);
 		return result;
 	}
 	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 3)
 	{
 		int result = objectIndex[0][objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]];
 		iterationIndex = 0;
-		n.clear();
 		objNumberChoosed.clear();
-		UserInterface::ph.eraseFromMap(TYPINGID);
 		return result;
 	}
 	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 4)
 	{
 		int result = objectIndex[objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]][objNumberChoosed[3]];
 		iterationIndex = 0;
-		n.clear();
 		objNumberChoosed.clear();
-		UserInterface::ph.eraseFromMap(TYPINGID);
 		return result;
 	}
 
@@ -312,7 +297,12 @@ int Controls::typing(int key, int action) {
 
 
 
-bool Controls::NInsertion(int key, int action, int numberToInsert, vector<float>& vec)
+
+
+
+
+
+bool Typer::NInsertion(int key, int action, int numberToInsert, vector<float>& vec)
 {
 	static vector<bool> insertionSelector(numberToInsert, false);
 	static vector<bool> totalInsertion(numberToInsert, false);
@@ -323,17 +313,22 @@ bool Controls::NInsertion(int key, int action, int numberToInsert, vector<float>
 	
 	if (insertionSelector[insertionIndex] && insertionIndex < numberToInsert)
 	{
-		UserInterface::mapButtonOnParentBranch("COLORCOMPONENT", "enter component " + to_string(insertionIndex + 1));
+		//UserInterface::mapButtonOnParentBranch("NINSERTION", "enter component " + to_string(insertionIndex + 1));
+
 		insertedNumbers[insertionIndex] = typing(key, action);
+
+		/*typing returns always < 0 until the i-th insertion has been completed*/
 		if (insertedNumbers[insertionIndex] < 0) return false;
 		else
 		{
+			/*put space between entered numbers*/
+			total_string += " ";
 			insertionSelector[insertionIndex] = false;
 			totalInsertion[insertionIndex] = true;
 			if (insertionIndex < numberToInsert - 1)
 				insertionSelector[++insertionIndex] = true;
 		}
-		UserInterface::mapButtonOnParentBranch("COLORCOMPONENT", "enter component " + to_string(insertionIndex + 1));
+		//UserInterface::mapButtonOnParentBranch("NINSERTION", "enter component " + to_string(insertionIndex + 1));
 	}
 
 	bool insertionCompleted = true;
@@ -347,13 +342,157 @@ bool Controls::NInsertion(int key, int action, int numberToInsert, vector<float>
 		insertionSelector = vector<bool>(numberToInsert, false);
 		totalInsertion = vector<bool>(numberToInsert, false);
 		insertionIndex = 0;
-		UserInterface::mapButtonOnParentBranch("COLORCOMPONENT", "enter component " + to_string(insertionIndex + 1));
+
+		/*once all the numbers have been inserted we can clear n*/
+		total_string.clear();
+		
 	}
 
 	return insertionCompleted;
 
 
 }
+
+
+/*this second version of NInsertion returns the partial number entered by the user
+instead of returning a bool. While Completion is specified by the boolean member attribute "completed" */
+string Typer::NInsertion2(int key, int action, int numberToInsert, vector<float>& vec)
+{
+	static vector<bool> insertionSelector(numberToInsert, false);
+	static vector<bool> totalInsertion(numberToInsert, false);
+	static vector<float> insertedNumbers(numberToInsert, -1);
+	static unsigned insertionIndex = 0;
+	insertionSelector[insertionIndex] = true;
+
+
+	if (insertionSelector[insertionIndex] && insertionIndex < numberToInsert)
+	{
+
+		insertedNumbers[insertionIndex] = typing2(key, action);
+		if (insertedNumbers[insertionIndex] >= 0)
+		{
+			if (completed_partial)
+			{
+				completed_partial = false;
+				partial_string.clear();
+				total_string += " ";// std::to_string((int)insertedNumbers[insertionIndex]);
+				insertionSelector[insertionIndex] = false;
+				totalInsertion[insertionIndex] = true;
+				
+				completed_total = true;
+				for (int i = 0; i < totalInsertion.size(); i++)
+					completed_total &= totalInsertion[i];
+
+				if (completed_total)
+				{
+					vec = insertedNumbers;
+					insertedNumbers = vector<float>(numberToInsert, -1);
+					insertionSelector = vector<bool>(numberToInsert, false);
+					totalInsertion = vector<bool>(numberToInsert, false);
+					insertionIndex = 0;
+
+					/*once all the numbers have been inserted we can clear n*/
+					return_string = total_string;
+					total_string.clear();
+					return return_string;
+				}
+
+				if (insertionIndex < numberToInsert - 1)
+					insertionSelector[++insertionIndex] = true;
+				return total_string;
+			}
+			else
+			{
+				completed_total = false;
+
+				total_string += std::to_string((int)insertedNumbers[insertionIndex]);
+				return total_string;
+			}
+				
+			
+		}
+		else
+			return total_string;
+	}
+
+}
+
+
+
+int Typer::typing2(int key, int action) {
+
+
+	static int iterationIndex = 0;
+
+
+	if (key == GLFW_KEY_BACKSPACE)
+	{
+		/*objNumberChoosed.clear();
+		iterationIndex = 0;
+		return -1;*/
+	}
+
+
+	if (
+		(key == GLFW_KEY_0 ||
+			key == GLFW_KEY_1 ||
+			key == GLFW_KEY_2 ||
+			key == GLFW_KEY_3 ||
+			key == GLFW_KEY_4 ||
+			key == GLFW_KEY_5 ||
+			key == GLFW_KEY_6 ||
+			key == GLFW_KEY_7 ||
+			key == GLFW_KEY_8 ||
+			key == GLFW_KEY_9))
+	{
+		if (action != GLFW_RELEASE)
+		{
+			objNumberChoosed.push_back(glfw_KeyConversion[key]);
+			//n += std::to_string(objNumberChoosed[iterationIndex++]);
+			completed_partial = false;
+			return objNumberChoosed[iterationIndex++];
+		}
+		return -2;
+	}
+
+	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 1)
+	{
+		completed_partial = true;
+		int result = objectIndex[0][0][0][objNumberChoosed[0]];
+		iterationIndex = 0;
+		objNumberChoosed.clear();
+		return result;
+	}
+	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 2)
+	{
+		completed_partial = true;
+		int result = objectIndex[0][0][objNumberChoosed[0]][objNumberChoosed[1]];
+		iterationIndex = 0;
+		objNumberChoosed.clear();
+		return result;
+	}
+	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 3)
+	{
+		completed_partial = true;
+		int result = objectIndex[0][objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]];
+		iterationIndex = 0;
+		objNumberChoosed.clear();
+		return result;
+	}
+	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 4)
+	{
+		completed_partial = true;
+		int result = objectIndex[objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]][objNumberChoosed[3]];
+		iterationIndex = 0;
+		objNumberChoosed.clear();
+		return result;
+	}
+
+
+	return -100;
+
+}
+
 
 
     

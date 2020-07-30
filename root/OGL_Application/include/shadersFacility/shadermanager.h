@@ -34,19 +34,6 @@ namespace shaderManagerNS{
 	//controlla se lo shaderPath inserito è presente nella mappa dei vertex shader
 		//se si ritorna lo shader altrimenti assegno all'iteratore quello che trova nel fragment shader (ATTENZIONE!!)
 
-		/*  std::map<std::string,shaderNS::Shader>::iterator it =
-		  vshadersMAP.find(shpath);
-		  if(it == vshadersMAP.end())
-				it = fshadersMAP.find(shpath); //ERRORE : stiamo dando per scontato che se non lo trova nel vmap lo trova in fmap
-		  else
-			return it->second;
-		  if (it == fshadersMAP.end())
-				logNS::Logger::writeLog("shadermanager.h::getShader() : could not find ", shpath);
-		  else 
-		return it->second;*/
-
-		//std::map<std::string, shaderNS::Shader>::iterator it;
-
 		if (vshadersMAP.find(shpath) != vshadersMAP.end())
 			return vshadersMAP.find(shpath)->second;
 

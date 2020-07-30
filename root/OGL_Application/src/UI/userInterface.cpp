@@ -16,7 +16,9 @@ namespace uiNS {
 	bool UserInterface::AIon{ true };
 	textRendererNS::PrintHelper UserInterface::ph{ "uiInterface",-0.9f,0.9f};
 	InputsNS::Controls* UserInterface::control;
-	
+	InputsNS::Typer UserInterface::typer;
+
+
 
 	void UserInterface::printExistingObjects()
 	{
@@ -132,18 +134,31 @@ namespace uiNS {
 
 	}
 
+
+	/*stringID is exclusive, therefore entering a string with a stringID already present in MAP will override the previous string*/
+	/*this string is automatically assigned to*/
 	void UserInterface::mapButtonOnParentBranch(const string& stringID, const string& stringValue, const float& scale)
 	{
-		/*ph.mapButtonOnBranch(
-			getParentButton()->getButtonID(),
-			stringID,
-			stringValue);*/
+		ButtonInterface* newbutton{
+			ph.mapButtonOnBranch(
+				getParentButton()->getButtonID(),
+				stringID,
+				stringValue, scale) };
 
-		ph.mapButtonOnBranch(
-			getParentButton()->getButtonID(),
-			stringID,
-			stringValue, scale);
+		buttonFlow.push_back(newbutton);
 	}
+
+
+	//void UserInterface::mapButtonOnParentBranch(const string& stringID, const string& stringValue, const float& scale)
+	//{
+	//	ButtonInterface* newbutton{
+	//		ph.mapButtonOnBranch(
+	//			getParentButton()->getButtonID(),
+	//			stringID,
+	//			stringValue, scale) };
+
+	//	buttonFlow.push_back(newbutton);
+	//}
 
 
 	void UserInterface::setButton(const string& bID)
@@ -221,6 +236,12 @@ namespace uiNS {
 		ph.eraseByBranch(buttonID);
 	}
 
+
+	void UserInterface::deleteNonButtonsByBranch(const string& buttonID)
+	{
+		ph.eraseByBranch(buttonID);
+	}
+
 	void UserInterface::deleteAllButtons()
 	{
 		using namespace textRendererNS;
@@ -248,7 +269,7 @@ namespace uiNS {
 			else
 				return ph.mapIDbutton_button.buttons[i].button.buttonID;
 
-		return "CLICK_NO_BUTTON";
+		return NonButtonMap::NOBUTTON;
 	}
 
 	

@@ -54,7 +54,7 @@ namespace textRendererNS {
 	/*aggiunge una nuova coppia di stringhe alla mappa se non trova la chiave
 	altrimenti aggiorna il contenuto trovato alla chiave specificata
 	(inserisce il branch di appartenenza)*/
-	void ButtonsList::mapStringOnBranch(string branchID, string stringID, string stringcontent, float scale)
+	uiNS::ButtonInterface* ButtonsList::mapStringOnBranch(string branchID, string stringID, string stringcontent, float scale)
 	{
 		buttonsListIter it = getIteratorOf(stringID);
 		if (it == buttons.end())
@@ -68,6 +68,7 @@ namespace textRendererNS {
 			++buttonslistSize;
 			text_tot_size += stringcontent.length();
 			ypos = b.y_min;
+			return &buttons.back();
 		}
 
 		else
@@ -76,7 +77,9 @@ namespace textRendererNS {
 			it->button.parentNodes.push_back(branchID);
 			text_tot_size -= it->button.buttonName.length();
 			text_tot_size += stringcontent.length();
+			return &(*it);
 		}
+
 	}
 
 

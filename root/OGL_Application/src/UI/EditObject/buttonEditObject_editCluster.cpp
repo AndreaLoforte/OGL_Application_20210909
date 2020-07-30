@@ -12,7 +12,7 @@ using namespace myobjectNS;
 
 namespace uiNS
 {
-	myobjectNS::Cluster EditObjectModeButton::cluster;
+	clusterNS::Cluster EditObjectModeButton::cluster;
 
 
 
@@ -33,16 +33,17 @@ namespace uiNS
 		if (buttonID == NonButtonMap::EDITCLUSTER)
 		{
 			UserInterface::deleteAllButtons();
-			//UserInterface::mapButtonOnParentBranch(NonButtonMap::ADJUSTSIZE, NonButtonMap::ADJUSTSIZE);
 			UserInterface::mapButtonOnParentBranch(NonButtonMap::CLUSTERCOLOR, NonButtonMap::CLUSTERCOLOR);
 			UserInterface::mapButtonOnParentBranch(NonButtonMap::CLUSTERPOSITION, NonButtonMap::CLUSTERPOSITION);
 			UserInterface::mapButtonOnParentBranch(NonButtonMap::CLUSTERSWITCH, NonButtonMap::CLUSTERSWITCH);
+			UserInterface::mapButtonOnParentBranch(NonButtonMap::SAVECLUSTER, NonButtonMap::SAVECLUSTER);
+
 			UserInterface::setButton(ButtonMap::BACKBUTTON);
 
 			auto L_mouse_button_callback = [](GLFWwindow* w, int button, int action, int mods)
 			{
 				if (action == GLFW_RELEASE) return;
-				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->editObject(w, button, action, mods);
+				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->editCluster(w, button, action, mods);
 			};
 
 			glfwSetMouseButtonCallback(Application::window, L_mouse_button_callback);
@@ -50,14 +51,71 @@ namespace uiNS
 		}
 
 
-		if (buttonID == ButtonMap::BACKBUTTON)
-			UserInterface::back();
+		
 
 	}
 
 
 
+	void EditObjectModeButton::editCluster(GLFWwindow* w, int button, int action_, int mods)
+	{
 
+		std::string buttonID{ UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y) };
+
+		if (buttonID == NonButtonMap::CLUSTERSWITCH)
+		{
+			auto L_clusterSwitch = [](GLFWwindow* w, int button, int action, int mods)
+			{
+				if (action == GLFW_RELEASE) return;
+				//casto w a puntatore alla funzione key_callback di Controls
+				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->clusterSwitch();// w, key, scancode, action, mods);
+			};
+			glfwSetMouseButtonCallback(w, L_clusterSwitch);
+			clusterSwitch();
+			return;
+		}
+
+		if (buttonID == NonButtonMap::CLUSTERPOSITION)
+		{
+			auto L_clusterPosition = [](GLFWwindow* w, int key, int scancode, int action, int mods)
+			{
+				if (action == GLFW_RELEASE) return;
+				//casto w a puntatore alla funzione key_callback di Controls
+				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->key_callbackMoveCluster(w, key, scancode, action, mods);// w, key, scancode, action, mods);
+			};
+			glfwSetKeyCallback(w, L_clusterPosition);
+			key_callbackMoveCluster(w, 0, 0, 0, 0);
+			return;
+		}
+
+
+		if (buttonID == NonButtonMap::CLUSTERCOLOR)
+		{
+			auto L_clusterColor = [](GLFWwindow* w, int key, int scancode, int action, int mods)
+			{
+				if (action == GLFW_RELEASE) return;
+				//casto w a puntatore alla funzione key_callback di Controls
+				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->key_callbackClusterColor(w, key, scancode, action, mods);// w, key, scancode, action, mods);
+			};
+			glfwSetKeyCallback(w, L_clusterColor);
+			key_callbackClusterColor(w, 0, 0, 0, 0);
+			return;
+		}
+
+
+
+		if (buttonID == NonButtonMap::SAVECLUSTER)
+		{
+			std::string clusterName = "cluster_" + std::to_string(clusterNS::ClusterManager::clusterMap.size());
+			clusterNS::ClusterManager::clusterMap.insert
+			({clusterName, cluster });
+			UserInterface::mapButtonOnParentBranch(clusterName,"Cluster " + clusterName + " saved");
+			return;
+		}
+
+		UserInterface::enableBack(buttonID);
+
+	}
 
 
 
@@ -113,7 +171,7 @@ namespace uiNS
 
 		static vector<float> color;
 
-		if (UserInterface::control->NInsertion(key, action, 4, color))
+		if (UserInterface::typer.NInsertion(key, action, 4, color))
 		{
 			mymathlibNS::stdVectorProdFloat(color, 0.01);
 			for (int i = 0; i < cluster.group.size(); i++)

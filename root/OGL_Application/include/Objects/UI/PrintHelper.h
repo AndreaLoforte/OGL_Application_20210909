@@ -39,7 +39,7 @@ namespace textRendererNS {
 
 		void mapNewString(std::string, std::string);
 		void mapButtonOnBranch(std::string, std::string, std::string);
-		void mapButtonOnBranch(std::string, std::string, std::string, float);
+		uiNS::ButtonInterface* mapButtonOnBranch(std::string, std::string, std::string, float);
 		void concatenate(std::string, std::string);
 		void eraseFromMap(std::string);
 		void eraseByBranch(std::string);

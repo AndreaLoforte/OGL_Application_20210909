@@ -31,6 +31,7 @@ namespace uiNS {
 	struct NonButtonMap
 	{
 		static const string
+			NOBUTTON,
 			NEXTOBJECT,
 			PREVOBJECT,
 			SELECTOBJECT,
@@ -42,7 +43,11 @@ namespace uiNS {
 			CLUSTERSWITCH,
 			CLUSTERPOSITION,
 			CLUSTERCOLOR,
-			OBJECTPOSITION;
+			OBJECTPOSITION,
+			SAVECLUSTER,
+			CLUSTERLIST,
+			TYPEPOSITION,
+			TYPEROTATION;
 	};
 
 

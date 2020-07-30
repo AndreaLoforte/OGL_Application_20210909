@@ -44,20 +44,10 @@ void Enemy::render()
 
 
 void Enemy::update(const float& duration){
-
-		
-	/*body->integrate(duration);
-	calculateInternals();*/
 	body->getGLTransform(AOTrMatrix);
 
 	static float i = 70.0;
 	static constexpr int M = 100;
-
-	AOcolor[0] = cos(i / M);//cos(i/M);
-	AOcolor[1] = 0.0;// cos(i / M);
-	AOcolor[2] = 0.0;// cos(i / M);// cos(i++ / M);
-	AOcolor[3] = 0.4;// cos(i);
-	
  
 }
 

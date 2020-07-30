@@ -15,9 +15,9 @@ namespace textRendererNS {
 		mapIDbutton_button.mapStringOnBranch(branchID, id, s,mapIDbutton_button.text_scale);
 	}
 
-	void PrintHelper::mapButtonOnBranch(std::string branchID, std::string id, std::string s, float scale)
+	uiNS::ButtonInterface* PrintHelper::mapButtonOnBranch(std::string branchID, std::string id, std::string s, float scale)
 	{
-		mapIDbutton_button.mapStringOnBranch(branchID, id, s, scale);
+		return mapIDbutton_button.mapStringOnBranch(branchID, id, s, scale);
 	}
 	
 

@@ -8,13 +8,14 @@ namespace uiNS
 
 	class EditObjectModeButton : public ButtonInterface
 	{
-
+		bool typePosition = false;
+		bool typeRotation = false;
 		
 	public:
 
 		string buttonID = ButtonMap::EDITOBJECTMODEBUTTON;
 		/*if not static won't initialize*/
-		static myobjectNS::Cluster cluster;
+		static clusterNS::Cluster cluster;
 
 		EditObjectModeButton()
 		{
@@ -32,7 +33,11 @@ namespace uiNS
 		void key_callbackClusterColor(GLFWwindow* window, int key, int scancode, int action, int mods);
 		void key_callbackMoveCluster(GLFWwindow* window, int key, int scancode, int action, int mods);
 		void key_callbackMove(GLFWwindow* window, int key, int scancode, int action, int mods);
+		void cursor_callbackMoveObject(GLFWwindow* w, int button, int action, int mode);
 		void insertInCluster(GLFWwindow* w, int button, int action, int mode);
+		void editCluster(GLFWwindow* w, int button, int action, int mode);
+		void cursorVSobject();
+		void key_callbackMoveByInsertion(GLFWwindow* window, int key, int scancode, int action, int mods);
 	};
 
 

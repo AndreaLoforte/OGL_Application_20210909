@@ -21,7 +21,7 @@ namespace objectControlsNS {
 	void ObjectControlsI::ObjectSwitch(collectorNS::ApplicationObjectCollector* obj)
 	{
 		
-		if (obj->isOn)
+		/*if (obj->isOn)
 		{
 			obj->canSleep(true);
 			ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "OBJECT OFF");
@@ -32,7 +32,7 @@ namespace objectControlsNS {
 			obj->canSleep(false);
 			ph.mapNewString(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "OBJECT ON");
 		}
-		
+		*/
 
 	}
 
@@ -41,7 +41,7 @@ namespace objectControlsNS {
 	void ObjectControlsI::key_callbackEditSize(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 
-		if (action == GLFW_RELEASE) return;
+	/*	if (action == GLFW_RELEASE) return;
 			if (key == GLFW_KEY_ESCAPE)
 			{
 				ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
@@ -159,7 +159,7 @@ namespace objectControlsNS {
 					(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeDimensions(x, y);
 			}
 
-		
+		*/
 		
 
 	}
@@ -174,50 +174,50 @@ namespace objectControlsNS {
 		
 		
 
-		if (action != GLFW_RELEASE || mustPrint)
-		{
-			
+		//if (action != GLFW_RELEASE || mustPrint)
+		//{
+		//	
 
-			if (key == GLFW_KEY_ESCAPE)
-			{
-				controls.setScrollCallback(window);
-				//myobjectNS::TextRenderer::clearEditMenuString();
-				ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
-				controls.setAllCallbackFunction(window);
-				mustPrint = true;
-				return;
-			}
+		//	if (key == GLFW_KEY_ESCAPE)
+		//	{
+		//		controls.setScrollCallback(window);
+		//		//myobjectNS::TextRenderer::clearEditMenuString();
+		//		ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
+		//		controls.setAllCallbackFunction(window);
+		//		mustPrint = true;
+		//		return;
+		//	}
 
-			if (mustPrint)
-			{
-				ph.mapNewString
-				(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Scroll to set sizes");
-				ph.mapNewString
-				(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Enter the color components r,g,b,a in range [0,100]" + NEWLINE);
-				mustPrint = false;
-				return;
-			}
+		//	if (mustPrint)
+		//	{
+		//		ph.mapNewString
+		//		(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Scroll to set sizes");
+		//		ph.mapNewString
+		//		(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Enter the color components r,g,b,a in range [0,100]" + NEWLINE);
+		//		mustPrint = false;
+		//		return;
+		//	}
 
-			static vector<float> color;
-			if (controls.NInsertion(key, action, 4, color))
-			{
-				mymathlibNS::stdVectorProdFloat(color, 0.01);
-				static_cast<myobjectNS::ObjectSphere*>
-					(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeColor(color);
-			}
-		}
+		//	static vector<float> color;
+		//	if (controls.NInsertion(key, action, 4, color))
+		//	{
+		//		mymathlibNS::stdVectorProdFloat(color, 0.01);
+		//		static_cast<myobjectNS::ObjectSphere*>
+		//			(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeColor(color);
+		//	}
+		//}
 	}
 
 	void ObjectControlsI::setKeyCallbackEditColor(GLFWwindow * window)
 	{
-		auto L_key_callbackEditColor = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
-		{
-			//casto w a puntatore alla funzione key_callback di Controls
-			static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(w))->key_callbackEditColor(w, i1, i2, i3, i4);
-		};
-		glfwSetKeyCallback(window, L_key_callbackEditColor);
-		static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(window))->key_callbackEditColor(window, 0,0, 0, 0);
-		return;
+		//auto L_key_callbackEditColor = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
+		//{
+		//	//casto w a puntatore alla funzione key_callback di Controls
+		//	static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(w))->key_callbackEditColor(w, i1, i2, i3, i4);
+		//};
+		//glfwSetKeyCallback(window, L_key_callbackEditColor);
+		//static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(window))->key_callbackEditColor(window, 0,0, 0, 0);
+		//return;
 	}
 
 
@@ -226,14 +226,14 @@ namespace objectControlsNS {
 
 		void ObjectControlsI::setKeyCallbackEditSize(GLFWwindow * window)
 		{
-			auto l_key_callbackeditsize = [](GLFWwindow* w, int key, int scancode, int action, int mods)
-			{
-				//casto w a puntatore alla funzione key_callback di controls
-				static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(w))->key_callbackEditSize(w, key, scancode, action, mods);
-			};
-			glfwSetKeyCallback(window, l_key_callbackeditsize);
-			static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(window))->key_callbackEditSize(window, 0, 0, 0, 0);
-			return;
+			//auto l_key_callbackeditsize = [](GLFWwindow* w, int key, int scancode, int action, int mods)
+			//{
+			//	//casto w a puntatore alla funzione key_callback di controls
+			//	static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(w))->key_callbackEditSize(w, key, scancode, action, mods);
+			//};
+			//glfwSetKeyCallback(window, l_key_callbackeditsize);
+			//static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(window))->key_callbackEditSize(window, 0, 0, 0, 0);
+			//return;
 		}
 
 
@@ -241,7 +241,7 @@ namespace objectControlsNS {
 		void ObjectControlsI::setScrollCallback(GLFWwindow * window)
 		{
 
-			auto L_scroll_callback = [](GLFWwindow* w, double xoffset, double yoffset)
+		/*	auto L_scroll_callback = [](GLFWwindow* w, double xoffset, double yoffset)
 			{
 				static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(w))->scroll_callback(w, xoffset, yoffset);
 			};
@@ -249,7 +249,7 @@ namespace objectControlsNS {
 
 			glfwSetScrollCallback(window, L_scroll_callback);
 			static_cast<ObjectControlsI*>(glfwGetWindowUserPointer(window))->scroll_callback(window, 0.0, 0.0);
-			return;
+			return;*/
 
 		}
 
@@ -259,26 +259,26 @@ namespace objectControlsNS {
 		void ObjectControlsI::scroll_callback(GLFWwindow* w, double vscroll, double hscroll) 
 		{
 
-			static int mode = 0;
+			//static int mode = 0;
 
-			if (mode == 0)
-			{
-				ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
-				//myobjectNS::TextRenderer::clearEditMenuString();
-				mustPrint = true;
-				setKeyCallbackEditSize(w);
-				mode = 1;
-				return;
-			}
-			if (mode == 1)
-			{
-				ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
-				//myobjectNS::TextRenderer::clearEditMenuString();
-				setKeyCallbackEditColor(w);
-				mustPrint = true;
-				mode = 0;
-				return;
-			}
+			//if (mode == 0)
+			//{
+			//	ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
+			//	//myobjectNS::TextRenderer::clearEditMenuString();
+			//	mustPrint = true;
+			//	setKeyCallbackEditSize(w);
+			//	mode = 1;
+			//	return;
+			//}
+			//if (mode == 1)
+			//{
+			//	ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
+			//	//myobjectNS::TextRenderer::clearEditMenuString();
+			//	setKeyCallbackEditColor(w);
+			//	mustPrint = true;
+			//	mode = 0;
+			//	return;
+			//}
 		}
 
 

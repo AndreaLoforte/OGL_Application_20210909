@@ -180,7 +180,6 @@ void App::SaveProjectData(string filename) {
 
 	myobjectNS::ApplicationObjectManager::save(filename);
 	fpcameraNS::CameraManager::save();
-	InputsNS::Controls::save();
 	
 
 	
@@ -190,7 +189,6 @@ void App::loadProjectData(string filename) {
 	
 	myobjectNS::ApplicationObjectManager::loadData(filename);
 	fpcameraNS::CameraManager::load();
-	InputsNS::Controls::load();
 	
 
 }

@@ -3,19 +3,23 @@
 #include<buttons.h>
 #include<buttonEditObject.h>
 namespace uiNS {
-
+	const string NonButtonMap::NOBUTTON = "NO BUTTON";
 	const string NonButtonMap::NEXTOBJECT = "NEXT OBJECT";
 	const string NonButtonMap::PREVOBJECT = "PREVIOUS OBJECT";
 	const string NonButtonMap::SELECTOBJECT = "SELECT OBJECT";
-	const string NonButtonMap::SELECTCLUSTER = "SELECT CLUSTER";
+	const string NonButtonMap::SELECTCLUSTER = "CREATE CLUSTER";
 	const string NonButtonMap::EDITCLUSTER = "EDIT CLUSTER";
+	const string NonButtonMap::CLUSTERLIST = "SHOW CLUSTERS";
 	const string NonButtonMap::ADJUSTSIZE = "CHANGE SIZE";
 	const string NonButtonMap::ADJUSTCOLOR = "CHANGE COLOR";
 	const string NonButtonMap::OBJECTPOSITION = "CHANGE POSITION";
 	const string NonButtonMap::OBJECTSWITCH = "TURN ON/OFF";
-	const string NonButtonMap::CLUSTERSWITCH = "SWITCH CLUSTER";
+	const string NonButtonMap::CLUSTERSWITCH = "TURN CLUSTER ON/OFF";
+	const string NonButtonMap::SAVECLUSTER = "SAVE CLUSTER";
 	const string NonButtonMap::CLUSTERPOSITION = "CLUSTER POSITION";
 	const string NonButtonMap::CLUSTERCOLOR = "CLUSTER COLOR";
+	const string NonButtonMap::TYPEPOSITION = "TYPE POSITION";
+	const string NonButtonMap::TYPEROTATION = "TYPE ORIENTATION";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";

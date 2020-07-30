@@ -1,5 +1,5 @@
 #include<grid.h>
-
+#include<conversionLIB.h>
 
 namespace myobjectNS {
 
@@ -43,7 +43,7 @@ namespace myobjectNS {
 
 	void Grid::setParameters() {
 
-		body->transformMatrix = mymathlibNS::conversionLibrary::mat44Conversion_toMat43Cyclone(AOTrMatrix);
+		body->transformMatrix = conversionLibNS::conversionLibrary::mat44Conversion_toMat43Cyclone(AOTrMatrix);
 		/*aggiorno la matrice di collisionFinitePlane*/
 		calculateInternals();
 

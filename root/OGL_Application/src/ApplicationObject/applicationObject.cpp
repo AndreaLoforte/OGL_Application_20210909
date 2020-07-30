@@ -118,36 +118,68 @@ void ApplicationObject::AOupdate(const float& duration)
 }
 
 
+void ApplicationObject::setPosition(std::array<float, 3> pos)
+{
+	AOposition = pos;
+	setParameters();
+}
+
+void ApplicationObject::setPosition(const GLfloat arr[3])
+{
+	AOposition[0] = arr[0];
+	AOposition[1] = arr[1]; 
+	AOposition[2] = arr[2]; 
+	setParameters();
+}
+
+
+
+void ApplicationObject::setRotation(const std::array<float, 3>& r)
+{
+	AOrot = r;
+	
+	mymathlibNS::Quaternion qx(mymathlibNS::Quaternion::getQuaternionfromZAngle(AOrot[0]));
+	mymathlibNS::Quaternion qy(mymathlibNS::Quaternion::getQuaternionfromZAngle(AOrot[1]));
+	mymathlibNS::Quaternion qz(mymathlibNS::Quaternion::getQuaternionfromZAngle(AOrot[2]));
+
+
+	AOorientation = mymathlibNS::Quaternion::getProduct(qx, qz);
+	AOorientation = mymathlibNS::Quaternion::getProduct(qy, AOorientation);
+	setParameters();
+}
+
+
 void ApplicationObject::AOtrX(int sign) {
-	AOposition[0] += sign * AOshift[0];
+	AOposition[0] += sign * deltaShift;
 	setParameters();
 }
 void ApplicationObject::AOtrY(int sign) { 
-	AOposition[1] += sign * AOshift[0];
+	AOposition[1] += sign * deltaShift;
 	setParameters();
 }
 void ApplicationObject::AOtrZ(int sign) { 
-	AOposition[2] += sign * AOshift[0];
+	AOposition[2] += sign * deltaShift;
 	setParameters();
 }
 void ApplicationObject::AOrotX(int sign) { 
-	mymathlibNS::Quaternion newRot(mymathlibNS::Quaternion::getQuaternionfromXAngle(sign * AOrot[0]));
+	AOrot[0] += sign * deltaRot;
+	mymathlibNS::Quaternion newRot(mymathlibNS::Quaternion::getQuaternionfromXAngle(sign * deltaRot));
 	AOorientation = mymathlibNS::Quaternion::getProduct(AOorientation, newRot);
 	
 	setParameters();
 	
 }
 void ApplicationObject::AOrotY(int sign) { 
-	//AOorientation[1] += sign * AOrot[0];
-	mymathlibNS::Quaternion newRot(mymathlibNS::Quaternion::getQuaternionfromYAngle(sign * AOrot[0]));
+	AOrot[1] += sign * deltaRot;
+	mymathlibNS::Quaternion newRot(mymathlibNS::Quaternion::getQuaternionfromYAngle(sign * deltaRot));
 	AOorientation = mymathlibNS::Quaternion::getProduct(AOorientation, newRot);
 
 	setParameters();
 	
 }
 void ApplicationObject::AOrotZ(int sign) { 
-	//AOorientation[2] += sign * AOrot[0];
-	mymathlibNS::Quaternion newRot(mymathlibNS::Quaternion::getQuaternionfromZAngle(sign * AOrot[0]));
+	AOrot[2] += sign * deltaRot;
+	mymathlibNS::Quaternion newRot(mymathlibNS::Quaternion::getQuaternionfromZAngle(sign * deltaRot));
 	AOorientation = mymathlibNS::Quaternion::getProduct(AOorientation, newRot);
 	setParameters();
 }

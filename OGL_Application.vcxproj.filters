@@ -177,16 +177,7 @@
     <ClInclude Include=".\root\OGL_Application\include\log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\mymathlib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include=".\root\OGL_Application\include\render.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\shadermanager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\shaders.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include=".\root\OGL_Application\include\vmath.h">
@@ -325,6 +316,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonEditObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\LibAndFacility\mymathlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\LibAndFacility\toStringLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\LibAndFacility\conversionLIB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\shadersFacility\shadermanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\shadersFacility\shaders.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -575,7 +581,10 @@
     <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\LibAndTools\mymathlib.cpp">
+    <ClCompile Include="root\OGL_Application\src\LibAndFacility\mymathlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\LibAndFacility\conversionLIB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

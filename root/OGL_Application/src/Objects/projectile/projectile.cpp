@@ -2,6 +2,7 @@
 #include<assert.h>
 #include<cameraManager.h>
 #include<text.h>
+#include<conversionLIB.h>
 
 namespace myobjectNS{
 
@@ -42,7 +43,7 @@ void Projectile::update(const float & duration){
 nella direzione specificata (usato per enemy)*/
 void Projectile::shoot(const std::array<float,3>& fireSpot,const std::array<float,3>& direction) {
 
-	typedef mymathlibNS::conversionLibrary ConversionLib;
+	typedef conversionLibNS::conversionLibrary ConversionLib;
 	typedef mymathlibNS::stdLibHelper stdLibHelper;
 
 	body->clearAccumulators();

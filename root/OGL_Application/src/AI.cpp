@@ -8,6 +8,7 @@
 #include<random>
 #include<functional>
 #include<userInterface.h>
+#include<conversionLIB.h>
 namespace aiNS {
 
 	
@@ -48,7 +49,7 @@ namespace aiNS {
 		//prendo la posizione del corpo rigido
 		Vector3  enemypos{ obj->getRB()->position };
 		//la uso per settare la posizione AOposition che passerò poi a gun come firespot
-		obj->setPosition(mymathlibNS::conversionLibrary::cycloneVec3TostdArray(enemypos));
+		obj->setPosition(conversionLibNS::conversionLibrary::cycloneVec3TostdArray(enemypos));
 		std::array<float, 3> distance_v
 		{ targetpos[0] - enemypos[0] ,
 			targetpos[1] - enemypos[1] ,
@@ -89,7 +90,7 @@ namespace aiNS {
 		//prendo la posizione del corpo rigido
 		myposition = myRB->position;
 		//la uso per settare la posizione AOposition che passerò poi a gun come firespot
-		mybody->setPosition(mymathlibNS::conversionLibrary::cycloneVec3TostdArray(myposition));
+		mybody->setPosition(conversionLibNS::conversionLibrary::cycloneVec3TostdArray(myposition));
 		std::array<float, 3> distance_v
 		{ 
 			targetpos[0] - myposition[0] ,

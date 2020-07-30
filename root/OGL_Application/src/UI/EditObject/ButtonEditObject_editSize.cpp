@@ -30,7 +30,7 @@ namespace uiNS
 			uiNS::UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type the new radius : ");
 
 
-			float radius = UserInterface::control->typing(key, action);
+			float radius = UserInterface::typer.typing(key, action);
 			if (radius <= 0) return;
 			else
 				static_cast<myobjectNS::ObjectSphere*>
@@ -50,7 +50,7 @@ namespace uiNS
 			if (typefirst)
 			{
 				UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter first dimension");
-				x = UserInterface::control->typing(key, action);
+				x = UserInterface::typer.typing(key, action);
 				if (x <= 0) return;
 				else
 				{
@@ -62,7 +62,7 @@ namespace uiNS
 			if (typesecond)
 			{
 				UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter second dimension");
-				y = UserInterface::control->typing(key, action);
+				y = UserInterface::typer.typing(key, action);
 				if (y <= 0) return;
 				else
 				{
@@ -74,7 +74,7 @@ namespace uiNS
 			if (typethird)
 			{
 				UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter third dimension");
-				z = UserInterface::control->typing(key, action);
+				z = UserInterface::typer.typing(key, action);
 				if (z <= 0) return;
 				else
 				{
@@ -92,41 +92,14 @@ namespace uiNS
 		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
 			myobjectNS::classPlane)
 		{
-			UserInterface::mapButtonOnParentBranch(
-				uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type 2 dimensions w, h : ");
+			UserInterface::mapButtonOnParentBranch(ButtonMap::EDITOBJECTMODEBUTTON, "enter X size, Y size : " + UserInterface::typer.total_string);
 
+				if(UserInterface::typer.NInsertion(key, action, 2, UserInterface::typer.vec))
+					static_cast<myobjectNS::ObjectPlane*>
+						(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->
+					changeDimensions(UserInterface::typer.vec[0], UserInterface::typer.vec[1]);
 
-			static float x, y;
-			static bool typefirst = true, typesecond = false;
-			if (typefirst)
-			{
-				UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter first dimension");
-				x = UserInterface::control->typing(key, action);
-				if (x <= 0) return;
-				else
-				{
-					typefirst = false;
-					typesecond = true;
-				}
-
-			}
-			if (typesecond)
-			{
-				UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter second dimension");
-				y = UserInterface::control->typing(key, action);
-				if (y <= 0) return;
-				else
-				{
-					typefirst = true;
-					typesecond = false;
-				}
-
-
-			}
-
-
-			static_cast<myobjectNS::ObjectPlane*>
-				(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeDimensions(x, y);
+			UserInterface::mapButtonOnParentBranch(ButtonMap::EDITOBJECTMODEBUTTON, "enter X size, Y size : " + UserInterface::typer.total_string);
 		}
 
 
