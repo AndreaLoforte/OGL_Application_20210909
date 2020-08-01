@@ -147,7 +147,7 @@ void App::generateContacts(){
 void App::startup()
 {
 	TimingData::init();
-	fpcameraNS::CameraManager::load();
+	fpcameraNS::CameraManager::load(App::projectDataFileName);
 	
 
 	glEnable(GL_BLEND);
@@ -187,7 +187,7 @@ void App::SaveProjectData(string filename) {
 }
 
 bool App::loadProjectData(string filename) {
-	
+	fpcameraNS::CameraManager::load(App::projectDataFileName);
 	return myobjectNS::ApplicationObjectManager::loadData(filename);
 }
 

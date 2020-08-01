@@ -46,10 +46,10 @@ namespace uiNS {
 		for (int i = 0; i < fileNames.size(); i++)
 			UserInterface::showButton(fileNames[i], fileNames[i]);
 
-		string projectfilename{ UserInterface::cursorVStext() };
+		App::projectDataFileName =  UserInterface::cursorVStext() ;
 
 
-		if (App::loadProjectData(projectfilename))
+		if (App::loadProjectData(App::projectDataFileName))
 		{
 			/*we can't access load project using back!*/
 			UserInterface::deleteAllButtons();
@@ -60,6 +60,10 @@ namespace uiNS {
 			
 			UserInterface::start->start();
 		}
+		else
+		{
+			//UserInterface::showButton("LOADINGERROR", "COULDN'T LOAD THIS FILE. TRY ANOTHER");
+		}
 
 		
 			
@@ -67,10 +71,15 @@ namespace uiNS {
 
 	void StartButton::newProject(int key,int action)
 	{
-		string newFilename = UserInterface::typer.stringInsertion(key, action);
-		if(!UserInterface::typer.completed_total)
-			UserInterface::showButton("TYPEPROJECTNAME", " ENTER PROJECT NAME "+ newFilename);
+		App::projectDataFileName = UserInterface::typer.stringInsertion(key, action);
+		if (!UserInterface::typer.completed_total)
+			UserInterface::showButton("TYPEPROJECTNAME", " ENTER PROJECT NAME " + App::projectDataFileName);
 		else
+		{
+			App::loadProjectData(App::projectDataFileName);
+			UserInterface::start->start();
+		}
+			
 			
 		UserInterface::ShowBackButton();
 		if (UserInterface::clicked(ButtonMap::BACKBUTTON))

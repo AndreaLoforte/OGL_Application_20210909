@@ -85,7 +85,64 @@ AOposition
 AOorientation
 1 0 0 0
 AOcolor
-0.45 0.67 0.23 0.78
+1 0.1 0.1 1
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+51 138 207
+AOorientation
+1 0 0 0
+AOcolor
+1 0.1 0.1 1
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+51 138 207
+AOorientation
+1 0 0 0
+AOcolor
+1 0.1 0.1 1
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+51 138 207
+AOorientation
+1 0 0 0
+AOcolor
+1 0.1 0.1 1
 AOisOnFlag
 0
 DOsize
@@ -123,64 +180,7 @@ AOposition
 AOorientation
 1 0 0 0
 AOcolor
-0.45 0.67 0.23 0.78
-AOisOnFlag
-0
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-0
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
-51 138 207
-AOorientation
-1 0 0 0
-AOcolor
-0.45 0.67 0.23 0.78
-AOisOnFlag
-0
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-0
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
-51 138 207
-AOorientation
-1 0 0 0
-AOcolor
-0.45 0.67 0.23 0.78
-AOisOnFlag
-0
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-0
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
-51 138 207
-AOorientation
-1 0 0 0
-AOcolor
-0.45 0.67 0.23 0.78
+1 0.1 0.1 1
 AOisOnFlag
 0
 DOsize
@@ -218,7 +218,7 @@ AOposition
 AOorientation
 1 0 0 0
 AOcolor
-0.45 0.67 0.23 0.78
+1 0.1 0.1 1
 AOisOnFlag
 0
 DOsize
@@ -256,7 +256,7 @@ AOposition
 AOorientation
 1 0 0 0
 AOcolor
-0.45 0.67 0.23 0.78
+1 0.1 0.1 1
 AOisOnFlag
 0
 DOsize
@@ -275,7 +275,7 @@ AOposition
 AOorientation
 1 0 0 0
 AOcolor
-0.4 0.6 0.9 1
+1 0.1 0.1 1
 AOisOnFlag
 0
 DOsize

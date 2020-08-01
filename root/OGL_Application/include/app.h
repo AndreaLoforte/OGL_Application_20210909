@@ -41,6 +41,7 @@
 
 		textRendererNS::TextRenderer textRenderer{ "text" };
 		static textRendererNS::PrintHelper ph;
+	
 
 		void render(double);
 		void startup();

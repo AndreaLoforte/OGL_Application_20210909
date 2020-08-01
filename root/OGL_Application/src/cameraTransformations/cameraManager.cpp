@@ -8,12 +8,14 @@ namespace fpcameraNS {
 	std::string CameraManager::projectDataFileName;
 	std::vector<Transformation*> CameraManager::cameraList;
 	textRendererNS::PrintHelper CameraManager::ph{ "cameraManager" };
-
+	std::string CameraManager::cameraSavingsFilename;
+	std::string CameraManager::cameraSavingsDirectory;
 
 
 	void CameraManager::save() 
 	{
-		std::ofstream out(logNS::Logger::STOREDDATADIR + "camera");
+		cameraSavingsDirectory = logNS::Logger::STOREDDATADIR+"cameraSavings/";
+		std::ofstream out(cameraSavingsDirectory + cameraSavingsFilename);
 		for (int i = 0; i < cameraList.size(); i++)
 			cameraList[i]->save(out);
 
@@ -39,9 +41,9 @@ namespace fpcameraNS {
 
 	}
 
-	static const std::string TAG_OBJECT_CAMERA{ "Camera" };
+	
 
-	void CameraManager::load() {
+	void CameraManager::load(const std::string& projectFilename) {
 
 		auto lambda_autoInit = [&]()
 		{
@@ -52,7 +54,8 @@ namespace fpcameraNS {
 		};
 
 		
-		std::string dir(logNS::Logger::STOREDDATADIR + TAG_OBJECT_CAMERA);
+		cameraSavingsFilename = projectFilename + "Camera";
+		std::string dir(logNS::Logger::STOREDDATADIR + cameraSavingsFilename);
 		std::ifstream in(dir);
 		saveloadNS::CameraSavings fh(in);
 

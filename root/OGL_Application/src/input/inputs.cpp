@@ -514,7 +514,7 @@ string Typer::stringInsertion(int key, int action) {
 		case GLFW_KEY_Z:
 			s.append("z");
 			break;
-		case GLFW_KEY_END:
+		case GLFW_KEY_ENTER:
 			completed_total = true;
 				break;
 

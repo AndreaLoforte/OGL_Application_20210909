@@ -58,7 +58,7 @@ namespace uiNS {
 
 	void EditGameButton::action()
 	{
-
+		UserInterface::setFlags(false, false, false);
 		UserInterface::deleteAllButtons();
 		
 		

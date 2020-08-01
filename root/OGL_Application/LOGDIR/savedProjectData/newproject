@@ -1,0 +1,36 @@
+COLLECTOR_
+grid
+OCisOnFlag
+0
+AOobjectName
+grid
+AOinstanceNumber
+4
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------
+COLLECTOR_
+frameOfRef
+OCisOnFlag
+0
+AOobjectName
+frameOfRef
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+--------ENDCOLLECTOR--------
