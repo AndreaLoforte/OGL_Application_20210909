@@ -11,10 +11,10 @@ namespace InputsNS{
 
 void Controls::key_callbackESC(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	
-	UserInterface::mapButtonOnParentBranch("ESCOPT1","Y : Save changes end quit ");
-	UserInterface::mapButtonOnParentBranch("ESCOPT2", "L : load next project data file");
-	UserInterface::mapButtonOnParentBranch("ESCOPT3", "N : cancel ");
-	UserInterface::mapButtonOnParentBranch("ESCOPT4", "ESC exit without save");
+	UserInterface::showButton("ESCOPT1","Y : Save changes end quit ");
+	UserInterface::showButton("ESCOPT2", "L : load next project data file");
+	UserInterface::showButton("ESCOPT3", "N : cancel ");
+	UserInterface::showButton("ESCOPT4", "ESC exit without save");
 
 
 	if (action == GLFW_RELEASE) return;

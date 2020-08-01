@@ -59,12 +59,14 @@ namespace uiNS
 
 			if (buttonID == NonButtonMap::SELECTCLUSTER)
 			{
+				
 				UserInterface::clickButton(buttonID);
 				UserInterface::deleteAllButtons();
-				UserInterface::showButton(NonButtonMap::SELECTCLUSTER, "SELECT CLUSTER ELEMENTS");
+				UserInterface::showButton(NonButtonMap::SELECTCLUSTER+"_", "SELECT CLUSTER ELEMENTS");
 				UserInterface::printExistingObjects();
 				UserInterface::showButton(NonButtonMap::EDITCLUSTER, NonButtonMap::EDITCLUSTER);
 				UserInterface::bfl.setMouseButtonCallback(insertInCluster);
+				return;
 			}
 			UserInterface::enableBack(buttonID);
 			

@@ -96,7 +96,11 @@ namespace uiNS {
 	public:
 		StartButton() { button.buttonID = buttonID; }
 		//StartButton() :ButtonInterface({ ButtonMap::STARTINGBUTTON }) {}
-		void action();
+		void action() override;
+		static void menu();
+		static void start();
+		static void load();
+		static void newProject(int,int);
 		void selectObject(GLFWwindow* w, int button, int action, int mode);
 		static void cursorPositionCallBack(GLFWwindow* w, double x, double y);
 		static	void cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode);
@@ -134,30 +138,9 @@ namespace uiNS {
 		QuitButton() { button.buttonID = buttonID; }
 		//QuitButton() :ButtonInterface({ ButtonMap::ESCAPEBUTTON }){}
 		void action() override;
+		static void showMenu();
 		const std::string& getButtonID() override { return button.buttonID; }
 	};
 
-	class QuitAndSaveButton : public ButtonInterface
-	{
-		string buttonID = ButtonMap::QUITANDSAVE;
-	public:
-		QuitAndSaveButton() { button.buttonID = buttonID; }
-		//QuitAndSaveButton(): ButtonInterface({ ButtonMap::QUITANDSAVE }){}
-		void action() override;
-		const std::string& getButtonID() override { return button.buttonID; }
-	};
-
-	class QuitNoSaveButton : public ButtonInterface
-	{
-		string buttonID = ButtonMap::QUITNOSAVE;
-	public:
-		QuitNoSaveButton() { button.buttonID = buttonID; }
-		//QuitNoSaveButton() : ButtonInterface({ ButtonMap::QUITNOSAVE }){}
-		void action() override;
-		const std::string& getButtonID() override { return button.buttonID; }
-	};
-
-
-	
 
 }

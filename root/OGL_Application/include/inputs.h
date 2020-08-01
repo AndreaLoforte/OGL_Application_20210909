@@ -110,6 +110,7 @@ namespace InputsNS{
 		bool NInsertion(int key, int action, int numberToInsert, vector<float>& vec);
 		std::string NInsertion2(int key, int action, int numberToInsert, vector<float>& vec);
 		int typing2(int key, int action);
+		string stringInsertion(int, int);
 	};
 
 

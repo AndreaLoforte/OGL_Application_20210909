@@ -64,14 +64,14 @@ namespace InputsNS{
 		
 		if (mods == GLFW_MOD_CONTROL)
 		if (key == GLFW_KEY_E)
-			userInterface->start->action();
+			userInterface->start->start();
 		
 
 		
 		if (mods == GLFW_MOD_CONTROL)
 		if (key == GLFW_KEY_S)
 		{
-			UserInterface::mapButtonOnParentBranch(UserInterface::getParentButton()->getButtonID(),"SAVED");
+			UserInterface::showButton(UserInterface::getParentButton()->getButtonID(),"SAVED");
 			App::SaveProjectData(App::projectDataFileName);
 			return;
 		}

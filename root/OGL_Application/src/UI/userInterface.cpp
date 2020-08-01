@@ -1,6 +1,6 @@
 #include<userInterface.h>
 #include<inputs.h>
-
+#include<app.h>
 #include<applicationObjectManager.h>
 #include<buttonsList.h>
 #include<buttonMap.h>
@@ -20,6 +20,41 @@ namespace uiNS {
 	InputsNS::Controls* UserInterface::control;
 	InputsNS::Typer UserInterface::typer;
 	buttonFunctiosList UserInterface::bfl;
+	unsigned UserInterface::frameID = 0;
+	App* UserInterface::app;
+
+
+
+
+	UserInterface::UserInterface(InputsNS::Controls* c)
+	{
+		control = c;
+		control->setUserInterface(this);
+		using namespace textRendererNS;
+		textRendererNS::TextRenderer::printList.push_back(&ph);
+		start = new StartButton();
+		buttonFlow.push_back(start);
+		ButtonMap();
+	}
+
+	void UserInterface::init()
+	{
+
+		/*glfwSetInputMode(Application::window, GLFW_STICKY_KEYS, 1);
+		glfwSetWindowUserPointer(Application::window, this);*/
+
+		UserInterface::paused = true;
+		//UserInterface::deleteAllButtons();
+
+		UserInterface::bfl.setMouseButtonCallback(StartButton::menu);
+		StartButton::menu();
+		UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
+		
+
+
+	}
+
+
 
 
 	void UserInterface::back()
@@ -36,7 +71,13 @@ namespace uiNS {
 			it = buttonFlow.begin();
 			for (int i = 0; i < size - h; i++)
 				it++;
-			buttonFlow.erase(it);
+			/*never delete the first button (start button)*/
+			if (it == buttonFlow.begin())
+			{
+				showButton("WARNING", "CREATE A NEW PROJECT OR LOAD AN EXISTING ONE");
+				return;
+			}
+				buttonFlow.erase(it);
 			b = ButtonMap::getButtonByID(buttonFlow.back()->getButtonID());
 			if(b)
 				b->action();
@@ -106,6 +147,11 @@ namespace uiNS {
 		{
 			ph.mapIDbutton_button.buttons[i].update();
 		}
+
+		/*avoid overflow*/
+		if (frameID > 10000000)
+			frameID = 0;
+		frameID++;
 	}
 
 	
@@ -132,8 +178,6 @@ namespace uiNS {
 
 	void UserInterface::printExistingObjects()
 	{
-		UserInterface::deleteAllButtons();
-		//UserInterface::setButton(ButtonMap::BACKBUTTON);
 
 		for (int i = 0; i < myobjectNS::ApplicationObjectManager::ApplicationCollectorList.size(); i++)
 		{
@@ -145,30 +189,6 @@ namespace uiNS {
 		}
 		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
 	}
-
-
-
-	/*stringID is exclusive, therefore entering a string with a stringID already present in MAP will override the previous string*/
-	/*this string is automatically assigned to*/
-	void UserInterface::mapButtonOnParentBranch(const string& stringID, const string& stringValue, const float& scale)
-	{
-		//ButtonInterface* newbutton{
-		//	ph.mapButtonOnBranch(
-		//		buttonFlow.back()->getButtonID()/*getParentButton()->getButtonID()*/,
-		//		stringID,
-		//		stringValue, scale) };
-
-		//buttonFlow.push_back(newbutton);
-	}
-
-	//void UserInterface::clickButton(const string& stringID)
-	//{
-	//	UserInterface::ph.mapIDbutton_button.parentID = stringID;
-	//	/*buttonList is created when a button is shown */
-	//	ButtonInterface b = buttonsList.at(stringID);
-	//	mapButtonOnParentBranch(b.getButtonID(), b.button.buttonName, b.button.textScale);
-	//	
-	//}
 
 
 	void UserInterface::clickButton(const string& stringID)
@@ -191,27 +211,7 @@ namespace uiNS {
 	}
 
 
-	void UserInterface::setButton(const string& bID)
-	{
-		ButtonInterface* b = ButtonMap::getButtonByID(bID);
-		if (b->getButtonID() != "")
-		ph.mapButtonOnBranch(
-			getParentButton()->getButtonID(),
-			b->getButtonID(),
-			b->getButtonID());
-
-	}
-
-	void UserInterface::setButton(const string& bID, const string& bName)
-	{
-		ButtonInterface* b = ButtonMap::getButtonByID(bID);
-		if(b->getButtonID() != "")
-		ph.mapButtonOnBranch(
-			getParentButton()->getButtonID(),
-			b->getButtonID(),
-			b->getButtonID());
-
-	}
+	
 
 
 
@@ -227,7 +227,7 @@ namespace uiNS {
 		}
 		else
 		{
-			UserInterface::mapButtonOnParentBranch("PAUSED", "PAUSE");
+			UserInterface::showButton("PAUSED", "PAUSE");
 			paused = true;
 		}
 
@@ -244,24 +244,7 @@ namespace uiNS {
 			return buttonFlow.at(0);
 	}
 
-	UserInterface::UserInterface(InputsNS::Controls * c) 
-	{
-		control = c;
-		control->setUserInterface(this);
-		using namespace textRendererNS;
-		textRendererNS::TextRenderer::printList.push_back(&ph);
-		start = new StartButton();
-		buttonFlow.push_back(start);
-		ButtonMap();
-	}
-
-	void UserInterface::init()
-	{
-		//buttonFlow.push_back(start);
-		//parentFlow.push_back(start);
-		start->action();
-	}
-
+	
 	void UserInterface::deleteButtonsByBranch(const string& buttonID)
 	{
 		buttonFlow.pop_back();
@@ -302,6 +285,7 @@ namespace uiNS {
 		return NonButtonMap::NOBUTTON;
 	}
 
+
 	std::string UserInterface::cursorVStext()
 	{
 		using namespace textRendererNS;
@@ -320,6 +304,44 @@ namespace uiNS {
 				return ph.mapIDbutton_button.buttons[i].button.buttonID;
 
 		return NonButtonMap::NOBUTTON;
+	}
+
+
+	/*function that checks if the buttonID passed has been pressed*/
+	bool UserInterface::clicked(const string& bID)
+	{
+		static string buttonID;
+		static unsigned functionCallID;
+		if (functionCallID != frameID)
+		{
+			functionCallID = frameID;
+
+			/*x,y go from 0 to window_width, window_height.*/
+			float transformed_x = (UserInterface::cursor_x - Application::window_width / 2) / Application::window_width * 2;
+			float transformed_y = -(UserInterface::cursor_y - Application::window_height / 2) / Application::window_height * 2;
+
+			for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
+				if (transformed_x < ph.mapIDbutton_button.buttons[i].button.x_min ||
+					transformed_x > ph.mapIDbutton_button.buttons[i].button.x_max ||
+					transformed_y < ph.mapIDbutton_button.buttons[i].button.y_min_frame ||
+					transformed_y > ph.mapIDbutton_button.buttons[i].button.y_max_frame)
+					/*if cursor is not upon this button do nothing*/;
+				else
+				{
+					buttonID = ph.mapIDbutton_button.buttons[i].button.buttonID;
+					return bID == buttonID;
+				}
+						
+
+			/*if cursor is outside every button frame assign NOBUTTON*/
+				buttonID = NonButtonMap::NOBUTTON;
+				return bID == buttonID;
+			
+		}
+		else
+			return bID == buttonID;
+			
+
 	}
 
 

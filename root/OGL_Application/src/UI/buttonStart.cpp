@@ -6,27 +6,103 @@
 #include<buttonfunctionlist.h>
 namespace uiNS {
 
-
-	void StartButton::action()
+	void StartButton::menu()
 	{
-		/*UserInterface::parentFlow.clear();
-		UserInterface::parentFlow.push_back(new StartButton());*/
+		UserInterface::deleteAllButtons();
+		UserInterface::showButton("LOAD PROJECT", "LOAD PROJECT");
+		UserInterface::showButton("NEW PROJECT", "NEW PROJECT");
+		UserInterface::ShowBackButton();
 
-		UserInterface::paused = true;
-		//UserInterface::deleteAllButtons();
+		if (UserInterface::clicked("LOAD PROJECT"))
+		{
+			UserInterface::clickButton("LOAD PROJECT");
+			UserInterface::bfl.setMouseButtonCallback(load);
+			load();
+		}
 
-		UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
-		UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
-		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+
+		if (UserInterface::clicked("NEW PROJECT"))
+		{
+			UserInterface::bfl.setMouseButtonCallback(newProject);
+			UserInterface::bfl.setKeyCallback(newProject);
+			newProject(0, 0);
+		}
+			
 
 
-		UserInterface::showButton(ButtonMap::CONTROLMODEBUTTON, ButtonMap::CONTROLMODEBUTTON);
-		UserInterface::showButton(ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::EDITOBJECTMODEBUTTON);
-		UserInterface::showButton(ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON);
-		UserInterface::showButton(ButtonMap::ESCAPEBUTTON, ButtonMap::ESCAPEBUTTON);
+
+		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+			UserInterface::back();
+	}
+
+
+	void StartButton::load()
+	{
+		UserInterface::deleteAllButtons();
+		UserInterface::showButton("SELECT PROJECT DATA TO LOAD", "SELECT PROJECT DATA TO LOAD");
+		vector<string> fileNames;
+		logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, fileNames);
+
+		for (int i = 0; i < fileNames.size(); i++)
+			UserInterface::showButton(fileNames[i], fileNames[i]);
+
+		string projectfilename{ UserInterface::cursorVStext() };
+
+
+		if (App::loadProjectData(projectfilename))
+		{
+			/*we can't access load project using back!*/
+			UserInterface::deleteAllButtons();
+			UserInterface::buttonFlow.clear();
+			UserInterface::buttonFlow.push_back(UserInterface::start);
+			myobjectNS::ApplicationObjectManager::setupObjectsParameters();
+
+			
+			UserInterface::start->start();
+		}
+
+		
+			
+	}
+
+	void StartButton::newProject(int key,int action)
+	{
+		string newFilename = UserInterface::typer.stringInsertion(key, action);
+		if(!UserInterface::typer.completed_total)
+			UserInterface::showButton("TYPEPROJECTNAME", " ENTER PROJECT NAME "+ newFilename);
+		else
+			
+		UserInterface::ShowBackButton();
+		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+			UserInterface::back();
+		
 
 
 	}
+
+
+
+
+	void StartButton::action()
+	{
+		UserInterface::deleteAllButtons();
+		start();
+	}
+
+
+	void StartButton::start()
+	{
+		UserInterface::deleteAllButtons();
+		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+		UserInterface::showButton(ButtonMap::CONTROLMODEBUTTON, ButtonMap::CONTROLMODEBUTTON);
+		UserInterface::showButton(ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::EDITOBJECTMODEBUTTON);
+		UserInterface::showButton(ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON);
+		UserInterface::showButton(NonButtonMap::CHANGEPROJECT, NonButtonMap::CHANGEPROJECT);
+		UserInterface::showButton(ButtonMap::ESCAPEBUTTON, ButtonMap::ESCAPEBUTTON);
+		UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
+		UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack);
+	}
+
 
 
 	void StartButton::cursorPositionCallBack(GLFWwindow* w, double x, double y)
@@ -57,7 +133,9 @@ namespace uiNS {
 
 		if (buttonID == ButtonMap::CONTROLMODEBUTTON)
 		{
-			UserInterface::clickButton(buttonID);
+			/*Control mode is not in the "normal flow" so we can't
+			go back() to control */
+			//UserInterface::clickButton(buttonID);
 			ControlModeButton b;
 			b.action();
 		}
@@ -78,9 +156,22 @@ namespace uiNS {
 		if (buttonID == ButtonMap::ESCAPEBUTTON)
 		{
 			UserInterface::clickButton(buttonID);
+			UserInterface::bfl.setMouseButtonCallback(QuitButton::showMenu);
 			QuitButton b;
 			b.action();
 		}
+		if (UserInterface::clicked(NonButtonMap::CHANGEPROJECT))
+		{
+			UserInterface::bfl.setMouseButtonCallback(menu);
+			UserInterface::clickButton(NonButtonMap::CHANGEPROJECT);
+			menu();
+		}
+
+
+
+
+
+
 	}
 
 

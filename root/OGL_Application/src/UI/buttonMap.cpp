@@ -20,6 +20,7 @@ namespace uiNS {
 	const string NonButtonMap::CLUSTERCOLOR = "CLUSTER COLOR";
 	const string NonButtonMap::TYPEPOSITION = "TYPE POSITION";
 	const string NonButtonMap::TYPEROTATION = "TYPE ORIENTATION";
+	const string NonButtonMap::CHANGEPROJECT = "CHANGE PROJECT";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";
@@ -48,8 +49,6 @@ namespace uiNS {
 		buttonMap.emplace(CONTROLMODEBUTTON, new ControlModeButton());
 		buttonMap.emplace(SAVEBUTTON, new SaveButton());
 		buttonMap.emplace(ESCAPEBUTTON, new QuitButton());
-		buttonMap.emplace(QUITANDSAVE, new QuitAndSaveButton());
-		buttonMap.emplace(QUITNOSAVE, new QuitNoSaveButton());
 		buttonMap.emplace(EDITOBJECTMODEBUTTON, new EditObjectModeButton());
 	}
 

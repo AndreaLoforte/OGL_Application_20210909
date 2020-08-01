@@ -26,12 +26,20 @@ std::map< std::string, int> ApplicationObjectManager::collectorIDMap;
 
 
 
+void ApplicationObjectManager::setupObjectsParameters()
+{
+	for (int i = 0; i < ApplicationCollectorList.size(); i++)
+		ApplicationCollectorList[i]->OCcreateObject();
+
+	for (int i = 0; i < ApplicationCollectorList.size(); i++)
+		ApplicationCollectorList[i]->OCsetParameters();
+
+}
 
 
 
 
-
-void ApplicationObjectManager::loadData(string filename) {
+bool ApplicationObjectManager::loadData(string filename) {
 
 	ApplicationCollectorList.clear();
 
@@ -68,7 +76,7 @@ void ApplicationObjectManager::loadData(string filename) {
 					newColl->getSubObject(j)->setOrientation(collectorData.AOobjects[j].AOorientation);
 					newColl->getSubObject(j)->setColor(collectorData.AOobjects[j].AOcolor);
 					newColl->getSubObject(j)->setSize(collectorData.AOobjects[j].AOsize);
-					
+
 				}
 
 				ApplicationCollectorList.push_back(newColl);
@@ -76,7 +84,12 @@ void ApplicationObjectManager::loadData(string filename) {
 			}//for
 
 			initObjectMaps();
-		}//if in is open
+
+			return true;
+		}
+		else {
+			return false;
+		}
 
 	}
 }

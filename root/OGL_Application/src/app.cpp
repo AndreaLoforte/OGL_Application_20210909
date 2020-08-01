@@ -18,43 +18,43 @@ void App::switchPhysics() {}
 
 std::string App::getNewProjectDataFilename()
 {
-	std::vector<string> fileList;
-	std::vector<string>::iterator it, backup_it;
-	logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, fileList);
-	
-
-	vector<string> SfileNumbers;
-	bool found = false;
-
-	for (int i = 0; i < fileList.size(); i++)
-	{
-		//inserisco in Snumbers solo la parte di nome del file contenente il numero
-		if (fileList[i].find(projectDataFileName+"_") != string::npos)
-		{
-			size_t pos = fileList[i].find("_");
-			SfileNumbers.push_back(fileList[i].substr(pos + 1));
-			found = true;
-		}
-		
-	}
-
-	if(found)
-	{
-	set<int> fileNumbers;
-
-	//trasformo i numeri-stringa in numeri interni e li inserisco in un vettore
-	for (int i = 0; i < SfileNumbers.size(); i++)
-		fileNumbers.emplace(std::stoi(SfileNumbers[i]));
-
-	int lastFileNumber = *--fileNumbers.cend();
-
-	int newFileNumber = lastFileNumber + 1;
-
-	return projectDataFileName + "_" + std::to_string(newFileNumber);
-	}
-	else
-		return projectDataFileName + "_1";
-
+//	std::vector<string> fileList;
+//	std::vector<string>::iterator it, backup_it;
+//	logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, fileList);
+//	
+//
+//	vector<string> SfileNumbers;
+//	bool found = false;
+//
+//	for (int i = 0; i < fileList.size(); i++)
+//	{
+//		//inserisco in Snumbers solo la parte di nome del file contenente il numero
+//		if (fileList[i].find(projectDataFileName+"_") != string::npos)
+//		{
+//			size_t pos = fileList[i].find("_");
+//			SfileNumbers.push_back(fileList[i].substr(pos + 1));
+//			found = true;
+//		}
+//		
+//	}
+//
+//	if(found)
+//	{
+//	set<int> fileNumbers;
+//
+//	//trasformo i numeri-stringa in numeri interni e li inserisco in un vettore
+//	for (int i = 0; i < SfileNumbers.size(); i++)
+//		fileNumbers.emplace(std::stoi(SfileNumbers[i]));
+//
+//	int lastFileNumber = *--fileNumbers.cend();
+//
+//	int newFileNumber = lastFileNumber + 1;
+//
+//	return projectDataFileName + "_" + std::to_string(newFileNumber);
+//	}
+//	else
+//		return projectDataFileName + "_1";
+	return "none";
 }
 
 
@@ -147,8 +147,8 @@ void App::generateContacts(){
 void App::startup()
 {
 	TimingData::init();
-
-	loadProjectData(App::projectDataFileName);
+	fpcameraNS::CameraManager::load();
+	
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -162,11 +162,12 @@ void App::startup()
 	userInterface.init();
 	textRenderer.create();
 
-	for (int i = 0; i < objectManager.ApplicationCollectorList.size(); i++)
+
+	/*for (int i = 0; i < objectManager.ApplicationCollectorList.size(); i++)
 		objectManager.ApplicationCollectorList[i]->OCcreateObject();
     
 	for (int i = 0; i < objectManager.ApplicationCollectorList.size(); i++)
-		objectManager.ApplicationCollectorList[i]->OCsetParameters();
+		objectManager.ApplicationCollectorList[i]->OCsetParameters();*/
 	
 }
 
@@ -185,12 +186,9 @@ void App::SaveProjectData(string filename) {
 	
 }
 
-void App::loadProjectData(string filename) {
+bool App::loadProjectData(string filename) {
 	
-	myobjectNS::ApplicationObjectManager::loadData(filename);
-	fpcameraNS::CameraManager::load();
-	
-
+	return myobjectNS::ApplicationObjectManager::loadData(filename);
 }
 
 

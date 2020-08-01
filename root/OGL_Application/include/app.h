@@ -30,10 +30,10 @@
 	protected:
 		
 		InputsNS::Controls controls;		
-		uiNS::UserInterface userInterface{ &controls };
+		uiNS::UserInterface userInterface{&controls };
 		void generateContacts();
 		
-		static void loadProjectData(string);
+		
 		
 	public:
 		App() {}
@@ -55,6 +55,7 @@
 		static std::string projectDataFileName;
 		static std::string getNewProjectDataFilename();
 		static std::string switchProjectDataFile();
+		static bool loadProjectData(string);
 		logNS::Logger log;
 	};
 

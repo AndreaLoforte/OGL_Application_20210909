@@ -149,83 +149,6 @@ namespace InputsNS{
 	}
 
 
-
-int Controls::chooseObject(int key) {
-	static vector<int> objNumberchoosed;
-	static int iterationIndex = 0;
-	int result;
-
-	//auto lambda_reset = [&]
-	//{
-	//	iterationIndex = 0;
-	//	objNumberChoosed.clear();
-	//	ph.eraseFromMap("chooseObject_INSERTION");
-	//	return result;
-	//};
-
-	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 0)
-	//{
-	//	ph.mapNewString("chooseObject",NEWLINE + "select an object and type enter" + NEWLINE);
-	//	return -1;//ERROR
-	//}
-
-	//if (key == GLFW_KEY_BACKSPACE)
-	//{
-	//	ph.eraseFromMap("chooseObject_INSERTION");
-	//	objNumberChoosed.clear();
-	//	iterationIndex = 0;
-	//	return -1;
-	//}
-
-	//
-	//if (key == GLFW_KEY_0 ||
-	//	key == GLFW_KEY_1 ||
-	//	key == GLFW_KEY_2 ||
-	//	key == GLFW_KEY_3 ||
-	//	key == GLFW_KEY_4 ||
-	//	key == GLFW_KEY_5 ||
-	//	key == GLFW_KEY_6 ||
-	//	key == GLFW_KEY_7 ||
-	//	key == GLFW_KEY_8 ||
-	//	key == GLFW_KEY_9)
-	//{
-
-	//	objNumberChoosed.push_back(glfw_KeyConversion.at(key));
-	//	ph.concatenate("chooseObject_INSERTION",std::to_string(objNumberChoosed[iterationIndex++]));
-	//	return -2;//WAIT FOR SECOND NUMBER
-	//}
-
-	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 1)
-	//{
-
-	//	result = objectIndex[0][0][0][objNumberChoosed[0]];
-	//	return lambda_reset();
-	//
-	//}
-	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 2)
-	//{
-	//	result = objectIndex[0][0][objNumberChoosed[0]][objNumberChoosed[1]];
-	//	return lambda_reset();
-
-	//}
-	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 3)
-	//{
-	//	result = objectIndex[0][objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]];
-	//	return lambda_reset();
-
-	//}
-	//if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 4)
-	//{
-	//	result = objectIndex[objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]][objNumberChoosed[3]];
-	//	return lambda_reset();
-
-	//}
-
-
-	return -1;
-}
-
-
 std::string TYPINGID = "TYPING";
 
 //funzione utile all'inserimento di un numero intero di al massimo 4 cifre
@@ -493,6 +416,112 @@ int Typer::typing2(int key, int action) {
 
 
 	return -100;
+
+}
+
+
+
+string Typer::stringInsertion(int key, int action) {
+
+	if (action == GLFW_RELEASE) return "";
+	static string s;
+
+
+	if (key == GLFW_KEY_BACKSPACE)
+	{
+		/*objNumberChoosed.clear();
+		iterationIndex = 0;
+		return -1;*/
+	}
+
+	switch (key)
+	{
+		case GLFW_KEY_A:
+			s.append("a");
+			break;
+		case GLFW_KEY_B:
+			s.append("b");
+			break;
+		case GLFW_KEY_C:
+			s.append("c");
+			break;
+		case GLFW_KEY_D:
+			s.append("d");
+			break;
+		case GLFW_KEY_E:
+			s.append("e");
+			break;
+		case GLFW_KEY_F:
+			s.append("f");
+			break;
+		case GLFW_KEY_G:
+			s.append("g");
+			break;
+		case GLFW_KEY_H:
+			s.append("h");
+			break;
+		case GLFW_KEY_I:
+			s.append("i");
+			break;
+		case GLFW_KEY_J:
+			s.append("j");
+			break;
+		case GLFW_KEY_K:
+			s.append("k");
+			break;
+		case GLFW_KEY_L:
+			s.append("l");
+			break;
+		case GLFW_KEY_M:
+			s.append("m");
+			break;
+		case GLFW_KEY_N:
+			s.append("n");
+			break;
+		case GLFW_KEY_O:
+			s.append("o");
+			break;
+		case GLFW_KEY_P:
+			s.append("p");
+			break;
+		case GLFW_KEY_Q:
+			s.append("q");
+			break;
+		case GLFW_KEY_R:
+			s.append("r");
+			break;
+		case GLFW_KEY_S:
+			s.append("s");
+			break;
+		case GLFW_KEY_T:
+			s.append("t");
+			break;
+		case GLFW_KEY_U:
+			s.append("u");
+			break;
+		case GLFW_KEY_V:
+			s.append("v");
+			break;
+		case GLFW_KEY_W:
+			s.append("w");
+			break;
+		case GLFW_KEY_X:
+			s.append("x");
+			break;
+		case GLFW_KEY_Y:
+			s.append("y");
+			break;
+		case GLFW_KEY_Z:
+			s.append("z");
+			break;
+		case GLFW_KEY_END:
+			completed_total = true;
+				break;
+
+	}
+	
+		
+	return s;
 
 }
 

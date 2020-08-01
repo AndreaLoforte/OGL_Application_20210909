@@ -14,6 +14,9 @@ namespace uiNS {
 	{
 		
 	public:
+		UserInterface(InputsNS::Controls* c);
+		static App* app;
+		static unsigned frameID;
 		static buttonFunctiosList bfl;
 		static InputsNS::Controls* control;
 		static textRendererNS::PrintHelper ph;
@@ -25,18 +28,17 @@ namespace uiNS {
 		static bool paused;
 		static bool physicsOn;
 		static bool AIon;
-		UserInterface(InputsNS::Controls * c);
+		
 		static InputsNS::Typer typer;
 		void init();
 		static void pause();
 		static std::string cursorVStext(const double& x, const double& y);
 		static std::string cursorVStext();
+		static bool clicked(const string&);
 		static void deleteButtonsByBranch(const string& branchID);
 		static void deleteNonButtonsByBranch(const string& branchID);
 		static void deleteAllButtons();
 		static ButtonInterface* getParentButton();
-		static void setButton(const string& buttonID);
-		static void setButton(const string& branchID, const string& buttonID);
 		static ButtonInterface* getButtonFromList(const string& bid);
 		static void update();
 
@@ -46,7 +48,6 @@ namespace uiNS {
 
 		static void printExistingObjects();
 		static void printAssetObjectsList();
-		static void mapButtonOnParentBranch(const string&, const string&, const float& = 0.3);
 		static void clickButton(const string&);
 		static void showButton(const string& stringID, const string& stringValue, const float& scale = 0.3);
 		static void setFlags(const bool& pause, const bool& aion, const bool& physicson);

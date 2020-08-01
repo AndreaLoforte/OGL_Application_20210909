@@ -61,7 +61,8 @@ namespace myobjectNS{
 		static void deleteObject(const int );
 		static void deleteObject(const string&);
 		static void save(std::string);
-		static void loadData(string filename);
+		static bool loadData(string filename);
+		static void setupObjectsParameters();
 		static void initObjectMaps();
 		static std::pair<int,int> getObjectListIndexByAOobjectName(std::string s);
 		static std::pair<int, int> getObjectListIndexByRBobjectID(std::string s);

@@ -18,11 +18,15 @@ int Application::init()
     return 0;
   
   //talvolta le hint sono utili talvolta limitano l'estensione
-   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,4); 
- //glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
+  /* glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,4); */
+	//glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT,GL_TRUE); 
-  //glfwWindowHint(GLFW_STEREO,GL_FALSE);
+ // glfwWindowHint(GLFW_STEREO,GL_FALSE);
+ // glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
+  
+	//  glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
+  ///glfwSetWindowOpacity(Application::window, 0.5f);
 
   //ANTIALIASING
   glfwWindowHint(GLFW_SAMPLES, 4);

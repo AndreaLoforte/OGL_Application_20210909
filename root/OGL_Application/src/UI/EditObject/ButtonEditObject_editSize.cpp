@@ -27,7 +27,7 @@ namespace uiNS
 		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
 			myobjectNS::classSphere)
 		{
-			uiNS::UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type the new radius : ");
+			uiNS::UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type the new radius : ");
 
 
 			float radius = UserInterface::typer.typing(key, action);
@@ -42,14 +42,14 @@ namespace uiNS
 		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
 			myobjectNS::classBox)
 		{
-			UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type 3 dimensions : ");
+			UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type 3 dimensions : ");
 
 
 			static GLfloat x, y, z;
 			static bool typefirst = true, typesecond = false, typethird = false;
 			if (typefirst)
 			{
-				UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter first dimension");
+				UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter first dimension");
 				x = UserInterface::typer.typing(key, action);
 				if (x <= 0) return;
 				else
@@ -61,7 +61,7 @@ namespace uiNS
 			}
 			if (typesecond)
 			{
-				UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter second dimension");
+				UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter second dimension");
 				y = UserInterface::typer.typing(key, action);
 				if (y <= 0) return;
 				else
@@ -73,7 +73,7 @@ namespace uiNS
 			}
 			if (typethird)
 			{
-				UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter third dimension");
+				UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter third dimension");
 				z = UserInterface::typer.typing(key, action);
 				if (z <= 0) return;
 				else

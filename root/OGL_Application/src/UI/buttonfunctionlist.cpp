@@ -11,6 +11,10 @@ namespace uiNS {
 	buttonFunctiosList::PkeyCallback1 buttonFunctiosList::fpkey1;
 	buttonFunctiosList::PmouseScroll1 buttonFunctiosList::fpscroll1;
 	buttonFunctiosList::PmouseButton2 buttonFunctiosList::fpMbutton2;
+	buttonFunctiosList::PkeyCallback2 buttonFunctiosList::fpkey2;
+	buttonFunctiosList::PCallbackII buttonFunctiosList::fpii;
+
+
 
 	void buttonFunctiosList::setMouseButtonCallback(PmouseButton2 f)
 	{
@@ -40,7 +44,20 @@ namespace uiNS {
 			static_cast<buttonFunctiosList*>(glfwGetWindowUserPointer(w))->fp1(w, button, action, mods);
 		};
 		glfwSetMouseButtonCallback(Application::window, L_MouseButton_callback);
-		fp1(Application::window, 0, 0, 0);
+		//fp1(Application::window, 0, 0, 0);
+	}
+
+	void buttonFunctiosList::setMouseButtonCallback(PCallbackII f)
+	{
+		fpii = f;
+
+		auto L_MouseButton_callback = [](GLFWwindow* w, int button, int action, int mods)
+		{
+			if (action == GLFW_RELEASE) return;
+			static_cast<buttonFunctiosList*>(glfwGetWindowUserPointer(w))->fpii( button, action);
+		};
+		glfwSetMouseButtonCallback(Application::window, L_MouseButton_callback);
+		//fp1(Application::window, 0, 0, 0);
 	}
 
 	void buttonFunctiosList::setMouseCursorCallback(PmouseCursor1 f)
@@ -67,6 +84,29 @@ namespace uiNS {
 		fpkey1(Application::window, 0, 0, 0, 0);
 	}
 
+	void buttonFunctiosList::setKeyCallback(PkeyCallback2 f)
+	{
+		fpkey2 = f;
+		auto L_key_callbackControl = [](GLFWwindow* w, int key, int scancode, int action, int mods)
+		{
+			if (action == GLFW_RELEASE) return;
+			static_cast<buttonFunctiosList*>(glfwGetWindowUserPointer(w))->fpkey2();
+		};
+		glfwSetKeyCallback(Application::window, L_key_callbackControl);
+		fpkey2();
+	}
+
+
+	void buttonFunctiosList::setKeyCallback(PCallbackII f)
+	{
+		fpii = f;
+		auto L_key_callbackControl = [](GLFWwindow* w, int key, int scancode, int action, int mods)
+		{
+			if (action == GLFW_RELEASE) return;
+			static_cast<buttonFunctiosList*>(glfwGetWindowUserPointer(w))->fpii(key,action);
+		};
+		glfwSetKeyCallback(Application::window, L_key_callbackControl);
+	}
 
 	void buttonFunctiosList::setMouseScrollCallback(PmouseScroll1 f)
 	{

@@ -180,19 +180,14 @@ namespace uiNS {
 
 	void ControlModeButton::action()
 	{
+		UserInterface::deleteAllButtons();
 		UserInterface::setFlags(false, true, true);
-		//UserInterface::deleteAllButtons();
-		UserInterface::deleteButtonsByBranch(ButtonMap::STARTINGBUTTON);
-		UserInterface::paused = false;
+//		UserInterface::deleteButtonsByBranch(ButtonMap::STARTINGBUTTON);
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
 		UserInterface::bfl.setMouseCursorCallback(InputsNS::Controls::cursor_callback);
 		UserInterface::bfl.setMouseButtonCallback(InputsNS::Controls::mouse_button_callback);
 		UserInterface::bfl.setMouseScrollCallback(InputsNS::Controls::scroll_callback);
-
-			/*glfwSetInputMode(Application::window, GLFW_STICKY_KEYS, 1);
-		glfwSetWindowUserPointer(Application::window, this);*/
-
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -218,26 +213,32 @@ namespace uiNS {
 
 	void QuitButton::action()
 	{
-		
-		UserInterface::deleteAllButtons();		
+		showMenu();
+	}
+
+	void QuitButton::showMenu()
+	{
+
+		UserInterface::deleteAllButtons();
 		UserInterface::showButton(ButtonMap::QUITANDSAVE, ButtonMap::QUITANDSAVE);
 		UserInterface::showButton(ButtonMap::QUITNOSAVE, ButtonMap::QUITNOSAVE);
 		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
+
+		if (UserInterface::clicked(ButtonMap::QUITANDSAVE))
+		{
+			App::SaveProjectData(App::projectDataFileName);
+			glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
+		}
+
+		if(UserInterface::clicked(ButtonMap::QUITNOSAVE))
+			glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
+
+		
+		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+			UserInterface::back();
+
+
 	}
 
-	void QuitAndSaveButton::action()
-	{
-
-		App::SaveProjectData(App::projectDataFileName);
-		glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
-	}
-
-	void QuitNoSaveButton::action()
-	{
-
-		glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
-	}
-
-	
 
 }
