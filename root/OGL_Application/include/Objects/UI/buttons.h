@@ -53,7 +53,7 @@ namespace uiNS {
 	public:
 		EditGameButton() { button.buttonID = buttonID; }
 		void action() override;
-		void setControls() override;
+		static void setControls();
 		const std::string& getButtonID() override { return button.buttonID; }
 	};
 
@@ -63,7 +63,7 @@ namespace uiNS {
 	public:
 		CreateObjectButton() { button.buttonID = buttonID; }
 		void action() override;
-		void selectObject(GLFWwindow*, int, int, int);
+		static void selectObject(GLFWwindow*, int, int, int);
 		const std::string& getButtonID() override { return button.buttonID; }
 		
 	};
@@ -86,7 +86,7 @@ namespace uiNS {
 		DeleteObjectButton() { button.buttonID = buttonID; }
 		//DeleteObjectButton() :ButtonInterface({ ButtonMap::DELETEBUTTON }) {}
 		void action() override;
-		void selectObject(GLFWwindow* w, int button, int action, int mode);
+		static void selectObject(GLFWwindow* w, int button, int action, int mode);
 		const std::string& getButtonID() override { return button.buttonID; }
 	};
 
@@ -96,10 +96,11 @@ namespace uiNS {
 	public:
 		StartButton() { button.buttonID = buttonID; }
 		//StartButton() :ButtonInterface({ ButtonMap::STARTINGBUTTON }) {}
-		void action() override;
+		void action();
 		void selectObject(GLFWwindow* w, int button, int action, int mode);
-		void cursorPositionCallBack(GLFWwindow* w, double x, double y);
-		void cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode);
+		static void cursorPositionCallBack(GLFWwindow* w, double x, double y);
+		static	void cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode);
+		void keyCallBack_startMenu(GLFWwindow* w, int key,int scancode, int action, int mode);
 		const std::string& getButtonID() override { return button.buttonID; }
 	};
 
@@ -122,6 +123,7 @@ namespace uiNS {
 		SaveButton() { button.buttonID = buttonID; }
 		//SaveButton():ButtonInterface({ButtonMap::SAVEBUTTON}){}
 		void action() override;
+		static void save();
 		const std::string& getButtonID() override { return button.buttonID; }
 	};
 
@@ -156,6 +158,6 @@ namespace uiNS {
 	};
 
 
-
+	
 
 }

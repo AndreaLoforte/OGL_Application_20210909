@@ -43,8 +43,6 @@ namespace uiNS
 			stdLibHelper::array3fScalarProduct(absoluteXDir, obj_cam_normalized) * 100,
 			0.0,
 			stdLibHelper::array3fScalarProduct(absoluteZDir, obj_cam_normalized) * 100);
-		/*myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrX(stdLibHelper::array3fScalarProduct(absoluteXDir, obj_cam_normalized)*10 );
-		myobjectNS::ApplicationObjectManager::getEditableCollector()->AOtrZ(stdLibHelper::array3fScalarProduct(absoluteZDir, obj_cam_normalized)*10 );*/
 
 	}
 
@@ -91,14 +89,14 @@ namespace uiNS
 	void EditObjectModeButton::key_callbackMove(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 
-		UserInterface::mapButtonOnParentBranch(uiNS::ButtonMap::EDITOBJECTMODEBUTTON,
+		UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON,
 			"Move the " +
 			myobjectNS::ApplicationObjectManager::getEditableObjectName() +
 			" object using A,S,D,W,1,2 and directional Arrows");
 
 		collectorNS::ApplicationObjectCollector* obj = myobjectNS::ApplicationObjectManager::getEditableCollector();
-		UserInterface::mapButtonOnParentBranch(NonButtonMap::TYPEPOSITION, "OBJECT POSITION X,Y,Z : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOposition));
-		UserInterface::mapButtonOnParentBranch(NonButtonMap::TYPEROTATION, "OBJECT ROTATION X°,Y°,Z° : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOrot));
+		UserInterface::showButton(NonButtonMap::TYPEPOSITION, "OBJECT POSITION X,Y,Z : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOposition));
+		UserInterface::showButton(NonButtonMap::TYPEROTATION, "OBJECT ROTATION X°,Y°,Z° : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOrot));
 
 		
 
@@ -108,7 +106,7 @@ namespace uiNS
 		{
 			std::vector<float> pos;
 				
-			UserInterface::mapButtonOnParentBranch(NonButtonMap::TYPEPOSITION, "OBJECT POSITION X,Y,Z : "+ UserInterface::typer.NInsertion2(key, action, 3, pos));
+			UserInterface::showButton(NonButtonMap::TYPEPOSITION, "OBJECT POSITION X,Y,Z : "+ UserInterface::typer.NInsertion2(key, action, 3, pos));
 			if(UserInterface::typer.completed_total)
 				obj->getBody()->setPosition({ pos[0],pos[1],pos[2] });
 			return;
@@ -117,7 +115,7 @@ namespace uiNS
 		if (typeRotation)
 		{
 			std::vector<float> rot;
-			UserInterface::mapButtonOnParentBranch(NonButtonMap::TYPEROTATION, "OBJECT ROTATION X,Y,Z : " + UserInterface::typer.NInsertion2(key, action, 3, rot));
+			UserInterface::showButton(NonButtonMap::TYPEROTATION, "OBJECT ROTATION X,Y,Z : " + UserInterface::typer.NInsertion2(key, action, 3, rot));
 			if (UserInterface::typer.completed_total)
 				obj->getBody()->setPosition({ rot[0],rot[1],rot[2] });
 			return;
@@ -191,8 +189,8 @@ namespace uiNS
 		}
 
 
-		UserInterface::mapButtonOnParentBranch(NonButtonMap::TYPEPOSITION, "OBJECT POSITION X,Y,Z : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOposition));
-		UserInterface::mapButtonOnParentBranch(NonButtonMap::TYPEROTATION, "OBJECT ROTATION X°,Y°,Z° : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOrot));
+		UserInterface::showButton(NonButtonMap::TYPEPOSITION, "OBJECT POSITION X,Y,Z : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOposition));
+		UserInterface::showButton(NonButtonMap::TYPEROTATION, "OBJECT ROTATION X°,Y°,Z° : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOrot));
 	}
 
 
@@ -201,7 +199,7 @@ namespace uiNS
 	
 	void EditObjectModeButton::cursor_callbackMoveObject(GLFWwindow* w, int button, int action, int mods)
 	{
-
+		if (action == GLFW_RELEASE) return;
 		std::string buttonID = UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y);
 
 		if (buttonID == NonButtonMap::TYPEPOSITION)
@@ -227,19 +225,9 @@ namespace uiNS
 			return;
 		}
 
-		UserInterface::enableBack(buttonID);
-
-		{
-			auto L_mouse_button_callback = [](GLFWwindow* w, int button, int action, int mods)
-			{
-				if (action == GLFW_RELEASE) return;
-				static_cast<EditObjectModeButton*>(glfwGetWindowUserPointer(w))->editObject(w, button, action, mods);
-			};
-
-			glfwSetMouseButtonCallback(Application::window, L_mouse_button_callback);
-			editObject(w, button, action, mods);
-		}
-
+		if (UserInterface::enableBack(buttonID))
+			return;
+		UserInterface::bfl.setMouseButtonCallback(editObject);
 		
 
 	}
@@ -249,22 +237,7 @@ namespace uiNS
 
 
 	void EditObjectModeButton::key_callbackMoveByInsertion(GLFWwindow* window, int key, int scancode, int action, int mods)
-	{
-		/*collectorNS::ApplicationObjectCollector* obj = myobjectNS::ApplicationObjectManager::getEditableCollector();
-		UserInterface::mapButtonOnParentBranch("OBJECTPOSITION", "OBJECT POSITION X,Y,Z : TYPE HERE");
-		UserInterface::mapButtonOnParentBranch("OBJECTORIENTATION", "OBJECT ORIENTATION Qw,Qx,Qy,Qz : TYPE HERE");
-
-
-
-		if (action == GLFW_RELEASE) return;*/
-
-
-
-
-
-
-
-	}
+	{}
 
 
 
@@ -272,26 +245,7 @@ namespace uiNS
 
 	/*this function should be able to recognize when the cursor is upon an object so that it can be selected and then moved*/
 	void EditObjectModeButton::cursorVSobject()
-	{
-		//using namespace textRendererNS;
-
-		///*x,y go from 0 to window_width, window_height.*/
-		//float transformed_x = (x - Application::window_width / 2) / Application::window_width * 2;
-		//float transformed_y = -(y - Application::window_height / 2) / Application::window_height * 2;
-
-		//for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
-		//	if (transformed_x < ph.mapIDbutton_button.buttons[i].button.x_min ||
-		//		transformed_x > ph.mapIDbutton_button.buttons[i].button.x_max ||
-		//		transformed_y < ph.mapIDbutton_button.buttons[i].button.y_min_frame ||
-		//		transformed_y > ph.mapIDbutton_button.buttons[i].button.y_max_frame)
-		//		/*do nothing*/;
-		//	else
-		//		return ph.mapIDbutton_button.buttons[i].button.buttonID;
-
-		//return "CLICK_NO_BUTTON";
-
-
-	}
+	{}
 
 
 

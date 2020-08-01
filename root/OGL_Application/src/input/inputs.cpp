@@ -11,7 +11,10 @@ namespace InputsNS{
 	bool Controls::playerIsOn = false;//settato a true quando il puntatore a gun di controls viene settato
 	myobjectNS::PlayerCharacterOC* Controls::player;
 	GLboolean Controls::hideCursor = true;
-
+	int Controls::scrollCallbackCallerID = 0;
+	unsigned Controls::mode = 0;
+	uiNS::UserInterface* Controls::userInterface;
+	App* Controls::app_pt;
 	std::vector<int> Typer::objNumberChoosed;
 	std::map<int, int> Typer::glfw_KeyConversion
 	{ {48,0},{49,1},{50,2},{51,3},{52,4},{53,5},{54,6},{55,7},{56,8},{57,9} };

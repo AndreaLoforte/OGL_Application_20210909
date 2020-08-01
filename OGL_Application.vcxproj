@@ -178,6 +178,7 @@
     <ClInclude Include=".\root\OGL_Application\include\SB7\gl3w.h" />
     <ClInclude Include=".\root\OGL_Application\include\SB7\glcorearb.h" />
     <ClInclude Include=".\root\OGL_Application\include\SB7\sb7ktx.h" />
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonfunctionlist.h" />
     <ClInclude Include="root\OGL_Application\include\shadersFacility\shadermanager.h" />
     <ClInclude Include="root\OGL_Application\include\shadersFacility\shaders.h" />
     <ClInclude Include=".\root\OGL_Application\include\vmath.h" />
@@ -226,6 +227,8 @@
     <ClCompile Include="root\OGL_Application\src\Objects\grid\grid.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\object1\object1.cpp" />
     <ClCompile Include="root\OGL_Application\src\Objects\particle\my_particle.cpp" />
+    <ClCompile Include="root\OGL_Application\src\UI\buttonfunctionlist.cpp" />
+    <ClCompile Include="root\OGL_Application\src\UI\buttonStart.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp" />

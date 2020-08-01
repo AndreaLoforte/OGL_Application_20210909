@@ -1,7 +1,7 @@
 #pragma once
 #include<inputs.h>
 #include<text.h>
-
+#include<buttonfunctionlist.h>
 /*user interface*/
 
 
@@ -14,10 +14,13 @@ namespace uiNS {
 	{
 		
 	public:
+		static buttonFunctiosList bfl;
 		static InputsNS::Controls* control;
 		static textRendererNS::PrintHelper ph;
 		static StartButton* start;
 		static vector<ButtonInterface*> buttonFlow;
+		static map<string,ButtonInterface> buttonsList;
+		//static vector<ButtonInterface*> parentFlow;
 		static double cursor_x, cursor_y;
 		static bool paused;
 		static bool physicsOn;
@@ -27,6 +30,7 @@ namespace uiNS {
 		void init();
 		static void pause();
 		static std::string cursorVStext(const double& x, const double& y);
+		static std::string cursorVStext();
 		static void deleteButtonsByBranch(const string& branchID);
 		static void deleteNonButtonsByBranch(const string& branchID);
 		static void deleteAllButtons();
@@ -43,11 +47,13 @@ namespace uiNS {
 		static void printExistingObjects();
 		static void printAssetObjectsList();
 		static void mapButtonOnParentBranch(const string&, const string&, const float& = 0.3);
+		static void clickButton(const string&);
+		static void showButton(const string& stringID, const string& stringValue, const float& scale = 0.3);
 		static void setFlags(const bool& pause, const bool& aion, const bool& physicson);
 
 		static void back();
 		static void ShowBackButton();
-		static void enableBack(const string&);
+		static bool enableBack(const string&);
 
 	};
 

@@ -8,8 +8,8 @@ namespace uiNS
 
 	class EditObjectModeButton : public ButtonInterface
 	{
-		bool typePosition = false;
-		bool typeRotation = false;
+		static bool typePosition;
+		static bool typeRotation;
 		
 	public:
 
@@ -24,20 +24,21 @@ namespace uiNS
 		//QuitNoSaveButton() : ButtonInterface({ ButtonMap::QUITNOSAVE }){}
 		void action() override;
 		const std::string& getButtonID() override { return button.buttonID; }
-		void cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode);
-		void editObject(GLFWwindow* w, int button, int action, int mode);
-		void key_callbackEditColor(GLFWwindow* window, int key, int scancode, int action, int mods);
-		void key_callbackEditSize(GLFWwindow* window, int key, int scancode, int action, int mods);
-		void ObjectSwitch(collectorNS::ApplicationObjectCollector* obj);
-		void clusterSwitch();
-		void key_callbackClusterColor(GLFWwindow* window, int key, int scancode, int action, int mods);
-		void key_callbackMoveCluster(GLFWwindow* window, int key, int scancode, int action, int mods);
-		void key_callbackMove(GLFWwindow* window, int key, int scancode, int action, int mods);
-		void cursor_callbackMoveObject(GLFWwindow* w, int button, int action, int mode);
-		void insertInCluster(GLFWwindow* w, int button, int action, int mode);
-		void editCluster(GLFWwindow* w, int button, int action, int mode);
-		void cursorVSobject();
-		void key_callbackMoveByInsertion(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode);
+		static void insertInCluster(GLFWwindow* w, int button, int action, int mode);
+		static void editObject(GLFWwindow* w, int button, int action, int mode);
+		static void key_callbackEditColor(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void key_callbackEditSize(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void ObjectSwitch(collectorNS::ApplicationObjectCollector* obj);
+		static void clusterSwitch();
+		static void key_callbackClusterColor(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void key_callbackMoveCluster(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void key_callbackMove(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void cursor_callbackMoveObject(GLFWwindow* w, int button, int action, int mode);
+		static void editCluster(GLFWwindow* w, int button, int action, int mode);
+		static void cursorVSobject();
+		static void key_callbackMoveByInsertion(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void selectObject();
 	};
 
 

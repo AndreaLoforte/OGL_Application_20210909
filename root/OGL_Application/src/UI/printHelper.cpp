@@ -53,6 +53,8 @@ namespace textRendererNS {
 					--i;
 				}
 		}
+
+		resetPosition();
 	}
 
 	void PrintHelper::cascadeEraseFromMap(std::string key)

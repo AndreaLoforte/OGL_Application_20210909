@@ -36,7 +36,6 @@ namespace textRendererNS {
 		size_t buffer_index = 0;
 
 
-
 		void mapNewString(std::string, std::string);
 		void mapButtonOnBranch(std::string, std::string, std::string);
 		uiNS::ButtonInterface* mapButtonOnBranch(std::string, std::string, std::string, float);

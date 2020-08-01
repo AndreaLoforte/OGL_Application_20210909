@@ -1,5 +1,6 @@
 #include<text.h>
 #include<buttonsList.h>
+#include<userInterface.h>
 namespace textRendererNS {
 
 
@@ -56,18 +57,20 @@ namespace textRendererNS {
 	(inserisce il branch di appartenenza)*/
 	uiNS::ButtonInterface* ButtonsList::mapStringOnBranch(string branchID, string stringID, string stringcontent, float scale)
 	{
+			
 		buttonsListIter it = getIteratorOf(stringID);
 		if (it == buttons.end())
 		{
 			/*must guarantee that ypos is always updated in case we erase some string*/
 			if(buttons.size() > 0 )	ypos = buttons.back().button.y_min;
-			uiNS::Button b({ stringID, stringcontent, xpos,ypos, scale });
-			buttons.push_back(b);
+			/*must delete memory allocation before delete the button!*/
+			uiNS::Button* b= new uiNS::Button({ stringID, stringcontent, xpos,ypos, scale });
+			buttons.push_back(*b);
 			buttons.back().button.parentNodes.clear();
 			buttons.back().button.parentNodes.push_back(branchID);
 			++buttonslistSize;
 			text_tot_size += stringcontent.length();
-			ypos = b.y_min;
+			ypos = b->y_min;
 			return &buttons.back();
 		}
 
@@ -107,7 +110,6 @@ namespace textRendererNS {
 		buttonsListIter element_to_delete = getIteratorOf(id);
 		if (element_to_delete != buttons.end())
 		{
-			
 			buttons.erase(element_to_delete);
 			--buttonslistSize;
 		}

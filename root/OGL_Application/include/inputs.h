@@ -33,13 +33,13 @@ namespace InputsNS{
 		static bool playerIsOn;
 		
 		bool moveMode = false;
-		uiNS::UserInterface* userInterface;
+		static uiNS::UserInterface* userInterface;
         static GLboolean hideCursor; 
-		int scrollCallbackCallerID = 0;
+		static int scrollCallbackCallerID;
 		static textRendererNS::PrintHelper ph;
     public:
-		App* app_pt;
-		unsigned mode = 0; //0 : control mode, 1 = moveMode, 2 = editMode
+		static App* app_pt;
+		static unsigned mode; //0 : control mode, 1 = moveMode, 2 = editMode
 
 	~Controls() {}
 
@@ -48,18 +48,23 @@ namespace InputsNS{
 		//initObjectIndex();
         
     }
-        void key_callbackControl(GLFWwindow*,int,int,int,int);
+        static void key_callbackControl(GLFWwindow*,int,int,int,int);
+		static void cursor_callback(GLFWwindow*, double, double);
+		static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+		static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+		static void setAllCallbackFunction(GLFWwindow* window);
+
 		void key_callbackMove(GLFWwindow*, int, int, int, int);
 		void key_callbackEdit(GLFWwindow*, int, int, int, int);
 		void key_callbackESC(GLFWwindow* window, int key, int scancode, int action, int mods);
-        void cursor_callback(GLFWwindow*,double,double);
+        
 		void cursor_callback_editMode(GLFWwindow*, double, double);
-        void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+        
 		void mouse_button_callback_editMode(GLFWwindow* window, int button, int action, int mods);
         void initControls(GLFWwindow* window);
-		void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);   
+		
 		void setup(App* application);
-		void setAllCallbackFunction(GLFWwindow* window);
+		
 		void setScrollCallback(GLFWwindow*);
 		void setButtonCallback(GLFWwindow*);
 		void setCursorCallback(GLFWwindow*);
@@ -70,7 +75,7 @@ namespace InputsNS{
 		bool NInsertion(int key, int action, int numberToInsert, vector<float>& vec);*/
 		void switchPhysics() {/* App::switchPhysics();*/ }
 		static void setPlayer(myobjectNS::PlayerCharacterOC* pc) { player = pc; playerIsOn = true; }
-		void setScrollCallbackCallerID(int i)
+		static void setScrollCallbackCallerID(int i)
 		{
 			scrollCallbackCallerID = i;
 		}

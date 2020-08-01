@@ -333,6 +333,9 @@
     <ClInclude Include="root\OGL_Application\include\shadersFacility\shaders.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonfunctionlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".\root\OGL_Application\src\app.cpp">
@@ -585,6 +588,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="root\OGL_Application\src\LibAndFacility\conversionLIB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\buttonStart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\buttonfunctionlist.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

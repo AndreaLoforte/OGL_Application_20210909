@@ -10,6 +10,8 @@ namespace uiNS {
 
 	double UserInterface::cursor_x, UserInterface::cursor_y;
 	vector<ButtonInterface*> UserInterface::buttonFlow;
+	map<string, ButtonInterface> UserInterface::buttonsList;
+	//vector<ButtonInterface*> UserInterface::parentFlow;
 	StartButton* UserInterface::start;
 	bool UserInterface::paused{ true };
 	bool UserInterface::physicsOn{ true };
@@ -17,54 +19,48 @@ namespace uiNS {
 	textRendererNS::PrintHelper UserInterface::ph{ "uiInterface",-0.9f,0.9f};
 	InputsNS::Controls* UserInterface::control;
 	InputsNS::Typer UserInterface::typer;
-
-
-
-	void UserInterface::printExistingObjects()
-	{
-		UserInterface::deleteAllButtons();
-		UserInterface::ph.resetPosition();
-		UserInterface::setButton(ButtonMap::BACKBUTTON);
-
-		for (int i = 0; i < myobjectNS::ApplicationObjectManager::ApplicationCollectorList.size(); i++)
-		{
-			string s =
-				myobjectNS::ApplicationObjectManager::
-				ApplicationCollectorList[i]->getCollectorID();//+"_"+std::to_string(i);
-
-			UserInterface::ph.mapButtonOnBranch(
-				UserInterface::getParentButton()->getButtonID(),
-				s,
-				s);
-		}
-	}
+	buttonFunctiosList UserInterface::bfl;
 
 
 	void UserInterface::back()
 	{
+		deleteAllButtons();
 		vector<ButtonInterface*>::iterator it;
 		size_t size = buttonFlow.size();
 
-		it = buttonFlow.begin();
-		for (int i = 0; i < size-1; i++)
-			it++;
-		buttonFlow.erase(it);
-		buttonFlow.back()->action();
+		
+		int h = 1;
+		ButtonInterface* b;
+		do
+		{
+			it = buttonFlow.begin();
+			for (int i = 0; i < size - h; i++)
+				it++;
+			buttonFlow.erase(it);
+			b = ButtonMap::getButtonByID(buttonFlow.back()->getButtonID());
+			if(b)
+				b->action();
+		} while (h++ < size && !b);
 
 	}
 	
 	void UserInterface::ShowBackButton()
 	{
-		UserInterface::mapButtonOnParentBranch(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
+		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
 
 	}
 
 
-	void UserInterface::enableBack(const string& buttonID)
+	bool UserInterface::enableBack(const string& buttonID)
 	{
 		UserInterface::ShowBackButton();
 		if (buttonID == ButtonMap::BACKBUTTON)
+		{
 			UserInterface::back();
+			return true;
+		}
+		return false;
+			
 	}
 	
 
@@ -127,38 +123,72 @@ namespace uiNS {
 
 
 		for (it; it != assetIndex->end(); it++)
-			UserInterface::ph.mapButtonOnBranch(
-				UserInterface::getParentButton()->getButtonID(),
-				it->first,
-				it->first);
+			UserInterface::showButton(it->first,it->first);
+
+		showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
 
 	}
+
+
+	void UserInterface::printExistingObjects()
+	{
+		UserInterface::deleteAllButtons();
+		//UserInterface::setButton(ButtonMap::BACKBUTTON);
+
+		for (int i = 0; i < myobjectNS::ApplicationObjectManager::ApplicationCollectorList.size(); i++)
+		{
+			string s =
+				myobjectNS::ApplicationObjectManager::
+				ApplicationCollectorList[i]->getCollectorID();//+"_"+std::to_string(i);
+			
+			UserInterface::showButton(s, s);
+		}
+		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
+	}
+
 
 
 	/*stringID is exclusive, therefore entering a string with a stringID already present in MAP will override the previous string*/
 	/*this string is automatically assigned to*/
 	void UserInterface::mapButtonOnParentBranch(const string& stringID, const string& stringValue, const float& scale)
 	{
-		ButtonInterface* newbutton{
-			ph.mapButtonOnBranch(
-				getParentButton()->getButtonID(),
-				stringID,
-				stringValue, scale) };
+		//ButtonInterface* newbutton{
+		//	ph.mapButtonOnBranch(
+		//		buttonFlow.back()->getButtonID()/*getParentButton()->getButtonID()*/,
+		//		stringID,
+		//		stringValue, scale) };
 
-		buttonFlow.push_back(newbutton);
+		//buttonFlow.push_back(newbutton);
 	}
 
-
-	//void UserInterface::mapButtonOnParentBranch(const string& stringID, const string& stringValue, const float& scale)
+	//void UserInterface::clickButton(const string& stringID)
 	//{
-	//	ButtonInterface* newbutton{
-	//		ph.mapButtonOnBranch(
-	//			getParentButton()->getButtonID(),
-	//			stringID,
-	//			stringValue, scale) };
-
-	//	buttonFlow.push_back(newbutton);
+	//	UserInterface::ph.mapIDbutton_button.parentID = stringID;
+	//	/*buttonList is created when a button is shown */
+	//	ButtonInterface b = buttonsList.at(stringID);
+	//	mapButtonOnParentBranch(b.getButtonID(), b.button.buttonName, b.button.textScale);
+	//	
 	//}
+
+
+	void UserInterface::clickButton(const string& stringID)
+	{
+		ButtonInterface* newB = new ButtonInterface(*UserInterface::getButtonFromList(stringID));
+		buttonFlow.push_back(newB);
+
+	}
+
+	void UserInterface::showButton(const string& stringID, const string& stringValue, const float& scale)
+	{
+		string partentID = buttonFlow.back()->getButtonID();/* getParentButton()->getButtonID();*/
+		ButtonInterface* newbutton{
+		ph.mapButtonOnBranch(
+			partentID,
+			stringID,
+			stringValue, scale) };
+
+		buttonsList.emplace(stringID,*newbutton);
+	}
 
 
 	void UserInterface::setButton(const string& bID)
@@ -227,6 +257,8 @@ namespace uiNS {
 
 	void UserInterface::init()
 	{
+		//buttonFlow.push_back(start);
+		//parentFlow.push_back(start);
 		start->action();
 	}
 
@@ -247,8 +279,6 @@ namespace uiNS {
 		using namespace textRendererNS;
 		for (int i = 0; i < buttonFlow.size(); i++)
 			ph.eraseByBranch(buttonFlow[i]->getButtonID());
-
-		ph.resetPosition();
 	}
 	
 
@@ -272,7 +302,25 @@ namespace uiNS {
 		return NonButtonMap::NOBUTTON;
 	}
 
-	
+	std::string UserInterface::cursorVStext()
+	{
+		using namespace textRendererNS;
+
+		/*x,y go from 0 to window_width, window_height.*/
+		float transformed_x = (UserInterface::cursor_x - Application::window_width / 2) / Application::window_width * 2;
+		float transformed_y = -(UserInterface::cursor_y - Application::window_height / 2) / Application::window_height * 2;
+
+		for (int i = 0; i < ph.mapIDbutton_button.buttons.size(); i++)
+			if (transformed_x < ph.mapIDbutton_button.buttons[i].button.x_min ||
+				transformed_x > ph.mapIDbutton_button.buttons[i].button.x_max ||
+				transformed_y < ph.mapIDbutton_button.buttons[i].button.y_min_frame ||
+				transformed_y > ph.mapIDbutton_button.buttons[i].button.y_max_frame)
+				/*do nothing*/;
+			else
+				return ph.mapIDbutton_button.buttons[i].button.buttonID;
+
+		return NonButtonMap::NOBUTTON;
+	}
 
 
 

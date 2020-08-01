@@ -22,13 +22,7 @@ namespace fpcameraNS{
 		updateLookat();
 		
 		if (printInfos) 
-		{
-			CameraManager::ph.mapNewString("CAMERAINFO", NEWLINE + "MODEL-VIEW TRANSFORMATION PARAMETERS");
-			CameraManager::ph.mapNewString("CAMERAINFO",TextRenderer::Scalar3ToString(lookat[0], lookat[1], lookat[2], "fpcamera:update:lookat"));
-			CameraManager::ph.mapNewString("CAMERAINFO",TextRenderer::Scalar4ToString(camOrientation[0], camOrientation[1], camOrientation[2], camOrientation[3], "computeGlobalCoordsFromInverseM : camOrientation"));
-			CameraManager::ph.mapNewString("CAMERAINFO",TextRenderer::Matrix44ToString(inverseM, "projectile : InverseM"));
-			CameraManager::ph.mapNewString("CAMERAINFO",TextRenderer::Scalar3ToString(inverseM[3][0] - camForGLBcoords[0], inverseM[3][1] - camForGLBcoords[1], inverseM[3][2] - camForGLBcoords[2], "ERROR DX,DY,DZ"));
-		}
+		{/*use UserInterface or print helper to print any relevant infos*/		}
     }
 
 

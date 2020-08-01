@@ -24,7 +24,7 @@ namespace uiNS {
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";
 	const string ButtonMap::ESCAPEBUTTON = "QUIT";
-	const string ButtonMap::BACKBUTTON = "BACK";
+	const string ButtonMap::BACKBUTTON = "<<";
 	const string ButtonMap::CONTROLMODEBUTTON = "CONTROLMODE";
 	const string ButtonMap::EDITOBJECTMODEBUTTON = "EDITOBJECTMODE";
 	const string ButtonMap::EDITGAMEMODEBUTTON = "EDITGAME";
@@ -40,6 +40,7 @@ namespace uiNS {
 
 	ButtonMap::ButtonMap()
 	{
+		buttonMap.emplace(STARTINGBUTTON, new StartButton());
 		buttonMap.emplace(EDITGAMEMODEBUTTON, new EditGameButton());
 		buttonMap.emplace(CREATEBUTTON, new CreateObjectButton());
 		buttonMap.emplace(DELETEBUTTON, new DeleteObjectButton());
@@ -57,20 +58,13 @@ namespace uiNS {
 
 	/*this method returns a button pointer if a button is pressed, otherwise 
 	returns null*/
-	uiNS::ButtonInterface* ButtonMap::getButtonByID(const string& bID)
+	uiNS::ButtonInterface* ButtonMap::getButtonByID(string bID)
 	{
 		using namespace textRendererNS;
 		std::map<std::string, uiNS::ButtonInterface*>::iterator it = buttonMap.find(bID);
 		
 		if (it == buttonMap.end())
-		{
-		/*	UserInterface::ph.mapButtonOnBranch
-			(UserInterface::getParentButton()->getButtonID(),
-				"GETBUTTONBYID",
-				"ButtonID not Found in Map");*/
-			
 			return NULL;
-		}
 	
 		return it->second;
 		

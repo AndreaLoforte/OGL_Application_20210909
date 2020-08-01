@@ -63,10 +63,9 @@ namespace InputsNS{
 
 		
 		if (mods == GLFW_MOD_CONTROL)
-		if (key == GLFW_KEY_E && action == GLFW_PRESS)
-		{
+		if (key == GLFW_KEY_E)
 			userInterface->start->action();
-		}
+		
 
 		
 		if (mods == GLFW_MOD_CONTROL)

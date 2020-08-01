@@ -63,17 +63,7 @@ namespace textRendererNS {
 		void create()override;
 		static void Load(std::string font, GLuint fontSize);// Pre-compiles a list of characters from the given font
 		static void refreshText();
-		static void printMatrix33(const GLfloat mat[3][3], std::string);
-		static void printMatrix43(Matrix4&, std::string matrixName);
-		static string Matrix44ToString(const vmath::mat4&, std::string);
 		static void printMatrix44(std::string& , vmath::mat4&, std::string);
-		static void printVector3(const GLfloat vec[3], std::string);
-		static void printScalar1(const GLfloat, std::string);
-		static void printScalar1(std::string&, GLfloat, std::string);
-		static string Scalar3ToString(const GLfloat, const  GLfloat, const GLfloat, std::string);
-		static string Scalar4ToString(const GLfloat, const  GLfloat, const GLfloat, const GLfloat, std::string);
-		static void printvmathVector4(const vmath::vec4 vec, std::string vecName);
-		static void printvmathVector4(std::string&,const vmath::vec4 vec, std::string vecName);
 		static void printEditableObjectInfos();
 
 		

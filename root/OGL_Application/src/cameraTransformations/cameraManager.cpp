@@ -1,6 +1,6 @@
 #include<cameraManager.h>
 #include<PrintHelper.h>
-
+#include<userInterface.h>
 namespace fpcameraNS {
 
 

@@ -12,7 +12,7 @@ namespace uiNS {
 
 		ButtonMap();
 
-		static uiNS::ButtonInterface* getButtonByID(const string& bID);
+		static uiNS::ButtonInterface* getButtonByID(string bID);
 
 		static const string
 			DELETEBUTTON,

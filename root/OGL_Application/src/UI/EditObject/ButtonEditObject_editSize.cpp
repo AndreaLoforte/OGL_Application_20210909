@@ -89,17 +89,16 @@ namespace uiNS
 
 
 
-		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
-			myobjectNS::classPlane)
+		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==	myobjectNS::classPlane)
 		{
-			UserInterface::mapButtonOnParentBranch(ButtonMap::EDITOBJECTMODEBUTTON, "enter X size, Y size : " + UserInterface::typer.total_string);
+			UserInterface::showButton(ButtonMap::EDITOBJECTMODEBUTTON, "enter X size, Y size : " + UserInterface::typer.total_string);
 
 				if(UserInterface::typer.NInsertion(key, action, 2, UserInterface::typer.vec))
 					static_cast<myobjectNS::ObjectPlane*>
 						(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->
 					changeDimensions(UserInterface::typer.vec[0], UserInterface::typer.vec[1]);
 
-			UserInterface::mapButtonOnParentBranch(ButtonMap::EDITOBJECTMODEBUTTON, "enter X size, Y size : " + UserInterface::typer.total_string);
+			UserInterface::showButton(ButtonMap::EDITOBJECTMODEBUTTON, "enter X size, Y size : " + UserInterface::typer.total_string);
 		}
 
 

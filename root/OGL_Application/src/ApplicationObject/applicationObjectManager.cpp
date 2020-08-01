@@ -117,8 +117,8 @@ bool ApplicationObjectManager::setEditableObject(const string& s)
 	{
 		editableObjIndex = it->second;
 		UserInterface::ph.mapButtonOnBranch
-		(UserInterface::getParentButton()->getButtonID(),
-			"SELECTINGOBJECT",
+		(UserInterface::buttonFlow.back()->getButtonID(),
+			"SELECTEDOBJECT",
 			ApplicationCollectorList.at(editableObjIndex)->getCollectorID() + " selected");
 		return true;
 	}
