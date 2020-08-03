@@ -315,9 +315,6 @@
     <ClInclude Include="root\OGL_Application\include\UI\buttonEditObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\UI\buttonfunctionlist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="root\OGL_Application\include\UI\buttonMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -334,6 +331,9 @@
       <Filter>Header Files\DRAWING_H</Filter>
     </ClInclude>
     <ClInclude Include="root\OGL_Application\include\UI\userInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\UI\buttonfunctionLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -593,10 +593,10 @@
     <ClCompile Include="root\OGL_Application\src\UI\buttonStart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\buttonfunctionlist.cpp">
+    <ClCompile Include="root\OGL_Application\src\UI\printHelperCollector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\printHelperCollector.cpp">
+    <ClCompile Include="root\OGL_Application\src\UI\buttonfunctionLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

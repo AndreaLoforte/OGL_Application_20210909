@@ -253,13 +253,15 @@ void ApplicationObjectManager::createNewObject(int N) {
 	initObjectMaps();
 }
 
-void ApplicationObjectManager::createNewObject(const string& s) {
+bool ApplicationObjectManager::createNewObject(const string& s) {
 
 	collectorNS::ApplicationObjectCollector * newcoll = AssetNS::Assets::getNewCollector(s);
+	if (newcoll == NULL) return false;
 	newcoll->OCcreateObject();
 	newcoll->OCsetParameters();
 	ApplicationCollectorList.push_back(newcoll);
 	initObjectMaps();
+	return true;
 }
 
 void ApplicationObjectManager::deleteObject(const int i) {

@@ -57,7 +57,7 @@ namespace myobjectNS{
 		static bool setEditableObject(const string&);
 		static void initObjectAssetList();
 		static void createNewObject(int N);//crea l'asset corrispondente alla posizione N nella lista degli asset e lo inserisce in applicationObjectList
-		static void createNewObject(const string&);
+		static bool createNewObject(const string&);
 		static void deleteObject(const int );
 		static bool deleteObject(const string&);
 		static void save(std::string);

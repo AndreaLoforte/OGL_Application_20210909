@@ -5,129 +5,19 @@
 #include<buttonEditObject.h>
 #include<userInterface.h>
 namespace uiNS {
-	bool StartButton::nogoback;
-	
-
-	void StartButton::menu()
-	{
-		//glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-		//UserInterface::phc.showButton(NonButtonMap::FILE, NonButtonMap::FILE, NonButtonMap::FILE,0);
-		//UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, ButtonMap::CONTROLMODEBUTTON, ButtonMap::CONTROLMODEBUTTON,0);
-		//UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::EDITOBJECTMODEBUTTON,0);
-		//UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON,0);
-
-
-		//if (UserInterface::clicked(NonButtonMap::PROGRAMINFOS))
-		//{
-		//	static size_t i;
-		//	UserInterface::phc.hideDropDownMenu();
-
-		//	UserInterface::phc.showDropDownMenu(NonButtonMap::FILE,
-		//		{ "This program has been developed using the following libraries :",
-		//		"- OpenGL (graphics)",
-		//		"- GLEW (OpenGL extension Wrangler)",
-		//		"- GLFW (inputs and windows management)",
-		//		"- FreeType (fonts)",
-		//		"- Cyclone (physics integrator and basic collision detection)",
-		//		"- Irrklang (free release of the audio library)",
-		//		"","","","","","Andrea Loforte" });
-		//	
-		//}
-
-
-
-		//if (UserInterface::clicked(NonButtonMap::LOADPROJECT))
-		//{
-		//	//UserInterface::clickButton(NonButtonMap::LOADPROJECT);
-		//	UserInterface::bfl.setMouseButtonCallback(load);
-		//	load();
-		//}
-
-
-		//if (UserInterface::clicked("NEW PROJECT"))
-		//{
-		//	UserInterface::bfl.setMouseButtonCallback(newProject);
-		//	UserInterface::bfl.setKeyCallback(newProject);
-		//	newProject(0, 0);
-		//}
-		//	
-
-		//if (UserInterface::clicked(NonButtonMap::NOBUTTON))
-		//{
-		//	UserInterface::phc.hideDropDownMenu();
-		//	//UserInterface::back();
-		//	//UserInterface::phc.showButton(NonButtonMap::FILE, NonButtonMap::FILE, NonButtonMap::FILE);
-		//	
-		//}
-		
-	}
-
-
-	void StartButton::load(GLFWwindow*w,int button,int action,int mods)
-	{
-
-		if (action == GLFW_RELEASE) return;
-		
-		
-
-		App::projectDataFileName =  UserInterface::cursorVStext() ;
-
-		if (App::loadProjectData(App::projectDataFileName))
-		{
-			myobjectNS::ApplicationObjectManager::setupObjectsParameters();
-			UserInterface::phc.hideDropDownMenu();
-			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
-		}
-		else
-		{
-			UserInterface::phc.showButton(NonButtonMap::FILE, "COULDN'T LOAD THIS FILE");
-		}
-
-		//UserInterface::ShowBackButton();
-		/*if (UserInterface::clicked(ButtonMap::BACKBUTTON))
-			UserInterface::back();*/
-
-
-			
-	}
-
-	void StartButton::newProject(int key,int action)
-	{
-		App::projectDataFileName = UserInterface::typer.stringInsertion(key, action);
-		if (!UserInterface::typer.completed_total)
-			UserInterface::phc.showButton(NonButtonMap::FILE, "TYPEPROJECTNAME", "ENTER PROJECT NAME " + App::projectDataFileName);
-		else
-		{
-			App::loadProjectData(App::projectDataFileName);
-			UserInterface::start->start();
-		}
-			
-			
-		//UserInterface::ShowBackButton();
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
-		{
-			UserInterface::back();
-			nogoback = true;
-		}
-			
-		
-
-
-	}
-
-
 
 
 	void StartButton::action()
 	{
 		/*UserInterface::deleteAllButtons();*/
-		menu();
 	}
 
 
 	void StartButton::start()
 	{
-		
+		UserInterface::phc.hideDropDownMenu();
+		UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack);
+		UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
 	}
 
 
@@ -155,6 +45,8 @@ namespace uiNS {
 				NonButtonMap::FILE,
 				{ NonButtonMap::LOADPROJECT,
 				NonButtonMap::NEWPROJECT,
+				ButtonMap::QUITANDSAVE,
+				ButtonMap::QUITNOSAVE,
 				NonButtonMap::PROGRAMINFOS });
 			
 		}
@@ -190,10 +82,11 @@ namespace uiNS {
 		
 
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-		UserInterface::phc.showButton(NonButtonMap::FILE, NonButtonMap::FILE, NonButtonMap::FILE, 0);
-		UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, ButtonMap::CONTROLMODEBUTTON, ButtonMap::CONTROLMODEBUTTON, 0);
-		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::EDITOBJECTMODEBUTTON, 0);
-		UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON, 0);
+		UserInterface::phc.showButton(NonButtonMap::FILE, NonButtonMap::FILE, NonButtonMap::FILE);
+		UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, ButtonMap::CONTROLMODEBUTTON, ButtonMap::CONTROLMODEBUTTON);
+		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::EDITOBJECTMODEBUTTON);
+		UserInterface::phc.showButton(NonButtonMap::EDITSOUNDS, NonButtonMap::EDITSOUNDS);
+		UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON);
 
 
 		if (UserInterface::clicked(NonButtonMap::PROGRAMINFOS))
@@ -219,26 +112,25 @@ namespace uiNS {
 		{
 			UserInterface::phc.hideDropDownMenu();
 			UserInterface::phc.showButton(NonButtonMap::FILE, "SELECT PROJECT DATA TO LOAD", "SELECT PROJECT DATA TO LOAD");
+			
 			vector<string> fileNames;
 			logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, fileNames);
 
-			for (int i = 0; i < fileNames.size(); i++)
-				UserInterface::phc.showButton(NonButtonMap::FILE, fileNames[i], fileNames[i]);
+			UserInterface::phc.showDropDownMenu(NonButtonMap::FILE, fileNames);
 
-
-
-			//UserInterface::clickButton(NonButtonMap::LOADPROJECT);
 			UserInterface::bfl.setMouseButtonCallback(load);
 			
 		}
 
 
-		if (UserInterface::clicked("NEW PROJECT"))
+		if (UserInterface::clicked(NonButtonMap::NEWPROJECT))
 		{
 			UserInterface::bfl.setMouseButtonCallback(newProject);
 			UserInterface::bfl.setKeyCallback(newProject);
-			newProject(0, 0);
+			newProject(0, 1);
 		}
+
+		
 
 
 		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
@@ -261,48 +153,100 @@ namespace uiNS {
 		{
 			
 			UserInterface::printExistingObjects(ButtonMap::EDITOBJECTMODEBUTTON);
-//			UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::BACKBUTTON);
 			UserInterface::bfl.setMouseButtonCallback(EditObjectModeButton::selectObject);
 			UserInterface::bfl.setMouseCursorCallback(EditObjectModeButton::cursorPositionCallBack);
-			/*UserInterface::bfl.setMouseButtonCallback(EditObjectModeButton::cursorButtonCallBack);
-			EditObjectModeButton::cursorButtonCallBack(Application::window, 0, 1, 0);*/
+
 		
 		}
-		/*
-		if (buttonID == ButtonMap::EDITGAMEMODEBUTTON)
+		
+	
+
+		if (UserInterface::clicked(ButtonMap::CREATEBUTTON))
 		{
-			UserInterface::clickButton(buttonID);
-			EditGameButton b;
-			b.action();
+			UserInterface::printAssetObjectsList(ButtonMap::EDITGAMEMODEBUTTON);
+			UserInterface::bfl.setMouseButtonCallback(StartButton::createObject);
 		}
-		if (buttonID == ButtonMap::ESCAPEBUTTON)
+
+		if (UserInterface::clicked(ButtonMap::DELETEBUTTON))
 		{
-			UserInterface::clickButton(buttonID);
-			UserInterface::bfl.setMouseButtonCallback(QuitButton::showMenu);
-			QuitButton b;
-			b.action();
+			UserInterface::printExistingObjects(ButtonMap::DELETEBUTTON);
+			UserInterface::bfl.setMouseButtonCallback(StartButton::deleteObject);
 		}
-		if (UserInterface::clicked(NonButtonMap::CHANGEPROJECT))
+
+
+
+	}
+
+
+
+	void StartButton::createObject()
+	{
+		string buttonID{ UserInterface::cursorVStext() };
+
+		if (!myobjectNS::ApplicationObjectManager::createNewObject(buttonID) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+			resetCallbackFunc();			
+	}
+
+	void StartButton::deleteObject()
+	{
+		string buttonID{ UserInterface::cursorVStext() };
+
+		if (!myobjectNS::ApplicationObjectManager::deleteObject(buttonID) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+			resetCallbackFunc();
+	}
+
+
+	void StartButton::resetCallbackFunc()
+	{
+		UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
+		UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack);
+		cursorButtonCallBack(Application::window, 0, 1, 0);
+	}
+
+
+
+	void StartButton::load(GLFWwindow* w, int button, int action, int mods)
+	{
+
+		if (action == GLFW_RELEASE) return;
+
+		App::projectDataFileName = UserInterface::cursorVStext();
+
+		if (App::loadProjectData(App::projectDataFileName))
 		{
-			UserInterface::bfl.setMouseButtonCallback(menu);
-			UserInterface::clickButton(NonButtonMap::CHANGEPROJECT);
-			menu();
+			myobjectNS::ApplicationObjectManager::setupObjectsParameters();
+			UserInterface::phc.hideDropDownMenu();
+			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
+		}
+		/*else
+		{
+			UserInterface::phc.showButton(NonButtonMap::FILE, "COULDN'T LOAD THIS FILE");
 		}*/
 
-
-
-
-
+		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+			resetCallbackFunc();
+			
 
 	}
 
-
-	void StartButton::keyCallBack_startMenu(GLFWwindow* w, int key, int scancode, int action, int mode)
+	void StartButton::newProject(int key, int action)
 	{
+		App::projectDataFileName = UserInterface::typer.stringInsertion(key, action);
 		
+			UserInterface::phc.showButton(NonButtonMap::FILE, "TYPEPROJECTNAME", "ENTER PROJECT NAME " + App::projectDataFileName);
+
+		if (UserInterface::typer.completed_total)
+		{
+			App::loadProjectData(App::projectDataFileName);
+			UserInterface::start->start();
+		}
+
+
+		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+			resetCallbackFunc();
 
 	}
 
-	void StartButton::selectObject(GLFWwindow* w, int button, int action, int mode) {}
+
 
 }

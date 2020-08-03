@@ -3,7 +3,7 @@
 #include<inputs.h>
 #include<app.h>
 #include<buttonEditObject.h>
-#include<buttonfunctionlist.h>
+#include<buttonfunctionLoader.h>
 namespace uiNS {
 
 	buttonFunctiosList::PmouseButton1 buttonFunctiosList::fp1;

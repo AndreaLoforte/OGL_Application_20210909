@@ -52,7 +52,8 @@ namespace uiNS {
 			PROGRAMINFOS,
 			FILE,
 			LOADPROJECT,
-			NEWPROJECT;
+			NEWPROJECT,
+			EDITSOUNDS;
 	};
 
 

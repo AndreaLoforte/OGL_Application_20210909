@@ -99,16 +99,15 @@ namespace uiNS {
 		StartButton() { button.buttonID = buttonID; }
 		//StartButton() :ButtonInterface({ ButtonMap::STARTINGBUTTON }) {}
 		void action() override;
-		static void menu();
+		static void resetCallbackFunc();
+		static void createObject();
+		static void deleteObject();
 		static void start();
 		static void load(GLFWwindow* w, int button, int action, int mods);
 		static void newProject(int,int);
-		void selectObject(GLFWwindow* w, int button, int action, int mode);
 		static void cursorPositionCallBack(GLFWwindow* w, double x, double y);
 		static	void cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode);
-		void keyCallBack_startMenu(GLFWwindow* w, int key,int scancode, int action, int mode);
 		const std::string& getButtonID() override { return button.buttonID; }
-		static bool nogoback;
 	};
 
 

@@ -1,7 +1,7 @@
 #pragma once
 #include<inputs.h>
 #include<PrintHelper.h>
-#include<buttonfunctionlist.h>
+#include<buttonfunctionLoader.h>
 /*user interface*/
 
 
@@ -17,8 +17,10 @@ namespace uiNS {
 		UserInterface(InputsNS::Controls* c);
 		static App* app;
 		static unsigned frameID;
+		/*bfl : button's function loader*/
 		static buttonFunctiosList bfl;
 		static InputsNS::Controls* control;
+		/*phc : printHelper collector*/
 		static printHelperNS::PrintHelperCollector phc;
 		static StartButton* start;
 		static vector<ButtonInterface*> buttonFlow;

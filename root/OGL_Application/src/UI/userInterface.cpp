@@ -31,21 +31,25 @@ namespace uiNS {
 		control->setUserInterface(this);
 		using namespace textRendererNS;
 
-		printHelperNS::PrintHelper ph1{ "uiInterface",-0.9f,0.9f };
-		printHelperNS::PrintHelper ph2{ "uiInterface",-0.7f,0.9f };
-		printHelperNS::PrintHelper ph3{ "uiInterface",-0.4f,0.9f };
-		printHelperNS::PrintHelper ph4{ "uiInterface",-0.1f,0.9f };
+		printHelperNS::PrintHelper ph1{ "uiInterface",-0.9f,0.95f };
+		printHelperNS::PrintHelper ph2{ "uiInterface",-0.6f,0.95f };
+		printHelperNS::PrintHelper ph3{ "uiInterface",-0.3f,0.95f };
+		printHelperNS::PrintHelper ph4{ "uiInterface", 0.2f,0.95f };
+		printHelperNS::PrintHelper ph5{ "uiInterface", 0.5f,0.95f };
 
 
 		phc.printHmap.emplace(NonButtonMap::FILE, ph1);
 		phc.printHmap.emplace(ButtonMap::EDITGAMEMODEBUTTON, ph2);
 		phc.printHmap.emplace(ButtonMap::EDITOBJECTMODEBUTTON, ph3);
-		phc.printHmap.emplace(ButtonMap::CONTROLMODEBUTTON, ph4);
+		phc.printHmap.emplace(NonButtonMap::EDITSOUNDS, ph4);
+		phc.printHmap.emplace(ButtonMap::CONTROLMODEBUTTON, ph5);
+		
 		phc.updateRenderer();
 		
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::FILE));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::EDITGAMEMODEBUTTON));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::EDITOBJECTMODEBUTTON));
+		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::EDITSOUNDS));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::CONTROLMODEBUTTON));
 		/*textRendererNS::TextRenderer::printList.push_back(&ph4);
 		textRendererNS::TextRenderer::printList.push_back(&ph5);*/
@@ -90,9 +94,7 @@ namespace uiNS {
 				it++;
 			/*never delete the first button (start button)*/
 			if (it == buttonFlow.begin())
-			{
-				UserInterface::start->nogoback = true;
-				UserInterface::start->menu();
+			{				
 				return;
 			}
 				buttonFlow.erase(it);

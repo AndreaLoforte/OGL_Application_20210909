@@ -99,6 +99,8 @@ namespace AssetNS {
 	collectorNS::ApplicationObjectCollector* Assets::getNewCollector(std::string objName)
 	{
 		//da qui recupero i collettori che entrano già come collettori
+		map<string, int>::iterator it = assetIndex.find(objName);
+		if (it == assetIndex.end()) return NULL;
 		collectorNS::ApplicationObjectCollector * newColl = assetsList[assetIndex.at(objName)]->OCgetNewInstance();
 		return newColl;
 	}

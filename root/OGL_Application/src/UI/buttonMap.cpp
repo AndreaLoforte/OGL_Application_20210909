@@ -25,6 +25,7 @@ namespace uiNS {
 	const string NonButtonMap::FILE = "FILE";
 	const string NonButtonMap::LOADPROJECT = "LOAD PROJECT";
 	const string NonButtonMap::NEWPROJECT = "NEWPROJECT";
+	const string NonButtonMap::EDITSOUNDS = "EDIT SOUNDS";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";
