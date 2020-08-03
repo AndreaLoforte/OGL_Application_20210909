@@ -20,7 +20,7 @@ namespace objectControlsNS {
 		InputsNS::Controls controls;
 		bool mustPrintEditSize = true;
 		bool mustPrintEditColor = true;
-		static textRendererNS::PrintHelper ph;
+		static printHelperNS::PrintHelper ph;
 	public:
 		void key_callbackEditSize(GLFWwindow*, int, int, int, int);
 		void key_callbackEditColor(GLFWwindow*, int, int, int, int);

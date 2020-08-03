@@ -16,7 +16,7 @@ namespace aiNS {
 
 
 	myobjectNS::PlayerCharacterOC * AI::target;// = myobjectNS::PlayerCharacterOC::getPlayer()
-	textRendererNS::PrintHelper AI::ph{ "AI" };
+	printHelperNS::PrintHelper AI::ph{ "AI" };
 	
 
 

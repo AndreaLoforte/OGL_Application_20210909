@@ -15,7 +15,7 @@ namespace textRendererNS {
 	//GLuint TextRenderer::VAO;
 	std::map<GLchar, Character> TextRenderer::charMap;
 	bool TextRenderer::printInfos(false);
-	vector<PrintHelper*> TextRenderer::printList;
+	vector<printHelperNS::PrintHelper*> TextRenderer::printList;
 	
 
 	void TextRenderer::render(const fpcameraNS::Transformation& cam) {
@@ -41,7 +41,7 @@ namespace textRendererNS {
 
 
 
-	void TextRenderer::RenderText(PrintHelper& ph)
+	void TextRenderer::RenderText(printHelperNS::PrintHelper& ph)
 	{
 
 		if (ph.mapIDbutton_button.xpos < -1 || ph.mapIDbutton_button.xpos > 1 || ph.mapIDbutton_button.ypos < -1 || ph.mapIDbutton_button.ypos > 1) {

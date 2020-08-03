@@ -11,10 +11,10 @@ namespace InputsNS{
 
 void Controls::key_callbackESC(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	
-	UserInterface::showButton("ESCOPT1","Y : Save changes end quit ");
+	/*UserInterface::showButton("ESCOPT1","Y : Save changes end quit ");
 	UserInterface::showButton("ESCOPT2", "L : load next project data file");
 	UserInterface::showButton("ESCOPT3", "N : cancel ");
-	UserInterface::showButton("ESCOPT4", "ESC exit without save");
+	UserInterface::showButton("ESCOPT4", "ESC exit without save");*/
 
 
 	if (action == GLFW_RELEASE) return;
@@ -32,18 +32,6 @@ void Controls::key_callbackESC(GLFWwindow* window, int key, int scancode, int ac
 		ph.eraseFromMap("ESCAPEMODE");
 		setAllCallbackFunction(window);
 		return;
-	}
-	if (false && key == GLFW_KEY_S)
-	{
-		App::SaveProjectData(App::getNewProjectDataFilename());
-
-		glfwSetWindowShouldClose(window, GLFW_TRUE);
-	}
-	if (false && key == GLFW_KEY_L)
-	{
-		App::loadProjectData(App::switchProjectDataFile());
-		App::reset();
-
 	}
 
 	if (key == GLFW_KEY_ESCAPE)

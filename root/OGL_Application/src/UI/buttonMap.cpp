@@ -21,6 +21,10 @@ namespace uiNS {
 	const string NonButtonMap::TYPEPOSITION = "TYPE POSITION";
 	const string NonButtonMap::TYPEROTATION = "TYPE ORIENTATION";
 	const string NonButtonMap::CHANGEPROJECT = "CHANGE PROJECT";
+	const string NonButtonMap::PROGRAMINFOS = "PROGRAM INFOS";
+	const string NonButtonMap::FILE = "FILE";
+	const string NonButtonMap::LOADPROJECT = "LOAD PROJECT";
+	const string NonButtonMap::NEWPROJECT = "NEWPROJECT";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";

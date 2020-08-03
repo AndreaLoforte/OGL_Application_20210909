@@ -7,7 +7,7 @@ namespace fpcameraNS {
 	unsigned CameraManager::activeCamIndex = 0;
 	std::string CameraManager::projectDataFileName;
 	std::vector<Transformation*> CameraManager::cameraList;
-	textRendererNS::PrintHelper CameraManager::ph{ "cameraManager" };
+	printHelperNS::PrintHelper CameraManager::ph{ "cameraManager" };
 	std::string CameraManager::cameraSavingsFilename;
 	std::string CameraManager::cameraSavingsDirectory;
 

@@ -21,32 +21,37 @@ namespace uiNS
 
 	void EditObjectModeButton::action()
 	{
-		UserInterface::deleteAllButtons();
 		UserInterface::setFlags(false, false, false);
 		
-		UserInterface::showButton(NonButtonMap::SELECTOBJECT, NonButtonMap::SELECTOBJECT);
+		/*UserInterface::showButton(NonButtonMap::SELECTOBJECT, NonButtonMap::SELECTOBJECT);
 		UserInterface::showButton(NonButtonMap::SELECTCLUSTER, NonButtonMap::SELECTCLUSTER);
 		UserInterface::showButton(NonButtonMap::CLUSTERLIST, NonButtonMap::CLUSTERLIST);
-		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
-		UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
+		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);*/
+		UserInterface::bfl.setMouseButtonCallback(ccursorButtonCallBack_clusters);
 
 	}
 
 
-	void EditObjectModeButton::cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode)
+	void EditObjectModeButton::ccursorButtonCallBack_clusters(GLFWwindow* w, int button, int action, int mode)
 	{
+
+		/*UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::SELECTOBJECT);
+		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::SELECTCLUSTER);
+		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::CLUSTERLIST);*/
+
+
 		if (action == GLFW_RELEASE) return;
 			/*3 case : 
 			1) do not click anything
 			2) do click a NonButton
 			3) do click a Button*/
-			std::string buttonID{ UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y) };
-			if (buttonID == NonButtonMap::NOBUTTON) return;
-			if (buttonID == NonButtonMap::SELECTOBJECT)
+			std::string buttonID{ UserInterface::cursorVStext() };
+			//if (buttonID == NonButtonMap::NOBUTTON) return;
+			if (UserInterface::clicked(NonButtonMap::SELECTOBJECT))
 			{
-				UserInterface::clickButton(buttonID);
+				//UserInterface::clickButton(buttonID);
 				UserInterface::bfl.setMouseButtonCallback(selectObject);
-				UserInterface::printExistingObjects();
+				UserInterface::printExistingObjects(ButtonMap::EDITOBJECTMODEBUTTON);
 				
 			}
 
@@ -61,10 +66,9 @@ namespace uiNS
 			{
 				
 				UserInterface::clickButton(buttonID);
-				UserInterface::deleteAllButtons();
-				UserInterface::showButton(NonButtonMap::SELECTCLUSTER+"_", "SELECT CLUSTER ELEMENTS");
+				/*UserInterface::showButton(NonButtonMap::SELECTCLUSTER+"_", "SELECT CLUSTER ELEMENTS");
 				UserInterface::printExistingObjects();
-				UserInterface::showButton(NonButtonMap::EDITCLUSTER, NonButtonMap::EDITCLUSTER);
+				UserInterface::showButton(NonButtonMap::EDITCLUSTER, NonButtonMap::EDITCLUSTER);*/
 				UserInterface::bfl.setMouseButtonCallback(insertInCluster);
 				return;
 			}
@@ -76,8 +80,8 @@ namespace uiNS
 
 	void EditObjectModeButton::selectObject()
 	{
+		
 		string buttonID{ UserInterface::cursorVStext() };
-
 
 		//ButtonInterface* b = ButtonMap::getButtonByID({ buttonID });
 		/*if it is not a button means that user chose an object*/
@@ -85,96 +89,174 @@ namespace uiNS
 			/*check if the buttonID is an objectID we can set as editable object*/
 		if (myobjectNS::ApplicationObjectManager::setEditableObject(buttonID))
 		{
-			UserInterface::deleteAllButtons();
-			UserInterface::showButton(buttonID, "Editing Object " + buttonID, 0.5);
-			UserInterface::showButton(NonButtonMap::ADJUSTSIZE, NonButtonMap::ADJUSTSIZE);
-			UserInterface::showButton(NonButtonMap::ADJUSTCOLOR, NonButtonMap::ADJUSTCOLOR);
-			UserInterface::showButton(NonButtonMap::OBJECTPOSITION, NonButtonMap::OBJECTPOSITION);
-			UserInterface::showButton(NonButtonMap::OBJECTSWITCH, NonButtonMap::OBJECTSWITCH);
-			UserInterface::enableBack(buttonID);
-			UserInterface::bfl.setMouseButtonCallback(editObject);
+			UserInterface::phc.hideDropDownMenu();
+			UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, buttonID, "Editing Object " + buttonID);
+			UserInterface::phc.showDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,
+				{ NonButtonMap::ADJUSTSIZE,NonButtonMap::ADJUSTCOLOR,NonButtonMap::OBJECTPOSITION,NonButtonMap::OBJECTSWITCH });
+
+			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallback_editObject);
+			//editObject(Application::window, 0, 1, 0);
+			
 			return;
 		}
 
-		UserInterface::enableBack(buttonID);
+		else
+		{
+			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
+			UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
+			StartButton::cursorButtonCallBack(Application::window, 1, 1, 0);
+		}
 
 		
 	}
 
 
 
-	void EditObjectModeButton::editObject(GLFWwindow* w, int button, int action, int mods)
+	void EditObjectModeButton::cursorPositionCallBack(GLFWwindow* w, double x, double y)
+	{
+		UserInterface::cursor_x = x;
+		UserInterface::cursor_y = y;
+
+
+
+		std::string buttonID{ UserInterface::cursorVStext() };
+		if (buttonID == NonButtonMap::NOBUTTON)
+		{
+			//UserInterface::phc.hideDropDownMenu();
+			return;
+		}
+
+		ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
+		UserInterface::highlightButton(b);
+	}
+
+
+	void EditObjectModeButton::editObjectMenu(GLFWwindow* w, double x, double y)
+	{
+
+
+		UserInterface::cursor_x = x;
+		UserInterface::cursor_y = y;
+
+
+
+		std::string buttonID{ UserInterface::cursorVStext() };
+		if (buttonID == NonButtonMap::NOBUTTON)
+		{
+			//UserInterface::phc.hideDropDownMenu();
+			return;
+		}
+
+		ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
+		UserInterface::highlightButton(b);
+
+
+	
+
+	}
+
+
+
+
+
+	void EditObjectModeButton::cursorButtonCallback_editObject(GLFWwindow* w, int button, int action, int mods)
 	{
 		
 		//UserInterface::deleteNonButtonsByBranch(NonButtonMap::OBJECTPOSITION);
 
-		std::string buttonID{ UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y) };
+		//std::string buttonID{ UserInterface::cursorVStext() };
 
-		if (buttonID == NonButtonMap::ADJUSTSIZE)
+		if (UserInterface::clicked(NonButtonMap::ADJUSTSIZE))
 		{
-			UserInterface::clickButton(buttonID);
+			UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON, 5);
 			UserInterface::bfl.setKeyCallback(key_callbackEditSize);
 			return;
 		}
 
-		if (buttonID == NonButtonMap::ADJUSTCOLOR)
+		if (UserInterface::clicked(NonButtonMap::ADJUSTCOLOR))
 		{
-			UserInterface::clickButton(buttonID);
+			UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,5);
 			UserInterface::bfl.setKeyCallback(key_callbackEditColor);
+			key_callbackEditColor(Application::window, 0, 0, 1, 0);
 			return;
 		}
 
-		if (buttonID == NonButtonMap::OBJECTSWITCH)
+		if (UserInterface::clicked(NonButtonMap::OBJECTSWITCH))
 		{
-			UserInterface::clickButton(buttonID);
+			UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON, 5);
 			ObjectSwitch(myobjectNS::ApplicationObjectManager::getEditableCollector());
 			return;
 		}
 
 	
 
-		if (buttonID == NonButtonMap::OBJECTPOSITION)
+		if (UserInterface::clicked(NonButtonMap::OBJECTPOSITION))
 		{
-			UserInterface::clickButton(buttonID);
+			UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,5);
 			UserInterface::bfl.setKeyCallback(key_callbackMove);
-			UserInterface::bfl.setMouseButtonCallback(cursor_callbackMoveObject);
+			//UserInterface::bfl.setMouseButtonCallback(cursor_callbackMoveObject);
+			key_callbackMove(Application::window, 0, 0, 1, 0);
 			return;
 		}
 
 
-		UserInterface::enableBack(buttonID);
+		if (UserInterface::clicked(NonButtonMap::TYPEPOSITION))
+		{
+			typeRotation = false;
+			typePosition = true;
+			key_callbackMove(Application::window, 0, 0, 1, 0);
+			return;
+		}
+		if (UserInterface::clicked(NonButtonMap::TYPEROTATION))
+		{
+			typePosition = false;
+			typeRotation = true;
+			key_callbackMove(Application::window, 0, 0, 1, 0);
+			return;
+		}
+
+		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		{
+			typePosition = false;
+			typeRotation = false;
+			key_callbackMove(Application::window, 0, 0, 1, 0);
+			return;
+		}
+
+
+		//UserInterface::enableBack(buttonID);
 			
 
 	}
 
 
 
-
 	
 	
+	const string STRINGEDITID = "EDITOBJECTID";
 
 
 	void EditObjectModeButton::ObjectSwitch(collectorNS::ApplicationObjectCollector* obj)
 	{
-		
+
 			if (obj->isOn)
 			{
 				obj->canSleep(true);
-				UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "OBJECT OFF");
+				UserInterface::phc.showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, STRINGEDITID,"OBJECT OFF");
 
 
 			}
 			else
 			{
 				obj->canSleep(false);
-				UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "OBJECT ON");
+				UserInterface::phc.showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, STRINGEDITID,"OBJECT ON");
 			}
 
 	}
 
 
 
-
+	
 
 
 
@@ -183,28 +265,30 @@ namespace uiNS
 	{
 		if (key == GLFW_KEY_ESCAPE)
 		{
-			UserInterface::ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
+			//UserInterface::ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
 			return;
 		}
 
 		collectorNS::ApplicationObjectCollector* objcoll = myobjectNS::ApplicationObjectManager::getEditableCollector();
 
-		UserInterface::showButton
-		("EDITCOLOR",objcoll->collectorID + " color : " + tostringNS::vmathTostring::vec4Tostring(objcoll->getBody()->AOcolor));
+		/*UserInterface::showButton
+		("EDITCOLOR",objcoll->collectorID + " color : " + tostringNS::vmathTostring::vec4Tostring(objcoll->getBody()->AOcolor));*/
 
 		
 
 		static vector<float> color;
-		UserInterface::showButton
-		("EDITCOLOR", "Enter the color components r,g,b,a in range [0,100]  : " + UserInterface::typer.NInsertion2(key, action, 4, color));
+		UserInterface::phc.showButton(
+			ButtonMap::EDITOBJECTMODEBUTTON, STRINGEDITID,
+			"Enter the color components r,g,b,a in range [0,100]  : " + UserInterface::typer.NInsertion2(key, action, 4, color));
 
 		if (UserInterface::typer.completed_total)
 		{
 			mymathlibNS::stdVectorProdFloat(color, 0.01);
 			static_cast<myobjectNS::ApplicationObject*>(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeColor(color);
 
-			UserInterface::showButton
-			("EDITCOLOR",objcoll->collectorID + " color : " + tostringNS::vmathTostring::vec4Tostring(objcoll->getBody()->AOcolor));
+			UserInterface::phc.showButton
+			(ButtonMap::EDITOBJECTMODEBUTTON, STRINGEDITID,
+				objcoll->collectorID + " color : " + tostringNS::vmathTostring::vec4Tostring(objcoll->getBody()->AOcolor));
 		}
 
 		

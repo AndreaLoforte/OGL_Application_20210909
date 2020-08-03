@@ -98,7 +98,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\root\OGL_Application\include\shadersFacility;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H\AdvancedPhysics;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\include\GLFW;.\root\OGL_Application\DEPENDENCIES\SB7;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\root\OGL_Application\include\;.\root\OGL_Application\include\cameraTransformations;.\root\OGL_Application\include\ApplicationObject;.\root\OGL_Application\include\Objects;.\root\OGL_Application\include\Objects\UI;.\root\OGL_Application\include\LibAndFacility;.\root\OGL_Application\include\Objects\characters;.\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\root\OGL_Application\include\shadersFacility;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H\AdvancedPhysics;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\include\PHYSICS_H;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\include\GLFW;.\root\OGL_Application\DEPENDENCIES\SB7;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\root\OGL_Application\include\;.\root\OGL_Application\include\cameraTransformations;.\root\OGL_Application\include\ApplicationObject;.\root\OGL_Application\include\Objects;.\root\OGL_Application\include\UI;.\root\OGL_Application\include\LibAndFacility;.\root\OGL_Application\include\Objects\characters;.\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ShowIncludes>true</ShowIncludes>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -106,7 +106,7 @@
     <Link />
     <Link>
       <AdditionalDependencies>opengl32.lib;glfw3dll.lib;freetype.lib;glew32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\bin\winx64-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\build\src\Debug;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\bin\winx64-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
@@ -178,7 +178,7 @@
     <ClInclude Include=".\root\OGL_Application\include\SB7\gl3w.h" />
     <ClInclude Include=".\root\OGL_Application\include\SB7\glcorearb.h" />
     <ClInclude Include=".\root\OGL_Application\include\SB7\sb7ktx.h" />
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonfunctionlist.h" />
+    <ClInclude Include="root\OGL_Application\include\UI\buttonfunctionlist.h" />
     <ClInclude Include="root\OGL_Application\include\shadersFacility\shadermanager.h" />
     <ClInclude Include="root\OGL_Application\include\shadersFacility\shaders.h" />
     <ClInclude Include=".\root\OGL_Application\include\vmath.h" />
@@ -191,13 +191,13 @@
     <ClInclude Include="root\OGL_Application\include\Objects\build_b.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\point.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\surface.h" />
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonEditObject.h" />
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\PrintHelper.h" />
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\userInterface.h" />
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonMap.h" />
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttons.h" />
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\text.h" />
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonsList.h" />
+    <ClInclude Include="root\OGL_Application\include\UI\buttonEditObject.h" />
+    <ClInclude Include="root\OGL_Application\include\UI\PrintHelper.h" />
+    <ClInclude Include="root\OGL_Application\include\UI\userInterface.h" />
+    <ClInclude Include="root\OGL_Application\include\UI\buttonMap.h" />
+    <ClInclude Include="root\OGL_Application\include\UI\buttons.h" />
+    <ClInclude Include="root\OGL_Application\include\UI\text.h" />
+    <ClInclude Include="root\OGL_Application\include\UI\buttonsList.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\triangle_b.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\triangle_tb.h" />
     <ClInclude Include="root\OGL_Application\include\Objects\viewfinder.h" />
@@ -233,6 +233,7 @@
     <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_moveObject.cpp" />
+    <ClCompile Include="root\OGL_Application\src\UI\printHelperCollector.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\userInterface.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\buttonMap.cpp" />
     <ClCompile Include="root\OGL_Application\src\UI\buttons.cpp" />

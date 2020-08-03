@@ -10,12 +10,12 @@ namespace clusterNS {
 	{
 		for (it = clusterMap.begin(); it != clusterMap.end(); it++)
 		{
-			UserInterface::showButton(it->first, it->first + " : ");
+			/*UserInterface::showButton(it->first, it->first + " : ");
 
 			for (int i = 0; i < it->second.group.size(); i++)
 			{
 				UserInterface::showButton(it->second.group[i]->collectorID,it->second.group[i]->collectorID);
-			}
+			}*/
 		}
 	}
 

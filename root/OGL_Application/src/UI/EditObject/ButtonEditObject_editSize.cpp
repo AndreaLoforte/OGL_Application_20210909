@@ -19,88 +19,50 @@ namespace uiNS
 
 	void EditObjectModeButton::key_callbackEditSize(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
+		vector<float> size;
+
 		if (key == GLFW_KEY_ESCAPE)
 		{
-			UserInterface::ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
+			//UserInterface::ph.eraseFromMap(uiNS::ButtonMap::EDITOBJECTMODEBUTTON);
 		}
 
-		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
-			myobjectNS::classSphere)
+		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==myobjectNS::classSphere)
 		{
-			uiNS::UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type the new radius : ");
+			
+			uiNS::UserInterface::phc.showButton(
+				uiNS::ButtonMap::EDITOBJECTMODEBUTTON,"SIZE", "Type the new radius : "+UserInterface::typer.NInsertion2(key, action,1, size));
 
-
-			float radius = UserInterface::typer.typing(key, action);
-			if (radius <= 0) return;
-			else
+			if(UserInterface::typer.completed_total)
 				static_cast<myobjectNS::ObjectSphere*>
-				(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeRadius(radius);
+				(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeRadius(size[0]);
 		}
 
 
-
-		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==
-			myobjectNS::classBox)
+		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass == myobjectNS::classPlane)
 		{
-			UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "Type 3 dimensions : ");
+			UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, "SIZE", "enter X size, Y size : " + UserInterface::typer.NInsertion2(key, action, 2, size));
+
+			if (UserInterface::typer.completed_total)
+				static_cast<myobjectNS::ObjectPlane*>
+				(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeDimensions(size[0], size[1]);
+
+		}
 
 
-			static GLfloat x, y, z;
-			static bool typefirst = true, typesecond = false, typethird = false;
-			if (typefirst)
-			{
-				UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter first dimension");
-				x = UserInterface::typer.typing(key, action);
-				if (x <= 0) return;
-				else
-				{
-					typefirst = false;
-					typesecond = true;
-				}
+		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==myobjectNS::classBox)
+		{
+			
+			UserInterface::phc.showButton(
+				uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "SIZE","Type 3 dimensions : " + UserInterface::typer.NInsertion2(key, action, 3, size));
 
-			}
-			if (typesecond)
-			{
-				UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter second dimension");
-				y = UserInterface::typer.typing(key, action);
-				if (y <= 0) return;
-				else
-				{
-					typesecond = false;
-					typethird = true;
-				}
-
-			}
-			if (typethird)
-			{
-				UserInterface::showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, "enter third dimension");
-				z = UserInterface::typer.typing(key, action);
-				if (z <= 0) return;
-				else
-				{
-					typefirst = true;
-					typesecond = false;
-					typethird = false;
-				}
+			if (UserInterface::typer.completed_total)		
 				static_cast<myobjectNS::ObjectBox*>
-					(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeDimensions(x, y, z);
-			}
+					(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->changeDimensions(size[0], size[1], size[2]);
+			
 		}
+		
 
-
-
-		if (myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody()->AOobjectClass ==	myobjectNS::classPlane)
-		{
-			UserInterface::showButton(ButtonMap::EDITOBJECTMODEBUTTON, "enter X size, Y size : " + UserInterface::typer.total_string);
-
-				if(UserInterface::typer.NInsertion(key, action, 2, UserInterface::typer.vec))
-					static_cast<myobjectNS::ObjectPlane*>
-						(myobjectNS::ApplicationObjectManager::getEditableCollector()->getBody())->
-					changeDimensions(UserInterface::typer.vec[0], UserInterface::typer.vec[1]);
-
-			UserInterface::showButton(ButtonMap::EDITOBJECTMODEBUTTON, "enter X size, Y size : " + UserInterface::typer.total_string);
-		}
-
+		
 
 
 

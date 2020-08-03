@@ -122,4 +122,17 @@ namespace uiNS {
 	}
 
 
+	void buttonFunctiosList::setCursorCallback(PmouseButton2 f)
+	{
+		fpMbutton2 = f;
+
+		auto L_mouse_cursor_callback = [](GLFWwindow* window, double xoffset, double yoffset)
+		{
+			static_cast<buttonFunctiosList*>(glfwGetWindowUserPointer(window))->fpMbutton2();
+		};
+		glfwSetCursorPosCallback(Application::window, L_mouse_cursor_callback);
+
+	}
+
+
 }

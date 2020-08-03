@@ -36,7 +36,7 @@ namespace InputsNS{
 		static uiNS::UserInterface* userInterface;
         static GLboolean hideCursor; 
 		static int scrollCallbackCallerID;
-		static textRendererNS::PrintHelper ph;
+		static printHelperNS::PrintHelper ph;
     public:
 		static App* app_pt;
 		static unsigned mode; //0 : control mode, 1 = moveMode, 2 = editMode
@@ -92,7 +92,7 @@ namespace InputsNS{
 		static std::vector<int> objNumberChoosed;
 		int objectIndex[L][M][N][O];
 		static std::map<int, int> glfw_KeyConversion;
-		
+
 	public:
 		bool completed_partial = false;
 		bool completed_total = false;
@@ -111,6 +111,7 @@ namespace InputsNS{
 		std::string NInsertion2(int key, int action, int numberToInsert, vector<float>& vec);
 		int typing2(int key, int action);
 		string stringInsertion(int, int);
+		
 	};
 
 

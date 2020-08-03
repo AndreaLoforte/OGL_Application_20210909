@@ -1,25 +1,23 @@
 #include<text.h>
 #include<inputs.h>
-
-namespace textRendererNS {
+#include<buttonsList.h>
+namespace printHelperNS {
 
 	void PrintHelper::mapNewString(std::string id, std::string s)
 	{
 		mapIDbutton_button.mapString(id, s);
 	}
 
-
-
 	void PrintHelper::mapButtonOnBranch(std::string branchID, std::string id, std::string s)
 	{
 		mapIDbutton_button.mapStringOnBranch(branchID, id, s,mapIDbutton_button.text_scale);
 	}
 
-	uiNS::ButtonInterface* PrintHelper::mapButtonOnBranch(std::string branchID, std::string id, std::string s, float scale)
+	uiNS::ButtonInterface* PrintHelper::mapButtonOnBranch(std::string branchID, std::string id, std::string s, unsigned buttonLevel,  float scale)
 	{
-		return mapIDbutton_button.mapStringOnBranch(branchID, id, s, scale);
+		return mapIDbutton_button.mapStringOnBranch(branchID, id, s,buttonLevel, scale);
 	}
-	
+
 
 	void PrintHelper::concatenate(std::string id, std::string s)
 	{
@@ -31,7 +29,7 @@ namespace textRendererNS {
 		mapIDbutton_button.erase(key);
 	}
 
-	void PrintHelper::eraseByBranch(std::string branchID)
+	void PrintHelper::eraseByBranch(std::string branchID, const unsigned& stopAtLevel)
 	{
 		/*flag to exit inner for cycle when element from the map 
 		has been deleted (must avoid inspecting again 
@@ -43,8 +41,9 @@ namespace textRendererNS {
 			childDeleted = false;
 
 			for (int j = 0;!childDeleted && j < mapIDbutton_button.buttons[i].button.parentNodes.size(); j++)
-				if (mapIDbutton_button.buttons[i].button.parentNodes[j] == branchID)
-				{/*deleting always using the key */
+				if (mapIDbutton_button.buttons[i].button.parentNodes[j] == branchID && mapIDbutton_button.buttons[i].button.buttonLevel >= stopAtLevel)
+				{
+					/*deleting always using the key */
 					mapIDbutton_button.erase(mapIDbutton_button.buttons[i].button.buttonID);
 					childDeleted = true;
 					/*when I delete the i-th elemen from the map
@@ -57,11 +56,15 @@ namespace textRendererNS {
 		resetPosition();
 	}
 
+
+
+
+
 	void PrintHelper::cascadeEraseFromMap(std::string key)
-	{
+	{/*
 		ButtonsList::buttonsListIter itbeg = mapIDbutton_button.getIteratorOf(key);
 		ButtonsList::buttonsListIter itend = mapIDbutton_button.end();
-		mapIDbutton_button.eraseByIterator(itbeg, itend);
+		mapIDbutton_button.eraseByIterator(itbeg, itend);*/
 	}
 
 

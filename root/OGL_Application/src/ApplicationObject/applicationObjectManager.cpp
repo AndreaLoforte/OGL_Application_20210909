@@ -14,7 +14,7 @@ namespace myobjectNS
 	using namespace std;
 	using namespace textRendererNS;
 
-	textRendererNS::PrintHelper ApplicationObjectManager::ph{ "ApplicationObjectManager" };
+	printHelperNS::PrintHelper ApplicationObjectManager::ph{ "ApplicationObjectManager" };
 
 
 ///std::vector< collectorNS::ApplicationObjectCollector*> ApplicationObjectManager::AssetCollectorList;
@@ -128,11 +128,11 @@ bool ApplicationObjectManager::setEditableObject(const string& s)
 	std::map< std::string, int>::iterator it = collectorIDMap.find(s);
 	if (it != collectorIDMap.end())
 	{
-		editableObjIndex = it->second;
+		/*editableObjIndex = it->second;
 		UserInterface::ph.mapButtonOnBranch
 		(UserInterface::buttonFlow.back()->getButtonID(),
 			"SELECTEDOBJECT",
-			ApplicationCollectorList.at(editableObjIndex)->getCollectorID() + " selected");
+			ApplicationCollectorList.at(editableObjIndex)->getCollectorID() + " selected");*/
 		return true;
 	}
 
@@ -273,7 +273,7 @@ void ApplicationObjectManager::deleteObject(const int i) {
 
 }
 
-void ApplicationObjectManager::deleteObject(const string& objName) {
+bool ApplicationObjectManager::deleteObject(const string& objName) {
 
 	size_t collectorPos;
 	std::map< std::string, int>::const_iterator it = collectorIDMap.find(objName);
@@ -282,12 +282,14 @@ void ApplicationObjectManager::deleteObject(const string& objName) {
 		collectorPos = it->second;
 		ApplicationCollectorList.erase(ApplicationCollectorList.begin() + collectorPos);
 		initObjectMaps();
+		return true;
 	}
 	else
-		ph.mapButtonOnBranch(
+		return false;
+		/*ph.mapButtonOnBranch(
 			uiNS::UserInterface::getParentButton()->getButtonID(),
 			uiNS::UserInterface::getParentButton()->getButtonID(),
-			"object does not exist");
+			"object does not exist");*/
 	
 	
 }

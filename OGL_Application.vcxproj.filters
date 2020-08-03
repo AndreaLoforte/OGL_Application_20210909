@@ -291,31 +291,10 @@
     <ClInclude Include="root\OGL_Application\include\cameraTransformations\cameraManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonsList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\PrintHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\text.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\userInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="root\OGL_Application\include\AI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="root\OGL_Application\include\Objects\cluster.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonEditObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="root\OGL_Application\include\LibAndFacility\mymathlib.h">
@@ -333,7 +312,28 @@
     <ClInclude Include="root\OGL_Application\include\shadersFacility\shaders.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\UI\buttonfunctionlist.h">
+    <ClInclude Include="root\OGL_Application\include\UI\buttonEditObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\UI\buttonfunctionlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\UI\buttonMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\UI\buttons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\UI\buttonsList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\UI\PrintHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\UI\text.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="root\OGL_Application\include\UI\userInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -594,6 +594,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="root\OGL_Application\src\UI\buttonfunctionlist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root\OGL_Application\src\UI\printHelperCollector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

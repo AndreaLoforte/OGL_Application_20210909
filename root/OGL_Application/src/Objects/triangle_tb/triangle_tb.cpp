@@ -53,7 +53,7 @@ namespace myobjectNS {
 		
 		texture = SOIL_load_OGL_texture
 		(
-			"C:/Users/aloforte/source/repos/OGL_Application/root/OGL_Application/Textures/2016-12-24-PHOTO-00003910.png",
+			"C:/Users/lofor/Source/Repos/OGL_Application-master/root/OGL_Application/Textures/2016-12-24-PHOTO-00003910.png",
 			SOIL_LOAD_AUTO,
 			SOIL_CREATE_NEW_ID,
 			SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT

@@ -52,7 +52,7 @@ namespace soundNS {
 	{
 
 		static map<CollisionPair, string> collisionSoundMap;
-		static textRendererNS::PrintHelper ph;
+		static printHelperNS::PrintHelper ph;
 	public:
 	static irrklang::ISoundEngine* engine;
 

@@ -40,7 +40,7 @@
 		~App() {}
 
 		textRendererNS::TextRenderer textRenderer{ "text" };
-		static textRendererNS::PrintHelper ph;
+		static printHelperNS::PrintHelper ph;
 	
 
 		void render(double);
@@ -54,8 +54,6 @@
 		static void SaveProjectData(string);//static perchè richiamata da controls che non ha istanze di app.
 
 		static std::string projectDataFileName;
-		static std::string getNewProjectDataFilename();
-		static std::string switchProjectDataFile();
 		static bool loadProjectData(string);
 		logNS::Logger log;
 	};

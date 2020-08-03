@@ -63,44 +63,112 @@ namespace InputsNS{
 
 		
 		if (mods == GLFW_MOD_CONTROL)
-		if (key == GLFW_KEY_E)
-			userInterface->start->start();
+			if (key == GLFW_KEY_E)
+			{
+				UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
+				UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
+				UserInterface::phc.turnOffAllButtons();
+				StartButton::cursorButtonCallBack(Application::window, 0, 1, 0);
+			}
 		
 
 		
 		if (mods == GLFW_MOD_CONTROL)
 		if (key == GLFW_KEY_S)
 		{
-			UserInterface::showButton(UserInterface::getParentButton()->getButtonID(),"SAVED");
+			//UserInterface::showButton(UserInterface::getParentButton()->getButtonID(),"SAVED");
 			App::SaveProjectData(App::projectDataFileName);
 			return;
 		}
 
+
+
+
+
+		int  stateW = glfwGetKey(window, GLFW_KEY_W);
+		int  stateA = glfwGetKey(window, GLFW_KEY_A);
+		int  stateD = glfwGetKey(window, GLFW_KEY_D);
+		int  stateS = glfwGetKey(window, GLFW_KEY_S);
+
+	/*	static unsigned i = 0;
+		UserInterface::showButton("sdadsad","-----------"+std::to_string(i++)+"-----------");*/
+		
+
+		if(stateW == GLFW_PRESS)
+			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
+		if(stateA == GLFW_PRESS)
+			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
+		if(stateS == GLFW_PRESS)
+			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
+		if(stateD == GLFW_PRESS)
+			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
+
+	/*	
+		UserInterface::showButton("stateW1","stateW "+ std::to_string(stateW));
+		UserInterface::showButton("stateA1", "stateA "+ std::to_string(stateA));
+		UserInterface::showButton("stateS1", "stateS "+ std::to_string(stateS));
+		UserInterface::showButton("stateD1", "stateD "+ std::to_string(stateD));*/
+
+		//////////////////////////////////////////////////////////////////
+
+		/*if (stateW == GLFW_PRESS && stateA == GLFW_PRESS)
+		{
+			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
+			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
+			return;
+		}
+
+		if (stateW == GLFW_PRESS && stateD == GLFW_PRESS)
+		{
+			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
+			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
+			return;
+		}
+		if (stateS == GLFW_PRESS && stateD == GLFW_PRESS)
+		{
+			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
+			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
+			return;
+		}
+		if (stateS == GLFW_PRESS && stateA == GLFW_PRESS)
+		{
+			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
+			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
+			return;
+		}*/
+
+
+
+	
+		/*if (stateS == GLFW_PRESS && stateD == GLFW_PRESS)
+		{
+			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
+			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
+			return;
+		}
+		if (stateS == GLFW_PRESS && stateA == GLFW_PRESS)
+		{
+			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
+			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
+			return;
+		}*/
+
+
 	
 		switch (key) 
 		{
-		case GLFW_KEY_INSERT:
-		{
-			ph.eraseFromMap("CONTROLMODE");
-			mode = 1;
-			setAllCallbackFunction(Application::window);
-		}
-		break;
 		case GLFW_KEY_P:
 			UserInterface::pause();
-			break;
-		case GLFW_KEY_W:
-			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
 			break;
 		case GLFW_KEY_C:
 			fpcameraNS::CameraManager::switchCamera();
 			break;
+		case GLFW_KEY_W:
+			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
 		case GLFW_KEY_S:
 			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
-			break;
 		case GLFW_KEY_D:
 			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
-			break;
 		case GLFW_KEY_A:
 			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
 			break;

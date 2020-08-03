@@ -7,14 +7,15 @@
 namespace uiNS {
 
 	Button::Button(const string& bID, const string& bName,
-		const float& x, const float& y, const float& s) :
+		const float& x, const float& y, const unsigned& buttonLVL, const float& s) :
 		x_min(x),
 		y_min(y),
 		y_min_frame(y),
 		y_max(y),
 		textScale(s),
 		buttonID(bID),
-		buttonName(bName)
+		buttonName(bName),
+		buttonLevel(buttonLVL)
 	{
 		x_max = x_min + textScale * bName.length()*0.06;
 		
@@ -59,14 +60,12 @@ namespace uiNS {
 	void EditGameButton::action()
 	{
 		UserInterface::setFlags(false, false, false);
-		UserInterface::deleteAllButtons();
+		/*UserInterface::deleteAllButtons();*/
 		
-		
-		//UserInterface::setButton(ButtonMap::STARTINGBUTTON, ButtonMap::CONTROLMODEBUTTON);
-		UserInterface::showButton(ButtonMap::DELETEBUTTON, "Delete an Object");
+		/*UserInterface::showButton(ButtonMap::DELETEBUTTON, "Delete an Object");
 		UserInterface::showButton(ButtonMap::CREATEBUTTON, "Create an Object");
 		UserInterface::showButton(ButtonMap::SAVEBUTTON, "Save project");
-		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
+		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);*/
 		
 		UserInterface::bfl.setMouseButtonCallback(setControls);
 		return;
@@ -76,7 +75,7 @@ namespace uiNS {
 	
 	void EditGameButton::setControls()
 	{
-		std::string buttonID{ UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y) };
+		std::string buttonID{ UserInterface::cursorVStext() };
 		//UserInterface::enableBack(buttonID);
 
 		if (buttonID == NonButtonMap::NOBUTTON) return;
@@ -84,7 +83,7 @@ namespace uiNS {
 		if (buttonID == ButtonMap::DELETEBUTTON)
 		{
 			UserInterface::clickButton(buttonID);
-			UserInterface::printExistingObjects();
+			//UserInterface::printExistingObjects();
 
 			UserInterface::bfl.setMouseButtonCallback(DeleteObjectButton::selectObject);
 
@@ -93,7 +92,7 @@ namespace uiNS {
 		if (buttonID == ButtonMap::CREATEBUTTON)
 		{
 			UserInterface::clickButton(buttonID);
-			UserInterface::printAssetObjectsList();
+			//UserInterface::printAssetObjectsList();
 			UserInterface::bfl.setMouseButtonCallback(CreateObjectButton::selectObject);
 
 		}
@@ -127,7 +126,7 @@ namespace uiNS {
 	{
 		if (action == GLFW_RELEASE) return;
 
-		string buttonID = UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y);
+		string buttonID = UserInterface::cursorVStext();
 
 		if (buttonID == NonButtonMap::NOBUTTON) return;
 		if (UserInterface::enableBack(buttonID)) return;
@@ -139,10 +138,10 @@ namespace uiNS {
 	
 	void BackButton::action()
 	{
-		UserInterface::ph.resetPosition();
+		//UserInterface::phc.resetPosition();
 
-		UserInterface::deleteButtonsByBranch(UserInterface::getParentButton()->getButtonID());
-		UserInterface::deleteButtonsByBranch(UserInterface::getParentButton()->getButtonID());
+		/*UserInterface::deleteButtonsByBranch(UserInterface::getParentButton()->getButtonID());
+		UserInterface::deleteButtonsByBranch(UserInterface::getParentButton()->getButtonID());*/
 	
 		if (UserInterface::buttonFlow.size() == 0)
 			UserInterface::buttonFlow.push_back(UserInterface::start);
@@ -165,10 +164,17 @@ namespace uiNS {
 		if (action == GLFW_RELEASE) return;
 		
 
-		string buttonID = UserInterface::cursorVStext(UserInterface::cursor_x, UserInterface::cursor_y);
-		UserInterface::enableBack(buttonID);
+		string buttonID = UserInterface::cursorVStext();
 		
-		myobjectNS::ApplicationObjectManager::deleteObject(buttonID);
+		if (buttonID == ButtonMap::BACKBUTTON) UserInterface::back();
+		if (buttonID == NonButtonMap::NOBUTTON) return;
+		if (myobjectNS::ApplicationObjectManager::deleteObject(buttonID))
+		{
+			//UserInterface::printExistingObjects();
+			/*UserInterface::showButton("DELETED", buttonID + " deleted");
+			UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);*/
+		}
+			
 		//DeleteObjectButton:action();
 		
 	}
@@ -180,9 +186,20 @@ namespace uiNS {
 
 	void ControlModeButton::action()
 	{
-		UserInterface::deleteAllButtons();
+		//UserInterface::deleteAllButtons();
+		//UserInterface::setFlags(false, true, true);
+		////UserInterface::showButton("CONTROLMODEINFO", "CTRL+E to exit Control Mode");
+		//glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		//UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
+		//UserInterface::bfl.setMouseCursorCallback(InputsNS::Controls::cursor_callback);
+		//UserInterface::bfl.setMouseButtonCallback(InputsNS::Controls::mouse_button_callback);
+		//UserInterface::bfl.setMouseScrollCallback(InputsNS::Controls::scroll_callback);
+	}
+
+	void ControlModeButton::setControls()
+	{
+		//UserInterface::deleteAllButtons();
 		UserInterface::setFlags(false, true, true);
-//		UserInterface::deleteButtonsByBranch(ButtonMap::STARTINGBUTTON);
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
 		UserInterface::bfl.setMouseCursorCallback(InputsNS::Controls::cursor_callback);
@@ -205,7 +222,7 @@ namespace uiNS {
 	void SaveButton::save()
 	{
 		//UserInterface::clickButton(ButtonMap::SAVEBUTTON);
-		UserInterface::showButton("SAVED", "SAVED");
+		//UserInterface::showButton("SAVED", "SAVED");
 		App::SaveProjectData(App::projectDataFileName);
 
 	}
@@ -219,10 +236,10 @@ namespace uiNS {
 	void QuitButton::showMenu()
 	{
 
-		UserInterface::deleteAllButtons();
-		UserInterface::showButton(ButtonMap::QUITANDSAVE, ButtonMap::QUITANDSAVE);
+		/*UserInterface::deleteAllButtons();*/
+	/*	UserInterface::showButton(ButtonMap::QUITANDSAVE, ButtonMap::QUITANDSAVE);
 		UserInterface::showButton(ButtonMap::QUITNOSAVE, ButtonMap::QUITNOSAVE);
-		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);
+		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);*/
 
 		if (UserInterface::clicked(ButtonMap::QUITANDSAVE))
 		{

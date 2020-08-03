@@ -7,7 +7,7 @@ namespace InputsNS{
 
 	using namespace textRendererNS;
 
-	textRendererNS::PrintHelper Controls::ph{ "Controls" };
+	printHelperNS::PrintHelper Controls::ph{ "Controls" };
 	bool Controls::playerIsOn = false;//settato a true quando il puntatore a gun di controls viene settato
 	myobjectNS::PlayerCharacterOC* Controls::player;
 	GLboolean Controls::hideCursor = true;
@@ -280,6 +280,11 @@ bool Typer::NInsertion(int key, int action, int numberToInsert, vector<float>& v
 }
 
 
+
+
+
+
+
 /*this second version of NInsertion returns the partial number entered by the user
 instead of returning a bool. While Completion is specified by the boolean member attribute "completed" */
 string Typer::NInsertion2(int key, int action, int numberToInsert, vector<float>& vec)
@@ -338,7 +343,11 @@ string Typer::NInsertion2(int key, int action, int numberToInsert, vector<float>
 			
 		}
 		else
+		{
+			completed_total = false;
 			return total_string;
+		}
+			
 	}
 
 }

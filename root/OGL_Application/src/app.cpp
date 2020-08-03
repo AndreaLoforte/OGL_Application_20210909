@@ -7,55 +7,12 @@
 
 std::string App::projectDataFileName{ "AppObj" };
 
-textRendererNS::PrintHelper App::ph{ "App" };
+printHelperNS::PrintHelper App::ph{ "App" };
 
 
 
 void App::switchPhysics() {}
 
-
-
-
-std::string App::getNewProjectDataFilename()
-{
-//	std::vector<string> fileList;
-//	std::vector<string>::iterator it, backup_it;
-//	logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, fileList);
-//	
-//
-//	vector<string> SfileNumbers;
-//	bool found = false;
-//
-//	for (int i = 0; i < fileList.size(); i++)
-//	{
-//		//inserisco in Snumbers solo la parte di nome del file contenente il numero
-//		if (fileList[i].find(projectDataFileName+"_") != string::npos)
-//		{
-//			size_t pos = fileList[i].find("_");
-//			SfileNumbers.push_back(fileList[i].substr(pos + 1));
-//			found = true;
-//		}
-//		
-//	}
-//
-//	if(found)
-//	{
-//	set<int> fileNumbers;
-//
-//	//trasformo i numeri-stringa in numeri interni e li inserisco in un vettore
-//	for (int i = 0; i < SfileNumbers.size(); i++)
-//		fileNumbers.emplace(std::stoi(SfileNumbers[i]));
-//
-//	int lastFileNumber = *--fileNumbers.cend();
-//
-//	int newFileNumber = lastFileNumber + 1;
-//
-//	return projectDataFileName + "_" + std::to_string(newFileNumber);
-//	}
-//	else
-//		return projectDataFileName + "_1";
-	return "none";
-}
 
 
 void App::endGame()
@@ -64,26 +21,6 @@ void App::endGame()
 	ph.mapNewString("ENDGAME",
 		"PRESS Q TO QUIT OR P TO PLAY AGAIN");
 	
-
-}
-
-std::string App::switchProjectDataFile()
-{
-	std::vector<string> fileList;
-	std::vector<string> ProjectFileList;
-	logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, fileList);
-	static int i = 0;
-
-	//metto in un vettore a parte i soli nomi dei file AppObj
-	for (int i = 0; i < fileList.size(); i++)
-		if (fileList[i].find(App::projectDataFileName) != string::npos)
-			ProjectFileList.push_back(fileList[i]);
-
-	if (i < ProjectFileList.size()-1)
-		i++;
-	else
-		i = 0;
-	return ProjectFileList[i];
 
 }
 
@@ -162,13 +99,6 @@ void App::startup()
 	userInterface.init();
 	textRenderer.create();
 
-
-	/*for (int i = 0; i < objectManager.ApplicationCollectorList.size(); i++)
-		objectManager.ApplicationCollectorList[i]->OCcreateObject();
-    
-	for (int i = 0; i < objectManager.ApplicationCollectorList.size(); i++)
-		objectManager.ApplicationCollectorList[i]->OCsetParameters();*/
-	
 }
 
 

@@ -31,31 +31,31 @@ namespace textRendererNS {
 	altrimenti aggiorna il contenuto trovato alla chiave specificata*/
 	void ButtonsList::mapString(string key, string content)
 	{
-		buttonsListIter it = getIteratorOf(key);
-		if (it == buttons.end())
-		{
-			/*LINESPACING = 0.1 * text_scale;
-			ypos -= LINESPACING;*/
-			uiNS::ButtonInterface b({ key, content, xpos, ypos,text_scale });
-			buttons.push_back(b);
-			text_tot_size += content.length();
-			++buttonslistSize;
-			ypos = b.button.y_min;
-		}
+		//buttonsListIter it = getIteratorOf(key);
+		//if (it == buttons.end())
+		//{
+		//	/*LINESPACING = 0.1 * text_scale;
+		//	ypos -= LINESPACING;*/
+		//	uiNS::ButtonInterface b({ key, content, xpos, ypos,text_scale });
+		//	buttons.push_back(b);
+		//	text_tot_size += content.length();
+		//	++buttonslistSize;
+		//	ypos = b.button.y_min;
+		//}
 
-		else
-		{
-			it->button.buttonName = content;
-			text_tot_size -= it->button.buttonName.length();
-			text_tot_size += content.length();
-		}
+		//else
+		//{
+		//	it->button.buttonName = content;
+		//	text_tot_size -= it->button.buttonName.length();
+		//	text_tot_size += content.length();
+		//}
 	}
 
 
 	/*aggiunge una nuova coppia di stringhe alla mappa se non trova la chiave
 	altrimenti aggiorna il contenuto trovato alla chiave specificata
 	(inserisce il branch di appartenenza)*/
-	uiNS::ButtonInterface* ButtonsList::mapStringOnBranch(string branchID, string stringID, string stringcontent, float scale)
+	uiNS::ButtonInterface* ButtonsList::mapStringOnBranch(string branchID, string stringID, string stringcontent, unsigned buttonLevel, float scale)
 	{
 			
 		buttonsListIter it = getIteratorOf(stringID);
@@ -64,13 +64,15 @@ namespace textRendererNS {
 			/*must guarantee that ypos is always updated in case we erase some string*/
 			if(buttons.size() > 0 )	ypos = buttons.back().button.y_min;
 			/*must delete memory allocation before delete the button!*/
-			uiNS::Button* b= new uiNS::Button({ stringID, stringcontent, xpos,ypos, scale });
+			uiNS::Button* b= new uiNS::Button(
+				{ stringID, stringcontent, xpos,ypos,static_cast<unsigned>(buttonslistSize), scale });
 			buttons.push_back(*b);
 			buttons.back().button.parentNodes.clear();
 			buttons.back().button.parentNodes.push_back(branchID);
 			++buttonslistSize;
 			text_tot_size += stringcontent.length();
 			ypos = b->y_min;
+			xpos = b->x_min;
 			return &buttons.back();
 		}
 
@@ -84,6 +86,8 @@ namespace textRendererNS {
 		}
 
 	}
+
+
 
 
 	/*aggiunge una nuova coppia di stringhe alla mappa se non trova la chiave

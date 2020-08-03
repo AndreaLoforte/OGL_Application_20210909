@@ -20,7 +20,7 @@ namespace aiNS {
 
 
 	class AI {
-		static textRendererNS::PrintHelper ph;
+		static printHelperNS::PrintHelper ph;
 	public:
 		static void updateHealt(const Contact* contactArray, const unsigned& contactCounter);
 		static myobjectNS::PlayerCharacterOC * target;

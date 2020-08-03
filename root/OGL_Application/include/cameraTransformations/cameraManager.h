@@ -16,7 +16,7 @@ namespace fpcameraNS {
 		static std::vector<Transformation*> cameraList;
 		static unsigned activeCamIndex;
 		static std::string projectDataFileName;
-		static textRendererNS::PrintHelper ph;
+		static printHelperNS::PrintHelper ph;
 	public:
 		CameraManager(std::string projectdatafilename) {
 			projectDataFileName = projectdatafilename;

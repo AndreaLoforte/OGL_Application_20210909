@@ -134,7 +134,7 @@ namespace InputsNS{
 	{
 		/*want to call the function only for press actions*/
 		if(action != GLFW_RELEASE)
-		userInterface->cursorVStext(xpos_, ypos_);
+		userInterface->cursorVStext();
 
 	}
 

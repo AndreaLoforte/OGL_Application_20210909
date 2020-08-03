@@ -7,7 +7,7 @@ namespace objectControlsNS {
 	using namespace textRendererNS;
 
 	bool ObjectControlsI::mustPrint = true;
-	textRendererNS::PrintHelper ObjectControlsI::ph{ "ObjectControlsInterface" };
+	printHelperNS::PrintHelper ObjectControlsI::ph{ "ObjectControlsInterface" };
 
 	
 

@@ -8,6 +8,31 @@ GLfloat Application::aspect =  Application::window_width/(float)Application::win
 std::string Application::application_root_dir{ Application::getApplicationRootDir() };
 
 
+GLFWcursor* getCursor() {
+
+
+	/////////////CUSTOMIZED CURSOR 
+
+	/*unsigned char pixels[16 * 16 * 4];
+	memset(pixels, 0xff, sizeof(pixels));
+
+	GLFWimage image;
+	image.width = 16;
+	image.height = 16;
+	image.pixels = pixels;
+
+	GLFWcursor* cursor = glfwCreateCursor(&image, 0, 0);*/
+
+	/////////////STANDARD CURSOR
+
+	//GLFWcursor* cursor = glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR);
+	GLFWcursor* cursor = glfwCreateStandardCursor(GLFW_ARROW_CURSOR);
+
+	return cursor;
+
+
+	
+}
 
 
 
@@ -18,8 +43,8 @@ int Application::init()
     return 0;
   
   //talvolta le hint sono utili talvolta limitano l'estensione
-  /* glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,4); */
+   /*glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,5); */
 	//glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT,GL_TRUE); 
  // glfwWindowHint(GLFW_STEREO,GL_FALSE);
@@ -43,10 +68,18 @@ int Application::init()
  
 	//glEnable(GL_MULTISAMPLE);
 	glfwSetInputMode(window, GLFW_MOD_CONTROL, GLFW_TRUE);
+	glfwSetInputMode(window, GLFW_STICKY_KEYS, GLFW_FALSE);
     glfwSetWindowSizeCallback(window,onResize);
     glfwMakeContextCurrent(window);
 	 glfwSwapInterval(1);
-   
+	 glfwSetWindowTitle(window, "OGL_Application (by @ndre)");
+	 glfwSetWindowPos(window, 300, 150);
+
+	 //glfwSetWindowAttrib(window, GLFW_DECORATED, TRUE);
+
+	 
+	 glfwSetCursor(window, getCursor());
+
 
     gl3wInit();
 
@@ -56,10 +89,7 @@ int Application::init()
 
 
 
-void Application::shutdown()
-{
-	
-}
+void Application::shutdown(){}
 
 
 
