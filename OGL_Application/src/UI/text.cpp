@@ -199,7 +199,7 @@ namespace textRendererNS {
 
 		setShaders();
 		
-		Load("./root/OGL_Application/DEPENDENCIES/arial.ttf", 1);
+		Load("./OGL_Application/DEPENDENCIES/arial.ttf", 1);
 
 		for (int i = 0; i < printList.size(); i++)
 			printList[i]->create();

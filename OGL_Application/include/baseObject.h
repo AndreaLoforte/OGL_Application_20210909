@@ -18,7 +18,7 @@
 
 namespace myobjectNS{
 
-	static const string SHADERSROOTDIR = "/root/OGL_Application/src/Objects/";
+	static const string SHADERSROOTDIR = "/OGL_Application/src/Objects/";
 	static const string VERTEXSHADERSEXT = ".vert";
 	static const string FRAGMENTSHADERSEXT = ".frag";
 

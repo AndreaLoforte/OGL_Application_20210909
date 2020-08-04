@@ -26,7 +26,7 @@ namespace exceptionNS {
 namespace logNS {
 
 
-	std::string Logger::LOGDIR{ Application::getApplicationRootDir() + "/root/OGL_Application/LOGDIR/" };
+	std::string Logger::LOGDIR{ Application::getApplicationRootDir() + "/OGL_Application/log_and_savings/" };
 	std::string Logger::STOREDDATADIR{ LOGDIR + "savedProjectData/" };
 	std::vector<std::string> Logger::files_fullpath{ LOGDIR };
 	std::vector<std::string> Logger::log_list;

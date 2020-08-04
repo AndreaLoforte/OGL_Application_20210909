@@ -120,581 +120,581 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include=".\root\OGL_Application\include\SB7\gl3w.h">
-      <Filter>Header Files\SB7</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\SB7\glcorearb.h">
-      <Filter>Header Files\SB7</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\SB7\sb7ktx.h">
-      <Filter>Header Files\SB7</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\body.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\collide_coarse.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\collide_fine.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\contacts.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\core.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\pcontact.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\pfgen.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\plinks.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\precision.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\pworld.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\world.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\application.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\baseObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\GLFWwindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\inputs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\render.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\vmath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\particle.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\app.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include=".\root\OGL_Application\include\PHYSICS_H\physics.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\saveloadhelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\extern_definitions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\PHYSICS_H\ObjectContainer.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\objectControlsInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\sound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\timing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="root\OGL_Application\include\PHYSICS_H\RTCDsolids.h">
       <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\PHYSICS_H\RTCDspecializedTest.h">
-      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\PHYSICS_H\AdvancedPhysics\collide_fine_advanced.h">
-      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\PHYSICS_H\AdvancedPhysics\advancedCD.h">
-      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\ApplicationObject\applicationDerivedObject.h">
+    <ClInclude Include="OGL_Application\include\ApplicationObject\applicationDerivedObject.h">
       <Filter>Header Files\ApplicationObject</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\ApplicationObject\applicationObject.h">
+    <ClInclude Include="OGL_Application\include\ApplicationObject\applicationObject.h">
       <Filter>Header Files\ApplicationObject</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\ApplicationObject\applicationObjectManager.h">
+    <ClInclude Include="OGL_Application\include\ApplicationObject\applicationObjectManager.h">
       <Filter>Header Files\ApplicationObject</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\assets.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\build_b.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\frameofref.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\my_particle.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\object1.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\point.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\projectile.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\sphere.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\surface.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\triangle_b.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\triangle_tb.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\viewfinder.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\characters\enemy.h">
-      <Filter>Header Files\characters</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\characters\playerCharacter.h">
-      <Filter>Header Files\characters</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\gun.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\ApplicationObject\objectCollector.h">
+    <ClInclude Include="OGL_Application\include\ApplicationObject\objectCollector.h">
       <Filter>Header Files\Collectors</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\boxAABB.h">
+    <ClInclude Include="OGL_Application\include\cameraTransformations\cameraManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\grid.h">
+    <ClInclude Include="OGL_Application\include\cameraTransformations\fpcamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\LibAndFacility\conversionLIB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\LibAndFacility\mymathlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\LibAndFacility\toStringLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\characters\enemy.h">
+      <Filter>Header Files\characters</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\characters\playerCharacter.h">
+      <Filter>Header Files\characters</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\assets.h">
       <Filter>Header Files\DRAWING_H</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\cameraTransformations\fpcamera.h">
+    <ClInclude Include="OGL_Application\include\Objects\boxAABB.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\cameraTransformations\cameraManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\AI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\Objects\cluster.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\LibAndFacility\mymathlib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\LibAndFacility\toStringLib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\LibAndFacility\conversionLIB.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\shadersFacility\shadermanager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\shadersFacility\shaders.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\UI\buttonEditObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\UI\buttonMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\UI\buttons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\UI\buttonsList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\UI\PrintHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\UI\text.h">
+    <ClInclude Include="OGL_Application\include\Objects\build_b.h">
       <Filter>Header Files\DRAWING_H</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\UI\userInterface.h">
+    <ClInclude Include="OGL_Application\include\Objects\cluster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="root\OGL_Application\include\UI\buttonfunctionLoader.h">
+    <ClInclude Include="OGL_Application\include\Objects\frameofref.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\grid.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\gun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\my_particle.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\object1.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\point.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\projectile.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\sphere.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\surface.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\triangle_b.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\triangle_tb.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\viewfinder.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\AdvancedPhysics\advancedCD.h">
+      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\AdvancedPhysics\collide_fine_advanced.h">
+      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\body.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\collide_coarse.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\collide_fine.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\contacts.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\core.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\ObjectContainer.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\particle.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\pcontact.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\pfgen.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\physics.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\plinks.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\precision.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\pworld.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\RTCDspecializedTest.h">
+      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\PHYSICS_H\world.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\SB7\gl3w.h">
+      <Filter>Header Files\SB7</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\SB7\glcorearb.h">
+      <Filter>Header Files\SB7</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\SB7\sb7ktx.h">
+      <Filter>Header Files\SB7</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\shadersFacility\shadermanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\shadersFacility\shaders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\buttonEditObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\buttonfunctionLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\buttonMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\buttons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\buttonsList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\PrintHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\text.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\userInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\AI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\app.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\baseObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\extern_definitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\GLFWwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\inputs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\objectControlsInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\saveloadhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\timing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\vmath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include=".\root\OGL_Application\src\app.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include=".\root\OGL_Application\src\application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include=".\root\OGL_Application\src\baseObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include=".\root\OGL_Application\src\log.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include=".\root\OGL_Application\src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include=".\root\OGL_Application\src\shadermanager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include=".\root\OGL_Application\src\shaders.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include=".\root\OGL_Application\src\external_src\gl3w.c">
-      <Filter>Source Files\EXTERNAL_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include=".\root\OGL_Application\src\external_src\sb7ktx.cpp">
-      <Filter>Source Files\EXTERNAL_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
+    <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
       <Filter>Source Files\TEXTURE_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\SOIL2.c">
+    <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\image_DXT.c">
       <Filter>Source Files\TEXTURE_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\image_DXT.c">
+    <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\image_helper.c">
       <Filter>Source Files\TEXTURE_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\image_helper.c">
+    <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\SOIL2.c">
       <Filter>Source Files\TEXTURE_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\sound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\timing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\saveloadhelper\saveloadhelper.cpp">
-      <Filter>Source Files\saveLoadHelper</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\saveloadhelper\saveloadhelper_camera.cpp">
-      <Filter>Source Files\saveLoadHelper</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\saveloadhelper\saveloadhelper_FileMap.cpp">
-      <Filter>Source Files\saveLoadHelper</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\input\inputCursor.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\input\inputEditMode.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\input\inputESC.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\input\inputMove.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\input\inputs.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\input\inputsControlMode.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\input\objectControlsInterface.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationDerivedObject.cpp">
+    <ClCompile Include="OGL_Application\src\ApplicationObject\applicationDerivedObject.cpp">
       <Filter>Source Files\ApplicationObject</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationObject.cpp">
+    <ClCompile Include="OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\ApplicationObject\applicationObject.cpp">
       <Filter>Source Files\ApplicationObject</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationObjectManager.cpp">
+    <ClCompile Include="OGL_Application\src\ApplicationObject\applicationObjectManager.cpp">
       <Filter>Source Files\ApplicationObject</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Collectors\derivedObjectCollector.cpp">
+    <ClCompile Include="OGL_Application\src\cameraTransformations\cameraManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\cameraTransformations\fpcamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Collectors\derivedObjectCollector.cpp">
       <Filter>Source Files\Collectors</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Collectors\objectCollector.cpp">
+    <ClCompile Include="OGL_Application\src\Collectors\objectCollector.cpp">
       <Filter>Source Files\Collectors</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\saveloadhelper\saveloadhelper_applicationObject.cpp">
+    <ClCompile Include="OGL_Application\src\external_src\gl3w.c">
+      <Filter>Source Files\EXTERNAL_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\external_src\sb7ktx.cpp">
+      <Filter>Source Files\EXTERNAL_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\input\inputCursor.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\input\inputEditMode.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\input\inputESC.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\input\inputMove.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\input\inputs.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\input\inputsControlMode.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\input\objectControlsInterface.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\LibAndFacility\conversionLIB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\LibAndFacility\mymathlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\boxAABB\boxAABB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\build\build_b.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\characters\enemy\enemy.cpp">
+      <Filter>Source Files\characters</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\characters\playercharacter\playerCharacter.cpp">
+      <Filter>Source Files\characters</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\frameOfRef\frameofref.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\grid\grid.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\object1\object1.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\particle\my_particle.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\point\point.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\projectile\projectile.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\sphere\sphere.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\surface\surface.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\triangle\triangle_b.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\triangle_tb\triangle_tb.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\viewfinder\viewfinder.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\assets.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\cluster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\gun.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\advancedCD.cpp">
+      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\boxplane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\boxSphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\spherePlane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\spheresphere.cpp">
+      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\body.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\collide_coarse.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\collide_fine.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\contacts.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\core.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\particle.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\pcontact.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\pfgen.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\physics.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\plinks.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\pworld.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\RTCDsolids.cpp">
+      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\RTCDspecializedTest.cpp">
+      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Physics\world.cpp">
+      <Filter>Source Files\PHYSICS_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper.cpp">
       <Filter>Source Files\saveLoadHelper</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\assets.cpp">
+    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_applicationObject.cpp">
+      <Filter>Source Files\saveLoadHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_camera.cpp">
+      <Filter>Source Files\saveLoadHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_FileMap.cpp">
+      <Filter>Source Files\saveLoadHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject_moveObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\buttonfunctionLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\buttonMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\buttons.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\buttonsList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\buttonStart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\printHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\printHelperCollector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\text.cpp">
       <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\gun.cpp">
+    <ClCompile Include="OGL_Application\src\UI\userInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\advancedCD.cpp">
-      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\boxplane.cpp">
+    <ClCompile Include="OGL_Application\src\AI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\spherePlane.cpp">
+    <ClCompile Include="OGL_Application\src\app.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\spheresphere.cpp">
-      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\body.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\collide_coarse.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\collide_fine.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\contacts.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\core.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\particle.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\pcontact.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\pfgen.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\physics.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\plinks.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\pworld.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\RTCDsolids.cpp">
-      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\RTCDspecializedTest.cpp">
-      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\world.cpp">
-      <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Physics\AdvancedPhysics\boxSphere.cpp">
+    <ClCompile Include="OGL_Application\src\application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp">
+    <ClCompile Include="OGL_Application\src\baseObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\cameraTransformations\fpcamera.cpp">
+    <ClCompile Include="OGL_Application\src\log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\cameraTransformations\cameraManager.cpp">
+    <ClCompile Include="OGL_Application\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\boxAABB\boxAABB.cpp">
+    <ClCompile Include="OGL_Application\src\shadermanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\build\build_b.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\frameOfRef\frameofref.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\grid\grid.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\object1\object1.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\particle\my_particle.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\point\point.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\projectile\projectile.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\sphere\sphere.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\surface\surface.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\triangle\triangle_b.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\triangle_tb\triangle_tb.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\viewfinder\viewfinder.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\buttonMap.cpp">
+    <ClCompile Include="OGL_Application\src\shaders.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\buttons.cpp">
+    <ClCompile Include="OGL_Application\src\sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\buttonsList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\printHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\text.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\userInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\AI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\characters\enemy\enemy.cpp">
-      <Filter>Source Files\characters</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\characters\playercharacter\playerCharacter.cpp">
-      <Filter>Source Files\characters</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_moveObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\Objects\cluster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\LibAndFacility\mymathlib.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\LibAndFacility\conversionLIB.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\buttonStart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\printHelperCollector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="root\OGL_Application\src\UI\buttonfunctionLoader.cpp">
+    <ClCompile Include="OGL_Application\src\timing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="root\OGL_Application\src\Objects\build\build.frag">
+    <None Include="OGL_Application\src\Objects\build\build.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\build\build.vert">
+    <None Include="OGL_Application\src\Objects\build\build.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\characters\enemy\enemy.frag">
+    <None Include="OGL_Application\src\Objects\characters\enemy\enemy.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\enemy</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\characters\enemy\enemy.vert">
+    <None Include="OGL_Application\src\Objects\characters\enemy\enemy.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\enemy</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\characters\playercharacter\playercharacter.frag">
+    <None Include="OGL_Application\src\Objects\characters\playercharacter\playercharacter.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\playercharacter</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\characters\playercharacter\playercharacter.vert">
+    <None Include="OGL_Application\src\Objects\characters\playercharacter\playercharacter.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\playercharacter</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\frameOfRef\frameOfRef.frag">
+    <None Include="OGL_Application\src\Objects\frameOfRef\frameOfRef.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\frameOfRef</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\frameOfRef\frameOfRef.vert">
+    <None Include="OGL_Application\src\Objects\frameOfRef\frameOfRef.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\frameOfRef</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\grid\grid.frag">
+    <None Include="OGL_Application\src\Objects\grid\grid.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\ground</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\grid\grid.vert">
+    <None Include="OGL_Application\src\Objects\grid\grid.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\ground</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\gun_for\gun_for.frag">
+    <None Include="OGL_Application\src\Objects\gun_for\gun_for.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\gun_for</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\gun_for\gun_for.vert">
+    <None Include="OGL_Application\src\Objects\gun_for\gun_for.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\gun_for</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\object1\object1.frag">
+    <None Include="OGL_Application\src\Objects\object1\object1.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\object1\object1.vert">
+    <None Include="OGL_Application\src\Objects\object1\object1.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\particle\particle.frag">
+    <None Include="OGL_Application\src\Objects\particle\particle.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\particle</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\particle\particle.vert">
+    <None Include="OGL_Application\src\Objects\particle\particle.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\particle</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\point\point.frag">
+    <None Include="OGL_Application\src\Objects\point\point.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\point</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\point\point.vert">
+    <None Include="OGL_Application\src\Objects\point\point.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\point</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\projectile\projectile.frag">
+    <None Include="OGL_Application\src\Objects\projectile\projectile.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\projectile</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\projectile\projectile.vert">
+    <None Include="OGL_Application\src\Objects\projectile\projectile.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\projectile</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\sphere\sphere.frag">
+    <None Include="OGL_Application\src\Objects\sphere\sphere.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\sphere</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\sphere\sphere.vert">
+    <None Include="OGL_Application\src\Objects\sphere\sphere.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\sphere</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\surface\surface.frag">
+    <None Include="OGL_Application\src\Objects\surface\surface.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\surface</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\surface\surface.vert">
+    <None Include="OGL_Application\src\Objects\surface\surface.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\surface</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\text\text.frag">
+    <None Include="OGL_Application\src\Objects\text\text.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\text</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\text\text.vert">
+    <None Include="OGL_Application\src\Objects\text\text.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\text</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\triangle\triangle.frag">
+    <None Include="OGL_Application\src\Objects\triangle\triangle.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\triangle\triangle.vert">
+    <None Include="OGL_Application\src\Objects\triangle\triangle.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\triangle_tb\triangle_tb.frag">
+    <None Include="OGL_Application\src\Objects\triangle_tb\triangle_tb.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle_tb</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\triangle_tb\triangle_tb.vert">
+    <None Include="OGL_Application\src\Objects\triangle_tb\triangle_tb.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\triangle_tb</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\viewfinder\viewfinder.frag">
+    <None Include="OGL_Application\src\Objects\viewfinder\viewfinder.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\viewfinder</Filter>
     </None>
-    <None Include="root\OGL_Application\src\Objects\viewfinder\viewfinder.vert">
+    <None Include="OGL_Application\src\Objects\viewfinder\viewfinder.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\viewfinder</Filter>
     </None>
   </ItemGroup>
