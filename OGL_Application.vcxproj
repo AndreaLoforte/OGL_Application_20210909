@@ -98,7 +98,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\OGL_Application\include\shadersFacility;.\OGL_Application\include\PHYSICS_H\AdvancedPhysics;.\OGL_Application\include\PHYSICS_H;.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\include\GLFW;.\OGL_Application\DEPENDENCIES\SB7;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\OGL_Application\include\;.\OGL_Application\include\cameraTransformations;.\OGL_Application\include\ApplicationObject;.\OGL_Application\include\Objects;.\OGL_Application\include\UI;.\OGL_Application\include\LibAndFacility;.\OGL_Application\include\Objects\characters;.\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\OGL_Application\include\shadersFacility;.\OGL_Application\include\Physics\AdvancedPhysics;.\OGL_Application\include\Physics;.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\include\GLFW;.\OGL_Application\DEPENDENCIES\SB7;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\OGL_Application\include\;.\OGL_Application\include\cameraTransformations;.\OGL_Application\include\ApplicationObject;.\OGL_Application\include\Objects;.\OGL_Application\include\UI;.\OGL_Application\include\LibAndFacility;.\OGL_Application\include\Objects\characters;.\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ShowIncludes>true</ShowIncludes>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -161,19 +161,19 @@
     <ClInclude Include="OGL_Application\include\inputs.h" />
     <ClInclude Include="OGL_Application\include\log.h" />
     <ClInclude Include="OGL_Application\include\LibAndFacility\mymathlib.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\body.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\collide_coarse.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\collide_fine.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\contacts.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\core.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\particle.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\pcontact.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\pfgen.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\physics.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\plinks.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\precision.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\pworld.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\world.h" />
+    <ClInclude Include="OGL_Application\include\Physics\body.h" />
+    <ClInclude Include="OGL_Application\include\Physics\collide_coarse.h" />
+    <ClInclude Include="OGL_Application\include\Physics\collide_fine.h" />
+    <ClInclude Include="OGL_Application\include\Physics\contacts.h" />
+    <ClInclude Include="OGL_Application\include\Physics\core.h" />
+    <ClInclude Include="OGL_Application\include\Physics\particle.h" />
+    <ClInclude Include="OGL_Application\include\Physics\pcontact.h" />
+    <ClInclude Include="OGL_Application\include\Physics\pfgen.h" />
+    <ClInclude Include="OGL_Application\include\Physics\physics.h" />
+    <ClInclude Include="OGL_Application\include\Physics\plinks.h" />
+    <ClInclude Include="OGL_Application\include\Physics\precision.h" />
+    <ClInclude Include="OGL_Application\include\Physics\pworld.h" />
+    <ClInclude Include="OGL_Application\include\Physics\world.h" />
     <ClInclude Include="OGL_Application\include\render.h" />
     <ClInclude Include="OGL_Application\include\SB7\gl3w.h" />
     <ClInclude Include="OGL_Application\include\SB7\glcorearb.h" />
@@ -205,11 +205,11 @@
     <ClInclude Include="OGL_Application\include\AI.h" />
     <ClInclude Include="OGL_Application\include\ApplicationObject\objectCollector.h" />
     <ClInclude Include="OGL_Application\include\objectControlsInterface.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\AdvancedPhysics\advancedCD.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\AdvancedPhysics\collide_fine_advanced.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\ObjectContainer.h" />
+    <ClInclude Include="OGL_Application\include\Physics\AdvancedPhysics\advancedCD.h" />
+    <ClInclude Include="OGL_Application\include\Physics\AdvancedPhysics\collide_fine_advanced.h" />
+    <ClInclude Include="OGL_Application\include\Physics\ObjectContainer.h" />
     <ClInclude Include="root\OGL_Application\include\PHYSICS_H\RTCDsolids.h" />
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\RTCDspecializedTest.h" />
+    <ClInclude Include="OGL_Application\include\Physics\RTCDspecializedTest.h" />
     <ClInclude Include="OGL_Application\include\saveloadhelper.h" />
     <ClInclude Include="OGL_Application\include\sound.h" />
     <ClInclude Include="OGL_Application\include\timing.h" />

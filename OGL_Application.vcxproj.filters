@@ -204,57 +204,6 @@
     <ClInclude Include="OGL_Application\include\Objects\viewfinder.h">
       <Filter>Header Files\DRAWING_H</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\AdvancedPhysics\advancedCD.h">
-      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\AdvancedPhysics\collide_fine_advanced.h">
-      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\body.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\collide_coarse.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\collide_fine.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\contacts.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\core.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\ObjectContainer.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\particle.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\pcontact.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\pfgen.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\physics.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\plinks.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\precision.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\pworld.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\RTCDspecializedTest.h">
-      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\PHYSICS_H\world.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\SB7\gl3w.h">
       <Filter>Header Files\SB7</Filter>
     </ClInclude>
@@ -335,6 +284,57 @@
     </ClInclude>
     <ClInclude Include="OGL_Application\include\vmath.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\AdvancedPhysics\advancedCD.h">
+      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\AdvancedPhysics\collide_fine_advanced.h">
+      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\body.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\collide_coarse.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\collide_fine.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\contacts.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\core.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\ObjectContainer.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\particle.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\pcontact.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\pfgen.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\physics.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\plinks.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\precision.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\pworld.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\RTCDspecializedTest.h">
+      <Filter>Header Files\PHYSICS_H\AdvancedPhysics</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Physics\world.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
