@@ -85,6 +85,15 @@ namespace InputsNS{
 
 
 
+	class TextTyper {
+	public:
+		string text;
+		bool completed_total = false;
+		string stringInsertion(int, int);
+
+	};
+
+
 
 
 	class Typer {
@@ -92,8 +101,9 @@ namespace InputsNS{
 		static std::vector<int> objNumberChoosed;
 		int objectIndex[L][M][N][O];
 		static std::map<int, int> glfw_KeyConversion;
-
+		
 	public:
+		TextTyper textTyper;
 		bool completed_partial = false;
 		bool completed_total = false;
 		string partial_string;
@@ -110,10 +120,12 @@ namespace InputsNS{
 		bool NInsertion(int key, int action, int numberToInsert, vector<float>& vec);
 		std::string NInsertion2(int key, int action, int numberToInsert, vector<float>& vec);
 		int typing2(int key, int action);
-		string stringInsertion(int, int);
+		//string stringInsertion(int, int);
 		
 	};
 
+
+	
 
     
 

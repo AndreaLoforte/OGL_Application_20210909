@@ -18,7 +18,7 @@ namespace uiNS {
 		static App* app;
 		static unsigned frameID;
 		/*bfl : button's function loader*/
-		static buttonFunctiosList bfl;
+		static buttonFunctiosLoader bfl;
 		static InputsNS::Controls* control;
 		/*phc : printHelper collector*/
 		static printHelperNS::PrintHelperCollector phc;

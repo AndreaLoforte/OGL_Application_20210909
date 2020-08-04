@@ -104,7 +104,8 @@ namespace uiNS {
 		static void deleteObject();
 		static void start();
 		static void load(GLFWwindow* w, int button, int action, int mods);
-		static void newProject(int,int);
+		static void newProjectKey(int,int);
+		static void newProjectMouseButton(int, int);
 		static void cursorPositionCallBack(GLFWwindow* w, double x, double y);
 		static	void cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode);
 		const std::string& getButtonID() override { return button.buttonID; }

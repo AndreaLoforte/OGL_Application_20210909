@@ -1,112 +1,127 @@
 COLLECTOR_
-ground
+build
+OCisOnFlag
+0
 AOobjectName
-ground
-AOinstanceNumber
-1
-AOTrMatrix
-1 0 0 0 
-0 1 0 0 
-0 0 1 0 
-0 0 0 1 
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
---------ENDCOLLECTOR--------
-COLLECTOR_
-surface
-AOobjectName
-surface
+build
 AOinstanceNumber
 0
-AOTrMatrix
-1 0 0 0 
-0 2.6077e-08 -0.999999 0 
-0 0.999999 2.6077e-08 0 
-0 96 207 1 
 AOposition
 0 0 0
 AOorientation
 1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5 10 8
+--------ENDCOLLECTOR--------
+COLLECTOR_
+object1
+OCisOnFlag
+0
+AOobjectName
+object1
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
 --------ENDCOLLECTOR--------
 COLLECTOR_
 sphere
+OCisOnFlag
+0
 AOobjectName
 sphere
 AOinstanceNumber
 2
-AOTrMatrix
-1 0 0 0 
-0 0.801039 0.598613 0 
-0 -0.598613 0.801039 0 
-0 4.92174 201.95 1 
 AOposition
 0 0 0
 AOorientation
 1 0 0 0
---------ENDCOLLECTOR--------
-COLLECTOR_
-frameOfRef
-AOobjectName
-frameOfRef
-AOinstanceNumber
-0
-AOTrMatrix
-1 0 0 0 
-0 1 0 0 
-0 0 1 0 
-0 0 0 1 
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
---------ENDCOLLECTOR--------
-COLLECTOR_
-build
-AOobjectName
-build
-AOinstanceNumber
-0
-AOTrMatrix
-0.358368 1.0026e-07 -0.93358 0 
--0.887888 0.309017 -0.340828 0 
-0.288492 0.951056 0.110742 0 
-0 5.25121 57 1 
-AOposition
-0 0 57
-AOorientation
-0.666732 -0.484409 0.458232 0.332925
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
 --------ENDCOLLECTOR--------
 COLLECTOR_
 surface
+OCisOnFlag
+0
 AOobjectName
 surface
 AOinstanceNumber
-0
-AOTrMatrix
--0.000142474 -0.999983 -0.00547059 0 
-0.998643 0.000142518 -0.0520492 0 
-0.0520492 -0.00547058 0.998629 0 
--207 96 0 1 
+4
 AOposition
 0 0 0
 AOorientation
 1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+100 0 100
 --------ENDCOLLECTOR--------
 COLLECTOR_
-Gun
+point
+OCisOnFlag
+0
 AOobjectName
-viewfinder
+point
 AOinstanceNumber
 0
-AOTrMatrix
-1 0 0 0 
-0 1 0 0 
-0 0 1 0 
-0 0 0 1 
 AOposition
 0 0 0
 AOorientation
 1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+--------ENDCOLLECTOR--------
+COLLECTOR_
+object1
+OCisOnFlag
+0
+AOobjectName
+object1
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+--------ENDCOLLECTOR--------
+COLLECTOR_
+grid
+OCisOnFlag
+0
+AOobjectName
+grid
+AOinstanceNumber
+4
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+100 0 100
 --------ENDCOLLECTOR--------

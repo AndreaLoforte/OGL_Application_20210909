@@ -4,7 +4,7 @@
 namespace uiNS {
 
 
-	struct buttonFunctiosList {
+	struct buttonFunctiosLoader {
 		typedef void (*PmouseButton1)(GLFWwindow* w, int button, int action, int mods);
 		typedef void (*PmouseButton2)();
 		typedef void (*PmouseCursor1)(GLFWwindow* w, double, double);
@@ -31,6 +31,10 @@ namespace uiNS {
 		void setKeyCallback(PCallbackII f);
 		void setMouseScrollCallback(PmouseScroll1);
 		void setCursorCallback(PmouseButton2);
+		void unsetKeyCallback();
+
+
+		static void  unsetKeyCallbackFunc();
 
 	};
 

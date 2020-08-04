@@ -430,11 +430,11 @@ int Typer::typing2(int key, int action) {
 
 
 
-string Typer::stringInsertion(int key, int action) {
+string TextTyper::stringInsertion(int key, int action) {
 
 	if (action == GLFW_RELEASE) return "";
 	static string s;
-
+	completed_total = false;
 
 	if (key == GLFW_KEY_BACKSPACE)
 	{
@@ -524,12 +524,17 @@ string Typer::stringInsertion(int key, int action) {
 			s.append("z");
 			break;
 		case GLFW_KEY_ENTER:
+		{
 			completed_total = true;
-				break;
+			text = s;
+			s.clear();
+			return text;
+		}
+			
 
 	}
 	
-		
+	
 	return s;
 
 }

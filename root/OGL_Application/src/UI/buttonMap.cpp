@@ -26,6 +26,10 @@ namespace uiNS {
 	const string NonButtonMap::LOADPROJECT = "LOAD PROJECT";
 	const string NonButtonMap::NEWPROJECT = "NEWPROJECT";
 	const string NonButtonMap::EDITSOUNDS = "EDIT SOUNDS";
+	const string NonButtonMap::CAMERAVIEW = "VIEW";
+	const string NonButtonMap::GROUNDCAMERA = "GROUND CAMERA";
+	const string NonButtonMap::FLYINGCAMERA = "FLYING CAMERA";
+	const string NonButtonMap::PANORAMICCAMERA = "PANORAMIC CAMERA";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";
