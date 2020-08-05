@@ -17,13 +17,16 @@ OGL_Application
   
   \audio        	This folder contains audio files for the engine
                
-  \DEPENDENCIES 	libraries for the various functionalities like texture
-					loading or windows and input managing etc.
+  \DEPENDENCIES 	libraries for the various functionalities like 
+  			texture	loading or windows and input managing etc.
+			
   \include      	Header files to include when using the engine.
-  \log_and_savings	Now and then I use a logger that drops logs on this folder.
-					It contains a subfolders where projects savings are stored					
+  
+  \log_and_savings	Now and then I use a logger that drops logs on this 
+  			folder. It contains a subfolders where projects 
+			savings are stored					
   \src		      	Source files
-  \Textures			folder for images to be used as textures
+  \Textures		folder for images to be used as textures
 
 
 ==========================================================================
