@@ -6,11 +6,11 @@ OGL_Application is a project of a mini tool for game development.
 The project is developed by a single person in his spare time with
 the only purpose of enjoying programming and computer graphics.
 
-OGL_Application allows the user to create/delete predefined objects at runtime, to 
-edit existing objects in terms of their position,orientation, colors, sizes,
-behaviour (activation of physics/ai).It has a shooting system and a simple
-implementation of enemy behaviour. It has 3 kind of camera transformations 
-that the user can switch at runtime. 
+OGL_Application allows the user to create/delete predefined objects at 
+runtime, to edit existing objects in terms of their position,orientation,
+colors, sizes,behaviour (activation of physics/ai).It has a shooting system 
+and a simple implementation of enemy behaviour. It has 3 kind of camera 
+transformations that the user can switch at runtime. 
 All of the progress made during a session can be saved and restored later.
 
 It enbeds various functionality, most of which I developed by myself
