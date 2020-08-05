@@ -30,6 +30,7 @@ namespace uiNS {
 	const string NonButtonMap::GROUNDCAMERA = "GROUND CAMERA";
 	const string NonButtonMap::FLYINGCAMERA = "FLYING CAMERA";
 	const string NonButtonMap::PANORAMICCAMERA = "PANORAMIC CAMERA";
+	const string NonButtonMap::QUITBUTTON = "X";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";

@@ -31,12 +31,18 @@ namespace fpcameraNS {
 		if (cameraList.size() - 1 > activeCamIndex)
 		{
 			activeCamIndex++;
-			CameraManager::ph.mapNewString("CAMERAID", fpcameraNS::CameraManager::getActiveCamera().cameraID);
+			/*CameraManager::ph.mapButtonOnBranch(NonButtonMap::CAMERAVIEW,
+				fpcameraNS::CameraManager::getActiveCamera().cameraID,
+				fpcameraNS::CameraManager::getActiveCamera().cameraID);*/
+			//CameraManager::ph.mapNewString("CAMERAID", fpcameraNS::CameraManager::getActiveCamera().cameraID);
 		}
 		else
 		{
 			activeCamIndex = 0;
-			CameraManager::ph.mapNewString("CAMERAID", fpcameraNS::CameraManager::getActiveCamera().cameraID);
+			/*CameraManager::ph.mapButtonOnBranch(NonButtonMap::CAMERAVIEW,
+				fpcameraNS::CameraManager::getActiveCamera().cameraID,
+				fpcameraNS::CameraManager::getActiveCamera().cameraID);*/
+			//CameraManager::ph.mapNewString("CAMERAID", fpcameraNS::CameraManager::getActiveCamera().cameraID);
 		}
 
 	}

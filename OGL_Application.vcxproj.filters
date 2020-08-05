@@ -261,9 +261,6 @@
     <ClInclude Include="OGL_Application\include\GLFWwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\inputs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -336,6 +333,9 @@
     <ClInclude Include="OGL_Application\include\Physics\world.h">
       <Filter>Header Files\PHYSICS_H</Filter>
     </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\inputs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
@@ -379,27 +379,6 @@
     </ClCompile>
     <ClCompile Include="OGL_Application\src\external_src\sb7ktx.cpp">
       <Filter>Source Files\EXTERNAL_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\input\inputCursor.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\input\inputEditMode.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\input\inputESC.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\input\inputMove.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\input\inputs.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\input\inputsControlMode.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\input\objectControlsInterface.cpp">
-      <Filter>Source Files\Input</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\LibAndFacility\conversionLIB.cpp">
       <Filter>Source Files</Filter>
@@ -598,6 +577,27 @@
     </ClCompile>
     <ClCompile Include="OGL_Application\src\timing.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\input\inputCursor.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\input\inputEditMode.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\input\inputESC.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\input\inputMove.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\input\inputs.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\input\inputsControlMode.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\input\objectControlsInterface.cpp">
+      <Filter>Source Files\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

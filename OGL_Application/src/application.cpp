@@ -55,9 +55,11 @@ int Application::init()
 
   //ANTIALIASING
   glfwWindowHint(GLFW_SAMPLES, 4);
-  
+  /*remove top bar of the window : 
+  this instruction must stay before window creation*/
+  glfwWindowHint(GLFW_DECORATED, false);
 
-    window=glfwCreateWindow(window_width,window_height,"Example",NULL,NULL);
+    window=glfwCreateWindow(window_width,window_height,"OGL_Application",NULL,NULL);
   
 	if (!window)
 	{
@@ -74,7 +76,7 @@ int Application::init()
 	 glfwSwapInterval(1);
 	 glfwSetWindowTitle(window, "OGL_Application (by @ndre)");
 	 glfwSetWindowPos(window, 300, 150);
-
+	
 	 //glfwSetWindowAttrib(window, GLFW_DECORATED, TRUE);
 
 	 

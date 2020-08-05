@@ -18,7 +18,8 @@ namespace uiNS {
 		UserInterface::phc.hideDropDownMenu();
 		UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack);
 		UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
-		UserInterface::bfl.unsetKeyCallback();
+		//UserInterface::bfl.unsetKeyCallback();
+		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
 	}
 
 
@@ -38,6 +39,7 @@ namespace uiNS {
 		UserInterface::phc.showButton(NonButtonMap::EDITSOUNDS, NonButtonMap::EDITSOUNDS);
 		UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON);
 		UserInterface::phc.showButton(NonButtonMap::CAMERAVIEW, NonButtonMap::CAMERAVIEW);
+		UserInterface::phc.showButton(NonButtonMap::QUITBUTTON, NonButtonMap::QUITBUTTON);
 
 
 		
@@ -240,7 +242,7 @@ namespace uiNS {
 		UserInterface::phc.hideDropDownMenu();
 		UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
 		UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack);
-		UserInterface::bfl.unsetKeyCallback();
+		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
 		cursorButtonCallBack(Application::window, 0, 1, 0);
 	}
 

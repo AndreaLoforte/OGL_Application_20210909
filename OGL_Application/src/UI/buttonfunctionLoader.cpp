@@ -138,11 +138,7 @@ namespace uiNS {
 
 
 
-	void  buttonFunctiosLoader::unsetKeyCallbackFunc()
-	{
-
-	};
-
+	void  buttonFunctiosLoader::unsetKeyCallbackFunc(){};
 
 	void buttonFunctiosLoader::unsetKeyCallback()
 	{

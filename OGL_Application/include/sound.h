@@ -46,7 +46,7 @@ namespace soundNS {
 
 
 
-	static const string SOUNDSDIR = "./root/OGL_Application/audio/";
+	static const string SOUNDSDIR = "./OGL_Application/audio/";
 
 	class soundMap 
 	{

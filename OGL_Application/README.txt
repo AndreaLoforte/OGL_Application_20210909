@@ -11,7 +11,7 @@ runtime, to edit existing objects in terms of their position,orientation,
 colors, sizes,behaviour (activation of physics/ai).It has a shooting system 
 and a simple implementation of enemy behaviour. It has 3 kind of camera 
 transformations that the user can switch at runtime. 
-All of the progress made during a session can be saved and restored later.
+All of the progresses made during a session can be saved and restored later.
 
 It enbeds various functionality, most of which I developed by myself
 while others I integrated from third parties :

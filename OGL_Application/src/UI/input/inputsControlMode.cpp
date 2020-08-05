@@ -10,6 +10,8 @@ namespace InputsNS{
 
 	void Controls::key_callbackControl(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{		
+		if (action == GLFW_RELEASE) return;
+
 		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		{
 			/*primo ESC pulisco la stringa statica, 
