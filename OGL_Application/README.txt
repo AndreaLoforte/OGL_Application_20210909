@@ -26,7 +26,7 @@ OGL_Application
   			folder. It contains a subfolders where projects 
 			savings are stored					
   \src		      	Source files
-  \Textures		folder for images to be used as textures
+  \Textures		folder to store images to be used as textures
 
 
 ==========================================================================
