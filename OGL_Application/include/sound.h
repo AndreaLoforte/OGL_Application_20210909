@@ -6,7 +6,7 @@
 #include<string>
 #include<array>
 #include<map>
-#include<text.h>
+#include<PrintHelper.h>
 class Contact;
 
 namespace soundNS {

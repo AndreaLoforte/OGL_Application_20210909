@@ -3,7 +3,6 @@
 
 
 #include<applicationObject.h>
-#include<text.h>
 //#include<collide_fine.h>
 #include<AdvancedPhysics/collide_fine_advanced.h>
 //#include<physics.h>

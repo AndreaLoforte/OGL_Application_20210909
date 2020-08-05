@@ -1,7 +1,6 @@
 #include<projectile.h>
 #include<assert.h>
 #include<cameraManager.h>
-#include<text.h>
 #include<conversionLIB.h>
 
 namespace myobjectNS{

@@ -1,7 +1,6 @@
 #include<fpcamera.h>
 #include<cameraManager.h>
 #include<log.h>
-#include<text.h>
 #include<app.h>
 
 namespace fpcameraNS{

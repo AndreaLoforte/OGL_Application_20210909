@@ -4,7 +4,6 @@
 #include<baseObject.h>
 #include<applicationDerivedObject.h>
 #include<physics.h>
-#include<text.h>
 #include<array>
 #include<objectCollector.h>
 class CollisionPlane;

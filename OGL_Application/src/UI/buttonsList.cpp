@@ -1,4 +1,3 @@
-#include<text.h>
 #include<buttonsList.h>
 #include<userInterface.h>
 namespace textRendererNS {

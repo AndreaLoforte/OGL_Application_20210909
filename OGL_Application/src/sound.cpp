@@ -1,7 +1,6 @@
 #include<sound.h>
 #include<conio.h>
 #include<contacts.h>
-#include<text.h>
 #include<physics.h>
 #include<playerCharacter.h>
 #include<applicationDerivedObject.h>

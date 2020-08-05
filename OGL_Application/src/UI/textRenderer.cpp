@@ -3,7 +3,7 @@ of the same size of the string. This way is easy to make it work but
 when it comes to having a text that refresh at each frame it's a mess
 in terms of memory leakage*/
 #include <iostream>
-#include<text.h>
+#include<textRenderer.h>
 #include <ft2build.h>
 #include<applicationObjectManager.h>
 #include<PrintHelper.h>

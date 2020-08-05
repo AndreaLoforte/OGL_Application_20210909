@@ -1,9 +1,8 @@
 #pragma once
 #include<vector>
 #include<string>
-#include<text.h>
 #include<fpcamera.h>
-
+#include<PrintHelper.h>
 
 namespace fpcameraNS {
 

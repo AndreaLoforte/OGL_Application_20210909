@@ -1,6 +1,6 @@
 #include <applicationObjectManager.h>
 #include<vmath.h>
-#include<text.h>
+#include<printHelper.h>
 #include<app.h>
 #include<physics.h>
 #include<assets.h>

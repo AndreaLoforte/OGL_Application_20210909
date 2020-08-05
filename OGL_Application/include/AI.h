@@ -7,7 +7,7 @@
 #include<applicationDerivedObject.h>
 #include<random>
 #include<functional>
-
+#include<PrintHelper.h>
 namespace myobjectNS {
 	class PlayerCharacterOC;
 	class OCGun;

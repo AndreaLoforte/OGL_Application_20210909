@@ -156,7 +156,6 @@
     <ClInclude Include="OGL_Application\include\Objects\projectile.h" />
     <ClInclude Include="OGL_Application\include\Objects\sphere.h" />
     <ClInclude Include="OGL_Application\include\cameraTransformations\fpcamera.h" />
-    <ClInclude Include="OGL_Application\include\GLFWwindow.h" />
     <ClInclude Include="OGL_Application\include\Objects\gun.h" />
     <ClInclude Include="OGL_Application\include\UI\inputs.h" />
     <ClInclude Include="OGL_Application\include\log.h" />
@@ -174,7 +173,6 @@
     <ClInclude Include="OGL_Application\include\Physics\precision.h" />
     <ClInclude Include="OGL_Application\include\Physics\pworld.h" />
     <ClInclude Include="OGL_Application\include\Physics\world.h" />
-    <ClInclude Include="OGL_Application\include\render.h" />
     <ClInclude Include="OGL_Application\include\SB7\gl3w.h" />
     <ClInclude Include="OGL_Application\include\SB7\glcorearb.h" />
     <ClInclude Include="OGL_Application\include\SB7\sb7ktx.h" />
@@ -196,7 +194,7 @@
     <ClInclude Include="OGL_Application\include\UI\userInterface.h" />
     <ClInclude Include="OGL_Application\include\UI\buttonMap.h" />
     <ClInclude Include="OGL_Application\include\UI\buttons.h" />
-    <ClInclude Include="OGL_Application\include\UI\text.h" />
+    <ClInclude Include="OGL_Application\include\UI\textRenderer.h" />
     <ClInclude Include="OGL_Application\include\UI\buttonsList.h" />
     <ClInclude Include="OGL_Application\include\Objects\triangle_b.h" />
     <ClInclude Include="OGL_Application\include\Objects\triangle_tb.h" />
@@ -277,7 +275,7 @@
     <ClCompile Include="OGL_Application\src\Objects\gun.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\point\point.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\surface\surface.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\text.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\textRenderer.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\triangle\triangle_b.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\triangle_tb\triangle_tb.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\viewfinder\viewfinder.cpp" />
@@ -289,13 +287,10 @@
     <ClCompile Include="OGL_Application\src\UI\input\inputs.cpp" />
     <ClCompile Include="OGL_Application\src\UI\input\inputsControlMode.cpp" />
     <ClCompile Include="OGL_Application\src\UI\input\objectControlsInterface.cpp" />
-    <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\advancedCD.cpp" />
     <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\boxplane.cpp" />
     <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\spheresphere.cpp" />
     <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\spherePlane.cpp" />
     <ClCompile Include="OGL_Application\src\Physics\physics.cpp" />
-    <ClCompile Include="OGL_Application\src\Physics\RTCDsolids.cpp" />
-    <ClCompile Include="OGL_Application\src\Physics\RTCDspecializedTest.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_applicationObject.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_camera.cpp" />

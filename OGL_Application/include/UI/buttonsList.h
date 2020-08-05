@@ -6,7 +6,7 @@
 using namespace std;
 using namespace uiNS;
 namespace textRendererNS {
-
+	
 
 	struct ButtonsList {
 		typedef vector<ButtonInterface>::iterator buttonsListIter;

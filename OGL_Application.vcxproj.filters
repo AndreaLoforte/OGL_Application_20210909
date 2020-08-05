@@ -237,9 +237,6 @@
     <ClInclude Include="OGL_Application\include\UI\PrintHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\text.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\UI\userInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -258,16 +255,10 @@
     <ClInclude Include="OGL_Application\include\extern_definitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\GLFWwindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\objectControlsInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\render.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\saveloadhelper.h">
@@ -335,6 +326,9 @@
     </ClInclude>
     <ClInclude Include="OGL_Application\include\UI\inputs.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\textRenderer.h">
+      <Filter>Header Files\DRAWING_H</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -440,9 +434,6 @@
     <ClCompile Include="OGL_Application\src\Objects\gun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\advancedCD.cpp">
-      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\boxplane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -487,12 +478,6 @@
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Physics\pworld.cpp">
       <Filter>Source Files\PHYSICS_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\Physics\RTCDsolids.cpp">
-      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\Physics\RTCDspecializedTest.cpp">
-      <Filter>Source Files\PHYSICS_SRC\AdvancedPhysics</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Physics\world.cpp">
       <Filter>Source Files\PHYSICS_SRC</Filter>
@@ -541,9 +526,6 @@
     </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\printHelperCollector.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\text.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\userInterface.cpp">
       <Filter>Source Files</Filter>
@@ -598,6 +580,9 @@
     </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\input\objectControlsInterface.cpp">
       <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\textRenderer.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

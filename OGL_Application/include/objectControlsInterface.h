@@ -1,9 +1,10 @@
 #ifndef OBJCONTROLSINTERFACE_H
 #define OBJCONTROLSINTERFACE_H
-#include<gl3w.h>
-#include<glfw3.h>
+
+//#include<gl3w.h>
+//#include<glfw3.h>
 #include<inputs.h>
-#include<text.h>
+#include<printhelper.h>
 
 namespace myobjectNS {
 	class ApplicationObject;

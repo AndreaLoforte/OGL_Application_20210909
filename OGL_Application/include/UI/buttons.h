@@ -1,7 +1,10 @@
 #pragma once
-#include<text.h>
+
 #include<buttonMap.h>
 #include<cluster.h>
+
+#include<gl3w.h>
+#include<glfw3.h>
 namespace uiNS {
 
 	struct Button {

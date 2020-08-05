@@ -2,7 +2,6 @@
 #include<applicationDerivedObject.h>
 #include<baseObject.h>
 #include<physics.h>
-#include<text.h>
 #include<array>
 
 namespace myobjectNS {

@@ -1,6 +1,6 @@
 #pragma once
 #include<string>
-#include<text.h>
+#include<textRenderer.h>
 #include<buttonsList.h>
 namespace printHelperNS {
 

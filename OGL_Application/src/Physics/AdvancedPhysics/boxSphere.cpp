@@ -1,5 +1,5 @@
 #include<AdvancedPhysics/collide_fine_advanced.h>
-#include<text.h>
+
 
 namespace rtcdNS {
 

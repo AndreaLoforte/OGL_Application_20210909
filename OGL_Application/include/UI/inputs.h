@@ -3,7 +3,6 @@
 
 #include<mymathlib.h>
 #include<fpcamera.h>
-#include<text.h>
 #include<map>
 #include<PrintHelper.h>
 class App;

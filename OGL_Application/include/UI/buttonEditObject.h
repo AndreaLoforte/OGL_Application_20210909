@@ -1,5 +1,6 @@
 #pragma once
-
+#include<gl3w.h>
+#include<glfw3.h>
 #include<buttons.h>
 
 namespace uiNS

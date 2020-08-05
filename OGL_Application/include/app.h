@@ -7,7 +7,7 @@
 #include<sb7ktx.h>	
 #include<random>
 #include<inputs.h>
-#include<text.h>
+#include<textRenderer.h>
 #include<physics.h>
 #include<extern_definitions.h>
 #include<sound.h>

@@ -2,7 +2,7 @@
 #include<buttons.h>
 
 namespace uiNS {
-
+	
 
 	struct buttonFunctiosLoader {
 		typedef void (*PmouseButton1)(GLFWwindow* w, int button, int action, int mods);

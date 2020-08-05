@@ -1,7 +1,7 @@
 #include<log.h>
 #include<applicationObject.h>
 #include<assets.h>
-#include<text.h>
+#include<textRenderer.h>
 #include<fpcamera.h>
 
 namespace exceptionNS {
