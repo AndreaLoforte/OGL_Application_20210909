@@ -29,7 +29,7 @@ void Controls::key_callbackESC(GLFWwindow* window, int key, int scancode, int ac
 	if (key == GLFW_KEY_N)
 	{
 		mode = 0;
-		ph.eraseFromMap("ESCAPEMODE");
+		ph.eraseButtonByID("ESCAPEMODE");
 		setAllCallbackFunction(window);
 		return;
 	}

@@ -81,11 +81,21 @@ namespace uiNS
 
 
 
+	void EditObjectModeButton::editPosition()
+	{
+		UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,5);
+		UserInterface::bfl.setKeyCallback(key_callbackMove);
+		UserInterface::bfl.setMouseButtonCallback(cursorButtoncallbackMoveObject);
+		key_callbackMove(Application::window, 0, 0, 0, 0);
+
+
+	}
+
+
 
 
 	void EditObjectModeButton::key_callbackMove(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
-
 		UserInterface::phc.showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON,
 			"Move the " +
 			myobjectNS::ApplicationObjectManager::getEditableObjectName() +
@@ -94,7 +104,7 @@ namespace uiNS
 		collectorNS::ApplicationObjectCollector* obj = myobjectNS::ApplicationObjectManager::getEditableCollector();
 		UserInterface::phc.showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::TYPEPOSITION, "OBJECT POSITION X,Y,Z : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOposition));
 		UserInterface::phc.showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::TYPEROTATION, "OBJECT ROTATION X°,Y°,Z° : " + tostringNS::stdToString::arrayfloat3(obj->getBody()->AOrot));
-
+		UserInterface::phc.showButton(uiNS::ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::BACKBUTTON);
 		
 
 		if (action == GLFW_RELEASE) return;
@@ -152,11 +162,11 @@ namespace uiNS
 			break;
 		case GLFW_KEY_D:
 			//camRelativeShiftX(1);
-			obj->AOtrX(-1);
+			obj->AOtrX(1);
 			break;
 		case GLFW_KEY_A:
 			//camRelativeShiftX(-1);
-			obj->AOtrX(1);
+			obj->AOtrX(-1);
 			break;
 		case GLFW_KEY_1:
 			obj->AOtrY(-1);
@@ -166,10 +176,10 @@ namespace uiNS
 			break;
 
 		case GLFW_KEY_UP:
-			obj->AOrotX(1);
+			obj->AOrotX(-1);
 			break;
 		case GLFW_KEY_DOWN:
-			obj->AOrotX(-1);
+			obj->AOrotX(1);
 			break;
 		case GLFW_KEY_RIGHT:
 			obj->AOrotY(-1);
@@ -193,7 +203,7 @@ namespace uiNS
 
 
 	
-	void EditObjectModeButton::cursor_callbackMoveObject(GLFWwindow* w, int button, int action, int mods)
+	void EditObjectModeButton::cursorButtoncallbackMoveObject(GLFWwindow* w, int button, int action, int mods)
 	{
 		if (action == GLFW_RELEASE) return;
 
@@ -220,10 +230,11 @@ namespace uiNS
 			return;
 		}
 
-	/*	if (UserInterface::enableBack(buttonID))
-			return;
-		UserInterface::bfl.setMouseButtonCallback(editObject);
-		*/
+		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		{
+			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallback_editObject);
+			cursorButtonCallback_editObject(Application::window, 0, 0, 0);
+		}
 
 	}
 

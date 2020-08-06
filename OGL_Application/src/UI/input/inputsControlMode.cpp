@@ -45,7 +45,7 @@ namespace InputsNS{
 			else
 			{
 				H = false;
-				ph.eraseFromMap("CONTROLMODE");
+				ph.eraseButtonByID("CONTROLMODE");
 			}
 			return;
 

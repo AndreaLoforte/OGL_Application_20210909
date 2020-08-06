@@ -19,7 +19,7 @@ namespace uiNS {
 	InputsNS::Typer UserInterface::typer;
 	buttonFunctiosLoader UserInterface::bfl;
 	unsigned UserInterface::frameID = 0;
-	App* UserInterface::app;
+	App* UserInterface::app;		
 	
 
 
@@ -31,13 +31,13 @@ namespace uiNS {
 		control->setUserInterface(this);
 		using namespace textRendererNS;
 
-		printHelperNS::PrintHelper ph1{ "uiInterface",-0.9f,0.95f };
-		printHelperNS::PrintHelper ph2{ "uiInterface",-0.7f,0.95f };
-		printHelperNS::PrintHelper ph3{ "uiInterface",-0.4f,0.95f };
-		printHelperNS::PrintHelper ph4{ "uiInterface", 0.f,0.95f };
-		printHelperNS::PrintHelper ph5{ "uiInterface", 0.3f,0.95f };
-		printHelperNS::PrintHelper ph6{ "uiInterface", 0.6f,0.95f };
-		printHelperNS::PrintHelper ph7{ "uiInterface", 0.9f,0.95f };
+		printHelperNS::PrintHelper ph1{ "uiInterface",NonButtonMap::FILE ,-0.9f,0.95f };
+		printHelperNS::PrintHelper ph2{ "uiInterface",ButtonMap::EDITGAMEMODEBUTTON,-0.7f,0.95f };
+		printHelperNS::PrintHelper ph3{ "uiInterface",ButtonMap::EDITOBJECTMODEBUTTON,-0.4f,0.95f };
+		printHelperNS::PrintHelper ph4{ "uiInterface",NonButtonMap::EDITSOUNDS , 0.f,0.95f };
+		printHelperNS::PrintHelper ph5{ "uiInterface",ButtonMap::CONTROLMODEBUTTON, 0.3f,0.95f };
+		printHelperNS::PrintHelper ph6{ "uiInterface",NonButtonMap::CAMERAVIEW , 0.6f,0.95f };
+		printHelperNS::PrintHelper ph7{ "uiInterface",NonButtonMap::QUITBUTTON , 0.95f,0.95f };
 
 
 		phc.printHmap.emplace(NonButtonMap::FILE, ph1);
@@ -48,6 +48,8 @@ namespace uiNS {
 		phc.printHmap.emplace(NonButtonMap::CAMERAVIEW, ph6);
 		phc.printHmap.emplace(NonButtonMap::QUITBUTTON, ph7);
 		
+
+
 		phc.updateRenderer();
 		
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::FILE));
@@ -69,12 +71,14 @@ namespace uiNS {
 		UserInterface::paused = true;
 		//UserInterface::deleteAllButtons();
 
-		UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
+		start->mainMenu(Application::window, 0, 1, 0);
+		start->setControls();
+	/*	UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
 		
 		UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
 		StartButton::cursorButtonCallBack(Application::window, 0, 1, 0);
 
-		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
+		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);*/
 
 
 	}
@@ -146,6 +150,7 @@ namespace uiNS {
 
 	void UserInterface::highlightButton(ButtonInterface* BI)
 	{
+		if (BI == NULL) return;
 		for (int j = 0; j < phc.size(); j++)
 		{
 			for (int i = 0; i < phc[j].mapIDbutton_button.buttons.size(); i++)
@@ -153,8 +158,10 @@ namespace uiNS {
 				if (phc[j].mapIDbutton_button.buttons[i].isHighligted)
 					phc[j].mapIDbutton_button.buttons[i].turnOff();
 			}
-			BI->Highligt();
+			
 		}
+		
+			BI->Highligt();
 	}
 
 	ButtonInterface* UserInterface::getButtonFromList(const string& bid)
@@ -165,6 +172,7 @@ namespace uiNS {
 				if (phc[j].mapIDbutton_button.buttons[i].getButtonID() == bid)
 					return &phc[j].mapIDbutton_button.buttons[i];
 		}
+		return NULL;
 	}
 
 
@@ -290,8 +298,8 @@ namespace uiNS {
 	/*function that checks if the buttonID passed has been pressed*/
 	bool UserInterface::clicked(const string& bID)
 	{
-		static string buttonID;
-		static unsigned functionCallID;
+		static string buttonID = NonButtonMap::NOBUTTON;
+		static unsigned functionCallID = 0;
 		if (functionCallID != frameID)
 		{
 			functionCallID = frameID;
@@ -317,16 +325,19 @@ namespace uiNS {
 
 			}
 			/*if cursor is outside every button frame assign NOBUTTON*/
-				buttonID = NonButtonMap::NOBUTTON;
-				//phc.click(buttonID, buttonID);
-				return bID == buttonID;
-			
+			buttonID = NonButtonMap::NOBUTTON;
+			//phc.click(buttonID, buttonID);
+			return bID == buttonID;
+
 		}
 		else
 			return bID == buttonID;
-			
+
 
 	}
+
+
+
 
 
 

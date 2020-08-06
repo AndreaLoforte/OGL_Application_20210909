@@ -9,21 +9,9 @@ std::string App::projectDataFileName{ "AppObj" };
 
 printHelperNS::PrintHelper App::ph{ "App" };
 
-
-
 void App::switchPhysics() {}
 
-
-
-void App::endGame()
-{
-	ph.mapNewString("ENDGAME", "GAME OVER");
-	ph.mapNewString("ENDGAME",
-		"PRESS Q TO QUIT OR P TO PLAY AGAIN");
-	
-
-}
-
+void App::endGame(){}
 
 void App::render(double currentTime)
 {
@@ -57,8 +45,6 @@ void App::update(){
 		TimingData::update();
 		globalNS::DURATION = 0.1;// TimingData::get().lastFrameDuration * 0.005f;
 		if (globalNS::DURATION <= 0.0f) return;
-
-		
 
 		for (int i = 0; i < objectManager.ApplicationCollectorList.size(); i++)
 			objectManager.ApplicationCollectorList[i]->OCupdate(globalNS::DURATION);

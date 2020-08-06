@@ -27,9 +27,9 @@ namespace uiNS {
 	const string NonButtonMap::NEWPROJECT = "NEWPROJECT";
 	const string NonButtonMap::EDITSOUNDS = "EDIT SOUNDS";
 	const string NonButtonMap::CAMERAVIEW = "VIEW";
-	const string NonButtonMap::GROUNDCAMERA = "GROUND CAMERA";
-	const string NonButtonMap::FLYINGCAMERA = "FLYING CAMERA";
-	const string NonButtonMap::PANORAMICCAMERA = "PANORAMIC CAMERA";
+	const string NonButtonMap::GROUNDCAMERA = fpcameraNS::GROUNDCAMERA;
+	const string NonButtonMap::FLYINGCAMERA = fpcameraNS::FLYINGCAMERA;
+	const string NonButtonMap::PANORAMICCAMERA = fpcameraNS::PANORAMICCAMERA;
 	const string NonButtonMap::QUITBUTTON = "x";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";

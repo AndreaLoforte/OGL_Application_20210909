@@ -17,10 +17,10 @@ namespace fpcameraNS {
 		static std::string projectDataFileName;
 		static printHelperNS::PrintHelper ph;
 	public:
-		CameraManager(std::string projectdatafilename) {
+		CameraManager(std::string projectdatafilename) 
+		{
 			projectDataFileName = projectdatafilename;
-
-
+			cameraSavingsDirectory = logNS::Logger::STOREDDATADIR + "cameraSavings/";
 		}
 
 		static  const Transformation& getActiveCamera() { return *cameraList[activeCamIndex]; }
@@ -62,6 +62,11 @@ namespace fpcameraNS {
 		static void changeCameraMovementSpeed(int i)
 		{
 			cameraList[activeCamIndex]->changeTranslationSpeed(i);
+		}
+
+		static string getActiveCameraType()
+		{
+			return cameraList[activeCamIndex]->getCameraType();
 		}
 
 	};

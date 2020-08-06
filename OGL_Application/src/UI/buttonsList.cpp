@@ -3,11 +3,6 @@
 namespace textRendererNS {
 
 
-	//void ButtonsList::setButtonFrame(const textButton& buttonFrame)
-	//{
-	//	textButtonsMap.push_back(buttonFrame);
-	//}
-
 
 	string ButtonsList::find(string id)
 	{
@@ -26,29 +21,6 @@ namespace textRendererNS {
 		return list_it;
 	}
 
-	/*aggiunge una nuova coppia di stringhe alla mappa se non trova la chiave
-	altrimenti aggiorna il contenuto trovato alla chiave specificata*/
-	void ButtonsList::mapString(string key, string content)
-	{
-		//buttonsListIter it = getIteratorOf(key);
-		//if (it == buttons.end())
-		//{
-		//	/*LINESPACING = 0.1 * text_scale;
-		//	ypos -= LINESPACING;*/
-		//	uiNS::ButtonInterface b({ key, content, xpos, ypos,text_scale });
-		//	buttons.push_back(b);
-		//	text_tot_size += content.length();
-		//	++buttonslistSize;
-		//	ypos = b.button.y_min;
-		//}
-
-		//else
-		//{
-		//	it->button.buttonName = content;
-		//	text_tot_size -= it->button.buttonName.length();
-		//	text_tot_size += content.length();
-		//}
-	}
 
 
 	/*aggiunge una nuova coppia di stringhe alla mappa se non trova la chiave
@@ -66,8 +38,8 @@ namespace textRendererNS {
 			uiNS::Button* b= new uiNS::Button(
 				{ stringID, stringcontent, xpos,ypos,static_cast<unsigned>(buttonslistSize), scale });
 			buttons.push_back(*b);
-			buttons.back().button.parentNodes.clear();
-			buttons.back().button.parentNodes.push_back(branchID);
+			
+			buttons.back().button.parentNode = branchID;
 			++buttonslistSize;
 			text_tot_size += stringcontent.length();
 			ypos = b->y_min;
@@ -78,7 +50,8 @@ namespace textRendererNS {
 		else
 		{
 			it->button.buttonName = stringcontent;
-			it->button.parentNodes.push_back(branchID);
+			
+			it->button.parentNode = branchID;
 			text_tot_size -= it->button.buttonName.length();
 			text_tot_size += stringcontent.length();
 			return &(*it);
@@ -87,26 +60,22 @@ namespace textRendererNS {
 	}
 
 
-
-
-	/*aggiunge una nuova coppia di stringhe alla mappa se non trova la chiave
-	altrimenti concatena il contenuto trovato alla chiave specificata*/
-	void ButtonsList::concatenate(string key, string content)
+	void ButtonsList::substituteButton(const unsigned& lvl, const string buttonString)
 	{
-		/*buttonsListIter it = getIteratorOf(key);
-		if (it == map.end())
-		{
-			ypos -= LINESPACING;
-			map.push_back({ key, content,xpos,ypos });
-			++mapSize;
-		}
+		/*fetching iterator of button A*/
+		list_it = getIteratorOf(buttonString);
+		/*saving button b*/
+		ButtonInterface b = buttons[lvl];
+		/*overwriting button b*/
+		buttons[lvl] = *(list_it);
+		/*restoring button b in place of button A*/
+		//buttons[lvl] = b;
+		*list_it = b;
 
-		else
-		{
-			it->buttonName += content;
-			
-		}*/
+		
+
 	}
+
 
 	void ButtonsList::erase(string id)
 	{
@@ -136,11 +105,6 @@ namespace textRendererNS {
 		è rotto*/
 		return buttons.end();
 	}
-
-	/*void textMap::insert(std::string key, std::string value)
-	{
-		map.push_back(myPair<string, string>{key, value});
-	}*/
 
 
 

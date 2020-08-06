@@ -43,7 +43,10 @@ namespace myobjectNS {
 
 	void Grid::setParameters() {
 
-		body->transformMatrix = conversionLibNS::conversionLibrary::mat44Conversion_toMat43Cyclone(AOTrMatrix);
+		setRigidBodyParameters();
+	
+		body->getGLTransform(AOTrMatrix);
+		//body->transformMatrix = conversionLibNS::conversionLibrary::mat44Conversion_toMat43Cyclone(AOTrMatrix);
 		/*aggiorno la matrice di collisionFinitePlane*/
 		calculateInternals();
 
@@ -78,8 +81,7 @@ namespace myobjectNS {
 		offset[2] = traslaz[2] * planeNormal[2];
 		offsetNorm = offset[0] + offset[1] + offset[2];
 
-		setRigidBodyParameters();
-
+		
 
 
 	}
@@ -102,9 +104,9 @@ namespace myobjectNS {
 
 		body->setMass(10000000000000.0);
 
-		body->setPosition(AOposition[0], AOposition[0], AOposition[0]);
+		body->setPosition(AOposition[0], AOposition[1], AOposition[2]);
 		body->setOrientation(AOorientation[0], AOorientation[1], AOorientation[2], AOorientation[3]);
-
+		body->_calculateTransformMatrix(body->transformMatrix, body->position, body->orientation);
 
 	}
 

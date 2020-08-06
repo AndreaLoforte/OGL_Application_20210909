@@ -22,23 +22,22 @@ namespace uiNS
 	void EditObjectModeButton::action()
 	{
 		UserInterface::setFlags(false, false, false);
-		
-		/*UserInterface::showButton(NonButtonMap::SELECTOBJECT, NonButtonMap::SELECTOBJECT);
-		UserInterface::showButton(NonButtonMap::SELECTCLUSTER, NonButtonMap::SELECTCLUSTER);
-		UserInterface::showButton(NonButtonMap::CLUSTERLIST, NonButtonMap::CLUSTERLIST);
-		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);*/
-		UserInterface::bfl.setMouseButtonCallback(ccursorButtonCallBack_clusters);
+		UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack_clusters);
 
 	}
 
 
-	void EditObjectModeButton::ccursorButtonCallBack_clusters(GLFWwindow* w, int button, int action, int mode)
+	void EditObjectModeButton::showObjectsList()
 	{
+		UserInterface::printExistingObjects(ButtonMap::EDITOBJECTMODEBUTTON);
+		UserInterface::bfl.setMouseButtonCallback(EditObjectModeButton::selectObject);
+		UserInterface::bfl.setMouseCursorCallback(EditObjectModeButton::cursorPositionCallBack);
+		//selectObject();
+	}
 
-		/*UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::SELECTOBJECT);
-		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::SELECTCLUSTER);
-		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::CLUSTERLIST);*/
 
+	void EditObjectModeButton::cursorButtonCallBack_clusters(GLFWwindow* w, int button, int action, int mode)
+	{
 
 		if (action == GLFW_RELEASE) return;
 			/*3 case : 
@@ -46,12 +45,11 @@ namespace uiNS
 			2) do click a NonButton
 			3) do click a Button*/
 			std::string buttonID{ UserInterface::cursorVStext() };
-			//if (buttonID == NonButtonMap::NOBUTTON) return;
 			if (UserInterface::clicked(NonButtonMap::SELECTOBJECT))
 			{
 				//UserInterface::clickButton(buttonID);
 				UserInterface::bfl.setMouseButtonCallback(selectObject);
-				UserInterface::printExistingObjects(ButtonMap::EDITOBJECTMODEBUTTON);
+				
 				
 			}
 
@@ -63,12 +61,8 @@ namespace uiNS
 
 
 			if (buttonID == NonButtonMap::SELECTCLUSTER)
-			{
-				
+			{				
 				UserInterface::clickButton(buttonID);
-				/*UserInterface::showButton(NonButtonMap::SELECTCLUSTER+"_", "SELECT CLUSTER ELEMENTS");
-				UserInterface::printExistingObjects();
-				UserInterface::showButton(NonButtonMap::EDITCLUSTER, NonButtonMap::EDITCLUSTER);*/
 				UserInterface::bfl.setMouseButtonCallback(insertInCluster);
 				return;
 			}
@@ -77,38 +71,6 @@ namespace uiNS
 	}
 
 
-
-	void EditObjectModeButton::selectObject()
-	{
-		
-		string buttonID{ UserInterface::cursorVStext() };
-
-		//ButtonInterface* b = ButtonMap::getButtonByID({ buttonID });
-		/*if it is not a button means that user chose an object*/
-
-			/*check if the buttonID is an objectID we can set as editable object*/
-		if (myobjectNS::ApplicationObjectManager::setEditableObject(buttonID))
-		{
-			UserInterface::phc.hideDropDownMenu();
-			UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, buttonID, "Editing Object " + buttonID);
-			UserInterface::phc.showDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,
-				{ NonButtonMap::ADJUSTSIZE,NonButtonMap::ADJUSTCOLOR,NonButtonMap::OBJECTPOSITION,NonButtonMap::OBJECTSWITCH });
-
-			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallback_editObject);
-			//editObject(Application::window, 0, 1, 0);
-			
-			return;
-		}
-
-		else
-		{
-			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
-			UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
-			StartButton::cursorButtonCallBack(Application::window, 1, 1, 0);
-		}
-
-		
-	}
 
 
 
@@ -151,7 +113,7 @@ namespace uiNS
 		UserInterface::highlightButton(b);
 
 
-	
+
 
 	}
 
@@ -159,12 +121,54 @@ namespace uiNS
 
 
 
+	void EditObjectModeButton::selectObject(GLFWwindow* window, int button,int action,int mods)
+	{
+
+		if (action == GLFW_RELEASE) return;
+		string buttonID{ UserInterface::cursorVStext() };
+		/*if it is not a button means that user chose an object*/
+
+			/*check if the buttonID is an objectID we can set as editable object*/
+		
+
+		if(UserInterface::clicked(NonButtonMap::NOBUTTON))
+		{
+			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
+			UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
+			StartButton::cursorButtonCallBack(Application::window, 0, 0, 0);
+		}
+
+		if (myobjectNS::ApplicationObjectManager::setEditableObject(buttonID))
+		{
+			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallback_editObject);
+			//cursorButtonCallback_editObject(Application::window, 0, 0, 0);
+			UserInterface::phc.showDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,
+				{ "Editing Object " + myobjectNS::ApplicationObjectManager::getEditableObjectName(),
+				NonButtonMap::ADJUSTSIZE,NonButtonMap::ADJUSTCOLOR,
+				NonButtonMap::OBJECTPOSITION,NonButtonMap::OBJECTSWITCH,
+				ButtonMap::BACKBUTTON });
+
+		}
+
+		
+	}
+
+
+	
+
+
+
 	void EditObjectModeButton::cursorButtonCallback_editObject(GLFWwindow* w, int button, int action, int mods)
 	{
+		UserInterface::typer.reset();
+		UserInterface::phc.showDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,
+			{ "Editing Object " + myobjectNS::ApplicationObjectManager::getEditableObjectName(),
+			NonButtonMap::ADJUSTSIZE,NonButtonMap::ADJUSTCOLOR,
+			NonButtonMap::OBJECTPOSITION,NonButtonMap::OBJECTSWITCH,
+			ButtonMap::BACKBUTTON });
 		
-		//UserInterface::deleteNonButtonsByBranch(NonButtonMap::OBJECTPOSITION);
-
-		//std::string buttonID{ UserInterface::cursorVStext() };
+		if (action == GLFW_RELEASE) return;
+		
 
 		if (UserInterface::clicked(NonButtonMap::ADJUSTSIZE))
 		{
@@ -192,15 +196,18 @@ namespace uiNS
 
 		if (UserInterface::clicked(NonButtonMap::OBJECTPOSITION))
 		{
-			UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,5);
-			UserInterface::bfl.setKeyCallback(key_callbackMove);
-			//UserInterface::bfl.setMouseButtonCallback(cursor_callbackMoveObject);
-			key_callbackMove(Application::window, 0, 0, 1, 0);
+			editPosition();
+			
 			return;
 		}
 
+		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		{
+			showObjectsList();
+		}
 
-		if (UserInterface::clicked(NonButtonMap::TYPEPOSITION))
+
+	/*	if (UserInterface::clicked(NonButtonMap::TYPEPOSITION))
 		{
 			typeRotation = false;
 			typePosition = true;
@@ -221,7 +228,7 @@ namespace uiNS
 			typeRotation = false;
 			key_callbackMove(Application::window, 0, 0, 1, 0);
 			return;
-		}
+		}*/
 
 
 		//UserInterface::enableBack(buttonID);

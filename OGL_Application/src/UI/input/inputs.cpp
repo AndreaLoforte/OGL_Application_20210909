@@ -151,148 +151,33 @@ namespace InputsNS{
 
 std::string TYPINGID = "TYPING";
 
-//funzione utile all'inserimento di un numero intero di al massimo 4 cifre
-int Typer::typing(int key, int action) {
-
-	
-	static int iterationIndex = 0;
-	
-
-	if (key == GLFW_KEY_BACKSPACE)
-	{
-		/*objNumberChoosed.clear();
-		iterationIndex = 0;
-		return -1;*/
-	}
-
-
-	if (
-		(key == GLFW_KEY_0 ||
-			key == GLFW_KEY_1 ||
-			key == GLFW_KEY_2 ||
-			key == GLFW_KEY_3 ||
-			key == GLFW_KEY_4 ||
-			key == GLFW_KEY_5 ||
-			key == GLFW_KEY_6 ||
-			key == GLFW_KEY_7 ||
-			key == GLFW_KEY_8 ||
-			key == GLFW_KEY_9))
-	{
-		if (action != GLFW_RELEASE)
-		{
-			objNumberChoosed.push_back(glfw_KeyConversion[key]);
-			total_string += std::to_string(objNumberChoosed[iterationIndex++]);
-		}
-		return -2;
-	}
-
-	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 1)
-	{
-
-		int result = objectIndex[0][0][0][objNumberChoosed[0]];
-		iterationIndex = 0;
-		objNumberChoosed.clear();
-		return result;
-	}
-	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 2)
-	{
-		int result = objectIndex[0][0][objNumberChoosed[0]][objNumberChoosed[1]];
-		iterationIndex = 0;
-		objNumberChoosed.clear();
-		return result;
-	}
-	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 3)
-	{
-		int result = objectIndex[0][objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]];
-		iterationIndex = 0;
-		objNumberChoosed.clear();
-		return result;
-	}
-	if (key == GLFW_KEY_ENTER && objNumberChoosed.size() == 4)
-	{
-		int result = objectIndex[objNumberChoosed[0]][objNumberChoosed[1]][objNumberChoosed[2]][objNumberChoosed[3]];
-		iterationIndex = 0;
-		objNumberChoosed.clear();
-		return result;
-	}
-
-
-	return -100;
-
-}
 
 
 
+vector<bool>  Typer::insertionSelector;
+vector<bool>  Typer::totalInsertion;
+vector<float> Typer::insertedNumbers;
+unsigned      Typer::insertionIndex = 0;
+int Typer::iterationIndex = 0;
 
-
-
-
-
-bool Typer::NInsertion(int key, int action, int numberToInsert, vector<float>& vec)
+void  Typer::initNInsertion(int numbersToEnter)
 {
-	static vector<bool> insertionSelector(numberToInsert, false);
-	static vector<bool> totalInsertion(numberToInsert, false);
-	static vector<float> insertedNumbers(numberToInsert, -1);
-	static unsigned insertionIndex = 0;
-	insertionSelector[insertionIndex] = true;
-
-	
-	if (insertionSelector[insertionIndex] && insertionIndex < numberToInsert)
+	for (int i = 0; i < numbersToEnter; i++)
 	{
-		//UserInterface::mapButtonOnParentBranch("NINSERTION", "enter component " + to_string(insertionIndex + 1));
-
-		insertedNumbers[insertionIndex] = typing(key, action);
-
-		/*typing returns always < 0 until the i-th insertion has been completed*/
-		if (insertedNumbers[insertionIndex] < 0) return false;
-		else
-		{
-			/*put space between entered numbers*/
-			total_string += " ";
-			insertionSelector[insertionIndex] = false;
-			totalInsertion[insertionIndex] = true;
-			if (insertionIndex < numberToInsert - 1)
-				insertionSelector[++insertionIndex] = true;
-		}
-		//UserInterface::mapButtonOnParentBranch("NINSERTION", "enter component " + to_string(insertionIndex + 1));
+		insertionSelector.push_back(false);
+		totalInser-tion.push_back(false);
+		insertedNumbers.push_back(-1);
 	}
-
-	bool insertionCompleted = true;
-	for (int i = 0; i < totalInsertion.size(); i++)
-		insertionCompleted &= totalInsertion[i];
-
-	if (insertionCompleted)
-	{
-		vec = insertedNumbers;
-		insertedNumbers = vector<float>(numberToInsert, -1);
-		insertionSelector = vector<bool>(numberToInsert, false);
-		totalInsertion = vector<bool>(numberToInsert, false);
-		insertionIndex = 0;
-
-		/*once all the numbers have been inserted we can clear n*/
-		total_string.clear();
-		
-	}
-
-	return insertionCompleted;
-
-
 }
-
-
-
-
-
 
 
 /*this second version of NInsertion returns the partial number entered by the user
 instead of returning a bool. While Completion is specified by the boolean member attribute "completed" */
 string Typer::NInsertion2(int key, int action, int numberToInsert, vector<float>& vec)
 {
-	static vector<bool> insertionSelector(numberToInsert, false);
-	static vector<bool> totalInsertion(numberToInsert, false);
-	static vector<float> insertedNumbers(numberToInsert, -1);
-	static unsigned insertionIndex = 0;
+	if (insertionIndex == 0)
+		initNInsertion(numberToInsert);
+
 	insertionSelector[insertionIndex] = true;
 
 
@@ -357,7 +242,7 @@ string Typer::NInsertion2(int key, int action, int numberToInsert, vector<float>
 int Typer::typing2(int key, int action) {
 
 
-	static int iterationIndex = 0;
+	
 
 
 	if (key == GLFW_KEY_BACKSPACE)
@@ -433,7 +318,6 @@ int Typer::typing2(int key, int action) {
 string TextTyper::stringInsertion(int key, int action) {
 
 	if (action == GLFW_RELEASE) return "";
-	static string s;
 	completed_total = false;
 
 	if (key == GLFW_KEY_BACKSPACE)
@@ -446,88 +330,88 @@ string TextTyper::stringInsertion(int key, int action) {
 	switch (key)
 	{
 		case GLFW_KEY_A:
-			s.append("a");
+			temp.append("a");
 			break;
 		case GLFW_KEY_B:
-			s.append("b");
+			temp.append("b");
 			break;
 		case GLFW_KEY_C:
-			s.append("c");
+			temp.append("c");
 			break;
 		case GLFW_KEY_D:
-			s.append("d");
+			temp.append("d");
 			break;
 		case GLFW_KEY_E:
-			s.append("e");
+			temp.append("e");
 			break;
 		case GLFW_KEY_F:
-			s.append("f");
+			temp.append("f");
 			break;
 		case GLFW_KEY_G:
-			s.append("g");
+			temp.append("g");
 			break;
 		case GLFW_KEY_H:
-			s.append("h");
+			temp.append("h");
 			break;
 		case GLFW_KEY_I:
-			s.append("i");
+			temp.append("i");
 			break;
 		case GLFW_KEY_J:
-			s.append("j");
+			temp.append("j");
 			break;
 		case GLFW_KEY_K:
-			s.append("k");
+			temp.append("k");
 			break;
 		case GLFW_KEY_L:
-			s.append("l");
+			temp.append("l");
 			break;
 		case GLFW_KEY_M:
-			s.append("m");
+			temp.append("m");
 			break;
 		case GLFW_KEY_N:
-			s.append("n");
+			temp.append("n");
 			break;
 		case GLFW_KEY_O:
-			s.append("o");
+			temp.append("o");
 			break;
 		case GLFW_KEY_P:
-			s.append("p");
+			temp.append("p");
 			break;
 		case GLFW_KEY_Q:
-			s.append("q");
+			temp.append("q");
 			break;
 		case GLFW_KEY_R:
-			s.append("r");
+			temp.append("r");
 			break;
 		case GLFW_KEY_S:
-			s.append("s");
+			temp.append("s");
 			break;
 		case GLFW_KEY_T:
-			s.append("t");
+			temp.append("t");
 			break;
 		case GLFW_KEY_U:
-			s.append("u");
+			temp.append("u");
 			break;
 		case GLFW_KEY_V:
-			s.append("v");
+			temp.append("v");
 			break;
 		case GLFW_KEY_W:
-			s.append("w");
+			temp.append("w");
 			break;
 		case GLFW_KEY_X:
-			s.append("x");
+			temp.append("x");
 			break;
 		case GLFW_KEY_Y:
-			s.append("y");
+			temp.append("y");
 			break;
 		case GLFW_KEY_Z:
-			s.append("z");
+			temp.append("z");
 			break;
 		case GLFW_KEY_ENTER:
 		{
 			completed_total = true;
-			text = s;
-			s.clear();
+			text = temp;
+			temp.clear();
 			return text;
 		}
 			
@@ -535,7 +419,7 @@ string TextTyper::stringInsertion(int key, int action) {
 	}
 	
 	
-	return s;
+	return temp;
 
 }
 

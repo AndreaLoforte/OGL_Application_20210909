@@ -25,7 +25,8 @@ namespace uiNS {
 		float x_max = 0.0;
 		float textScale = 0.3;
 		float height = 0.1;
-		vector<string> parentNodes;
+		//vector<string> parentNodes;
+		string parentNode;
 	};
 
 
@@ -102,6 +103,7 @@ namespace uiNS {
 		StartButton() { button.buttonID = buttonID; }
 		//StartButton() :ButtonInterface({ ButtonMap::STARTINGBUTTON }) {}
 		void action() override;
+		static void  mainMenu(GLFWwindow* w, int button, int action, int mode);
 		static void resetCallbackFunc();
 		static void createObject();
 		static void deleteObject();
@@ -112,6 +114,8 @@ namespace uiNS {
 		static void cursorPositionCallBack(GLFWwindow* w, double x, double y);
 		static	void cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode);
 		const std::string& getButtonID() override { return button.buttonID; }
+		static void setControls();
+		static void cursorCallbackNewProject(GLFWwindow* w, double x, double y);
 	};
 
 

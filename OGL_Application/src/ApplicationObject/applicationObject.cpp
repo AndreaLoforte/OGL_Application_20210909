@@ -1,6 +1,5 @@
 #include <applicationObject.h>
 #include<vmath.h>
-#include<text.h>
 #include<fstream>
 #include<app.h>
 #include<vmath.h>

@@ -518,9 +518,6 @@
     <ClCompile Include="OGL_Application\src\UI\buttonsList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\buttonStart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\printHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -583,6 +580,12 @@
     </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\textRenderer.cpp">
       <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart2.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

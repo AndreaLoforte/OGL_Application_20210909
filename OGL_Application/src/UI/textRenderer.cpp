@@ -167,6 +167,7 @@ namespace textRendererNS {
 			}
 		}
 		glDisableVertexArrayAttrib(ph.VAO, vertex_loc);
+		
 	}
 
 	void TextRenderer::printMatrix44(std::string& out, vmath::mat4& matrix, std::string matrixName) {

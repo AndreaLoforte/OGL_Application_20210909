@@ -3,9 +3,11 @@
 #include<buttonsList.h>
 namespace printHelperNS {
 
+	
+
 	void PrintHelper::mapNewString(std::string id, std::string s)
 	{
-		mapIDbutton_button.mapString(id, s);
+		mapIDbutton_button.mapStringOnBranch(id, s, s, 0);
 	}
 
 	void PrintHelper::mapButtonOnBranch(std::string branchID, std::string id, std::string s)
@@ -19,15 +21,16 @@ namespace printHelperNS {
 	}
 
 
-	void PrintHelper::concatenate(std::string id, std::string s)
-	{
-		mapIDbutton_button.concatenate(id, s);
-	}
-
-	void PrintHelper::eraseFromMap(std::string key)
+	void PrintHelper::eraseButtonByID(std::string key)
 	{
 		mapIDbutton_button.erase(key);
 	}
+
+	void PrintHelper::substituteButton(const unsigned& lvl, const string buttonString)
+	{
+		mapIDbutton_button.substituteButton(lvl, buttonString);
+	}
+
 
 	void PrintHelper::eraseByBranch(std::string branchID, const unsigned& stopAtLevel)
 	{
@@ -40,8 +43,8 @@ namespace printHelperNS {
 		{
 			childDeleted = false;
 
-			for (int j = 0;!childDeleted && j < mapIDbutton_button.buttons[i].button.parentNodes.size(); j++)
-				if (mapIDbutton_button.buttons[i].button.parentNodes[j] == branchID && mapIDbutton_button.buttons[i].button.buttonLevel >= stopAtLevel)
+			//for (int j = 0;!childDeleted && j < mapIDbutton_button.buttons[i].button.parentNodes.size(); j++)
+				if (mapIDbutton_button.buttons[i].button.parentNode == branchID && mapIDbutton_button.buttons[i].button.buttonLevel >= stopAtLevel)
 				{
 					/*deleting always using the key */
 					mapIDbutton_button.erase(mapIDbutton_button.buttons[i].button.buttonID);
@@ -92,7 +95,8 @@ namespace printHelperNS {
 	{
 		VBO = new GLuint;
 		VBO_size = 1;
-		glGenBuffers(VBO_size, &VBO[0]);
+		/*do not use glGenBuffer*/
+		glCreateBuffers(VBO_size, VBO);
 		initBuffer();
 		glGenVertexArrays(1, &VAO);
 		instanceVBBI = classVBBI;
@@ -108,5 +112,10 @@ namespace printHelperNS {
 			glNamedBufferStorage(VBO[i], sizeof(vertices), vertices, GL_DYNAMIC_STORAGE_BIT);
 		}
 	}
+
+
+
+
+	
 
 }

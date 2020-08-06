@@ -78,6 +78,29 @@ namespace printHelperNS {
 		}
 
 
+		void PrintHelperCollector::substituteButton(const string& phID, const string& buttonID, const string& text, const unsigned& buttonLevel)
+		{
+
+			it = printHmap.find(phID);
+			if (it == printHmap.end())
+			{
+				static PrintHelper p{ "WARNINGPRINT",-0.4,-0.8,0.0 };
+				textRendererNS::TextRenderer::printList.push_back(&p);
+				p.mapButtonOnBranch("WARNINGPRINT",
+					"printHelperCollector.cpp : PRINTING ERROR",
+					"printHelperCollector.cpp : some text could not be substitue correctly");
+				return;
+			}
+
+			it->second.substituteButton(buttonLevel, text);
+			/*if (buttonLevel == 0)
+				activePHbutton.second = text;*/
+			
+
+		}
+
+
+
 		void PrintHelperCollector::showDropDownMenu(const string& phID, const vector<string>& buttonsList, const float& scale)
 		{
 			hideDropDownMenu();
@@ -93,13 +116,38 @@ namespace printHelperNS {
 		}
 
 
+		/*this method should be called only if the printhelper has been initialized already*/
+		void PrintHelperCollector::showDropDownMenu(const string& phID)		{
+			hideDropDownMenu();
+
+			PrintHelper& p = printHmap.at(phID);
+
+			for (int i = 0; i < p.mapIDbutton_button.text_tot_size; i++)
+				p.mapButtonOnBranch(
+					phID,
+					p.mapIDbutton_button.buttons[i].button.buttonName,
+					p.mapIDbutton_button.buttons[i].button.buttonName, 1, 0.3);
+
+		}
+
+
+
+		/*hides buttons from the last to the buttonLevel*/
 		void PrintHelperCollector::hideDropDownMenu(const string& phID, const unsigned& buttonLevel)
 		{
 			it = printHmap.find(phID);
 			if (it != printHmap.end())
 				it->second.eraseByBranch(phID, buttonLevel);
 	
+		}
 
+
+		PrintHelper* PrintHelperCollector::getActivePrintHelper()
+		{
+			it = printHmap.find(activePHbutton.first);
+			if (it != printHmap.end())
+				&it->second;
+			else return NULL;
 		}
 
 
@@ -108,7 +156,10 @@ namespace printHelperNS {
 
 			it = printHmap.find(activePHbutton.first);
 			if (it != printHmap.end())
-				it->second.eraseByBranch(activePHbutton.second, 1);
+			{
+				it->second.eraseByBranch(activePHbutton.first, 1);
+			}
+				
 
 		}
 

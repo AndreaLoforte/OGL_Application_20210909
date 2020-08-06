@@ -14,7 +14,7 @@ namespace fpcameraNS {
 
 	void CameraManager::save() 
 	{
-		cameraSavingsDirectory = logNS::Logger::STOREDDATADIR+"cameraSavings/";
+		//cameraSavingsDirectory = logNS::Logger::STOREDDATADIR+"cameraSavings/";
 		std::ofstream out(cameraSavingsDirectory + cameraSavingsFilename);
 		for (int i = 0; i < cameraList.size(); i++)
 			cameraList[i]->save(out);
@@ -51,23 +51,26 @@ namespace fpcameraNS {
 
 	void CameraManager::load(const std::string& projectFilename) {
 
+		cameraSavingsFilename = projectFilename + "Camera";
+
 		auto lambda_autoInit = [&]()
 		{
-			ph.mapNewString("CAMERALOADWARNING", "there are no camera savings : default camera loaded");
 			cameraList.push_back(new GroundCamera());
 			cameraList.push_back(new FlyingCamera());
 			cameraList.push_back(new PanoramicCamera());
 		};
 
 		
-		cameraSavingsFilename = projectFilename + "Camera";
-		std::string dir(logNS::Logger::STOREDDATADIR + cameraSavingsFilename);
+	
+		std::string dir(cameraSavingsDirectory + cameraSavingsFilename);
 		std::ifstream in(dir);
 		saveloadNS::CameraSavings fh(in);
 
 
 		if (!fh.FileIsEmpty)
 		{
+			cameraList.clear();
+
 			vector<saveloadNS::CameraDataStructure>* loadedCameras =
 				fh.getCameras();
 
@@ -105,13 +108,10 @@ namespace fpcameraNS {
 
 		}
 		else
+		{
 			lambda_autoInit();
-
-
-
-		CameraManager::ph.eraseFromMap("CAMERALOADWARNING");
-		CameraManager::ph.mapNewString("CAMERAID", getActiveCamera().cameraID);
-
+		}
+			
 	}
 
 

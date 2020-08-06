@@ -268,7 +268,7 @@ namespace aiNS {
 				if(!obj->damage())
 				{
 					ApplicationObjectManager::kill(obj->collectorID);
-					ph.eraseFromMap(obj->collectorID);
+					ph.eraseButtonByID(obj->collectorID);
 					return;
 				}
 

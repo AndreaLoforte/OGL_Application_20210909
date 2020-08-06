@@ -87,8 +87,13 @@ namespace InputsNS{
 	class TextTyper {
 	public:
 		string text;
+		string temp;
 		bool completed_total = false;
 		string stringInsertion(int, int);
+		void reset() { 
+			text.clear(); 
+			temp.clear();
+			completed_total = false; }
 
 	};
 
@@ -100,6 +105,12 @@ namespace InputsNS{
 		static std::vector<int> objNumberChoosed;
 		int objectIndex[L][M][N][O];
 		static std::map<int, int> glfw_KeyConversion;
+
+		static vector<bool> insertionSelector;
+		static vector<bool> totalInsertion;
+		static vector<float> insertedNumbers;
+		static unsigned insertionIndex;
+		static int iterationIndex ;
 		
 	public:
 		TextTyper textTyper;
@@ -115,11 +126,27 @@ namespace InputsNS{
 			initObjectIndex();
 		}
 		void initObjectIndex();
-		int typing(int, int activity);
-		bool NInsertion(int key, int action, int numberToInsert, vector<float>& vec);
+		//int typing(int, int activity);
+		//bool NInsertion(int key, int action, int numberToInsert, vector<float>& vec);
 		std::string NInsertion2(int key, int action, int numberToInsert, vector<float>& vec);
 		int typing2(int key, int action);
-		//string stringInsertion(int, int);
+		void initNInsertion(int numbersToEnter);
+		void reset()
+		{
+			completed_partial = false;
+			completed_total = true;
+			partial_string.clear();
+			total_string.clear();
+			return_string.clear();
+			vec.clear();
+			objNumberChoosed.clear();
+
+			insertionSelector.clear();
+			totalInsertion.clear();
+			insertedNumbers.clear();
+			insertionIndex = 0;
+			iterationIndex = 0;
+		}
 		
 	};
 

@@ -36,9 +36,6 @@ namespace textRendererNS {
 			
 		}
 
-		/*aggiunge una nuova coppia di stringhe alla mappa se non trova la chiave
-		altrimenti aggiorna il contenuto trovato alla chiave specificata*/
-		void mapString(string key, string content);
 		//void mapStringOnBranch(string branchID, string key, string content);
 		uiNS::ButtonInterface* mapStringOnBranch(string branchID, string key, string content, unsigned buttonLevel, float scale = 0.3);
 		void resetPosition()
@@ -47,21 +44,13 @@ namespace textRendererNS {
 			ypos = y_beg_pos;
 		}
 
-		/*aggiunge una nuova coppia di stringhe alla mappa se non trova la chiave
-		altrimenti concatena il contenuto trovato alla chiave specificata*/
-		void concatenate(string key, string content);
-
 		void erase(string id);
 		void eraseByIterator(const buttonsListIter it);
-
+		void substituteButton(const unsigned& lvl, const string buttonString);
 		void eraseByIterator(const buttonsListIter beg, const buttonsListIter end);
 		buttonsListIter begin();
 		buttonsListIter end();
 
-		//void insert(std::string key, std::string value);
-
-		/*for each string printed map the relative frame*/
-		//void setButtonFrame(const textButton& frameDelimiter);
 	};
 
 

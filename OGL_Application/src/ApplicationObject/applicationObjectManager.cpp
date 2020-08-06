@@ -126,17 +126,13 @@ void ApplicationObjectManager::prevObject() {
 bool ApplicationObjectManager::setEditableObject(const string& s)
 {
 	std::map< std::string, int>::iterator it = collectorIDMap.find(s);
-	if (it != collectorIDMap.end())
+	if (it == collectorIDMap.end()) return false;
+	else
 	{
-		/*editableObjIndex = it->second;
-		UserInterface::ph.mapButtonOnBranch
-		(UserInterface::buttonFlow.back()->getButtonID(),
-			"SELECTEDOBJECT",
-			ApplicationCollectorList.at(editableObjIndex)->getCollectorID() + " selected");*/
+		editableObjIndex = it->second;
+
 		return true;
 	}
-
-	return false;
 
 }
 
@@ -266,12 +262,8 @@ bool ApplicationObjectManager::createNewObject(const string& s) {
 
 void ApplicationObjectManager::deleteObject(const int i) {
 	
-	ph.mapNewString("EDITMODE",NEWLINE + " object " + ApplicationCollectorList[i]->getCollectorID() + " deleted" + NEWLINE);
 	if (ApplicationCollectorList.size() > i)
 		ApplicationCollectorList.erase(ApplicationCollectorList.begin() + i);
-	else
-		ph.mapNewString("EDITMODE", "object does not exist");
-	
 
 }
 

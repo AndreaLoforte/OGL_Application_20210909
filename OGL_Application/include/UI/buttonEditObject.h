@@ -24,8 +24,10 @@ namespace uiNS
 		}
 		//QuitNoSaveButton() : ButtonInterface({ ButtonMap::QUITNOSAVE }){}
 		void action() override;
+		static void showObjectsList();
+		static void editPosition();
 		const std::string& getButtonID() override { return button.buttonID; }
-		static void ccursorButtonCallBack_clusters(GLFWwindow* w, int button, int action, int mode);
+		static void cursorButtonCallBack_clusters(GLFWwindow* w, int button, int action, int mode);
 		static void insertInCluster(GLFWwindow* w, int button, int action, int mode);
 		static void cursorButtonCallback_editObject(GLFWwindow* w, int button, int action, int mode);
 		static void editObjectMenu(GLFWwindow* w, double x, double y);
@@ -38,11 +40,11 @@ namespace uiNS
 		static void key_callbackClusterColor(GLFWwindow* window, int key, int scancode, int action, int mods);
 		static void key_callbackMoveCluster(GLFWwindow* window, int key, int scancode, int action, int mods);
 		static void key_callbackMove(GLFWwindow* window, int key, int scancode, int action, int mods);
-		static void cursor_callbackMoveObject(GLFWwindow* w, int button, int action, int mode);
+		static void cursorButtoncallbackMoveObject(GLFWwindow* w, int button, int action, int mode);
 		static void editCluster(GLFWwindow* w, int button, int action, int mode);
 		static void cursorVSobject();
 		static void key_callbackMoveByInsertion(GLFWwindow* window, int key, int scancode, int action, int mods);
-		static void selectObject();
+		static void selectObject(GLFWwindow*,int,int,int);
 	};
 
 

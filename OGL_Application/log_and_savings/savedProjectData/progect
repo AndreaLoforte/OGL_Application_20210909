@@ -1,0 +1,129 @@
+COLLECTOR_
+enemy
+OCisOnFlag
+0
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+frameOfRef
+OCisOnFlag
+0
+AOobjectName
+frameOfRef
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+--------ENDCOLLECTOR--------
+COLLECTOR_
+grid
+OCisOnFlag
+0
+AOobjectName
+grid
+AOinstanceNumber
+4
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------
+COLLECTOR_
+playercharacter
+OCisOnFlag
+0
+AOobjectName
+playercharacter
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+playercharacter
+OCisOnFlag
+0
+AOobjectName
+playercharacter
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+object1
+OCisOnFlag
+0
+AOobjectName
+object1
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+--------ENDCOLLECTOR--------
+COLLECTOR_
+grid
+OCisOnFlag
+0
+AOobjectName
+grid
+AOinstanceNumber
+6
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------

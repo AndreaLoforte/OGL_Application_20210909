@@ -13,6 +13,7 @@ namespace uiNS {
 	buttonFunctiosLoader::PmouseButton2 buttonFunctiosLoader::fpMbutton2;
 	buttonFunctiosLoader::PkeyCallback2 buttonFunctiosLoader::fpkey2;
 	buttonFunctiosLoader::PCallbackII   buttonFunctiosLoader::fpii;
+	buttonFunctiosLoader::PCallbackII   buttonFunctiosLoader::fpii2;
 
 
 
@@ -70,7 +71,7 @@ namespace uiNS {
 			static_cast<buttonFunctiosLoader*>(glfwGetWindowUserPointer(w))->fp2(w, d1, d2);
 		};
 		glfwSetCursorPosCallback(Application::window, L_cursor_callback);
-		fp2(Application::window, 0, 0);
+		//fp2(Application::window, 0, 0);
 	}
 
 
@@ -83,7 +84,7 @@ namespace uiNS {
 			static_cast<buttonFunctiosLoader*>(glfwGetWindowUserPointer(w))->fpkey1(w, key, scancode, action, mods);
 		};
 		glfwSetKeyCallback(Application::window, L_key_callbackControl);
-		fpkey1(Application::window, 0, 0, 0, 0);
+		//fpkey1(Application::window, 0, 0, 0, 0);
 	}
 
 	void buttonFunctiosLoader::setKeyCallback(PkeyCallback2 f)
@@ -95,17 +96,17 @@ namespace uiNS {
 			static_cast<buttonFunctiosLoader*>(glfwGetWindowUserPointer(w))->fpkey2();
 		};
 		glfwSetKeyCallback(Application::window, L_key_callbackControl);
-		fpkey2();
+		//fpkey2();
 	}
 
 
 	void buttonFunctiosLoader::setKeyCallback(PCallbackII f)
 	{
-		fpii = f;
+		fpii2 = f;
 		auto L_key_callbackControl = [](GLFWwindow* w, int key, int scancode, int action, int mods)
 		{
 			if (action == GLFW_RELEASE) return;
-			static_cast<buttonFunctiosLoader*>(glfwGetWindowUserPointer(w))->fpii(key,action);
+			static_cast<buttonFunctiosLoader*>(glfwGetWindowUserPointer(w))->fpii2(key,action);
 		};
 		glfwSetKeyCallback(Application::window, L_key_callbackControl);
 	}
@@ -151,6 +152,17 @@ namespace uiNS {
 	}
 
 
+	void buttonFunctiosLoader::unsetCursorCallbackFunc() {};
+
+	void buttonFunctiosLoader::unsetCursorCallback()
+	{
+		auto L_cursor_callback = [](GLFWwindow* window, double x, double y)
+		{
+			static_cast<buttonFunctiosLoader*>(glfwGetWindowUserPointer(window))->unsetCursorCallbackFunc();
+		};
+		glfwSetCursorPosCallback(Application::window, L_cursor_callback);
+
+	}
 
 
 }

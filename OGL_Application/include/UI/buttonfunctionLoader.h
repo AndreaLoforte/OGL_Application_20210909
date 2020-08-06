@@ -19,6 +19,7 @@ namespace uiNS {
 		static PkeyCallback1 fpkey1;
 		static PkeyCallback2 fpkey2;
 		static PCallbackII   fpii;
+		static PCallbackII   fpii2;
 		static PmouseScroll1 fpscroll1;
 
 
@@ -32,9 +33,11 @@ namespace uiNS {
 		void setMouseScrollCallback(PmouseScroll1);
 		void setCursorCallback(PmouseButton2);
 		void unsetKeyCallback();
+		void unsetCursorCallback();
 
 
 		static void  unsetKeyCallbackFunc();
+		static void unsetCursorCallbackFunc();
 
 	};
 
