@@ -163,11 +163,26 @@ namespace uiNS {
 			ControlModeButton::setControls();
 		}
 
-		if (UserInterface::clicked(NonButtonMap::SELECTOBJECT))
-		{
 
-			EditObjectModeButton::showObjectsList();
+
+		/*EDIT OBJECT MODE*/
+		{
+			if (UserInterface::clicked(NonButtonMap::SELECTOBJECT))
+				EditObjectModeButton::showObjectsList();
+
+
+			if (UserInterface::clicked(NonButtonMap::EDITCLUSTER))
+				clusterNS::ClusterManager::printClusterList();
+			if (UserInterface::clicked(NonButtonMap::CREATECLUSTER))
+			{
+				EditObjectModeButton::createCluster(Application::window, 0, 1, 0);
+			
+
+			}
 		}
+
+		
+		
 
 		//EDIT GAME DROP DOWN MENU
 		{
@@ -238,7 +253,7 @@ namespace uiNS {
 		if (UserInterface::clicked(ButtonMap::EDITOBJECTMODEBUTTON))
 		{
 			UserInterface::phc.showDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,
-				{ NonButtonMap::SELECTOBJECT,NonButtonMap::SELECTCLUSTER,NonButtonMap::EDITCLUSTER });
+				{ NonButtonMap::SELECTOBJECT,NonButtonMap::CREATECLUSTER,NonButtonMap::SELECTCLUSTER});
 
 		}
 

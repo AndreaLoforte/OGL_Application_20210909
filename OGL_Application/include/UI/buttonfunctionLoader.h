@@ -14,6 +14,7 @@ namespace uiNS {
 		typedef void (*PmouseScroll1)(GLFWwindow*, double, double);
 
 		static PmouseButton1 fp1;
+		static PmouseButton1 fpiii;
 		static PmouseButton2 fpMbutton2;
 		static PmouseCursor1 fp2;
 		static PkeyCallback1 fpkey1;
@@ -35,6 +36,8 @@ namespace uiNS {
 		void unsetKeyCallback();
 		void unsetCursorCallback();
 
+		void setMouseButtonCallback_callRouter(PmouseButton1 f, PmouseButton1 fback);
+		void callRouter(GLFWwindow* w, int button, int action, int mods);
 
 		static void  unsetKeyCallbackFunc();
 		static void unsetCursorCallbackFunc();

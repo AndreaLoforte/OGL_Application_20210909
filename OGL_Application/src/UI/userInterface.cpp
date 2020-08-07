@@ -86,49 +86,6 @@ namespace uiNS {
 
 
 
-	void UserInterface::back()
-	{
-		/*deleteAllButtons();*/
-		vector<ButtonInterface*>::iterator it;
-		size_t size = buttonFlow.size();
-
-		
-		int h = 1;
-		ButtonInterface* b;
-		do
-		{
-			it = buttonFlow.begin();
-			for (int i = 0; i < size - h; i++)
-				it++;
-			/*never delete the first button (start button)*/
-			if (it == buttonFlow.begin())
-			{				
-				return;
-			}
-				buttonFlow.erase(it);
-			b = ButtonMap::getButtonByID(buttonFlow.back()->getButtonID());
-			if(b)
-				b->action();
-		} while (h++ < size && !b);
-
-	}
-	
-
-
-	bool UserInterface::enableBack(const string& buttonID)
-	{
-		/*UserInterface::ShowBackButton();
-		if (buttonID == ButtonMap::BACKBUTTON)
-		{
-			UserInterface::back();
-			return true;
-		}*/
-		return false;
-			
-	}
-	
-
-
 	void UserInterface::setFlags(const bool& pause, const bool& aion, const bool& physicson)
 	{
 		paused = pause;
@@ -214,7 +171,11 @@ namespace uiNS {
 
 		size_t size = myobjectNS::ApplicationObjectManager::ApplicationCollectorList.size();
 		if (size == 0)
+		{
 			UserInterface::phc.showButton(phID, "No object to Edit");
+			return;
+		}
+			
 		
 		
 		for (int i = 0; i < size; i++)
@@ -225,15 +186,6 @@ namespace uiNS {
 		UserInterface::phc.showDropDownMenu(phID, vec);
 
 	}
-
-
-	void UserInterface::clickButton(const string& stringID)
-	{
-		/*ButtonInterface* newB = new ButtonInterface(*UserInterface::getButtonFromList(stringID));
-		buttonFlow.push_back(newB);*/
-
-	}
-
 	 
 
 

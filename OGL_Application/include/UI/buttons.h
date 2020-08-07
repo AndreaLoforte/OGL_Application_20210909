@@ -116,6 +116,7 @@ namespace uiNS {
 		const std::string& getButtonID() override { return button.buttonID; }
 		static void setControls();
 		static void cursorCallbackNewProject(GLFWwindow* w, double x, double y);
+		static void cursorPositionCallBack_highlightOnly(GLFWwindow* w, double x, double y);
 	};
 
 

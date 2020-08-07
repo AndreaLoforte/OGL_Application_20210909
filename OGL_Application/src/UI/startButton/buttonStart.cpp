@@ -110,5 +110,27 @@ namespace uiNS {
 
 
 
+	void StartButton::cursorPositionCallBack_highlightOnly(GLFWwindow* w, double x, double y)
+	{
+		UserInterface::cursor_x = x;
+		UserInterface::cursor_y = y;
+
+
+
+		std::string buttonID{ UserInterface::cursorVStext() };
+		if (buttonID == NonButtonMap::NOBUTTON)
+		{
+			//UserInterface::phc.hideDropDownMenu();
+			return;
+		}
+
+		ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
+		UserInterface::highlightButton(b);
+	}
+
+
+
+
+
 
 }

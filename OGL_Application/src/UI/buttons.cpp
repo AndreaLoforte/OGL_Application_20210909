@@ -82,7 +82,6 @@ namespace uiNS {
 
 		if (buttonID == ButtonMap::DELETEBUTTON)
 		{
-			UserInterface::clickButton(buttonID);
 			//UserInterface::printExistingObjects();
 
 			UserInterface::bfl.setMouseButtonCallback(DeleteObjectButton::selectObject);
@@ -91,7 +90,7 @@ namespace uiNS {
 
 		if (buttonID == ButtonMap::CREATEBUTTON)
 		{
-			UserInterface::clickButton(buttonID);
+		
 			//UserInterface::printAssetObjectsList();
 			UserInterface::bfl.setMouseButtonCallback(CreateObjectButton::selectObject);
 
@@ -99,7 +98,7 @@ namespace uiNS {
 
 		if (buttonID == ButtonMap::SAVEBUTTON)
 		{
-			UserInterface::clickButton(buttonID);
+			
 			SaveButton::save();
 			//UserInterface::bfl.setMouseButtonCallback(SaveButton::save);
 
@@ -107,7 +106,6 @@ namespace uiNS {
 		}
 		if (buttonID == ButtonMap::BACKBUTTON)
 		{
-			UserInterface::back();
 
 		}
 
@@ -129,7 +127,6 @@ namespace uiNS {
 		string buttonID = UserInterface::cursorVStext();
 
 		if (buttonID == NonButtonMap::NOBUTTON) return;
-		if (UserInterface::enableBack(buttonID)) return;
 		
 		myobjectNS::ApplicationObjectManager::createNewObject(buttonID);
 
@@ -166,7 +163,7 @@ namespace uiNS {
 
 		string buttonID = UserInterface::cursorVStext();
 		
-		if (buttonID == ButtonMap::BACKBUTTON) UserInterface::back();
+		if (buttonID == ButtonMap::BACKBUTTON);/*UserInterface::back();*/
 		if (buttonID == NonButtonMap::NOBUTTON) return;
 		if (myobjectNS::ApplicationObjectManager::deleteObject(buttonID))
 		{
@@ -236,10 +233,10 @@ namespace uiNS {
 	void QuitButton::showMenu()
 	{
 
-		/*UserInterface::deleteAllButtons();*/
-	/*	UserInterface::showButton(ButtonMap::QUITANDSAVE, ButtonMap::QUITANDSAVE);
-		UserInterface::showButton(ButtonMap::QUITNOSAVE, ButtonMap::QUITNOSAVE);
-		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);*/
+		
+		UserInterface::phc.showDropDownMenu(NonButtonMap::QUITBUTTON,
+			{ ButtonMap::QUITANDSAVE,ButtonMap::QUITNOSAVE, ButtonMap::BACKBUTTON });
+
 
 		if (UserInterface::clicked(ButtonMap::QUITANDSAVE))
 		{
@@ -252,7 +249,7 @@ namespace uiNS {
 
 		
 		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
-			UserInterface::back();
+			;/*UserInterface::back();*/
 
 
 	}

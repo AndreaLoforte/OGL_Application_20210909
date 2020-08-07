@@ -111,7 +111,7 @@ namespace InputsNS{
 		static vector<float> insertedNumbers;
 		static unsigned insertionIndex;
 		static int iterationIndex ;
-		
+		static vector<float>* p;
 	public:
 		TextTyper textTyper;
 		bool completed_partial = false;
@@ -126,28 +126,9 @@ namespace InputsNS{
 			initObjectIndex();
 		}
 		void initObjectIndex();
-		//int typing(int, int activity);
-		//bool NInsertion(int key, int action, int numberToInsert, vector<float>& vec);
 		std::string NInsertion2(int key, int action, int numberToInsert, vector<float>& vec);
 		int typing2(int key, int action);
-		void initNInsertion(int numbersToEnter);
-		void reset()
-		{
-			completed_partial = false;
-			completed_total = true;
-			partial_string.clear();
-			total_string.clear();
-			return_string.clear();
-			vec.clear();
-			objNumberChoosed.clear();
-
-			insertionSelector.clear();
-			totalInsertion.clear();
-			insertedNumbers.clear();
-			insertionIndex = 0;
-			iterationIndex = 0;
-		}
-		
+		void reset(vector<float>* vector,int);
 	};
 
 

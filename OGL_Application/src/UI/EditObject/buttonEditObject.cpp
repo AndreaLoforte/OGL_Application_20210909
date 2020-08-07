@@ -30,8 +30,9 @@ namespace uiNS
 	void EditObjectModeButton::showObjectsList()
 	{
 		UserInterface::printExistingObjects(ButtonMap::EDITOBJECTMODEBUTTON);
+		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::BACKBUTTON);
 		UserInterface::bfl.setMouseButtonCallback(EditObjectModeButton::selectObject);
-		UserInterface::bfl.setMouseCursorCallback(EditObjectModeButton::cursorPositionCallBack);
+		UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack_highlightOnly);
 		//selectObject();
 	}
 
@@ -55,18 +56,15 @@ namespace uiNS
 
 			if (buttonID == NonButtonMap::CLUSTERLIST)
 			{
-				UserInterface::clickButton(buttonID);
 				clusterNS::ClusterManager::printClusterList();
 			}
 
 
 			if (buttonID == NonButtonMap::SELECTCLUSTER)
 			{				
-				UserInterface::clickButton(buttonID);
 				UserInterface::bfl.setMouseButtonCallback(insertInCluster);
 				return;
 			}
-			UserInterface::enableBack(buttonID);
 			
 	}
 
@@ -74,24 +72,7 @@ namespace uiNS
 
 
 
-	void EditObjectModeButton::cursorPositionCallBack(GLFWwindow* w, double x, double y)
-	{
-		UserInterface::cursor_x = x;
-		UserInterface::cursor_y = y;
-
-
-
-		std::string buttonID{ UserInterface::cursorVStext() };
-		if (buttonID == NonButtonMap::NOBUTTON)
-		{
-			//UserInterface::phc.hideDropDownMenu();
-			return;
-		}
-
-		ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
-		UserInterface::highlightButton(b);
-	}
-
+	
 
 	void EditObjectModeButton::editObjectMenu(GLFWwindow* w, double x, double y)
 	{
@@ -135,6 +116,7 @@ namespace uiNS
 		{
 			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
 			UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
+			StartButton::mainMenu(Application::window, 0, 0, 0);
 			StartButton::cursorButtonCallBack(Application::window, 0, 0, 0);
 		}
 
@@ -150,6 +132,15 @@ namespace uiNS
 
 		}
 
+
+		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		{
+			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
+			UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
+			StartButton::mainMenu(Application::window, 0, 0, 0);
+			StartButton::cursorButtonCallBack(Application::window, 0, 0, 0);
+		}
+	
 		
 	}
 
@@ -160,7 +151,6 @@ namespace uiNS
 
 	void EditObjectModeButton::cursorButtonCallback_editObject(GLFWwindow* w, int button, int action, int mods)
 	{
-		UserInterface::typer.reset();
 		UserInterface::phc.showDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,
 			{ "Editing Object " + myobjectNS::ApplicationObjectManager::getEditableObjectName(),
 			NonButtonMap::ADJUSTSIZE,NonButtonMap::ADJUSTCOLOR,
@@ -206,33 +196,6 @@ namespace uiNS
 			showObjectsList();
 		}
 
-
-	/*	if (UserInterface::clicked(NonButtonMap::TYPEPOSITION))
-		{
-			typeRotation = false;
-			typePosition = true;
-			key_callbackMove(Application::window, 0, 0, 1, 0);
-			return;
-		}
-		if (UserInterface::clicked(NonButtonMap::TYPEROTATION))
-		{
-			typePosition = false;
-			typeRotation = true;
-			key_callbackMove(Application::window, 0, 0, 1, 0);
-			return;
-		}
-
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
-		{
-			typePosition = false;
-			typeRotation = false;
-			key_callbackMove(Application::window, 0, 0, 1, 0);
-			return;
-		}*/
-
-
-		//UserInterface::enableBack(buttonID);
-			
 
 	}
 

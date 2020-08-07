@@ -7,7 +7,8 @@ namespace uiNS {
 	const string NonButtonMap::NEXTOBJECT = "NEXT OBJECT";
 	const string NonButtonMap::PREVOBJECT = "PREVIOUS OBJECT";
 	const string NonButtonMap::SELECTOBJECT = "SELECT OBJECT";
-	const string NonButtonMap::SELECTCLUSTER = "CREATE CLUSTER";
+	const string NonButtonMap::SELECTCLUSTER = "SELECT CLUSTER";
+	const string NonButtonMap::CREATECLUSTER = "CREATE CLUSTER";
 	const string NonButtonMap::EDITCLUSTER = "EDIT CLUSTER";
 	const string NonButtonMap::CLUSTERLIST = "SHOW CLUSTERS";
 	const string NonButtonMap::ADJUSTSIZE = "CHANGE SIZE";

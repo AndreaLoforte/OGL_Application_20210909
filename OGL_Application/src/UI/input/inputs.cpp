@@ -159,24 +159,48 @@ vector<bool>  Typer::totalInsertion;
 vector<float> Typer::insertedNumbers;
 unsigned      Typer::insertionIndex = 0;
 int Typer::iterationIndex = 0;
+vector<float>* Typer::p = NULL;
 
-void  Typer::initNInsertion(int numbersToEnter)
+
+
+void  Typer::reset(vector<float>* vector, int numbersToEnter)
 {
+	p = vector;
+	completed_partial = false;
+	completed_total = false;
+	partial_string.clear();
+	total_string.clear();
+	return_string.clear();
+	vec.clear();
+	objNumberChoosed.clear();
+
+	insertionSelector.clear();
+	totalInsertion.clear();
+	insertedNumbers.clear();
+	insertionIndex = 0;
+	iterationIndex = 0;
+
+
+
 	for (int i = 0; i < numbersToEnter; i++)
 	{
 		insertionSelector.push_back(false);
-		totalInser-tion.push_back(false);
+		totalInsertion.push_back(false);
 		insertedNumbers.push_back(-1);
 	}
+
 }
+
 
 
 /*this second version of NInsertion returns the partial number entered by the user
 instead of returning a bool. While Completion is specified by the boolean member attribute "completed" */
-string Typer::NInsertion2(int key, int action, int numberToInsert, vector<float>& vec)
+string Typer::NInsertion2(int key, int action, int numberToInsert, vector<float>& returnetVec)
 {
-	if (insertionIndex == 0)
-		initNInsertion(numberToInsert);
+	
+	if (p == NULL || p!=&returnetVec || numberToInsert == 0)
+		reset(&returnetVec,numberToInsert);
+
 
 	insertionSelector[insertionIndex] = true;
 
@@ -201,16 +225,14 @@ string Typer::NInsertion2(int key, int action, int numberToInsert, vector<float>
 
 				if (completed_total)
 				{
-					vec = insertedNumbers;
-					insertedNumbers = vector<float>(numberToInsert, -1);
-					insertionSelector = vector<bool>(numberToInsert, false);
-					totalInsertion = vector<bool>(numberToInsert, false);
-					insertionIndex = 0;
+					returnetVec = insertedNumbers;
 
-					/*once all the numbers have been inserted we can clear n*/
-					return_string = total_string;
-					total_string.clear();
-					return return_string;
+					/*set parameters so that at 
+					next call will reset all variables*/
+					numberToInsert = 0;
+					p = NULL;
+
+					return total_string;
 				}
 
 				if (insertionIndex < numberToInsert - 1)
