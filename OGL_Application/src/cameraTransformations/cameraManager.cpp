@@ -4,12 +4,22 @@
 namespace fpcameraNS {
 
 
-	unsigned CameraManager::activeCamIndex = 0;
+	unsigned CameraManager::activeCamIndex = 1;
 	std::string CameraManager::projectDataFileName;
 	std::vector<Transformation*> CameraManager::cameraList;
 	printHelperNS::PrintHelper CameraManager::ph{ "cameraManager" };
 	std::string CameraManager::cameraSavingsFilename;
 	std::string CameraManager::cameraSavingsDirectory;
+
+
+
+
+	CameraManager::CameraManager(std::string projectdatafilename)
+	{
+		projectDataFileName = projectdatafilename;
+		cameraSavingsDirectory = logNS::Logger::STOREDDATADIR + "cameraSavings/";
+	}
+
 
 
 	void CameraManager::save() 
@@ -31,18 +41,10 @@ namespace fpcameraNS {
 		if (cameraList.size() - 1 > activeCamIndex)
 		{
 			activeCamIndex++;
-			/*CameraManager::ph.mapButtonOnBranch(NonButtonMap::CAMERAVIEW,
-				fpcameraNS::CameraManager::getActiveCamera().cameraID,
-				fpcameraNS::CameraManager::getActiveCamera().cameraID);*/
-			//CameraManager::ph.mapNewString("CAMERAID", fpcameraNS::CameraManager::getActiveCamera().cameraID);
 		}
 		else
 		{
 			activeCamIndex = 0;
-			/*CameraManager::ph.mapButtonOnBranch(NonButtonMap::CAMERAVIEW,
-				fpcameraNS::CameraManager::getActiveCamera().cameraID,
-				fpcameraNS::CameraManager::getActiveCamera().cameraID);*/
-			//CameraManager::ph.mapNewString("CAMERAID", fpcameraNS::CameraManager::getActiveCamera().cameraID);
 		}
 
 	}
@@ -58,6 +60,19 @@ namespace fpcameraNS {
 			cameraList.push_back(new GroundCamera());
 			cameraList.push_back(new FlyingCamera());
 			cameraList.push_back(new PanoramicCamera());
+
+			for (int i = 0; i < 3; i++)
+			{
+				cameraList[i]->camForGLBcoords[0] = 0;
+				cameraList[i]->camForGLBcoords[1] = -50;
+				cameraList[i]->camForGLBcoords[2] = -100;
+
+				if (cameraList[i]->getCameraType() == FLYINGCAMERA ||
+					cameraList[i]->getCameraType() == PANORAMICCAMERA)
+				{
+					cameraList[i]->camOrientation = mymathlibNS::Quaternion::getQuaternionfromXAngle(20);
+				}
+			}
 		};
 
 		

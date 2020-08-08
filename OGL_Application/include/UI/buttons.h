@@ -130,16 +130,6 @@ namespace uiNS {
 		const std::string& getButtonID() override { return button.buttonID; }
 	};
 
-	class SaveButton : public ButtonInterface
-	{
-		string buttonID = ButtonMap::SAVEBUTTON;
-	public:
-		SaveButton() { button.buttonID = buttonID; }
-		//SaveButton():ButtonInterface({ButtonMap::SAVEBUTTON}){}
-		void action() override;
-		static void save();
-		const std::string& getButtonID() override { return button.buttonID; }
-	};
 
 	class QuitButton : public ButtonInterface
 	{

@@ -36,9 +36,6 @@ namespace uiNS {
 		void unsetKeyCallback();
 		void unsetCursorCallback();
 
-		void setMouseButtonCallback_callRouter(PmouseButton1 f, PmouseButton1 fback);
-		void callRouter(GLFWwindow* w, int button, int action, int mods);
-
 		static void  unsetKeyCallbackFunc();
 		static void unsetCursorCallbackFunc();
 

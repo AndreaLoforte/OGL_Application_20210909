@@ -32,10 +32,12 @@ namespace uiNS {
 		UserInterface::phc.showButton(NonButtonMap::FILE, ButtonMap::BACKBUTTON);
 		if (UserInterface::typer.textTyper.completed_total)
 		{
+			UserInterface::phc.hideDropDownMenu();
+			UserInterface::phc.showButton(NonButtonMap::FILE, "NEWPROJECTCONFIRM","NEW PROJECT CREATED");
+			UserInterface::phc.showButton(NonButtonMap::FILE, "NEWPROJECTHINT", "Use Edit Project to create new objects, and start creating your world",1,0.2);
 			App::projectDataFileName = UserInterface::typer.textTyper.text;
 			App::loadProjectData(App::projectDataFileName);
-
-			//	UserInterface::start->start();
+			setControls();
 		}
 
 	}
@@ -98,6 +100,7 @@ namespace uiNS {
 			if (UserInterface::clicked(ButtonMap::SAVEBUTTON))
 			{
 				App::SaveProjectData(App::projectDataFileName);
+				UserInterface::phc.showButton(NonButtonMap::FILE, "SAVECONFIRM", "SAVED");
 			}
 
 

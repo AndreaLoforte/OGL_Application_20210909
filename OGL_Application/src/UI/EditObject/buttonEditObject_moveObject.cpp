@@ -236,6 +236,13 @@ namespace uiNS
 			cursorButtonCallback_editObject(Application::window, 0, 0, 0);
 		}
 
+
+		if (UserInterface::clicked(NonButtonMap::QUITBUTTON))
+		{
+			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
+			QuitButton::showMenu();
+		}
+
 	}
 
 

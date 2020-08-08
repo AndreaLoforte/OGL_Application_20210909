@@ -39,7 +39,7 @@ namespace uiNS
 
 	void EditObjectModeButton::cursorButtonCallBack_clusters(GLFWwindow* w, int button, int action, int mode)
 	{
-
+		UserInterface::setFlags(false, true, true);
 		if (action == GLFW_RELEASE) return;
 			/*3 case : 
 			1) do not click anything

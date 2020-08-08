@@ -32,6 +32,7 @@ namespace uiNS {
 	const string NonButtonMap::FLYINGCAMERA = fpcameraNS::FLYINGCAMERA;
 	const string NonButtonMap::PANORAMICCAMERA = fpcameraNS::PANORAMICCAMERA;
 	const string NonButtonMap::QUITBUTTON = "x";
+	const string NonButtonMap::ACTIVITYFLAG = "FEATURE ACTIVATION";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";
@@ -58,7 +59,6 @@ namespace uiNS {
 		buttonMap.emplace(DELETEBUTTON, new DeleteObjectButton());
 		buttonMap.emplace(BACKBUTTON, new BackButton());
 		buttonMap.emplace(CONTROLMODEBUTTON, new ControlModeButton());
-		buttonMap.emplace(SAVEBUTTON, new SaveButton());
 		buttonMap.emplace(ESCAPEBUTTON, new QuitButton());
 		buttonMap.emplace(EDITOBJECTMODEBUTTON, new EditObjectModeButton());
 	}

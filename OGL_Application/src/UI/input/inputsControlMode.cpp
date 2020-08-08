@@ -69,6 +69,7 @@ namespace InputsNS{
 			{
 				UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
 				UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
+				UserInterface::phc.turnOffAllButtons();
 				StartButton::mainMenu(Application::window, 0, 1, 0);
 			}
 		

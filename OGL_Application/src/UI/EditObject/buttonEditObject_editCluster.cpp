@@ -68,6 +68,7 @@ namespace uiNS
 			});
 
 		UserInterface::bfl.setMouseButtonCallback(mouseButtonCallback_editCluster);
+		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
 
 	}
 
@@ -245,11 +246,11 @@ namespace uiNS
 			break;
 		case GLFW_KEY_D:
 			for (int i = 0; i < cluster.group.size(); i++)
-				cluster.group[i]->AOtrX(-1);
+				cluster.group[i]->AOtrX(1);
 			break;
 		case GLFW_KEY_A:
 			for (int i = 0; i < cluster.group.size(); i++)
-				cluster.group[i]->AOtrX(1);
+				cluster.group[i]->AOtrX(-1);
 			break;
 		case GLFW_KEY_1:
 			for (int i = 0; i < cluster.group.size(); i++)

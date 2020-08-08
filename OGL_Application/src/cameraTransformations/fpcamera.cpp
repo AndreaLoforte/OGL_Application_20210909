@@ -174,8 +174,6 @@ void FlyingCamera::setCamera()
 
 }
 
-
-/*camera con vista panoramica xD........da sistemare*/
 void PanoramicCamera::setCamera()
 {
 	delta_pos[0] = xtr - prev_pos[0];
@@ -319,58 +317,6 @@ void Transformation::resetAll() {
 
 
 }
-
- 
-
-
-
-void Transformation::computeGlobalCoords() 
-{
-	//if (hasMoved) {
-		//deltaS[0] = xtr - prev_shift[0];
-		//deltaS[1] = ytr - prev_shift[1];
-		//deltaS[2] = ztr - prev_shift[2];
-
-		//camForLCLcoords[0] = xtr-default_pos[0];
-		//camForLCLcoords[1] = ytr-default_pos[1];
-		//camForLCLcoords[2] = ztr-default_pos[2];
-
-		//xrad = xangle/ 180.0 * 3.1415926535;
-		//yrad = yangle/ 180.0 * 3.1415926535;
-		////zrad = zangle/ 180.0 * 3.1415926535;
-		//
-
-		//camForGLBcoords[0] += -deltaS[0] * cos(yrad) - deltaS[1] * sin(xrad)*sin(yrad) + deltaS[2] * sin(yrad)*cos(xrad) ;
-		//camForGLBcoords[1] -=     + deltaS[1] * cos(xrad)           + deltaS[2] * sin(xrad);
-		//camForGLBcoords[2] -= +deltaS[0] * sin(yrad)  -deltaS[1] * sin(xrad)*cos(yrad)+ deltaS[2] * cos(yrad)*cos(xrad)  ;
-
-		//
-
-		//static mymathlibNS::Quaternion q;
-		//q = mymathlibNS::Quaternion::getQuaternionProductfromAngles(xrad, yrad, zrad);
-		//
-		//
-		//
-
-		//camOrientation.w = q.w;
-		//camOrientation.x =- q.x;
-		//camOrientation.y =- q.y;
-		//camOrientation.z = 0;// q.z;
-
-
-		//
-
-		//
-		//prev_shift[0] = xtr;
-		//prev_shift[1] = ytr;
-		//prev_shift[2] = ztr;
-		//hasMoved = false;
-//	}
-
-}
-
-
-
   
 
 }//namespace

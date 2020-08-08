@@ -68,18 +68,10 @@ namespace uiNS {
 
 	void UserInterface::init()
 	{
-		UserInterface::paused = true;
-		//UserInterface::deleteAllButtons();
-
+		//UserInterface::paused = false;
+		UserInterface::setFlags(false, false, false);
 		start->mainMenu(Application::window, 0, 1, 0);
 		start->setControls();
-	/*	UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
-		
-		UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
-		StartButton::cursorButtonCallBack(Application::window, 0, 1, 0);
-
-		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);*/
-
 
 	}
 

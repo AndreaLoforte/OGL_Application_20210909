@@ -342,13 +342,6 @@ string TextTyper::stringInsertion(int key, int action) {
 	if (action == GLFW_RELEASE) return "";
 	completed_total = false;
 
-	if (key == GLFW_KEY_BACKSPACE)
-	{
-		/*objNumberChoosed.clear();
-		iterationIndex = 0;
-		return -1;*/
-	}
-
 	switch (key)
 	{
 		case GLFW_KEY_A:
@@ -428,6 +421,40 @@ string TextTyper::stringInsertion(int key, int action) {
 			break;
 		case GLFW_KEY_Z:
 			temp.append("z");
+			break;
+		case GLFW_KEY_1:
+			temp.append("1");
+			break;
+		case GLFW_KEY_2:
+			temp.append("2");
+			break;
+		case GLFW_KEY_3:
+			temp.append("3");
+			break;
+		case GLFW_KEY_4:
+			temp.append("4");
+			break;
+		case GLFW_KEY_5:
+			temp.append("5");
+			break;
+		case GLFW_KEY_6:
+			temp.append("6");
+			break;
+		case GLFW_KEY_7:
+			temp.append("7");
+			break;
+		case GLFW_KEY_8:
+			temp.append("8");
+			break;
+		case GLFW_KEY_9:
+			temp.append("9");
+			break;
+		case GLFW_KEY_0:
+			temp.append("0");
+			break;
+		case GLFW_KEY_BACKSPACE:
+			if(temp.size()>0)
+			temp.pop_back();
 			break;
 		case GLFW_KEY_ENTER:
 		{

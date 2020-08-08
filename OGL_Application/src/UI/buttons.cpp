@@ -98,10 +98,6 @@ namespace uiNS {
 
 		if (buttonID == ButtonMap::SAVEBUTTON)
 		{
-			
-			SaveButton::save();
-			//UserInterface::bfl.setMouseButtonCallback(SaveButton::save);
-
 
 		}
 		if (buttonID == ButtonMap::BACKBUTTON)
@@ -206,24 +202,6 @@ namespace uiNS {
 
 	/////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////////////////
-
-
-	void SaveButton::action()
-	{
-		/*using namespace textRendererNS;
-		UserInterface::clickButton(ButtonMap::SAVEBUTTON);
-		UserInterface::showButton("SAVED", "SAVED");
-		App::SaveProjectData(App::projectDataFileName);*/
-	}
-
-	void SaveButton::save()
-	{
-		//UserInterface::clickButton(ButtonMap::SAVEBUTTON);
-		//UserInterface::showButton("SAVED", "SAVED");
-		App::SaveProjectData(App::projectDataFileName);
-
-	}
-
 
 	void QuitButton::action()
 	{

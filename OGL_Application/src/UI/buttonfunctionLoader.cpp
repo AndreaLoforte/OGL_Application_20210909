@@ -63,28 +63,6 @@ namespace uiNS {
 
 
 
-	void buttonFunctiosLoader::callRouter(GLFWwindow* w, int button, int action, int mods)
-	{
-		//void * receiverF()
-	}
-
-
-
-	void buttonFunctiosLoader::setMouseButtonCallback_callRouter(PmouseButton1 ftoCall, PmouseButton1 fback)
-	{
-		fp1 = ftoCall;
-		fpiii = fback;
-		auto L_MouseButton_callback = [](GLFWwindow* w, int button, int action, int mods)
-		{
-			if (action == GLFW_RELEASE) return;
-			static_cast<buttonFunctiosLoader*>(glfwGetWindowUserPointer(w))->callRouter(w, button, action, mods);
-		};
-		glfwSetMouseButtonCallback(Application::window, L_MouseButton_callback);
-		//fp1(Application::window, 0, 0, 0);
-	}
-
-
-
 	
 
 	void buttonFunctiosLoader::setMouseCursorCallback(PmouseCursor1 f)
