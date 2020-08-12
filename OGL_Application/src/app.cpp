@@ -4,7 +4,7 @@
 #include<physics.h>
 #include<set>
 #include<fstream>
-
+#include<stdio.h>
 std::string App::projectDataFileName{ "AppObj" };
 
 printHelperNS::PrintHelper App::ph{ "App" };
@@ -105,6 +105,25 @@ void App::SaveProjectData(string filename) {
 bool App::loadProjectData(string filename) {
 	fpcameraNS::CameraManager::load(App::projectDataFileName);
 	return myobjectNS::ApplicationObjectManager::loadData(filename);
+}
+
+bool App::deleteProjectData(string filename) {
+	string s = logNS::Logger::STOREDDATADIR + filename;
+
+	ifstream in(s);
+	if (in.is_open())
+		in.close();
+	if (remove(s.c_str()) != 0)
+	{
+		perror("Error deleting file");
+		return false;
+	}
+		
+	else {
+		puts("File successfully deleted");
+		return true;
+	}
+		
 }
 
 

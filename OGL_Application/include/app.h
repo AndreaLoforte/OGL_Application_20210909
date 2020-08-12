@@ -55,6 +55,7 @@
 
 		static std::string projectDataFileName;
 		static bool loadProjectData(string);
+		static bool deleteProjectData(string);
 		logNS::Logger log;
 	};
 

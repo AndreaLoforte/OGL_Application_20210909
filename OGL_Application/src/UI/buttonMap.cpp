@@ -26,6 +26,7 @@ namespace uiNS {
 	const string NonButtonMap::FILE = "FILE";
 	const string NonButtonMap::LOADPROJECT = "LOAD PROJECT";
 	const string NonButtonMap::NEWPROJECT = "NEWPROJECT";
+	const string NonButtonMap::DELETEPROJECT = "DELETEPROJECT";
 	const string NonButtonMap::EDITSOUNDS = "EDIT SOUNDS";
 	const string NonButtonMap::CAMERAVIEW = "VIEW";
 	const string NonButtonMap::GROUNDCAMERA = fpcameraNS::GROUNDCAMERA;

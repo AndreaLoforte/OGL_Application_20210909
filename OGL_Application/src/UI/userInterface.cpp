@@ -164,7 +164,7 @@ namespace uiNS {
 		size_t size = myobjectNS::ApplicationObjectManager::ApplicationCollectorList.size();
 		if (size == 0)
 		{
-			UserInterface::phc.showButton(phID, "No object to Edit");
+			UserInterface::phc.showButton(phID, "This project has no objects yet");
 			return;
 		}
 			

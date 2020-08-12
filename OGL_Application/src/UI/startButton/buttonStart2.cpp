@@ -65,6 +65,7 @@ namespace uiNS {
 				UserInterface::phc.showDropDownMenu(NonButtonMap::FILE, fileNames);
 
 				UserInterface::bfl.setMouseButtonCallback(load);
+				UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack_highlightOnly);
 
 			}
 
@@ -76,6 +77,23 @@ namespace uiNS {
 				UserInterface::bfl.setKeyCallback(newProjectKey);
 				newProjectKey(0, 1);
 				newProjectMouseButton(0, 1);
+
+			}
+
+			if (UserInterface::clicked(NonButtonMap::DELETEPROJECT))
+			{
+				vector<string> v;
+				logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR,v);
+				UserInterface::phc.showDropDownMenu(NonButtonMap::FILE, v);
+				UserInterface::phc.showButton(NonButtonMap::FILE, ButtonMap::BACKBUTTON);
+
+				
+				UserInterface::bfl.setMouseButtonCallback(deleteProjectData);
+				UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack_highlightOnly);
+				/*UserInterface::bfl.setMouseCursorCallback(cursorCallbackNewProject);
+				UserInterface::bfl.setKeyCallback(newProjectKey);
+				newProjectKey(0, 1);
+				newProjectMouseButton(0, 1);*/
 
 			}
 
@@ -206,6 +224,33 @@ namespace uiNS {
 
 
 
+	void StartButton::deleteProjectData(GLFWwindow* w, int button, int action, int mods)
+	{
+		string filename = UserInterface::cursorVStext();
+
+	
+		if (UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+		{
+			setControls();
+			mainMenu(Application::window, 0, 0, 0);
+			return;
+		}
+
+		if (App::deleteProjectData(filename))
+		{
+			//UserInterface::phc.hideDropDownMenu();
+			UserInterface::phc.showButton(NonButtonMap::FILE, filename + " data file deleted");
+			
+		}
+		else {
+			//UserInterface::phc.hideDropDownMenu();
+			UserInterface::phc.showButton(NonButtonMap::FILE, "could not delete project file " + filename);
+			//setControls();
+		}
+
+	}
+
+
 	
 
 	void StartButton::cursorPositionCallBack(GLFWwindow* w, double x, double y)
@@ -233,6 +278,7 @@ namespace uiNS {
 				NonButtonMap::FILE,
 				{ NonButtonMap::LOADPROJECT,
 				NonButtonMap::NEWPROJECT,
+				NonButtonMap::DELETEPROJECT,
 				ButtonMap::SAVEBUTTON,
 				ButtonMap::QUITANDSAVE,
 				ButtonMap::QUITNOSAVE,

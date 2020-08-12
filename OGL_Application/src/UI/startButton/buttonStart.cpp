@@ -96,12 +96,14 @@ namespace uiNS {
 		{
 			myobjectNS::ApplicationObjectManager::setupObjectsParameters();
 			UserInterface::phc.hideDropDownMenu();
-			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
+			setControls();
+			//UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
 			UserInterface::phc.showButton(NonButtonMap::FILE, "LOADCONFIRM", "LOADED PROJECT " + App::projectDataFileName);
 			return;
 		}
 		else {
 			UserInterface::phc.showButton(NonButtonMap::FILE, "LOADWARN", "COULD NOT LOAD PROJECT " + App::projectDataFileName);
+			setControls();
 		}
 
 		if (UserInterface::clicked(NonButtonMap::NOBUTTON))

@@ -117,6 +117,7 @@ namespace uiNS {
 		static void setControls();
 		static void cursorCallbackNewProject(GLFWwindow* w, double x, double y);
 		static void cursorPositionCallBack_highlightOnly(GLFWwindow* w, double x, double y);
+		static void deleteProjectData(GLFWwindow* w, int button, int action, int mods);
 	};
 
 
