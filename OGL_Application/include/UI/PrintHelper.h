@@ -95,7 +95,7 @@ namespace printHelperNS {
 		size_t size() { return printHmap.size(); }
 		PrintHelper& operator [](unsigned i);
 		void showButton(const string& phID, const string& stringID, const string& text = "_DEFAULT" ,const unsigned& buttonLevel = 1, const float& scale = 0.3);
-		void showDropDownMenu(const string& phID, const vector<string>& buttonsList, const float& scale = 0.3);
+		void showDropDownMenu(const string& phID, const vector<string>& buttonsList, const bool& hideOtherPrinst = true, const float& scale = 0.3);
 		void showDropDownMenu(const string& phID);
 		void click(const string&, const string&);
 		void turnOffAllButtons();

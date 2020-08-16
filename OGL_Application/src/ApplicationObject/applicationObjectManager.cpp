@@ -180,15 +180,18 @@ void ApplicationObjectManager::kill(const string& RBobjectID)
 
 void ApplicationObjectManager::kill(const collectorNS::ActiveObject* obj){}
 
-collectorNS::ApplicationObjectCollector* ApplicationObjectManager::getObject(std::string RBobjectID) 
+collectorNS::ApplicationObjectCollector* 
+ApplicationObjectManager::getObjectByRBID(std::string RBobjectID)
 {
 	pair<int, int> objPos = 
 		getObjectListIndexByRBobjectID(RBobjectID);
+
+	if (objPos.first == -1 || objPos.second == -1) return NULL;
 			return ApplicationCollectorList[objPos.first];
 }
 
 /*this method returns the collector specified via argument by its collectorID*/
-collectorNS::ApplicationObjectCollector* ApplicationObjectManager::getCollector(const std::string& collectorID)
+collectorNS::ApplicationObjectCollector* ApplicationObjectManager::getObjectByCollectorID(const std::string& collectorID)
 {
 	std::map< std::string, int>::iterator it = collectorIDMap.find(collectorID);
 	if (it != collectorIDMap.end())

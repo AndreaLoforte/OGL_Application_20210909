@@ -98,16 +98,12 @@ namespace myobjectNS {
 		}
 		//void OSsetParameters() override;
 
-		EnemyOC* OCgetNewInstance() override {
-			//instanceCounter++;
-			EnemyOC *s(new EnemyOC());
-			//s->AOinstanceNumber = instanceCounter;
-			return s;
-		}
+		EnemyOC* OCgetNewInstance() override;
 		void setParameters() override;		
 
 		std::string getCollectorName() override { return collectorName; }
 		Enemy* getBody() { return &enemy; }
+		void setActivityGround(myobjectNS::SurfaceBoundaries* sb)override { brain.activityArea = sb; }
 		
 	};
 

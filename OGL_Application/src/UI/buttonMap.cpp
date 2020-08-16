@@ -34,6 +34,8 @@ namespace uiNS {
 	const string NonButtonMap::PANORAMICCAMERA = fpcameraNS::PANORAMICCAMERA;
 	const string NonButtonMap::QUITBUTTON = "x";
 	const string NonButtonMap::ACTIVITYFLAG = "FEATURE ACTIVATION";
+	const string NonButtonMap::GROUND = "WALKABLE GROUND";
+	const string NonButtonMap::ACTIVECHARACTER = "ACTIVE CHARACTER";
 
 	const string ButtonMap::CREATEBUTTON = "CREATE";
 	const string ButtonMap::DELETEBUTTON = "DELETE";

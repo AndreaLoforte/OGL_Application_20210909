@@ -103,45 +103,26 @@ namespace aiNS {
 		if (!target->isOn || !target->isAlive || targetDistanceNorm > activationDistance)
 		{
 			moveRandomly();
-			//return;
 		}
-		/*static float distance = 30.0f;
-
-		Vector3	vel{ 
-			distance_v[0] / distance,
-			myRB->velocity[1],
-			distance_v[2] / distance };
-
-		Vector3 movement = myposition + vel;
-		myobjectNS::Ground::checkWithBoundaries(movement);*/
-		/*if (myposition[0] + vel[0] >= myobjectNS::Ground::boundaries[0][0][0])
-				vel[0] = 0.0;
-			if (myposition[2] + vel[2] >= BOUNDARIES[2])
-				vel[2] = 0.0;
-
-		myRB->velocity = vel;*/
-
-		
-
 	}
 
 	void myfirstIA::moveRandomly()
 	{
-		if (myobjectNS::Ground::grounds.size() == 0)
+		if (activityArea == NULL || myobjectNS::Ground::grounds.size() == 0)
 		{
 			UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, "set some ground to be walkable");
 			return;
 		}
 			
 		static Vector3 targetPosition{
-			conversionLibNS::conversionLibrary::stdArrayToCycloneVec3(myobjectNS::Ground::grounds[0].getRandomPointInSurface(this)) };
+			conversionLibNS::conversionLibrary::stdArrayToCycloneVec3(activityArea->getRandomPointInSurface(this)) };
 		//static Vector3 currentPos{ myposition };
 
 		deltaMovement = targetPosition - myposition;
 
 		if (deltaMovement.magnitude() <=20.0)
 		{
-			targetPosition = conversionLibNS::conversionLibrary::stdArrayToCycloneVec3(myobjectNS::Ground::grounds[0].getRandomPointInSurface(this));
+			targetPosition = conversionLibNS::conversionLibrary::stdArrayToCycloneVec3(activityArea->getRandomPointInSurface(this));
 		}
 	
 
@@ -274,7 +255,7 @@ namespace aiNS {
 			{
 				collectorNS::ActiveObject * obj = 
 					static_cast<collectorNS::ActiveObject*>
-					(ApplicationObjectManager::getObject(contact.body[obj_index]->RBobjectID));
+					(ApplicationObjectManager::getObjectByRBID(contact.body[obj_index]->RBobjectID));
 
 				if(!obj->damage())
 				{

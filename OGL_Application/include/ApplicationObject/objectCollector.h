@@ -11,6 +11,7 @@ namespace myobjectNS {
 	class ObjectPlane;
 	class ObjectSphere;
 	class ObjectBox;
+	class SurfaceBoundaries;
 
 }
 
@@ -125,10 +126,9 @@ public:
 			else
 				isAlive = false;
 			return isAlive;
-		
-
 	}
 
+	virtual void setActivityGround(myobjectNS::SurfaceBoundaries* sb){}
 };
 
 

@@ -8,6 +8,7 @@
 #include<random>
 #include<functional>
 #include<PrintHelper.h>
+#include<ground.h>
 namespace myobjectNS {
 	class PlayerCharacterOC;
 	class OCGun;
@@ -48,6 +49,10 @@ namespace aiNS {
 		myobjectNS::ApplicationObject* mybody;
 		RigidBody *myRB;
 		Vector3 myposition;
+
+		
+		myobjectNS::SurfaceBoundaries* activityArea = NULL;
+
 
 		std::default_random_engine generator;
 		Vector3 randomDestination{ 0.0,0.0,0.0 };

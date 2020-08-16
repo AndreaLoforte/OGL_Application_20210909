@@ -336,6 +336,9 @@
     <ClInclude Include="OGL_Application\include\Objects\polygon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\characters\activeCharacterManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
@@ -600,6 +603,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Objects\groundSurface\ground.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\characters\activeCharacterManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_activeCharacterCluster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -106,9 +106,10 @@ namespace printHelperNS {
 
 
 
-		void PrintHelperCollector::showDropDownMenu(const string& phID, const vector<string>& buttonsList, const float& scale)
+		void PrintHelperCollector::showDropDownMenu(const string& phID, const vector<string>& buttonsList, const bool& hideOtherPrints, const float& scale)
 		{
-			hideDropDownMenu();
+			if(hideOtherPrints)
+				hideDropDownMenu();
 
 			PrintHelper& p = printHmap.at(phID);
 

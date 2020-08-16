@@ -7,6 +7,8 @@
 namespace myobjectNS {
 
 	std::vector<SurfaceBoundaries> Ground::grounds;
+	std::map<string, SurfaceBoundaries*> Ground::groundMap;
+	Ground::GroudMapIterator  Ground::groundMapIT;
 
 	void SurfaceBoundaries::boundaryLinesEq()
 	{}
@@ -49,13 +51,13 @@ namespace myobjectNS {
 	void Ground::addSurface(collectorNS::ApplicationObjectCollector* c)
 	{
 
-		vector<float> size = c->getBody()->AOsize;
+	/*	vector<float> size = c->getBody()->AOsize;
 		array<float, 3> pos = c->getBody()->AOposition;
 
-		SurfaceBoundaries s(c->getBody());
+		SurfaceBoundaries *s = new SurfaceBoundaries(c->getBody());
 
 
-		grounds.push_back(s);
+		grounds.push_back(*s);*/
 	}
 
 
@@ -65,27 +67,36 @@ namespace myobjectNS {
 		vector<float> size = ao->AOsize;
 		array<float, 3> pos = ao->AOposition;
 
-		SurfaceBoundaries s(ao);
+		SurfaceBoundaries* s = new SurfaceBoundaries(ao);
 
 
-		grounds.push_back(s);
+		grounds.push_back(*s);
+		groundMap.emplace(ao->getRBObjectID(), s);
 	}
 
 
 
-	void Ground::printGroundList()
+	vector<string> Ground::getGroundList()
 	{
 		vector<string> groundList;
 
 		for (int i = 0; i < grounds.size(); i++)
 		{
-			groundList.push_back(grounds[i].p->AOobjectName);
+			groundList.push_back(grounds[i].p->getRBObjectID());
 		}
 
-		UserInterface::phc.showDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON, groundList);
+		return groundList;
 
 	}
 
-
+	SurfaceBoundaries* Ground::getGround(const string& gID)
+	{
+		groundMapIT = groundMap.find(gID);
+		//const SurfaceBoundaries* sur{ groundMapIT->second };
+		if (groundMapIT != groundMap.end())
+			return groundMapIT->second;
+		else
+			return NULL;
+	}
 
 }

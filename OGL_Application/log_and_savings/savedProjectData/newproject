@@ -193,7 +193,62 @@ groundSurface
 AOinstanceNumber
 9
 AOposition
+-243 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------
+COLLECTOR_
+object1
+OCisOnFlag
+0
+AOobjectName
+object1
+AOinstanceNumber
+0
+AOposition
 0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+--------ENDCOLLECTOR--------
+COLLECTOR_
+groundSurface
+OCisOnFlag
+1
+AOobjectName
+groundSurface
+AOinstanceNumber
+10
+AOposition
+0 0 234
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------
+COLLECTOR_
+groundSurface
+OCisOnFlag
+0
+AOobjectName
+groundSurface
+AOinstanceNumber
+11
+AOposition
+0 0 -267
 AOorientation
 1 0 0 0
 AOcolor

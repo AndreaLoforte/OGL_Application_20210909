@@ -66,8 +66,8 @@ namespace myobjectNS{
 		static void initObjectMaps();
 		static std::pair<int,int> getObjectListIndexByAOobjectName(std::string s);
 		static std::pair<int, int> getObjectListIndexByRBobjectID(std::string s);
-		static collectorNS::ApplicationObjectCollector* getObject(std::string s);
-		static collectorNS::ApplicationObjectCollector* getCollector(const std::string& s);
+		static collectorNS::ApplicationObjectCollector* getObjectByRBID(std::string s);
+		static collectorNS::ApplicationObjectCollector* getObjectByCollectorID(const std::string& s);
 		static std::string printEditableObjectInfos();
 		static void kill(const std::string&);
 		static void kill(const collectorNS::ActiveObject*);

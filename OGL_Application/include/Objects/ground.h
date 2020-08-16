@@ -6,6 +6,7 @@
 #include<userInterface.h>
 #include<core.h>
 #include<applicationDerivedObject.h>
+#include<utility>
 
 namespace aiNS {
 	class myfirstIA;
@@ -30,12 +31,17 @@ namespace myobjectNS {
 
 	class Ground {
 	public:
+		typedef std::map<string, SurfaceBoundaries*>::iterator GroudMapIterator;
+		/*groundID , ground*/
+		static std::map<string, SurfaceBoundaries*> groundMap;
 		static std::vector<SurfaceBoundaries> grounds;
+		static GroudMapIterator groundMapIT;
 
 		static void addBoundaries(std::vector<std::array<float, 3>> surf_vertices){}		
 		static void addSurface(collectorNS::ApplicationObjectCollector* c);
 		static void addSurface(myobjectNS::ApplicationObject* c);
-		static void printGroundList();
+		static vector<string> getGroundList();
+		static SurfaceBoundaries* getGround(const string&);
 
 	};
 

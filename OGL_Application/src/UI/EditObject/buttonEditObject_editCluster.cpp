@@ -33,7 +33,7 @@ namespace uiNS
 		std::string buttonID{ UserInterface::cursorVStext() };
 
 		/*tentatively looking for an object of ID buttonID*/
-		collectorNS::ApplicationObjectCollector* obj = ApplicationObjectManager::getCollector(buttonID);
+		collectorNS::ApplicationObjectCollector* obj = ApplicationObjectManager::getObjectByCollectorID(buttonID);
 
 		if (obj)
 		{

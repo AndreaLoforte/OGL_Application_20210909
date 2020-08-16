@@ -23,6 +23,14 @@ namespace clusterNS {
 	void ClusterManager::saveCluster(const Cluster& c){}
 
 
+
+	void ClusterManager::eraseByString(const string& elementID)
+	{
+		it = clusterMap.find(elementID);
+		if (it != clusterMap.end())
+			clusterMap.erase(it);
+
+	}
 	
 }
 

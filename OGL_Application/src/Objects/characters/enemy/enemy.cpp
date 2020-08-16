@@ -2,6 +2,9 @@
 #include<assert.h>
 #include<playerCharacter.h>
 #include<cameraManager.h>
+#include<activeCharacterManager.h>
+
+
 namespace myobjectNS{
 
 int Enemy::instanceCounter;
@@ -195,6 +198,17 @@ void Enemy::create() {
 
 }
 
+
+
+EnemyOC* EnemyOC::OCgetNewInstance()  {
+	//instanceCounter++;
+	EnemyOC* s(new EnemyOC());
+	//s->AOinstanceNumber = instanceCounter;
+
+	activeObjectManagerNS::ActiveCharacterManager::add(s);
+	
+	return s;
+}
 
 
 }

@@ -2,6 +2,9 @@
 
 #include<objectCollector.h>
 #include<map>
+#include<string>
+
+using namespace std;
 
 namespace clusterNS {
 
@@ -21,6 +24,7 @@ namespace clusterNS {
 		static clusterIT it;
 		static void printClusterList();
 		static void saveCluster(const Cluster&);
+		static void eraseByString(const string&);
 
 
 
