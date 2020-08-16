@@ -24,7 +24,7 @@ namespace uiNS
 		}
 		//QuitNoSaveButton() : ButtonInterface({ ButtonMap::QUITNOSAVE }){}
 		void action() override;
-		static void showObjectsList();
+		static void goToEditObject();
 		static void editPosition();
 		const std::string& getButtonID() override { return button.buttonID; }
 		static void cursorButtonCallBack_clusters(GLFWwindow* w, int button, int action, int mode);

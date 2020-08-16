@@ -31,8 +31,7 @@ namespace myobjectNS{
 		mymathlibNS::Quaternion AOorientation{ 1.0,0.0,0.0,0.0 };//quaternione unitario
 		std::array<float, 3> AOposition;
 		vmath::vec4 AOcolor{ 0.5,0.5,0.5,0.5 };
-	
-
+		vector<array<float, 3>> AOvertices;
 		bool readyToDraw = false;//parametro settato a true se ci sono tutte le condizioni per renderizzare l'ogetto (ad esempio sono stati compilati correttamente gli shaders)
 		bool AOisOn = true;
 	
@@ -96,6 +95,7 @@ namespace myobjectNS{
 		{
 			AOsize = sz;
 		}
+	
 		virtual void makesound(){}
 		/*funzione da sovrascrivere nelle final classes*/
 		virtual int getHealt() { return -1; }
@@ -115,6 +115,8 @@ namespace myobjectNS{
 		{
 			AOcollectorOwnershipID = s;
 		}
+
+		
 
 		
 	};

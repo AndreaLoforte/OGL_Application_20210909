@@ -101,12 +101,11 @@ namespace myobjectNS
 		/*chiamata a runtime per modificare size*/
 		void changeDimensions(const GLfloat& w, const GLfloat& h) 
 		{
-			/*L1 = w;
-			L2 = h;*/
 			CollisionFinitePlane::size[0] = w;
 			CollisionFinitePlane::size[1] = 0;
 			CollisionFinitePlane::size[2] = h;
 
+			ApplicationObject::setSize({ w,0,h });
 			create();
 		}
 
@@ -116,6 +115,11 @@ namespace myobjectNS
 			size[0] = sz[0];
 			size[1] = sz[1];
 			size[2] = sz[2];
+
+			ApplicationObject::setSize(sz);
+			/*AOsize.push_back(sz[0]);
+			AOsize.push_back(sz[1]);
+			AOsize.push_back(sz[2]);*/
 			
 		}
 

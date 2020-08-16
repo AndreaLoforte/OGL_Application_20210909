@@ -17,13 +17,13 @@ namespace myobjectNS{
 		static unsigned instanceCounter;
 		unsigned instanceNumber;
 
+		vector<array<float, 3>> vertices;
+		
 	public:
 		Surface(std::string sh_prog_name, GLfloat l = 100):
 			ObjectPlane(sh_prog_name,100,0,100),
 			BaseObject(sh_prog_name) 
 		{
-			/*size[0] = l;
-			size[2] = l;*/
 
 			CollisionFinitePlane::size[0] = l;
 			CollisionFinitePlane::size[1] = 0;
@@ -51,6 +51,8 @@ namespace myobjectNS{
 			return s; 
 		}
 		int getCollisorID() override { return AOCollisorID; }
+
+	
 
 	};
  

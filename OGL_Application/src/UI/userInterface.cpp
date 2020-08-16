@@ -69,7 +69,7 @@ namespace uiNS {
 	void UserInterface::init()
 	{
 		//UserInterface::paused = false;
-		UserInterface::setFlags(false, false, false);
+		//UserInterface::setFlags(false, false, false);
 		start->mainMenu(Application::window, 0, 1, 0);
 		start->setControls();
 

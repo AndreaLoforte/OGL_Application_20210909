@@ -9,6 +9,7 @@
 #include<object1.h>
 #include<grid.h>
 #include<surface.h>
+#include<polygon.h>
 #include<sphere.h>
 #include<frameofref.h>
 #include<my_particle.h>
@@ -40,6 +41,7 @@ namespace AssetNS {
 		//assetAOList.push_back(new myobjectNS::Particle("particle"));
 		assetAOList.push_back(new myobjectNS::Grid("grid"));
 		assetAOList.push_back(new myobjectNS::Surface("surface"));
+		assetAOList.push_back(new myobjectNS::Polygon("polygon"));
 		assetAOList.push_back(new myobjectNS::Build("object1"));//dentro file object1
 		assetAOList.push_back(new myobjectNS::Sphere("sphere"));
 		assetAOList.push_back(new myobjectNS::FrameOfRef("frameOfRef"));

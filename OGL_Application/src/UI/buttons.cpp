@@ -59,53 +59,17 @@ namespace uiNS {
 
 	void EditGameButton::action()
 	{
-		UserInterface::setFlags(false, false, false);
-		/*UserInterface::deleteAllButtons();*/
-		
-		/*UserInterface::showButton(ButtonMap::DELETEBUTTON, "Delete an Object");
-		UserInterface::showButton(ButtonMap::CREATEBUTTON, "Create an Object");
-		UserInterface::showButton(ButtonMap::SAVEBUTTON, "Save project");
-		UserInterface::showButton(ButtonMap::BACKBUTTON, ButtonMap::BACKBUTTON);*/
+		/*UserInterface::setFlags(false, false, false);
+
 		
 		UserInterface::bfl.setMouseButtonCallback(setControls);
-		return;
+		return;*/
 
 	}
 
 	
 	void EditGameButton::setControls()
 	{
-		std::string buttonID{ UserInterface::cursorVStext() };
-		//UserInterface::enableBack(buttonID);
-
-		if (buttonID == NonButtonMap::NOBUTTON) return;
-
-		if (buttonID == ButtonMap::DELETEBUTTON)
-		{
-			//UserInterface::printExistingObjects();
-
-			UserInterface::bfl.setMouseButtonCallback(DeleteObjectButton::selectObject);
-
-		}
-
-		if (buttonID == ButtonMap::CREATEBUTTON)
-		{
-		
-			//UserInterface::printAssetObjectsList();
-			UserInterface::bfl.setMouseButtonCallback(CreateObjectButton::selectObject);
-
-		}
-
-		if (buttonID == ButtonMap::SAVEBUTTON)
-		{
-
-		}
-		if (buttonID == ButtonMap::BACKBUTTON)
-		{
-
-		}
-
-
 
 
 	}
@@ -118,13 +82,13 @@ namespace uiNS {
 
 	void CreateObjectButton::selectObject(GLFWwindow*, int button, int action, int mod)
 	{
-		if (action == GLFW_RELEASE) return;
+		/*if (action == GLFW_RELEASE) return;
 
 		string buttonID = UserInterface::cursorVStext();
 
 		if (buttonID == NonButtonMap::NOBUTTON) return;
 		
-		myobjectNS::ApplicationObjectManager::createNewObject(buttonID);
+		myobjectNS::ApplicationObjectManager::createNewObject(buttonID);*/
 
 	}
 
@@ -136,11 +100,11 @@ namespace uiNS {
 		/*UserInterface::deleteButtonsByBranch(UserInterface::getParentButton()->getButtonID());
 		UserInterface::deleteButtonsByBranch(UserInterface::getParentButton()->getButtonID());*/
 	
-		if (UserInterface::buttonFlow.size() == 0)
-			UserInterface::buttonFlow.push_back(UserInterface::start);
-		UserInterface::buttonFlow.back()->action();
-		UserInterface::buttonFlow.back()->setControls();
-		
+		//if (UserInterface::buttonFlow.size() == 0)
+		//	UserInterface::buttonFlow.push_back(UserInterface::start);
+		//UserInterface::buttonFlow.back()->action();
+		//UserInterface::buttonFlow.back()->setControls();
+		//
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -154,14 +118,14 @@ namespace uiNS {
 
 	void DeleteObjectButton::selectObject(GLFWwindow* w,int button, int action, int mode)
 	{
-		if (action == GLFW_RELEASE) return;
-		
+		//if (action == GLFW_RELEASE) return;
+		//
 
-		string buttonID = UserInterface::cursorVStext();
-		
-		if (buttonID == ButtonMap::BACKBUTTON);/*UserInterface::back();*/
-		if (buttonID == NonButtonMap::NOBUTTON) return;
-		if (myobjectNS::ApplicationObjectManager::deleteObject(buttonID))
+		//string buttonID = UserInterface::cursorVStext();
+		//
+		//if (buttonID == ButtonMap::BACKBUTTON);/*UserInterface::back();*/
+		//if (buttonID == NonButtonMap::NOBUTTON) return;
+		//if (myobjectNS::ApplicationObjectManager::deleteObject(buttonID))
 		{
 			//UserInterface::printExistingObjects();
 			/*UserInterface::showButton("DELETED", buttonID + " deleted");

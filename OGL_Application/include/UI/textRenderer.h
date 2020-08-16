@@ -16,7 +16,6 @@
 #include<baseObject.h>
 #include<string>
 #include<applicationObject.h>
-#include <texture_ext.h>
 
 namespace printHelperNS {
 	class PrintHelper;

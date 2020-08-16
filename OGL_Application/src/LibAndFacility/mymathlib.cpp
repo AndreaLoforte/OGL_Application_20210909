@@ -624,5 +624,52 @@ void matXvec(vmath::mat4& mat,vmath::vec3& vec,vmath::vec3& ret)
 
 
 }
+
+
+
+
+
+vector<array<float, 3>>  vmatMatrix::getProduct(const vector<array<float, 3>>& v, const vmath::mat4& m)
+{
+	vector<array<float, 3>> result;
+
+	array<float, 3> vertx;
+
+	for (int i = 0; i < v.size(); i++)
+	{
+		vertx[0] = m[0][0] * v[i][0] + m[1][0] * v[i][1] + m[2][0] * v[i][2] + m[3][0];
+		vertx[1] = m[0][1] * v[i][0] + m[1][1] * v[i][1] + m[2][1] * v[i][2] + m[3][1];
+		vertx[2] = m[0][2] * v[i][0] + m[1][2] * v[i][1] + m[2][2] * v[i][2] + m[3][2];
+
+		result.push_back(vertx);
+	}
+
+	/*array<float, 3> translation = { m[3][0],m[3][1],m[3][2] };
+
+	for (int i = 0; i < result.size(); i++)
+		result[i] = mymathlibNS::stdLibHelper::array3fSum(result[i], translation);*/
+
+	return result;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 }

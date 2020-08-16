@@ -6,7 +6,7 @@
 #include<fstream>
 #include<stdio.h>
 std::string App::projectDataFileName{ "AppObj" };
-
+string App::defaultProjectFileName{ "defaultProjectName" };
 printHelperNS::PrintHelper App::ph{ "App" };
 
 void App::switchPhysics() {}
@@ -59,18 +59,13 @@ void App::update(){
 }
 
 
-void App::generateContacts(){	
-
-}
-
-
-
-
+void App::generateContacts() {}
 
 void App::startup()
 {
 	TimingData::init();
-	fpcameraNS::CameraManager::load(App::projectDataFileName);
+	
+	//fpcameraNS::CameraManager::load(App::projectDataFileName);
 	
 
 	glEnable(GL_BLEND);
@@ -79,13 +74,18 @@ void App::startup()
 	glDepthFunc(GL_LEQUAL);
 
 
+	loadProjectData();
 
 	soundEngine.startSounds();
 	//controls.setup(this);
 	userInterface.init();
 	textRenderer.create();
 
+	
+
 }
+
+
 
 
 void App::SaveProjectData(string filename) {
@@ -98,13 +98,31 @@ void App::SaveProjectData(string filename) {
 	myobjectNS::ApplicationObjectManager::save(filename);
 	fpcameraNS::CameraManager::save();
 	
+	
+	std::ofstream out2(logNS::Logger::STOREDDATADIR+ defaultProjectFileName);
+
+	out2 << filename;
 
 	
 }
 
 bool App::loadProjectData(string filename) {
+
+	if (filename == "default")
+	{
+		string s = logNS::Logger::STOREDDATADIR + defaultProjectFileName;
+		ifstream infile(s);
+		infile >> App::projectDataFileName;
+	}
 	fpcameraNS::CameraManager::load(App::projectDataFileName);
-	return myobjectNS::ApplicationObjectManager::loadData(filename);
+	
+	if (myobjectNS::ApplicationObjectManager::loadData(App::projectDataFileName))
+	{
+		myobjectNS::ApplicationObjectManager::setupObjectsParameters();
+		return true;
+	}
+	
+	return false;
 }
 
 bool App::deleteProjectData(string filename) {

@@ -20,7 +20,7 @@ namespace myobjectNS {
 		glLineWidth(1);
 		glDrawArrays(GL_LINES, 0, 40);
 
-		glBindVertexArray(0);
+		glBindVertexArray(-1);
 	}
 
 	void Grid::render()

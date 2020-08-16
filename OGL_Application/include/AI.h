@@ -52,7 +52,13 @@ namespace aiNS {
 		std::default_random_engine generator;
 		Vector3 randomDestination{ 0.0,0.0,0.0 };
 		Vector3 deltaMovement{ 0.0,0.0,0.0 };
-		float BOUNDARIES[3]{ 1000,1000,1000 };
+		std::uniform_int_distribution<int> distribution{ -100,100 };
+
+		std::_Binder<std::_Unforced,
+			std::uniform_int_distribution<int>&, 
+			std::default_random_engine&> 
+			random = std::bind(distribution, generator);
+
 		int gunTimer = 0;
 		int gunRepFreq = 100;
 	public:	

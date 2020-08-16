@@ -25,6 +25,7 @@ namespace myobjectNS{
 	class BaseObject {
 	public:
 		GLuint VAO;
+		GLuint VBO;
 		GLuint shader_prog;
 		std::string shader_prog_name;
 		shaderManagerNS::ShaderManager smanager;

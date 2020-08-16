@@ -27,7 +27,7 @@ namespace uiNS
 	}
 
 
-	void EditObjectModeButton::showObjectsList()
+	void EditObjectModeButton::goToEditObject()
 	{
 		UserInterface::printExistingObjects(ButtonMap::EDITOBJECTMODEBUTTON);
 		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, ButtonMap::BACKBUTTON);
@@ -164,6 +164,7 @@ namespace uiNS
 		{
 			UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON, 5);
 			UserInterface::bfl.setKeyCallback(key_callbackEditSize);
+			key_callbackEditSize(Application::window,0,0,0,0);
 			return;
 		}
 
@@ -193,8 +194,11 @@ namespace uiNS
 
 		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
 		{
-			showObjectsList();
+			goToEditObject();
 		}
+
+		if (UserInterface::clicked(NonButtonMap::QUITBUTTON))
+			glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
 
 
 	}

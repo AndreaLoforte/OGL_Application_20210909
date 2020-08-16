@@ -28,6 +28,7 @@ namespace uiNS {
 	void StartButton::mainMenu(GLFWwindow* w, int button, int action, int mode)
 	{
 		/*if (UserInterface::clicked(NonButtonMap::NOBUTTON))	*/
+		UserInterface::setFlags(false, false, false);
 		UserInterface::phc.hideDropDownMenu();
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		UserInterface::phc.showButton(NonButtonMap::FILE, NonButtonMap::FILE, NonButtonMap::FILE);
@@ -91,10 +92,18 @@ namespace uiNS {
 		if (action == GLFW_RELEASE) return;
 
 		App::projectDataFileName = UserInterface::cursorVStext();
+		
+		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		{
+			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
+			cursorButtonCallBack(Application::window, 0, 1, 0);
+		}
+
+
 
 		if (App::loadProjectData(App::projectDataFileName))
 		{
-			myobjectNS::ApplicationObjectManager::setupObjectsParameters();
+			
 			UserInterface::phc.hideDropDownMenu();
 			setControls();
 			//UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
@@ -106,11 +115,7 @@ namespace uiNS {
 			setControls();
 		}
 
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
-		{
-			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
-			cursorButtonCallBack(Application::window, 0, 1, 0);
-		}
+		
 			
 
 	}

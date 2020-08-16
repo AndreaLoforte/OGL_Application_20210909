@@ -1,6 +1,7 @@
 #include<surface.h>
 #include<cameraManager.h>
 #include<conversionLIB.h>
+#include<vector>
 namespace myobjectNS {
 
 	unsigned Surface::instanceCounter = 0;
@@ -93,6 +94,13 @@ namespace myobjectNS {
 		body->setOrientation(AOorientation[0], AOorientation[1], AOorientation[2], AOorientation[3]);
 		body->_calculateTransformMatrix(body->transformMatrix, body->position, body->orientation);
 		body->getGLTransform(AOTrMatrix);
+
+		/*updating AOvertices*/
+		{
+			
+			AOvertices = mymathlibNS::vmatMatrix::getProduct(vertices, AOTrMatrix);
+		}
+	
 		
 		//body->transformMatrix = mymathlibNS::conversionLibrary::mat44Conversion_toMat43Cyclone(AOTrMatrix);
 		/*aggiorno la matrice di collisionFinitePlane*/
@@ -102,6 +110,10 @@ namespace myobjectNS {
 		//Nella trasposizione le componenti di traslazione sono finiti sulla 3a colonna
 		//poichè devo solo ruotare il vettore planeNormal, devo eliminare queste componenti.
 		//poichè però mi servono per il calcolo dell'offset le salvo su un vettore traslazione
+
+		
+
+
 		vmath::vec4 traslaz(
 			vmath::vec4(
 				TpositionM[0][3],
@@ -146,7 +158,7 @@ namespace myobjectNS {
 		GLfloat l1 = size[0], l2 = size[2];
 	
 		//il disegno sta sull'asse xz
-		GLfloat  vertices[6][4]{
+		GLfloat  vertices_[6][4]{
 			{-l1, 0.0f, l2, 1.0f},
 			{-l1, 0.0f, -l2, 1.0f},
 			{l1, 0.0f, -l2, 1.0f},
@@ -156,13 +168,25 @@ namespace myobjectNS {
 		};
 
 
+		for (int i = 0; i < 6; i++)
+		{
+			AOvertices.push_back(std::array<float, 3>());
+			for (int j = 0; j < 3; j++)
+			{
+				AOvertices[i][j] = vertices_[i][j];
+			}
+		}
+		vertices = AOvertices;
+		AOvertices = mymathlibNS::vmatMatrix::getProduct(vertices, AOTrMatrix);
+		
+
 		glCreateVertexArrays(1, &VAO);
 		glBindVertexArray(VAO);
 
 
 		glCreateBuffers(1, &VBO);
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glNamedBufferStorage(VBO, sizeof(vertices), NULL, GL_DYNAMIC_STORAGE_BIT);
+		glNamedBufferStorage(VBO, sizeof(vertices_), NULL, GL_DYNAMIC_STORAGE_BIT);
 
 		GLuint attribIndex = glGetAttribLocation(shader_prog, "vertices");
 		
@@ -175,7 +199,7 @@ namespace myobjectNS {
 
 
 
-		glNamedBufferSubData(VBO, offset, sizeof(vertices), vertices);
+		glNamedBufferSubData(VBO, offset, sizeof(vertices_), vertices_);
 
 		glVertexArrayAttribBinding(VAO, attribIndex, bindingIndex);
 		glVertexArrayVertexBuffer(VAO, bindingIndex, VBO, offset, stride);

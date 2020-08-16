@@ -330,6 +330,12 @@
     <ClInclude Include="OGL_Application\include\UI\textRenderer.h">
       <Filter>Header Files\DRAWING_H</Filter>
     </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\ground.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\polygon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
@@ -587,6 +593,12 @@
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\ground.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\polygon\polygon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="OGL_Application\src\Objects\build\build.frag">
@@ -685,5 +697,7 @@
     <None Include="OGL_Application\src\Objects\viewfinder\viewfinder.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\viewfinder</Filter>
     </None>
+    <None Include="OGL_Application\src\Objects\polygon\polygon.vert" />
+    <None Include="OGL_Application\src\Objects\polygon\polygon.frag" />
   </ItemGroup>
 </Project>

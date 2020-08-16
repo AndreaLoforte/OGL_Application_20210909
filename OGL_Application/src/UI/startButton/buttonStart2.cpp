@@ -4,6 +4,7 @@
 #include<app.h>
 #include<buttonEditObject.h>
 #include<userInterface.h>
+#include<ground.h>
 namespace uiNS {
 
 
@@ -44,6 +45,8 @@ namespace uiNS {
 
 
 
+	void exploreFolder();
+
 	void   StartButton::cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode)
 	{
 
@@ -82,11 +85,8 @@ namespace uiNS {
 
 			if (UserInterface::clicked(NonButtonMap::DELETEPROJECT))
 			{
-				vector<string> v;
-				logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR,v);
-				UserInterface::phc.showDropDownMenu(NonButtonMap::FILE, v);
-				UserInterface::phc.showButton(NonButtonMap::FILE, ButtonMap::BACKBUTTON);
-
+				
+				exploreFolder();
 				
 				UserInterface::bfl.setMouseButtonCallback(deleteProjectData);
 				UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack_highlightOnly);
@@ -173,10 +173,6 @@ namespace uiNS {
 		}
 
 
-
-
-
-
 		if (UserInterface::clicked("ENTER CONTROL MODE"))
 		{
 			UserInterface::phc.turnOffAllButtons();
@@ -189,7 +185,7 @@ namespace uiNS {
 		/*EDIT OBJECT MODE*/
 		{
 			if (UserInterface::clicked(NonButtonMap::SELECTOBJECT))
-				EditObjectModeButton::showObjectsList();
+				EditObjectModeButton::goToEditObject();
 
 
 			if (UserInterface::clicked(NonButtonMap::EDITCLUSTER))
@@ -197,8 +193,6 @@ namespace uiNS {
 			if (UserInterface::clicked(NonButtonMap::CREATECLUSTER))
 			{
 				EditObjectModeButton::createCluster(Application::window, 0, 1, 0);
-			
-
 			}
 		}
 
@@ -209,8 +203,82 @@ namespace uiNS {
 		{
 			if (UserInterface::clicked(ButtonMap::CREATEBUTTON))
 			{
-				UserInterface::printAssetObjectsList(ButtonMap::EDITGAMEMODEBUTTON);
-				UserInterface::bfl.setMouseButtonCallback(StartButton::createObject);
+				auto L_choice = []()
+				{			
+					if ( UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+					{
+						UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
+						StartButton::mainMenu(Application::window, 0, 0, 0);
+						return;
+					}
+					
+					auto L_createGround = []()
+					{
+						string s = UserInterface::cursorVStext();
+						UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON, s);
+
+						collectorNS::ApplicationObjectCollector *c = myobjectNS::ApplicationObjectManager::getCollector(s);
+						
+						
+						if (!c || UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+						{
+							UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
+							StartButton::mainMenu(Application::window, 0, 0, 0);
+							return;
+						}
+						//myobjectNS::ApplicationObjectManager::createNewObject(s);
+						if (c->getBody()->AOCollisorID == 3)
+						{
+							UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON,"CREATEGROUNDCONFIRM",s+ " added to ground");
+							myobjectNS::Ground::addSurface(c);
+						}
+							
+						else
+							UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON,"CREATEGROUNDCONFIRM", "this object can't be used as ground");
+
+						
+							
+
+					};
+					
+
+					auto L_menuCreateGround = [&]()
+					{
+
+						UserInterface::phc.hideDropDownMenu();
+						/*vector<string> list;
+						for (int i = 0; i < AssetNS::Assets::assetsList.size(); i++)
+						{
+							list.push_back(AssetNS::Assets::assetsList[i]->getCollectorName());
+						}
+						UserInterface::phc.showDropDownMenu(ButtonMap::EDITGAMEMODEBUTTON, list);
+						UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::BACKBUTTON);*/
+						UserInterface::printExistingObjects(ButtonMap::EDITGAMEMODEBUTTON);
+						UserInterface::bfl.setMouseButtonCallback(L_createGround);
+
+					};
+
+					
+
+					if (UserInterface::clicked("CREATE GROUND"))
+					{
+						L_menuCreateGround();
+						
+					}
+
+
+					if (UserInterface::clicked("CREATE OBJECT"))
+					{
+						UserInterface::printAssetObjectsList(ButtonMap::EDITGAMEMODEBUTTON);
+						UserInterface::bfl.setMouseButtonCallback(StartButton::createObject);
+					}
+
+				};
+
+				UserInterface::phc.showDropDownMenu(ButtonMap::EDITGAMEMODEBUTTON, { "CREATE OBJECT","CREATE GROUND" });
+				UserInterface::bfl.setMouseButtonCallback(L_choice);
+				
+				
 			}
 
 			if (UserInterface::clicked(ButtonMap::DELETEBUTTON))
@@ -226,6 +294,8 @@ namespace uiNS {
 
 	void StartButton::deleteProjectData(GLFWwindow* w, int button, int action, int mods)
 	{
+
+
 		string filename = UserInterface::cursorVStext();
 
 	
@@ -239,6 +309,7 @@ namespace uiNS {
 		if (App::deleteProjectData(filename))
 		{
 			//UserInterface::phc.hideDropDownMenu();
+			exploreFolder();
 			UserInterface::phc.showButton(NonButtonMap::FILE, filename + " data file deleted");
 			
 		}
@@ -250,7 +321,13 @@ namespace uiNS {
 
 	}
 
-
+	void exploreFolder()
+	{
+		vector<string> v;
+		logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, v);
+		UserInterface::phc.showDropDownMenu(NonButtonMap::FILE, v);
+		UserInterface::phc.showButton(NonButtonMap::FILE, ButtonMap::BACKBUTTON);
+	}
 	
 
 	void StartButton::cursorPositionCallBack(GLFWwindow* w, double x, double y)

@@ -9,6 +9,7 @@
 #include<functional>
 #include<userInterface.h>
 #include<conversionLIB.h>
+#include<ground.h>
 namespace aiNS {
 
 	
@@ -102,22 +103,23 @@ namespace aiNS {
 		if (!target->isOn || !target->isAlive || targetDistanceNorm > activationDistance)
 		{
 			moveRandomly();
-			return;
+			//return;
 		}
-		static float distance = 30.0f;
+		/*static float distance = 30.0f;
 
 		Vector3	vel{ 
 			distance_v[0] / distance,
 			myRB->velocity[1],
 			distance_v[2] / distance };
 
-		
-		if (myposition[0] + vel[0] >= BOUNDARIES[0])
+		Vector3 movement = myposition + vel;
+		myobjectNS::Ground::checkWithBoundaries(movement);*/
+		/*if (myposition[0] + vel[0] >= myobjectNS::Ground::boundaries[0][0][0])
 				vel[0] = 0.0;
 			if (myposition[2] + vel[2] >= BOUNDARIES[2])
 				vel[2] = 0.0;
 
-		myRB->velocity = vel;
+		myRB->velocity = vel;*/
 
 		
 
@@ -125,28 +127,37 @@ namespace aiNS {
 
 	void myfirstIA::moveRandomly()
 	{
-		static std::uniform_int_distribution<int> distribution{ -1000, 1000 };
-		static auto random = std::bind(distribution, generator);
-
-		if (deltaMovement.magnitude() <= 5)
+		if (myobjectNS::Ground::grounds.size() == 0)
 		{
-			randomDestination[0] = random();
-			randomDestination[1] = 0.0;
-			randomDestination[2] = random();
-
+			UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, "set some ground to be walkable");
+			return;
 		}
+			
+		static Vector3 targetPosition{
+			conversionLibNS::conversionLibrary::stdArrayToCycloneVec3(myobjectNS::Ground::grounds[0].getRandomPointInSurface(this)) };
+		//static Vector3 currentPos{ myposition };
 
-		deltaMovement[0] = randomDestination[0] - myposition[0];
-		deltaMovement[1] = 0.0;
-		deltaMovement[2] = randomDestination[2] - myposition[2];
+		deltaMovement = targetPosition - myposition;
+
+		if (deltaMovement.magnitude() <=20.0)
+		{
+			targetPosition = conversionLibNS::conversionLibrary::stdArrayToCycloneVec3(myobjectNS::Ground::grounds[0].getRandomPointInSurface(this));
+		}
+	
 
 		Vector3 vel = deltaMovement;
 		vel.normalise();
 
-		vel *= 50;
+		vel *= 100;
 
 
 		myRB->velocity = vel;
+
+
+		
+		//myobjectNS::Ground::checkWithBoundaries(myposition,vel);
+
+		
 
 	}
 

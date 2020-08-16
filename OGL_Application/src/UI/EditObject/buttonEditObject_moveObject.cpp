@@ -86,7 +86,7 @@ namespace uiNS
 		UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,5);
 		UserInterface::bfl.setKeyCallback(key_callbackMove);
 		UserInterface::bfl.setMouseButtonCallback(cursorButtoncallbackMoveObject);
-		key_callbackMove(Application::window, 0, 0, 0, 0);
+		key_callbackMove(Application::window, 0, 0, 1, 0);
 
 
 	}

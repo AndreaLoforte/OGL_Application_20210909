@@ -6,6 +6,10 @@
 #include<gl3w.h>
 #include<array>
 #include<vector>
+
+
+using namespace std;
+
 namespace mymathlibNS{
 
 void printMatrix(const vmath::mat4&);
@@ -183,6 +187,12 @@ vmath::mat4  transpose(const vmath::mat4& input_matrix);
 		 return normalized;
 	 }
 
+ };
+
+
+ struct vmatMatrix
+ {
+	 static vector<array<float, 3>>  getProduct(const vector<array<float, 3>>& v, const vmath::mat4& m);
  };
 
  

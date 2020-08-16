@@ -54,9 +54,11 @@
 		static void SaveProjectData(string);//static perchè richiamata da controls che non ha istanze di app.
 
 		static std::string projectDataFileName;
-		static bool loadProjectData(string);
+		static bool loadProjectData(string s = "default");
 		static bool deleteProjectData(string);
 		logNS::Logger log;
+
+		static string defaultProjectFileName;
 	};
 
 

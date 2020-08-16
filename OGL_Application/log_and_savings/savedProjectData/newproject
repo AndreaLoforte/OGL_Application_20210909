@@ -1,59 +1,4 @@
 COLLECTOR_
-build
-OCisOnFlag
-0
-AOobjectName
-build
-AOinstanceNumber
-0
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-0
-DOsize
-5 10 8
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-1
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
--39 33 0
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-frameOfRef
-OCisOnFlag
-0
-AOobjectName
-frameOfRef
-AOinstanceNumber
-0
-AOposition
-0 0 0
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-0
---------ENDCOLLECTOR--------
-COLLECTOR_
 grid
 OCisOnFlag
 0
@@ -73,11 +18,11 @@ DOsize
 100 0 100
 --------ENDCOLLECTOR--------
 COLLECTOR_
-object1
+frameOfRef
 OCisOnFlag
 0
 AOobjectName
-object1
+frameOfRef
 AOinstanceNumber
 0
 AOposition
@@ -90,11 +35,30 @@ AOisOnFlag
 0
 --------ENDCOLLECTOR--------
 COLLECTOR_
-point
+sphere
 OCisOnFlag
 0
 AOobjectName
-point
+sphere
+AOinstanceNumber
+2
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+frameOfRef
+OCisOnFlag
+0
+AOobjectName
+frameOfRef
 AOinstanceNumber
 0
 AOposition
@@ -105,6 +69,25 @@ AOcolor
 0.5 0.5 0.5 0.5
 AOisOnFlag
 0
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+1
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+373.347 -8.91682 -186.515
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
 --------ENDCOLLECTOR--------
 COLLECTOR_
 surface
@@ -123,22 +106,62 @@ AOcolor
 AOisOnFlag
 0
 DOsize
-100 0 100
+400 0 50
 --------ENDCOLLECTOR--------
 COLLECTOR_
-triangle_tb
+enemy
 OCisOnFlag
-0
+1
 AOobjectName
-triangle_tb
+enemy
 AOinstanceNumber
 0
 AOposition
-0 0 0
+366.448 -9.04989 -184.97
 AOorientation
 1 0 0 0
 AOcolor
-0.5 0.5 0.5 0.5
+1 0.5 0.5 0.5
 AOisOnFlag
+1
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+1
+AOobjectName
+enemy
+AOinstanceNumber
 0
+AOposition
+358.713 -9.18523 -183.23
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+1
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+394.782 -8.41646 -191.277
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
 --------ENDCOLLECTOR--------

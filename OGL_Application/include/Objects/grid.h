@@ -19,13 +19,8 @@ namespace myobjectNS{
 			ObjectPlane(sh_prog_name,100,0,100),
 			BaseObject(sh_prog_name){
 
-			
-
 			instanceNumber = instanceCounter++;
 			body->RBobjectName = sh_prog_name;
-			//body->RBinstanceNumber = instanceNumber;
-			//AOCollisorID = 3;
-
 		
 		}
 		void clean() {}

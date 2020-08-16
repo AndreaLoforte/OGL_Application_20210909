@@ -145,6 +145,7 @@
     <ClInclude Include="OGL_Application\include\application.h" />
     <ClInclude Include="OGL_Application\include\baseObject.h" />
     <ClInclude Include="OGL_Application\include\cameraTransformations\cameraManager.h" />
+    <ClInclude Include="OGL_Application\include\Objects\ground.h" />
     <ClInclude Include="OGL_Application\include\LibAndFacility\conversionLIB.h" />
     <ClInclude Include="OGL_Application\include\LibAndFacility\toStringLib.h" />
     <ClInclude Include="OGL_Application\include\Objects\boxAABB.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="OGL_Application\include\Objects\grid.h" />
     <ClInclude Include="OGL_Application\include\Objects\my_particle.h" />
     <ClInclude Include="OGL_Application\include\Objects\object1.h" />
+    <ClInclude Include="OGL_Application\include\Objects\polygon.h" />
     <ClInclude Include="OGL_Application\include\Objects\projectile.h" />
     <ClInclude Include="OGL_Application\include\Objects\sphere.h" />
     <ClInclude Include="OGL_Application\include\cameraTransformations\fpcamera.h" />
@@ -218,6 +220,7 @@
     <ClCompile Include="OGL_Application\src\baseObject.cpp" />
     <ClCompile Include="OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp" />
     <ClCompile Include="OGL_Application\src\cameraTransformations\cameraManager.cpp" />
+    <ClCompile Include="OGL_Application\src\Objects\ground.cpp" />
     <ClCompile Include="OGL_Application\src\LibAndFacility\conversionLIB.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\boxAABB\boxAABB.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\cluster.cpp" />
@@ -225,6 +228,7 @@
     <ClCompile Include="OGL_Application\src\Objects\grid\grid.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\object1\object1.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\particle\my_particle.cpp" />
+    <ClCompile Include="OGL_Application\src\Objects\polygon\polygon.cpp" />
     <ClCompile Include="OGL_Application\src\UI\buttonfunctionLoader.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart.cpp" />
     <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject.cpp" />
@@ -306,6 +310,8 @@
     <None Include="OGL_Application\src\Objects\object1\object1.vert" />
     <None Include="OGL_Application\src\Objects\particle\particle.frag" />
     <None Include="OGL_Application\src\Objects\particle\particle.vert" />
+    <None Include="OGL_Application\src\Objects\polygon\polygon.frag" />
+    <None Include="OGL_Application\src\Objects\polygon\polygon.vert" />
     <None Include="OGL_Application\src\Objects\projectile\projectile.frag" />
     <None Include="OGL_Application\src\Objects\projectile\projectile.vert" />
     <None Include="OGL_Application\src\Objects\sphere\sphere.frag" />

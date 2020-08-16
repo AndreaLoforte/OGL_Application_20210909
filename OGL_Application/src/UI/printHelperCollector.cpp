@@ -46,7 +46,12 @@ namespace printHelperNS {
 
 
 
-
+		/*-phID specifies which branch this text should be putted under
+		-stringID specifies an ID for this text : under the same phID, text
+		with the same stringID will be ovverridden.
+		- text is the actual text shown
+		-buttonLevel specifies which level the button should be (it is necessary when deleting buttons)
+		-scale specify the scale for this button*/
 		void PrintHelperCollector::showButton(const string& phID, const string& stringID, const string& text, const unsigned& buttonLevel, const float& scale )
 		{
 				
