@@ -644,11 +644,6 @@ vector<array<float, 3>>  vmatMatrix::getProduct(const vector<array<float, 3>>& v
 		result.push_back(vertx);
 	}
 
-	/*array<float, 3> translation = { m[3][0],m[3][1],m[3][2] };
-
-	for (int i = 0; i < result.size(); i++)
-		result[i] = mymathlibNS::stdLibHelper::array3fSum(result[i], translation);*/
-
 	return result;
 
 

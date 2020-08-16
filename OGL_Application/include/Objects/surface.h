@@ -17,7 +17,6 @@ namespace myobjectNS{
 		static unsigned instanceCounter;
 		unsigned instanceNumber;
 
-		vector<array<float, 3>> vertices;
 		
 	public:
 		Surface(std::string sh_prog_name, GLfloat l = 100):

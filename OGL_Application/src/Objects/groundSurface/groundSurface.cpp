@@ -1,21 +1,24 @@
-#include<surface.h>
-#include<cameraManager.h>
-#include<conversionLIB.h>
-#include<vector>
+#include<ground.h>
+#include<conversionLIB.h> 
+#include<random>
+#include<functional>
+#include<AI.h>
+
 namespace myobjectNS {
 
-	unsigned Surface::instanceCounter = 0;
+
+	unsigned GroundSurface::instanceCounter = 0;
 
 
-	void Surface::render(const fpcameraNS::Transformation& cam)
+	void GroundSurface::render(const fpcameraNS::Transformation& cam)
 	{
-		
+
 		renderSurface();
 		//renderCollisionPrimitive();
 
 	}
 
-	void Surface::renderSurface()
+	void GroundSurface::renderSurface()
 	{
 		glUseProgram(shader_prog);
 		glBindVertexArray(VAO);
@@ -30,7 +33,7 @@ namespace myobjectNS {
 		glBindVertexArray(0);
 
 	}
-	void Surface::renderCollisionPrimitive()
+	void GroundSurface::renderCollisionPrimitive()
 	{
 		glUseProgram(shader_prog);
 		glBindVertexArray(VAO);
@@ -39,8 +42,8 @@ namespace myobjectNS {
 		static GLuint colorAttribLoc = glGetUniformLocation(shader_prog, "color");
 		glUniformMatrix4fv(modelviewMAttribLocation, 1, GL_FALSE, fpcameraNS::CameraManager::getActiveCamera().getPlayerCamera());
 		glUniformMatrix4fv(transfMAttribLocation, 1, GL_FALSE, conversionLibNS::conversionLibrary::mat43Conversion_tovmath44T(CollisionPrimitive::transform));
-		
-		static float collisorColor[4]{ 1.0,1.0,1.0,.5};
+
+		static float collisorColor[4]{ 1.0,1.0,1.0,.5 };
 		glUniform4fv(colorAttribLoc, 1, collisorColor);
 		glLineWidth(1);
 		glDrawArrays(GL_TRIANGLES, 0, 6);
@@ -48,14 +51,14 @@ namespace myobjectNS {
 	}
 
 
-	void Surface::update(const float& duration) {
+	void GroundSurface::update(const float& duration) {
 
 		body->integrate(duration);
 		calculateInternals();
 	}
 
 
-	void Surface::setColor(float r, float g, float b, float a) {
+	void GroundSurface::setColor(float r, float g, float b, float a) {
 
 		AOcolor[0] = r;
 		AOcolor[1] = g;
@@ -65,9 +68,9 @@ namespace myobjectNS {
 	}
 
 
-	
 
-	void Surface::setRigidBodyParameters() {
+
+	void GroundSurface::setRigidBodyParameters() {
 
 		body->clearAccumulators();
 
@@ -87,7 +90,7 @@ namespace myobjectNS {
 
 
 
-	void Surface::setParameters(){
+	void GroundSurface::setParameters() {
 
 		//////////////////////////////////////////////////////////////////////////
 		body->setPosition(AOposition[0], AOposition[1], AOposition[2]);
@@ -96,12 +99,12 @@ namespace myobjectNS {
 		body->getGLTransform(AOTrMatrix);
 
 		/*updating AOvertices*/
-	/*	{
-			
+		{
+
 			AOvertices = mymathlibNS::vmatMatrix::getProduct(vertices, AOTrMatrix);
 		}
-	*/
-		
+
+
 		//body->transformMatrix = mymathlibNS::conversionLibrary::mat44Conversion_toMat43Cyclone(AOTrMatrix);
 		/*aggiorno la matrice di collisionFinitePlane*/
 		calculateInternals();
@@ -111,7 +114,7 @@ namespace myobjectNS {
 		//poichè devo solo ruotare il vettore planeNormal, devo eliminare queste componenti.
 		//poichè però mi servono per il calcolo dell'offset le salvo su un vettore traslazione
 
-		
+
 
 
 		vmath::vec4 traslaz(
@@ -141,22 +144,24 @@ namespace myobjectNS {
 		offset[2] = traslaz[2] * planeNormal[2];
 		offsetNorm = offset[0] + offset[1] + offset[2];
 
-		
+
 
 		setRigidBodyParameters();
 
 
-	
+
 	}
 
 
-	void Surface::create() {
+	void GroundSurface::create() {
+
+		myobjectNS::Ground::addSurface(this);
 
 
 		setShaders();
-		
+
 		GLfloat l1 = size[0], l2 = size[2];
-	
+
 		//il disegno sta sull'asse xz
 		GLfloat  vertices_[6][4]{
 			{-l1, 0.0f, l2, 1.0f},
@@ -168,7 +173,7 @@ namespace myobjectNS {
 		};
 
 
-	/*	for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			AOvertices.push_back(std::array<float, 3>());
 			for (int j = 0; j < 3; j++)
@@ -177,8 +182,8 @@ namespace myobjectNS {
 			}
 		}
 		vertices = AOvertices;
-		AOvertices = mymathlibNS::vmatMatrix::getProduct(vertices, AOTrMatrix);*/
-		
+		AOvertices = mymathlibNS::vmatMatrix::getProduct(vertices, AOTrMatrix);
+
 
 		glCreateVertexArrays(1, &VAO);
 		glBindVertexArray(VAO);
@@ -189,11 +194,11 @@ namespace myobjectNS {
 		glNamedBufferStorage(VBO, sizeof(vertices_), NULL, GL_DYNAMIC_STORAGE_BIT);
 
 		GLuint attribIndex = glGetAttribLocation(shader_prog, "vertices");
-		
-		
-		GLuint 
-			bindingIndex = 0, 
-			offset = 0, 
+
+
+		GLuint
+			bindingIndex = 0,
+			offset = 0,
 			stride = 4 * sizeof(GLfloat),
 			num_coord_per_vert = 4;
 
@@ -216,4 +221,8 @@ namespace myobjectNS {
 
 
 
-}//namespace
+
+
+
+
+}

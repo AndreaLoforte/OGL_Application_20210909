@@ -220,7 +220,8 @@
     <ClCompile Include="OGL_Application\src\baseObject.cpp" />
     <ClCompile Include="OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp" />
     <ClCompile Include="OGL_Application\src\cameraTransformations\cameraManager.cpp" />
-    <ClCompile Include="OGL_Application\src\Objects\ground.cpp" />
+    <ClCompile Include="OGL_Application\src\Objects\groundSurface\ground.cpp" />
+    <ClCompile Include="OGL_Application\src\Objects\groundSurface\groundSurface.cpp" />
     <ClCompile Include="OGL_Application\src\LibAndFacility\conversionLIB.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\boxAABB\boxAABB.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\cluster.cpp" />
@@ -306,6 +307,8 @@
   <ItemGroup>
     <None Include="OGL_Application\src\Objects\grid\grid.frag" />
     <None Include="OGL_Application\src\Objects\grid\grid.vert" />
+    <None Include="OGL_Application\src\Objects\groundSurface\groundSurface.frag" />
+    <None Include="OGL_Application\src\Objects\groundSurface\groundSurface.vert" />
     <None Include="OGL_Application\src\Objects\object1\object1.frag" />
     <None Include="OGL_Application\src\Objects\object1\object1.vert" />
     <None Include="OGL_Application\src\Objects\particle\particle.frag" />

@@ -202,9 +202,7 @@ namespace uiNS {
 		//EDIT GAME DROP DOWN MENU
 		{
 			if (UserInterface::clicked(ButtonMap::CREATEBUTTON))
-			{
-				auto L_choice = []()
-				{			
+			{	
 					if ( UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
 					{
 						UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
@@ -212,72 +210,10 @@ namespace uiNS {
 						return;
 					}
 					
-					auto L_createGround = []()
-					{
-						string s = UserInterface::cursorVStext();
-						UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON, s);
-
-						collectorNS::ApplicationObjectCollector *c = myobjectNS::ApplicationObjectManager::getCollector(s);
-						
-						
-						if (!c || UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
-						{
-							UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
-							StartButton::mainMenu(Application::window, 0, 0, 0);
-							return;
-						}
-						//myobjectNS::ApplicationObjectManager::createNewObject(s);
-						if (c->getBody()->AOCollisorID == 3)
-						{
-							UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON,"CREATEGROUNDCONFIRM",s+ " added to ground");
-							myobjectNS::Ground::addSurface(c);
-						}
-							
-						else
-							UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON,"CREATEGROUNDCONFIRM", "this object can't be used as ground");
-
-						
-							
-
-					};
-					
-
-					auto L_menuCreateGround = [&]()
-					{
-
-						UserInterface::phc.hideDropDownMenu();
-						/*vector<string> list;
-						for (int i = 0; i < AssetNS::Assets::assetsList.size(); i++)
-						{
-							list.push_back(AssetNS::Assets::assetsList[i]->getCollectorName());
-						}
-						UserInterface::phc.showDropDownMenu(ButtonMap::EDITGAMEMODEBUTTON, list);
-						UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::BACKBUTTON);*/
-						UserInterface::printExistingObjects(ButtonMap::EDITGAMEMODEBUTTON);
-						UserInterface::bfl.setMouseButtonCallback(L_createGround);
-
-					};
-
-					
-
-					if (UserInterface::clicked("CREATE GROUND"))
-					{
-						L_menuCreateGround();
-						
-					}
-
-
-					if (UserInterface::clicked("CREATE OBJECT"))
 					{
 						UserInterface::printAssetObjectsList(ButtonMap::EDITGAMEMODEBUTTON);
 						UserInterface::bfl.setMouseButtonCallback(StartButton::createObject);
-					}
-
-				};
-
-				UserInterface::phc.showDropDownMenu(ButtonMap::EDITGAMEMODEBUTTON, { "CREATE OBJECT","CREATE GROUND" });
-				UserInterface::bfl.setMouseButtonCallback(L_choice);
-				
+					}	
 				
 			}
 

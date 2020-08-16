@@ -5,7 +5,7 @@
 #include<applicationObjectManager.h>
 #include<userInterface.h>
 #include<core.h>
-
+#include<applicationDerivedObject.h>
 
 namespace aiNS {
 	class myfirstIA;
@@ -13,22 +13,6 @@ namespace aiNS {
 
 
 namespace myobjectNS {
-
-
-	struct Vertex {
-
-		Vertex(const float& xx,const float& yy, const float& zz):x(xx),y(yy),z(zz){}
-		float x;
-		float y;
-		float z;
-
-		Vertex operator-(Vertex& v)
-		{
-			Vertex result{ x - v.x,y - v.y,z - v.z };
-			return result;
-		}
-	};
-
 
 	struct SurfaceBoundaries
 	{
@@ -45,26 +29,64 @@ namespace myobjectNS {
 
 
 	class Ground {
-		
-		
 	public:
-		/*each vector contains boundaries for a polygonal surface (since we allows storage for n (non fixed) vertices of
-		a polygonal surface, we use a vector of a vector of an array instead of a vector of array of array)*/
-		/*boundaries[i] : i-th surface boundaries
-		boundaries[i][j] : j-th vertex of i-th surface
-		boundaries[i][j][k] : k-th component of j-th vertex of i-th surface*/
 		static std::vector<SurfaceBoundaries> grounds;
 
-
-
-		static void addBoundaries(std::vector<std::array<float, 3>> surf_vertices){}
-		
+		static void addBoundaries(std::vector<std::array<float, 3>> surf_vertices){}		
 		static void addSurface(collectorNS::ApplicationObjectCollector* c);
-
-
-		static void checkWithBoundaries(Vector3& pos,Vector3& vel);
+		static void addSurface(myobjectNS::ApplicationObject* c);
+		static void printGroundList();
 
 	};
+
+
+
+
+
+	class GroundSurface :public ObjectPlane, public BaseObject {
+		string objectName = "Surface";
+		static unsigned instanceCounter;
+		unsigned instanceNumber;
+
+		vector<array<float, 3>> vertices;
+
+	public:
+		GroundSurface(std::string sh_prog_name, GLfloat l = 100) :
+			ObjectPlane(sh_prog_name, 100, 0, 100),
+			BaseObject(sh_prog_name)
+		{
+
+			CollisionFinitePlane::size[0] = l;
+			CollisionFinitePlane::size[1] = 0;
+			CollisionFinitePlane::size[2] = l;
+
+			instanceNumber = instanceCounter++;
+			body->RBobjectName = objectName;
+
+		}
+
+
+
+		void clean() {}
+		void render(const fpcameraNS::Transformation&) override;
+		void renderSurface();
+		void renderCollisionPrimitive();
+		void update(const float&) override;
+		void setColor(float, float, float, float);
+		void create()override;
+		void AOsetShaders() override { setShaders(); }
+		void setRigidBodyParameters();
+		void setParameters()override;
+		GroundSurface* getNewInstance()override {
+			GroundSurface* s(new GroundSurface("groundSurface"));
+			return s;
+		}
+		int getCollisorID() override { return AOCollisorID; }
+
+
+
+	};
+
 
 
 

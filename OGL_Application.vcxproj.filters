@@ -593,10 +593,13 @@
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\Objects\ground.cpp">
+    <ClCompile Include="OGL_Application\src\Objects\polygon\polygon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\Objects\polygon\polygon.cpp">
+    <ClCompile Include="OGL_Application\src\Objects\groundSurface\groundSurface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\groundSurface\ground.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -699,5 +702,7 @@
     </None>
     <None Include="OGL_Application\src\Objects\polygon\polygon.vert" />
     <None Include="OGL_Application\src\Objects\polygon\polygon.frag" />
+    <None Include="OGL_Application\src\Objects\groundSurface\groundSurface.frag" />
+    <None Include="OGL_Application\src\Objects\groundSurface\groundSurface.vert" />
   </ItemGroup>
 </Project>
