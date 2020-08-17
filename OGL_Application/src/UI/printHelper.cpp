@@ -74,7 +74,7 @@ namespace printHelperNS {
 	void PrintHelper::update()
 	{
 		text_tot_size = mapIDbutton_button.text_tot_size;
-		if (text_tot_size > VBO_size)
+		if (text_tot_size > VBO_size )
 		{
 			//text_VBO_size = text_tot_size * 2;
 			glDeleteBuffers(VBO_size, VBO);

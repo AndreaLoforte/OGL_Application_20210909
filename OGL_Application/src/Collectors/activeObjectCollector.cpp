@@ -1,7 +1,7 @@
 #include<activeobjectCollector.h>
 #include<applicationDerivedObject.h>
 #include<ground.h>
-#include<collectorLoader.h>
+#include<activeobjectloader.h>
 namespace collectorNS {
 
 
@@ -17,18 +17,23 @@ namespace collectorNS {
 		return isAlive;
 	}
 	
-	void ActiveObject::OCsave(std::ofstream& out)
+
+	void ActiveObject::OCsave(std::string& filename)
 	{
+		filename += "ActiveObject";
+		static ofstream out(filename);
+
 		//IDENTIFICO IL COLLETTORE
-		out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
+		out << saveloadNS::ActiveObjectLoader::COLLECTORTAG << std::endl;
 		out << getCollectorName() << std::endl;
-		out << saveloadNS::CollectorLoader::COLLECTORISONTAG << std::endl;
+		out << saveloadNS::ActiveObjectLoader::COLLECTORISONTAG << std::endl;
 		out << isOn << std::endl;
-		out << saveloadNS::CollectorLoader::ACTIVITYGROUNDID << std::endl;
-		out << getActivityGround()->p->getRB()->RBobjectID << std::endl;
+		out << saveloadNS::ActiveObjectLoader::ACTIVITYGROUNDID << std::endl;
+		if (getActivityGround() != NULL)
+			out << getActivityGround()->p->getRB()->RBobjectID << std::endl;
 		for (int i = 0; i < Pcontainer->size(); i++)
 			getSubObject(i)->save(out);
-		out << saveloadNS::CollectorLoader::COLLECTORENDTAG << std::endl;
+		out << saveloadNS::ActiveObjectLoader::COLLECTORENDTAG << std::endl;
 
 	}
 

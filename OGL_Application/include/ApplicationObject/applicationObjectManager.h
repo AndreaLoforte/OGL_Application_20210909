@@ -64,6 +64,7 @@ namespace myobjectNS{
 		static bool deleteObject(const string&);
 		static void save(std::string);
 		static bool loadData(string filename);
+		static bool loadActiveObjects(string filename);
 		static void setupObjectsParameters();
 		static void initObjectMaps();
 		static std::pair<int,int> getObjectListIndexByAOobjectName(std::string s);
@@ -73,7 +74,7 @@ namespace myobjectNS{
 		static std::string printEditableObjectInfos();
 		static void kill(const std::string&);
 		static void kill(const collectorNS::ActiveObject*);
-
+		
 		
 	};
 

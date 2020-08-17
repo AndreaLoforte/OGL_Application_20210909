@@ -161,6 +161,7 @@
     <ClInclude Include="OGL_Application\include\Objects\sphere.h" />
     <ClInclude Include="OGL_Application\include\cameraTransformations\fpcamera.h" />
     <ClInclude Include="OGL_Application\include\Objects\gun.h" />
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\activeObjectLoader.h" />
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\cameraLoader.h" />
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\collectorLoader.h" />
     <ClInclude Include="OGL_Application\include\UI\inputs.h" />
@@ -245,7 +246,8 @@
     <ClCompile Include="OGL_Application\src\UI\printHelperCollector.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart2.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_activeCharacterCluster.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\startButton\fileDropDownMenu_functions.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\startButton\editGames_menuFunctions.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\startButton\file_menuFunctions.cpp" />
     <ClCompile Include="OGL_Application\src\UI\userInterface.cpp" />
     <ClCompile Include="OGL_Application\src\UI\buttonMap.cpp" />
     <ClCompile Include="OGL_Application\src\UI\buttons.cpp" />

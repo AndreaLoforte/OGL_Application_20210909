@@ -43,7 +43,7 @@ namespace myobjectNS{
 	 void OCcreateObject() ;
 	 void OCrender();
 	void OCsetParameters() ;
-	void OCsave(std::ofstream& out) ;
+	//void OCsave(std::ofstream& out) ;
 	
 	 Gun* getNewInstance()  {
 		 Gun* g(new Gun);
@@ -105,38 +105,18 @@ public:
 
 	OCGun(collectorNS::AOcontainer* coll) :
 		ApplicationObjectCollector("Gun",coll)
-	{
-		//char c('_');
-		//collectorID = "GUNCOLLECTOR";
-		//collectorID.push_back(c);
-		//collectorID.append(std::to_string(collectorNumber));
-		////Pcontainer->push_back(myobjectNS::ViewFinder().getNewInstance());
-
-		//collectorName = "Gun";
-	}
+	{}
 
 	OCGun(std::string objName, collectorNS::AOcontainer* coll) :
 		collectorNS::ApplicationObjectCollector(objName,coll)
-	{
-		//char c('_');
-		//collectorID = "GUNCOLLECTOR";
-		//collectorID.push_back(c);
-		//collectorID.append(std::to_string(collectorNumber));
-		////Pcontainer->push_back(myobjectNS::ViewFinder().getNewInstance());
-		//collectorName = "Gun";
-
-	}
+	{}
 
 
 	const bool&  getTrigger() { return trigger; }
 	void clean() {}
 	void create();
-	void update(const float &);
 	void render(const fpcameraNS::Transformation& cam);
-	void invokeSetTextures();
-	void invokeSetShaders();
 	void invokeSetRigidBodyParameters(const fpcameraNS::Transformation*);
-	void invokeSetPosition();
 
 	/*funzione che spara,  data un fireSpot
 	e la posizione	del bersaglio */
@@ -147,7 +127,8 @@ public:
 	void OCcreateObject() override;
 	void OCrender() override;
 	void OCsetParameters() override;
-	void OCsave(std::ofstream& out) override;
+	//void OCsave(std::ofstream& out) override;
+	void OCsave(std::string& filename) override;
 	std::string getCollectorName() override {
 		return "Gun";
 	}
@@ -156,33 +137,7 @@ public:
 		return g;
 	}
 
-	void OCinsertObject(myobjectNS::ApplicationObject* obj) override
-	{
-		/*verifico quale container sto utilizzando*/
-		if (externalContainer)
-		{
-			if (projcounter >= MAXNUMEXISTINGPROJ)
-			{
-				for (int i = 0; i < Pcontainer->size(); i++)
-					if (Pcontainer->at(i)->AOobjectName == "projectile")
-					{
-						deleteAtPos(i);
-						i = Pcontainer->size();
-					}
-			}
-			Pcontainer->push_back(obj);
-			Pcontainer->back()->AOcreateObject();
-			Pcontainer->back()->setParameters();
-			projcounter++;
-		}
-		else
-		{
-			/*aggiungere utilizzo ownContainer*/
-		}
-	}
-
-
-
+	void OCinsertObject(myobjectNS::ApplicationObject* obj) override;
 
 	void changeFirepower(double mouseYscroll) {
 		if (velmodule + mouseYscroll * 70 > 0)

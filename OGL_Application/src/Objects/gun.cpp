@@ -28,18 +28,7 @@ void Gun::shootTowards(const std::array<float,3>& pos,const std::array<float,3>&
 }
 
 
-
-void Gun::OCsave(std::ofstream& out) {
-
-
-
-}
-
-
-void Gun::OCsetParameters() {
-
-	
-}
+void Gun::OCsetParameters() {}
 
 void Gun::OCrender()
 { render(fpcameraNS::CameraManager::getActiveCamera()); }
@@ -145,8 +134,26 @@ void OCGun::shootTowards(const std::array<float, 3>& pos, const std::array<float
 }
 
 
+//
+//void OCGun::OCsave(std::ofstream& out) {
+//
+//	out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
+//	out << getCollectorName() << std::endl;
+//	for (int i = 0; i < Pcontainer->size(); i++)
+//	{
+//		if (Pcontainer->at(i)->AOobjectName == "projectile");
+//		if (Pcontainer->at(i)->AOobjectName == "viewfinder")
+//			Pcontainer->at(i)->save(out);
+//	}
+//	out << saveloadNS::CollectorLoader::COLLECTORENDTAG << std::endl;
+//
+//
+//}
 
-void OCGun::OCsave(std::ofstream& out) {
+void OCGun::OCsave(std::string& filename) {
+
+
+	ofstream out(filename);
 
 	out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
 	out << getCollectorName() << std::endl;
@@ -184,30 +191,35 @@ void OCGun::render(const fpcameraNS::Transformation& cam) {
 
 
 
-void OCGun::update(const float& duration) {
-	
-
-
-}
-
-void OCGun::invokeSetTextures() {}
-
-void OCGun::invokeSetShaders() {
-	//Pcontainer->create();
-	//vw.create();
-}
-
-
-void OCGun::invokeSetPosition() {}
-
-
-
 void OCGun::invokeSetRigidBodyParameters(const fpcameraNS::Transformation* cam) {
 	OCsetParameters();
 }
 
 
-
+void OCGun::OCinsertObject(myobjectNS::ApplicationObject* obj) 
+{
+	/*verifico quale container sto utilizzando*/
+	if (externalContainer)
+	{
+		if (projcounter >= MAXNUMEXISTINGPROJ)
+		{
+			for (int i = 0; i < Pcontainer->size(); i++)
+				if (Pcontainer->at(i)->AOobjectName == "projectile")
+				{
+					deleteAtPos(i);
+					i = Pcontainer->size();
+				}
+		}
+		Pcontainer->push_back(obj);
+		Pcontainer->back()->AOcreateObject();
+		Pcontainer->back()->setParameters();
+		projcounter++;
+	}
+	else
+	{
+		/*aggiungere utilizzo ownContainer*/
+	}
+}
 
 
 }//weaponNS

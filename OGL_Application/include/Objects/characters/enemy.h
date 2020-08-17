@@ -90,6 +90,8 @@ namespace myobjectNS {
 		std::string getCollectorName() override { return collectorName; }
 		Enemy* getBody() { return &enemy; }
 		void setActivityGround(myobjectNS::SurfaceBoundaries* sb)override { brain.activityArea = sb; }
+		void setActivityGround(const string& s);
+
 		myobjectNS::SurfaceBoundaries* getActivityGround()override { return brain.activityArea; }
 		
 	};

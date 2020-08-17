@@ -1,37 +1,15 @@
 #pragma once
-#include<fileMap.h>
-
+#pragma once
+#include<collectorLoader.h>
 
 using namespace std;
 namespace saveloadNS {
 
-	/*Application Object Data container :
-		from here loaded data will be poured into
-		real Application Object*/
-	class AODataStructure {
-	public:
-		string ObjectName;
-		unsigned instanceNumber;
-		vmath::mat4 AOTrMatrix;
-		std::array<float, 3> AOposition;
-		std::vector<float> AOsize;
-		vmath::vec4 AOcolor;
-		mymathlibNS::Quaternion AOorientation;
-		bool isOn;
-		string getStructureID()
-		{
-			return ObjectName;
-		}
 
-	};
-
-
-
-
-
-	class CollectorDataStructure {
+	class ActiveObjectDataStructure {
 	public:
 		string collectorsID;
+		string activityGroundID;
 		size_t pos_start = 0, pos_end = 0;
 		bool isOn;
 		vector<AODataStructure> AOobjects;
@@ -39,7 +17,7 @@ namespace saveloadNS {
 
 
 
-	class CollectorLoader : public FileHelper {
+	class ActiveObjectLoader : public FileHelper {
 
 		/*fileMap , maps the entire file*/
 		FileMap fileMap;
@@ -62,17 +40,17 @@ namespace saveloadNS {
 
 
 
-		vector<CollectorDataStructure> collectors;
+		vector<ActiveObjectDataStructure> collectors;
 
 	public:
-		CollectorLoader(ifstream& in);
+		ActiveObjectLoader(ifstream& in);
 		bool FileIsEmpty = false;
 		virtual unsigned getTotalLines() { return totalLines; }
 		virtual unsigned& getTotalChars() { return totalChars; }
 
 		FileMap getCollectorsMap() { return collectorsMap; }
 
-		vector<CollectorDataStructure>* getCollectors() { return &collectors; }
+		vector<ActiveObjectDataStructure>* getCollectors() { return &collectors; }
 
 		/*il metodo setAllCollectorsMap carica tutte
 		le mappe dei collettori in modo tale che ogni
@@ -95,7 +73,8 @@ namespace saveloadNS {
 			AOINSTANCENUMBERTAG,
 			AOCOLORTAG,
 			DOSIZETAG,
-			AOISONFLAGTAG;
+			AOISONFLAGTAG,
+			ACTIVITYGROUNDID;
 	};
 
 

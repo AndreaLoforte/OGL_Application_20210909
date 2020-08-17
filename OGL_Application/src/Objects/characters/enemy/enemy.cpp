@@ -141,6 +141,13 @@ void EnemyOC::setParameters() {
 }
 
 
+void EnemyOC::setActivityGround(const string& s)
+{
+	brain.activityArea = myobjectNS::Ground::getGround(s);
+
+}
+
+
 void Enemy::create() {
 
 	setShaders();

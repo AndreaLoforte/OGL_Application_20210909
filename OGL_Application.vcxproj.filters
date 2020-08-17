@@ -348,6 +348,9 @@
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\fileMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\activeObjectLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
@@ -620,10 +623,13 @@
     <ClCompile Include="OGL_Application\src\saveloadhelper\facilities.cpp">
       <Filter>Source Files\saveLoadHelper</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\startButton\fileDropDownMenu_functions.cpp">
+    <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectLoader.cpp">
+    <ClCompile Include="OGL_Application\src\UI\startButton\editGames_menuFunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\startButton\file_menuFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

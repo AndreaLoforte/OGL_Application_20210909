@@ -3,7 +3,7 @@
 #include<objectCollector.h>
 //#include<string>
 
-
+using namespace std;
 namespace collectorNS {
 
 	class ActiveObject : public ApplicationObjectCollector {
@@ -16,8 +16,10 @@ namespace collectorNS {
 		virtual void setHealt(int c) { healt += c; }
 		const bool& damage(const int& i = 10);
 		virtual void setActivityGround(myobjectNS::SurfaceBoundaries* sb) {}
+		virtual void setActivityGround(const string&) {}
 		virtual myobjectNS::SurfaceBoundaries* getActivityGround() { return NULL; }
-		void OCsave(std::ofstream& out) override;
+		//void OCsave(std::ofstream& out) override;
+		void OCsave(std::string& out) override;
 	};
 
 

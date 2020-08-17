@@ -107,12 +107,11 @@ namespace collectorNS {
 		
 	}
 
-
-
-
-	void ApplicationObjectCollector::OCsave(std::ofstream& out)
+	
+	void ApplicationObjectCollector::OCsave(std::string& s)
 	{
-		//IDENTIFICO IL COLLETTORE
+		static ofstream out(s);
+		
 		out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
 		out << getCollectorName() << std::endl;
 		out << saveloadNS::CollectorLoader::COLLECTORISONTAG << std::endl;
@@ -120,9 +119,9 @@ namespace collectorNS {
 		for (int i = 0; i < Pcontainer->size(); i++)
 			getSubObject(i)->save(out);
 		out << saveloadNS::CollectorLoader::COLLECTORENDTAG << std::endl;
+
 	}
 
-	
 
 	ApplicationObjectCollector* ApplicationObjectCollector::OCgetNewInstance() {
 		ApplicationObjectCollector* coll(new ApplicationObjectCollector(collectorName,new AOcontainer));

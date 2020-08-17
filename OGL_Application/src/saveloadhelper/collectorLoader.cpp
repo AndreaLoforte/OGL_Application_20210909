@@ -17,15 +17,14 @@ namespace saveloadNS {
 		CollectorLoader::AOCOLORTAG = "AOcolor",
 		CollectorLoader::DOSIZETAG = "DOsize",
 		CollectorLoader::AOISONFLAGTAG = "AOisOnFlag",
-		CollectorLoader::COLLECTORISONTAG = "OCisOnFlag",
-		CollectorLoader::ACTIVITYGROUNDID = "OCActivityGroundID";
+		CollectorLoader::COLLECTORISONTAG = "OCisOnFlag";
 
-		
+
 
 	void CollectorLoader::loadCollectorMapsIntoDataStructure()
 	{
 		/*itero su tutti i collettori*/
-		for (int i = 0; i < collectorsMap.getSize() ; i++)
+		for (int i = 0; i < collectorsMap.getSize(); i++)
 		{
 			CollectorDataStructure collettore;
 			collettore.collectorsID = collectorsMap.getLine(i);
@@ -53,11 +52,11 @@ namespace saveloadNS {
 						if (aoposition_posInFile > objectPosInFile && aoposition_posInFile < NextObjectPosInFile)
 						{
 							string AOpositionStringFormat = AOpositionMap.getLine(k);//il tag sta in k il valore in k+1;
-							
+
 							std::array<float, 3> pos = stringToVec3(AOpositionStringFormat);
 
 							collettore.AOobjects.back().AOposition = pos;
-							
+
 						}
 					}
 
@@ -114,7 +113,7 @@ namespace saveloadNS {
 							stringToFloatVec(DOsizeStringFormat, size);
 							for (int i = 0; i < size.size(); i++)
 								collettore.AOobjects.back().AOsize.push_back(size[i]);
-							
+
 						}
 					}
 
@@ -130,7 +129,7 @@ namespace saveloadNS {
 								collettore.AOobjects.back().isOn = true;
 							else
 								collettore.AOobjects.back().isOn = false;
-							
+
 
 						}
 					}
@@ -163,8 +162,8 @@ namespace saveloadNS {
 						{
 							//AOTrMatrix è una matrice di 4 righe, quindi devo prendere 4 stringhe
 							string row1 = AOTrMatrixMap.getLine(k);
-							string row2 = AOTrMatrixMap.getLine(k+1);
-							string row3 = AOTrMatrixMap.getLine(k+2);
+							string row2 = AOTrMatrixMap.getLine(k + 1);
+							string row3 = AOTrMatrixMap.getLine(k + 2);
 							string row4 = AOTrMatrixMap.getLine(k + 3);
 
 							collettore.AOobjects.back().AOTrMatrix = stringToMat4(row1 + " " + row2 + " " + row3 + " " + row4);
@@ -172,7 +171,7 @@ namespace saveloadNS {
 						}
 					}
 
-					
+
 				}
 			}
 
@@ -184,64 +183,64 @@ namespace saveloadNS {
 
 
 
-	void  CollectorLoader::setAllCollectorsMap()
+	void  CollectorLoader::loadAllCollectorsMap()
 	{
 		for (int i = 0; i + 1 < totalLines; i++)
 		{
-				if (fileMap.getLine(i).find(COLLECTORTAG) != string::npos)
-				{
-					collectorsMap.insert(fileMap.getLine(i+1), fileMap.getPos(i+1));//su questa mappa metto i tag dell'inizio dei collettori
-				}
-				if (fileMap.getLine(i).find(COLLECTORENDTAG) != string::npos)
-				{
-					collectorsDelimitersMap.insert(fileMap.getLine(i), fileMap.getPos(i));//su questa mappa metto i delimitatori dei collettori
-				}
+			if (fileMap.getLine(i).find(COLLECTORTAG) != string::npos)
+			{
+				collectorsMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));//su questa mappa metto i tag dell'inizio dei collettori
+			}
+			if (fileMap.getLine(i).find(COLLECTORENDTAG) != string::npos)
+			{
+				collectorsDelimitersMap.insert(fileMap.getLine(i), fileMap.getPos(i));//su questa mappa metto i delimitatori dei collettori
+			}
 
-				if (fileMap.getLine(i).find(OBJECTNAMETAG) != string::npos)
-				{
-					//inserisco in mappa la linea successiva al tag
-					ObjectsMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-				}
-				if (fileMap.getLine(i).find(AOCOLORTAG) != string::npos)
-				{
-					//inserisco in mappa la linea successiva al tag
-					AOcolorMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-				}
+			if (fileMap.getLine(i).find(OBJECTNAMETAG) != string::npos)
+			{
+				//inserisco in mappa la linea successiva al tag
+				ObjectsMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
+			}
+			if (fileMap.getLine(i).find(AOCOLORTAG) != string::npos)
+			{
+				//inserisco in mappa la linea successiva al tag
+				AOcolorMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
+			}
 
-				string line = fileMap.getLine(i);
-				if (line.find(AOTRMATRIXTAG) != string::npos)
-				{
-					//la matrice è distribuita su 4 righe
-					AOTrMatrixMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-					AOTrMatrixMap.insert(fileMap.getLine(i + 2), fileMap.getPos(i + 2));
-					AOTrMatrixMap.insert(fileMap.getLine(i + 3), fileMap.getPos(i + 3));
-					AOTrMatrixMap.insert(fileMap.getLine(i + 4), fileMap.getPos(i + 4));
-				}
-				if (fileMap.getLine(i).find(DOSIZETAG) != string::npos)
-				{
-					//inserisco in mappa la linea successiva al tag
-					DOsizeMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-				}
-				if (fileMap.getLine(i).find(AOPOSITIONTAG) != string::npos)
-				{
-					//inserisco in mappa la linea successiva al tag
-					AOpositionMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-				}
-				if (fileMap.getLine(i).find(AOORIENTATIONTAG) != string::npos)
-				{
-					//inserisco in mappa la linea successiva al tag
-					AOorientationMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-				}
-				if (fileMap.getLine(i).find(AOISONFLAGTAG) != string::npos)
-				{
-					//inserisco in mappa la linea successiva al tag
-					AOisonFlagMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-				}
-				if (fileMap.getLine(i).find(COLLECTORISONTAG) != string::npos)
-				{
-					//inserisco in mappa la linea successiva al tag
-					OCisOnMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-				}
+			string line = fileMap.getLine(i);
+			if (line.find(AOTRMATRIXTAG) != string::npos)
+			{
+				//la matrice è distribuita su 4 righe
+				AOTrMatrixMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
+				AOTrMatrixMap.insert(fileMap.getLine(i + 2), fileMap.getPos(i + 2));
+				AOTrMatrixMap.insert(fileMap.getLine(i + 3), fileMap.getPos(i + 3));
+				AOTrMatrixMap.insert(fileMap.getLine(i + 4), fileMap.getPos(i + 4));
+			}
+			if (fileMap.getLine(i).find(DOSIZETAG) != string::npos)
+			{
+				//inserisco in mappa la linea successiva al tag
+				DOsizeMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
+			}
+			if (fileMap.getLine(i).find(AOPOSITIONTAG) != string::npos)
+			{
+				//inserisco in mappa la linea successiva al tag
+				AOpositionMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
+			}
+			if (fileMap.getLine(i).find(AOORIENTATIONTAG) != string::npos)
+			{
+				//inserisco in mappa la linea successiva al tag
+				AOorientationMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
+			}
+			if (fileMap.getLine(i).find(AOISONFLAGTAG) != string::npos)
+			{
+				//inserisco in mappa la linea successiva al tag
+				AOisonFlagMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
+			}
+			if (fileMap.getLine(i).find(COLLECTORISONTAG) != string::npos)
+			{
+				//inserisco in mappa la linea successiva al tag
+				OCisOnMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
+			}
 
 		}
 	}
@@ -265,7 +264,7 @@ namespace saveloadNS {
 
 			totalLines = fileMap.getSize();
 
-			
+
 			if (fileMap.getCharNumber() == 0)
 			{
 				FileIsEmpty = true;
@@ -273,22 +272,11 @@ namespace saveloadNS {
 			}
 
 
-			
-			setAllCollectorsMap();
+
+			loadAllCollectorsMap();
 			loadCollectorMapsIntoDataStructure();
 
 
 		}
-
-
 	}
-
-
-
-
-
-
-
-
-
 }

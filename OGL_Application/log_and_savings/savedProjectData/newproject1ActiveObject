@@ -1,0 +1,496 @@
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_528
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-159.426 -5 4.52574
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_528
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-245.973 -0.819885 31.673
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_528
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-200.212 -5 -34.111
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_531
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-26.3809 5 -233.606
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_531
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-17.5939 5 -199.857
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_531
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-41.5229 5 -188.538
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_531
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+52.8409 5 -191.765
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_531
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-49.6426 5 -140.61
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_528
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-235.922 -0.669795 16.8214
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_528
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-181.842 -5 -87.7233
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_528
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-175.225 -5 -36.7825
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_531
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-84.7222 5 -124.661
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_531
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+4.37654 5 -213.392
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_542
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+292.272 5 189.468
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_542
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+249.982 -5 228.756
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_542
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+180.894 -5 276.424
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+playercharacter
+OCisOnFlag
+0
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+AOobjectName
+playercharacter
+AOinstanceNumber
+0
+AOposition
+-52.3901 5 259.172
+AOorientation
+-0.491722 -0.532426 -0.493359 0.48098
+AOcolor
+0 0.764842 0.764842 0.8
+AOisOnFlag
+0
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+33.1491 5 141.841
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+33.1491 5 141.841
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+28.8176 5 124.404
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+16.1708 5 71.9728
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+11.4882 5 36.6067
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+11.4882 5 36.6067
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+11.4882 5 36.6067
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+22.2815 5 54.4047
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+36.3767 5 87.5167
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+AOobjectName
+projectile
+AOinstanceNumber
+0
+AOposition
+51.5551 5 132.839
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
