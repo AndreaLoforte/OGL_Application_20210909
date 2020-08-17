@@ -9,11 +9,13 @@
 #include<array>
 #include<log.h>
 #include<assets.h>
-#include<objectCollector.h>
+#include<activeobjectCollector.h>
 #include<cameraManager.h>
 namespace myphysicsNS {
 	struct CollisionObjectContainer;
 }
+
+
 
 
 namespace myobjectNS{

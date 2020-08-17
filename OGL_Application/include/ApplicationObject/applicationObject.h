@@ -69,7 +69,6 @@ namespace myobjectNS{
 		vmath::mat4 AOTrMatrix = vmath::mat4::identity();
 		void save(std::ofstream&);
 		virtual void specializedSave(std::ofstream&){}
-		virtual ApplicationObject* load(std::ifstream&, std::size_t, std::size_t);
 		void setPosition(std::array<float, 3> pos) ;
 		void setPosition(const GLfloat arr[3]);
 		void setRotation(const std::array<float, 3>&);

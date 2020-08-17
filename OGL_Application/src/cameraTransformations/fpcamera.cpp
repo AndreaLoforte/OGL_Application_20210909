@@ -2,7 +2,7 @@
 #include<cameraManager.h>
 #include<log.h>
 #include<app.h>
-
+#include<cameraLoader.h>
 namespace fpcameraNS{
 	using namespace textRendererNS;
 

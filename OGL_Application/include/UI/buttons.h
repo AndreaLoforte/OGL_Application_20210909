@@ -62,38 +62,8 @@ namespace uiNS {
 		const std::string& getButtonID() override { return button.buttonID; }
 	};
 
-	class CreateObjectButton : public ButtonInterface
-	{
-		string buttonID = ButtonMap::CREATEBUTTON;
-	public:
-		CreateObjectButton() { button.buttonID = buttonID; }
-		void action() override;
-		static void selectObject(GLFWwindow*, int, int, int);
-		const std::string& getButtonID() override { return button.buttonID; }
-		
-	};
-
-	class BackButton : public ButtonInterface
-	{
-		string buttonID = ButtonMap::BACKBUTTON;
-	public:
-		BackButton() { button.buttonID = buttonID; }
-		void action() override;
-		//void selectObject(GLFWwindow*, int, int, int);
-		const std::string& getButtonID() override { return button.buttonID; }
-	};
 
 
-	class DeleteObjectButton : public ButtonInterface
-	{
-		string buttonID = ButtonMap::DELETEBUTTON;
-	public:
-		DeleteObjectButton() { button.buttonID = buttonID; }
-		//DeleteObjectButton() :ButtonInterface({ ButtonMap::DELETEBUTTON }) {}
-		void action() override;
-		static void selectObject(GLFWwindow* w, int button, int action, int mode);
-		const std::string& getButtonID() override { return button.buttonID; }
-	};
 
 	class StartButton : public ButtonInterface
 	{
@@ -119,17 +89,7 @@ namespace uiNS {
 		static void cursorPositionCallBack_highlightOnly(GLFWwindow* w, double x, double y);
 		static void deleteProjectData(GLFWwindow* w, int button, int action, int mods);
 		static void buttonCallback_selectActiveCharacter(GLFWwindow* w, int button, int action, int mods);
-	};
-
-
-	class ControlModeButton : public ButtonInterface
-	{
-		string buttonID = ButtonMap::CONTROLMODEBUTTON;
-	public:
-		ControlModeButton() { button.buttonID = buttonID; }
-		void action() override;
-		static void setControls();
-		const std::string& getButtonID() override { return button.buttonID; }
+		static void setControls_controlMode();
 	};
 
 

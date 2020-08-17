@@ -98,7 +98,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\OGL_Application\include\shadersFacility;.\OGL_Application\include\Physics\AdvancedPhysics;.\OGL_Application\include\Physics;.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\include\GLFW;.\OGL_Application\DEPENDENCIES\SB7;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\OGL_Application\include\;.\OGL_Application\include\cameraTransformations;.\OGL_Application\include\ApplicationObject;.\OGL_Application\include\Objects;.\OGL_Application\include\UI;.\OGL_Application\include\LibAndFacility;.\OGL_Application\include\Objects\characters;.\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\OGL_Application\include\shadersFacility;.\OGL_Application\include\Physics\AdvancedPhysics;.\OGL_Application\include\Physics;.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\include\GLFW;.\OGL_Application\DEPENDENCIES\SB7;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\OGL_Application\include\SaveLoadHelper;.\OGL_Application\include\;.\OGL_Application\include\cameraTransformations;.\OGL_Application\include\ApplicationObject;.\OGL_Application\include\Objects;.\OGL_Application\include\UI;.\OGL_Application\include\LibAndFacility;.\OGL_Application\include\Objects\characters;.\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ShowIncludes>true</ShowIncludes>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="OGL_Application\include\app.h" />
     <ClInclude Include="OGL_Application\include\application.h" />
+    <ClInclude Include="OGL_Application\include\ApplicationObject\activeObjectCollector.h" />
     <ClInclude Include="OGL_Application\include\baseObject.h" />
     <ClInclude Include="OGL_Application\include\cameraTransformations\cameraManager.h" />
     <ClInclude Include="OGL_Application\include\Objects\characters\activeCharacterManager.h" />
@@ -160,6 +161,8 @@
     <ClInclude Include="OGL_Application\include\Objects\sphere.h" />
     <ClInclude Include="OGL_Application\include\cameraTransformations\fpcamera.h" />
     <ClInclude Include="OGL_Application\include\Objects\gun.h" />
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\cameraLoader.h" />
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\collectorLoader.h" />
     <ClInclude Include="OGL_Application\include\UI\inputs.h" />
     <ClInclude Include="OGL_Application\include\log.h" />
     <ClInclude Include="OGL_Application\include\LibAndFacility\mymathlib.h" />
@@ -211,7 +214,7 @@
     <ClInclude Include="OGL_Application\include\Physics\ObjectContainer.h" />
     <ClInclude Include="root\OGL_Application\include\PHYSICS_H\RTCDsolids.h" />
     <ClInclude Include="OGL_Application\include\Physics\RTCDspecializedTest.h" />
-    <ClInclude Include="OGL_Application\include\saveloadhelper.h" />
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\fileMap.h" />
     <ClInclude Include="OGL_Application\include\sound.h" />
     <ClInclude Include="OGL_Application\include\timing.h" />
   </ItemGroup>
@@ -232,6 +235,7 @@
     <ClCompile Include="OGL_Application\src\Objects\object1\object1.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\particle\my_particle.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\polygon\polygon.cpp" />
+    <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectLoader.cpp" />
     <ClCompile Include="OGL_Application\src\UI\buttonfunctionLoader.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart.cpp" />
     <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject.cpp" />
@@ -241,6 +245,7 @@
     <ClCompile Include="OGL_Application\src\UI\printHelperCollector.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart2.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_activeCharacterCluster.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\startButton\fileDropDownMenu_functions.cpp" />
     <ClCompile Include="OGL_Application\src\UI\userInterface.cpp" />
     <ClCompile Include="OGL_Application\src\UI\buttonMap.cpp" />
     <ClCompile Include="OGL_Application\src\UI\buttons.cpp" />
@@ -277,7 +282,7 @@
     <ClCompile Include="OGL_Application\src\ApplicationObject\applicationObjectManager.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\characters\enemy\enemy.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\characters\playercharacter\playerCharacter.cpp" />
-    <ClCompile Include="OGL_Application\src\Collectors\derivedObjectCollector.cpp" />
+    <ClCompile Include="OGL_Application\src\Collectors\activeObjectCollector.cpp" />
     <ClCompile Include="OGL_Application\src\Collectors\objectCollector.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\assets.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\build\build_b.cpp" />
@@ -300,10 +305,10 @@
     <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\spheresphere.cpp" />
     <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\spherePlane.cpp" />
     <ClCompile Include="OGL_Application\src\Physics\physics.cpp" />
-    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper.cpp" />
-    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_applicationObject.cpp" />
-    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_camera.cpp" />
-    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_FileMap.cpp" />
+    <ClCompile Include="OGL_Application\src\saveloadhelper\facilities.cpp" />
+    <ClCompile Include="OGL_Application\src\saveloadhelper\collectorLoader.cpp" />
+    <ClCompile Include="OGL_Application\src\saveloadhelper\cameraLoader.cpp" />
+    <ClCompile Include="OGL_Application\src\saveloadhelper\fileMap.cpp" />
     <ClCompile Include="OGL_Application\src\sound.cpp" />
     <ClCompile Include="OGL_Application\src\timing.cpp" />
   </ItemGroup>

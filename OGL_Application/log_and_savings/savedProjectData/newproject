@@ -30,7 +30,7 @@ AOposition
 AOorientation
 1 0 0 0
 AOcolor
-0.5 0.5 0.5 0.5
+0.294118 0.294118 0.294118 0.294118
 AOisOnFlag
 0
 --------ENDCOLLECTOR--------
@@ -71,25 +71,6 @@ AOisOnFlag
 0
 --------ENDCOLLECTOR--------
 COLLECTOR_
-enemy
-OCisOnFlag
-1
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
--8.08966 -5 41.2619
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
 surface
 OCisOnFlag
 0
@@ -98,89 +79,32 @@ surface
 AOinstanceNumber
 7
 AOposition
-0 0 0
+-306 0 0
 AOorientation
 1 0 0 0
 AOcolor
-0.5 0.5 0.5 0.5
+0.6 0.5 0.8 0.9
 AOisOnFlag
 0
 DOsize
-400 0 50
+100 0 100
 --------ENDCOLLECTOR--------
 COLLECTOR_
-enemy
+groundSurface
 OCisOnFlag
 1
 AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
-16.1805 -5 19.2973
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-1
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
-27.315 5 10.118
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-enemy
-OCisOnFlag
-1
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
-23.6468 -5 12.7102
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ENDCOLLECTOR--------
-COLLECTOR_
-surface
-OCisOnFlag
-0
-AOobjectName
-surface
+groundSurface
 AOinstanceNumber
 8
 AOposition
--504 0 0
+0 0 204
 AOorientation
 1 0 0 0
 AOcolor
 0.5 0.5 0.5 0.5
 AOisOnFlag
-0
+1
 DOsize
 100 0 100
 --------ENDCOLLECTOR--------
@@ -193,7 +117,7 @@ groundSurface
 AOinstanceNumber
 9
 AOposition
--243 0 0
+0 0 -207
 AOorientation
 1 0 0 0
 AOcolor
@@ -204,57 +128,65 @@ DOsize
 100 0 100
 --------ENDCOLLECTOR--------
 COLLECTOR_
-object1
+enemy
 OCisOnFlag
-0
+1
+OCActivityGroundID
+groundSurface_529
 AOobjectName
-object1
+enemy
 AOinstanceNumber
 0
 AOposition
-0 0 0
+-13.9747 5 225.067
 AOorientation
 1 0 0 0
 AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-1
---------ENDCOLLECTOR--------
-COLLECTOR_
-groundSurface
-OCisOnFlag
-1
-AOobjectName
-groundSurface
-AOinstanceNumber
-10
-AOposition
-0 0 234
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
+1 0.5 0.5 0.5
 AOisOnFlag
 1
 DOsize
-100 0 100
+5
 --------ENDCOLLECTOR--------
 COLLECTOR_
-groundSurface
+enemy
 OCisOnFlag
-0
+1
+OCActivityGroundID
+groundSurface_529
 AOobjectName
-groundSurface
+enemy
 AOinstanceNumber
-11
+0
 AOposition
-0 0 -267
+4.71167 5 184.772
 AOorientation
 1 0 0 0
 AOcolor
-0.5 0.5 0.5 0.5
+1 0.5 0.5 0.5
 AOisOnFlag
 1
 DOsize
-100 0 100
+5
+--------ENDCOLLECTOR--------
+COLLECTOR_
+enemy
+OCisOnFlag
+1
+OCActivityGroundID
+groundSurface_529
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+29.2441 5 157.038
+AOorientation
+1 0 0 0
+AOcolor
+1.7 0.85 0.85 0.85
+AOisOnFlag
+1
+DOsize
+5
 --------ENDCOLLECTOR--------

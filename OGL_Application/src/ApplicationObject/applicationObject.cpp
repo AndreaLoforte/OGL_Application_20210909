@@ -6,11 +6,11 @@
 #include<physics.h>
 #include<objectCollector.h>
 #include<applicationObjectManager.h>
-#include<saveloadhelper.h>
+//#include<saveloadhelper.h>
 #include<body.h>
 #include<cameraManager.h>
 #include<userInterface.h>
-
+#include<collectorLoader.h>
 namespace myobjectNS
 {
 
@@ -22,56 +22,22 @@ static const std::string TAG_APPLICATIONOBJECT{ "AppObj" };
 
 void ApplicationObject::save(std::ofstream& out) {
 
-	out << saveloadNS::CollectorSavings::OBJECTNAMETAG << std::endl;
+	out << saveloadNS::CollectorLoader::OBJECTNAMETAG << std::endl;
 	out << AOobjectName << std::endl;
-	out << saveloadNS::CollectorSavings::AOINSTANCENUMBERTAG << std::endl;
+	out << saveloadNS::CollectorLoader::AOINSTANCENUMBERTAG << std::endl;
 	out << AOinstanceNumber << std::endl;
 	/*out << saveloadNS::CollectorSavings::AOTRMATRIXTAG << std::endl;
 	logNS::Logger::saveMatrix44(out, AOTrMatrix);
 	out << std::endl;*/
-	out << saveloadNS::CollectorSavings::AOPOSITIONTAG << std::endl;
+	out << saveloadNS::CollectorLoader::AOPOSITIONTAG << std::endl;
 	out << AOposition[0] << " " << AOposition[1] << " " << AOposition[2] << std::endl;
-	out << saveloadNS::CollectorSavings::AOORIENTATIONTAG << std::endl;
+	out << saveloadNS::CollectorLoader::AOORIENTATIONTAG << std::endl;
 	out << AOorientation[0] << " " << AOorientation[1] << " " << AOorientation[2] <<" "<< AOorientation[3]<< std::endl;
-	out << saveloadNS::CollectorSavings::AOCOLORTAG << std::endl;
+	out << saveloadNS::CollectorLoader::AOCOLORTAG << std::endl;
 	out << AOcolor[0] << " " << AOcolor[1] << " " << AOcolor[2] << " " << AOcolor[3] << std::endl;
-	out << saveloadNS::CollectorSavings::AOISONFLAGTAG << std::endl;
+	out << saveloadNS::CollectorLoader::AOISONFLAGTAG << std::endl;
 	out << AOisOn << std::endl;
 	specializedSave(out);
-}
-
-
-
-ApplicationObject* ApplicationObject::load(std::ifstream& in, std::size_t start_from, std::size_t stop_at) {
-	
-	std::string  collType, collName, collNumber, flushTag;
-	
-
-	//prendo i primi due parametri utili ad ident
-	in >> flushTag;
-	in >> collType;
-	in >> flushTag;
-	in >> collName;
-	in >> flushTag;
-	in >> collNumber;
-	
-	ApplicationObject*newObj = AssetNS::Assets::getNewObject(collName);
-
-	/*in >> flushTag;
-	logNS::Logger::loadMatrix44(in, newObj->AOTrMatrix, in.tellg(), stop_at);*/
-
-	in >> flushTag;
-	in >> newObj->AOposition[0];
-	in >> newObj->AOposition[1];
-	in >> newObj->AOposition[2];
-
-	in >> flushTag;
-
-	in >> newObj->AOorientation[0];
-	in >> newObj->AOorientation[1];
-	in >> newObj->AOorientation[2];
-
-	return newObj;
 }
 
 

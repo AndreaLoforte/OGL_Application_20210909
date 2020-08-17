@@ -2,7 +2,7 @@
 #include<objectCollector.h>
 #include<applicationDerivedObject.h>
 #include<cameraManager.h>
-
+#include<collectorLoader.h>
 namespace collectorNS {
 
 	//////////////////////////////////////////////////////////////////
@@ -113,40 +113,16 @@ namespace collectorNS {
 	void ApplicationObjectCollector::OCsave(std::ofstream& out)
 	{
 		//IDENTIFICO IL COLLETTORE
-		out << saveloadNS::CollectorSavings::COLLECTORTAG << std::endl;
+		out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
 		out << getCollectorName() << std::endl;
-		out << saveloadNS::CollectorSavings::COLLECTORISONTAG << std::endl;
+		out << saveloadNS::CollectorLoader::COLLECTORISONTAG << std::endl;
 		out << isOn << std::endl;
 		for (int i = 0; i < Pcontainer->size(); i++)
 			getSubObject(i)->save(out);
-		out << saveloadNS::CollectorSavings::COLLECTORENDTAG << std::endl;
+		out << saveloadNS::CollectorLoader::COLLECTORENDTAG << std::endl;
 	}
 
-	void ApplicationObjectCollector::OCload(std::ifstream& in, std::size_t startFrom, std::size_t stop_at)
-	{
-		std::string line;
-		std::size_t pos;
-		int i = 0;
-
-		//in.seekg(startFrom);//posiziono il cursore a livello del collector Tag
-		std::size_t temp = in.tellg();
-		//identificazione del collettore ad opera di applicationObjectManager
-		while (in.tellg() < stop_at)
-		{
-			myobjectNS::ApplicationObject * newobj = new myobjectNS::ApplicationObject;
-			myobjectNS::ApplicationObject * temp = newobj;
-			newobj = newobj->load(in,in.tellg(), stop_at);
-			delete temp;
-
-
-			Pcontainer->push_back(newobj);
-			std::getline(in, line);
-			std::getline(in, line);
-		}
-
-	}
-
-
+	
 
 	ApplicationObjectCollector* ApplicationObjectCollector::OCgetNewInstance() {
 		ApplicationObjectCollector* coll(new ApplicationObjectCollector(collectorName,new AOcontainer));

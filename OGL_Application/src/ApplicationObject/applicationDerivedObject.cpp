@@ -4,7 +4,7 @@
 //#include<applicationObject.h>
 #include<string>
 #include<objectCollector.h>
-
+#include<collectorLoader.h>
 namespace myobjectNS {
 
 
@@ -204,17 +204,17 @@ namespace myobjectNS {
 
 	void ObjectSphere::specializedSave(std::ofstream& out)
 	{
-		out << saveloadNS::CollectorSavings::DOSIZETAG << std::endl;
+		out << saveloadNS::CollectorLoader::DOSIZETAG << std::endl;
 		out << DOradius << std::endl;
 	}
 	void ObjectBox::specializedSave(std::ofstream& out) 
 	{
-		out << saveloadNS::CollectorSavings::DOSIZETAG << std::endl;
+		out << saveloadNS::CollectorLoader::DOSIZETAG << std::endl;
 		out << L1 << " " << L2 << " " << L3 << std::endl;
 	}
 	void ObjectPlane::specializedSave(std::ofstream& out)
 	{
-		out << saveloadNS::CollectorSavings::DOSIZETAG << std::endl;
+		out << saveloadNS::CollectorLoader::DOSIZETAG << std::endl;
 		out << size[0]<< " "<<size[1]<< " " << size[2] <<  std::endl;
 	}
 

@@ -16,7 +16,7 @@ namespace myobjectNS {
 
 	array<float, 3> SurfaceBoundaries::getRandomPointInSurface(aiNS::myfirstIA* brain)
 	{
-
+		
 		array<float, 3> direction_v1{ p->AOvertices[0][0] - p->AOposition[0],p->AOvertices[0][1] - p->AOposition[1], p->AOvertices[0][2] - p->AOposition[2] };
 		array<float, 3> direction_v2{ p->AOvertices[1][0] - p->AOposition[0], p->AOvertices[1][1] - p->AOposition[1], p->AOvertices[1][2] - p->AOposition[2] };
 		array<float, 3> direction_v3{ p->AOvertices[2][0] - p->AOposition[0], p->AOvertices[2][1] - p->AOposition[1], p->AOvertices[2][2] - p->AOposition[2] };

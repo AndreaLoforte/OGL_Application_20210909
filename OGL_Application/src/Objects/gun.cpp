@@ -1,7 +1,7 @@
 #include<gun.h>
 #include<playerCharacter.h>
 #include<cameraManager.h>
-
+#include<collectorLoader.h>
 namespace myobjectNS{
 
 	
@@ -148,7 +148,7 @@ void OCGun::shootTowards(const std::array<float, 3>& pos, const std::array<float
 
 void OCGun::OCsave(std::ofstream& out) {
 
-	out << saveloadNS::CollectorSavings::COLLECTORTAG << std::endl;
+	out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
 	out << getCollectorName() << std::endl;
 	for (int i = 0; i < Pcontainer->size(); i++)
 	{
@@ -156,7 +156,7 @@ void OCGun::OCsave(std::ofstream& out) {
 		if (Pcontainer->at(i)->AOobjectName == "viewfinder")
 			Pcontainer->at(i)->save(out);
 	}
-	out << saveloadNS::CollectorSavings::COLLECTORENDTAG << std::endl;
+	out << saveloadNS::CollectorLoader::COLLECTORENDTAG << std::endl;
 
 
 }

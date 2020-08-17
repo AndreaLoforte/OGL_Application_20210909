@@ -1,6 +1,6 @@
 #pragma once
 #include<vector>
-#include<objectCollector.h>
+#include<activeobjectCollector.h>
 
 using namespace std;
 

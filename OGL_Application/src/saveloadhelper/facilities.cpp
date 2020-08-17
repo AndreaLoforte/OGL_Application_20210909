@@ -1,6 +1,5 @@
-#include<saveloadhelper.h>
 #include<log.h>
-
+#include<array>
 using namespace std;
 
 namespace saveloadNS {

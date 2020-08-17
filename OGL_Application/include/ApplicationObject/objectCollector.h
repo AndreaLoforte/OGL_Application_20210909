@@ -68,7 +68,6 @@ public:
 	virtual myobjectNS::ApplicationObject* getSubObject(int i);
 	virtual unsigned getSize() { return Pcontainer->size(); }
 	virtual void OCsave(std::ofstream& out);
-	virtual void OCload(std::ifstream&in,std::size_t,std::size_t);
 	virtual ApplicationObjectCollector* OCgetNewInstance();
 	virtual void OCcreateObject();
 	virtual void OCsetParameters();
@@ -109,27 +108,6 @@ public:
 };
 
 
-class ActiveObject : public ApplicationObjectCollector {
-public:
-	ActiveObject(const std::string collName, AOcontainer * c) :ApplicationObjectCollector(collName,c){}
-	std::string activeObjectID;
-	int healt = 100;
-	bool isAlive = true;
-	virtual int getHealt() { return healt; }
-	virtual void setHealt(int c) { healt += c; }
-	const bool& damage(const int& i = 10)
-	{
-		
-			healt -= i;
-			if (healt > 0)
-				isAlive = true;
-			else
-				isAlive = false;
-			return isAlive;
-	}
-
-	virtual void setActivityGround(myobjectNS::SurfaceBoundaries* sb){}
-};
 
 
 

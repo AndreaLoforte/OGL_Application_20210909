@@ -8,10 +8,23 @@
 #include<ground.h>
 namespace uiNS {
 
-
+	const string SWITCHAI = "SWITCH AI ON/OFF";
+	const string SWITCHPHYSICS = "SWITCH PHYSICS ON/OFF";
 	
 	void buttonCallback_activeCharacter();
 	void exploreFolder();
+
+
+	void StartButton::setControls_controlMode()
+	{
+		UserInterface::setFlags(true, true, true);
+		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
+		UserInterface::bfl.setMouseCursorCallback(InputsNS::Controls::cursor_callback);
+		UserInterface::bfl.setMouseButtonCallback(InputsNS::Controls::mouse_button_callback);
+		UserInterface::bfl.setMouseScrollCallback(InputsNS::Controls::scroll_callback);
+	}
+
 
 	void   StartButton::cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode)
 	{
@@ -139,12 +152,49 @@ namespace uiNS {
 		}
 
 
-		if (UserInterface::clicked("ENTER CONTROL MODE"))
+		/*COTROL DROP DOWN MENU*/
 		{
-			UserInterface::phc.turnOffAllButtons();
-			UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, "CTRL + E to exit Control mode");
-			ControlModeButton::setControls();
+			if (UserInterface::clicked("ENTER CONTROL MODE"))
+			{
+				UserInterface::phc.turnOffAllButtons();
+				UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, "CTRL + E to exit Control mode");
+				setControls_controlMode();
+			}
+
+			if (UserInterface::clicked(SWITCHAI))
+			{
+				if (UserInterface::AIon)
+				{
+					UserInterface::AIon = false;
+					UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, "CONFIRM", "AI off");
+				}
+					
+				else
+				{
+					UserInterface::AIon = true;
+					UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, "CONFIRM" ,"AI on");
+				}
+	
+			}
+			if (UserInterface::clicked(SWITCHPHYSICS))
+			{
+				if (UserInterface::physicsOn)
+				{
+					UserInterface::physicsOn = false;
+					UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, "CONFIRM", "physics off");
+				}
+					
+				else
+				{
+					UserInterface::physicsOn = true;
+					UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, "CONFIRM", "physics on");
+				}
+					
+
+			}
+
 		}
+		
 
 
 
@@ -257,7 +307,8 @@ namespace uiNS {
 
 		if (UserInterface::clicked(ButtonMap::CONTROLMODEBUTTON))
 		{
-			UserInterface::phc.showDropDownMenu(ButtonMap::CONTROLMODEBUTTON, { "ENTER CONTROL MODE" });
+			UserInterface::phc.showDropDownMenu(ButtonMap::CONTROLMODEBUTTON, 
+				{ "ENTER CONTROL MODE", SWITCHPHYSICS,SWITCHAI });
 		}
 
 
@@ -291,81 +342,6 @@ namespace uiNS {
 
 
 
-
-
-	void StartButton::deleteProjectData(GLFWwindow* w, int button, int action, int mods)
-	{
-
-
-		string filename = UserInterface::cursorVStext();
-
-
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
-		{
-			setControls();
-			mainMenu(Application::window, 0, 0, 0);
-			return;
-		}
-
-		if (App::deleteProjectData(filename))
-		{
-			//UserInterface::phc.hideDropDownMenu();
-			exploreFolder();
-			UserInterface::phc.showButton(NonButtonMap::FILE, filename + " data file deleted");
-
-		}
-		else {
-			//UserInterface::phc.hideDropDownMenu();
-			UserInterface::phc.showButton(NonButtonMap::FILE, "could not delete project file " + filename);
-			//setControls();
-		}
-
-	}
-
-	void exploreFolder()
-	{
-		vector<string> v;
-		logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, v);
-		UserInterface::phc.showDropDownMenu(NonButtonMap::FILE, v);
-		UserInterface::phc.showButton(NonButtonMap::FILE, ButtonMap::BACKBUTTON);
-	}
-
-
-
-	void StartButton::cursorCallbackNewProject(GLFWwindow* w, double x, double y)
-	{
-		UserInterface::cursor_x = x;
-		UserInterface::cursor_y = y;
-		std::string buttonID{ UserInterface::cursorVStext() };
-		ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
-		UserInterface::highlightButton(b);
-	}
-
-	void StartButton::newProjectMouseButton(int key, int action)
-	{
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON) || UserInterface::clicked(ButtonMap::BACKBUTTON))
-		{
-			UserInterface::typer.textTyper.reset();
-			mainMenu(Application::window, 0, 1, 0);
-			setControls();
-		}
-	}
-
-	void StartButton::newProjectKey(int key, int action)
-	{
-		UserInterface::phc.showButton(NonButtonMap::FILE, "TYPEPROJECTNAME", "ENTER PROJECT NAME :" + UserInterface::typer.textTyper.stringInsertion(key, action));
-		UserInterface::phc.showButton(NonButtonMap::FILE, ButtonMap::BACKBUTTON);
-		if (UserInterface::typer.textTyper.completed_total)
-		{
-			UserInterface::phc.hideDropDownMenu();
-			UserInterface::phc.showButton(NonButtonMap::FILE, "NEWPROJECTCONFIRM", "NEW PROJECT CREATED");
-			UserInterface::phc.showButton(NonButtonMap::FILE, "NEWPROJECTHINT", "Use Edit Project to create new objects, and start creating your world", 1, 0.2);
-			App::projectDataFileName = UserInterface::typer.textTyper.text;
-			App::loadProjectData(App::projectDataFileName);
-			setControls();
-		}
-
-	}
 
 
 

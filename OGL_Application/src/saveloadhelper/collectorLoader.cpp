@@ -1,4 +1,4 @@
-#include<saveloadhelper.h>
+#include<collectorLoader.h>
 #include<log.h>
 
 using namespace std;
@@ -7,21 +7,22 @@ namespace saveloadNS {
 
 
 	const string
-		CollectorSavings::COLLECTORTAG = "COLLECTOR_",
-		CollectorSavings::COLLECTORENDTAG = "--------ENDCOLLECTOR--------",
-		CollectorSavings::OBJECTNAMETAG = "AOobjectName",
-		CollectorSavings::AOPOSITIONTAG = "AOposition",
-		CollectorSavings::AOORIENTATIONTAG = "AOorientation",
-		CollectorSavings::AOTRMATRIXTAG = "AOTrMatrix",
-		CollectorSavings::AOINSTANCENUMBERTAG = "AOinstanceNumber",
-		CollectorSavings::AOCOLORTAG = "AOcolor",
-		CollectorSavings::DOSIZETAG = "DOsize",
-		CollectorSavings::AOISONFLAGTAG = "AOisOnFlag",
-		CollectorSavings::COLLECTORISONTAG = "OCisOnFlag";
+		CollectorLoader::COLLECTORTAG = "COLLECTOR_",
+		CollectorLoader::COLLECTORENDTAG = "--------ENDCOLLECTOR--------",
+		CollectorLoader::OBJECTNAMETAG = "AOobjectName",
+		CollectorLoader::AOPOSITIONTAG = "AOposition",
+		CollectorLoader::AOORIENTATIONTAG = "AOorientation",
+		CollectorLoader::AOTRMATRIXTAG = "AOTrMatrix",
+		CollectorLoader::AOINSTANCENUMBERTAG = "AOinstanceNumber",
+		CollectorLoader::AOCOLORTAG = "AOcolor",
+		CollectorLoader::DOSIZETAG = "DOsize",
+		CollectorLoader::AOISONFLAGTAG = "AOisOnFlag",
+		CollectorLoader::COLLECTORISONTAG = "OCisOnFlag",
+		CollectorLoader::ACTIVITYGROUNDID = "OCActivityGroundID";
 
 		
 
-	void CollectorSavings::loadCollectorMapsIntoDataStructure()
+	void CollectorLoader::loadCollectorMapsIntoDataStructure()
 	{
 		/*itero su tutti i collettori*/
 		for (int i = 0; i < collectorsMap.getSize() ; i++)
@@ -183,7 +184,7 @@ namespace saveloadNS {
 
 
 
-	void  CollectorSavings::setAllCollectorsMap()
+	void  CollectorLoader::setAllCollectorsMap()
 	{
 		for (int i = 0; i + 1 < totalLines; i++)
 		{
@@ -247,7 +248,7 @@ namespace saveloadNS {
 
 
 
-	CollectorSavings::CollectorSavings(ifstream& in)
+	CollectorLoader::CollectorLoader(ifstream& in)
 	{
 
 		if (in.is_open())

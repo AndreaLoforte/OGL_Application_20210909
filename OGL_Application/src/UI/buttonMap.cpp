@@ -58,10 +58,6 @@ namespace uiNS {
 	{
 		buttonMap.emplace(STARTINGBUTTON, new StartButton());
 		buttonMap.emplace(EDITGAMEMODEBUTTON, new EditGameButton());
-		buttonMap.emplace(CREATEBUTTON, new CreateObjectButton());
-		buttonMap.emplace(DELETEBUTTON, new DeleteObjectButton());
-		buttonMap.emplace(BACKBUTTON, new BackButton());
-		buttonMap.emplace(CONTROLMODEBUTTON, new ControlModeButton());
 		buttonMap.emplace(ESCAPEBUTTON, new QuitButton());
 		buttonMap.emplace(EDITOBJECTMODEBUTTON, new EditObjectModeButton());
 	}

@@ -261,9 +261,6 @@
     <ClInclude Include="OGL_Application\include\objectControlsInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\saveloadhelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -339,6 +336,18 @@
     <ClInclude Include="OGL_Application\include\Objects\characters\activeCharacterManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OGL_Application\include\ApplicationObject\activeObjectCollector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\cameraLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\collectorLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\fileMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
@@ -370,9 +379,6 @@
     </ClCompile>
     <ClCompile Include="OGL_Application\src\cameraTransformations\fpcamera.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\Collectors\derivedObjectCollector.cpp">
-      <Filter>Source Files\Collectors</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Collectors\objectCollector.cpp">
       <Filter>Source Files\Collectors</Filter>
@@ -491,18 +497,6 @@
     <ClCompile Include="OGL_Application\src\Physics\world.cpp">
       <Filter>Source Files\PHYSICS_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper.cpp">
-      <Filter>Source Files\saveLoadHelper</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_applicationObject.cpp">
-      <Filter>Source Files\saveLoadHelper</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_camera.cpp">
-      <Filter>Source Files\saveLoadHelper</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\saveloadhelper\saveloadhelper_FileMap.cpp">
-      <Filter>Source Files\saveLoadHelper</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -609,6 +603,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_activeCharacterCluster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Collectors\activeObjectCollector.cpp">
+      <Filter>Source Files\Collectors</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\fileMap.cpp">
+      <Filter>Source Files\saveLoadHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\cameraLoader.cpp">
+      <Filter>Source Files\saveLoadHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\collectorLoader.cpp">
+      <Filter>Source Files\saveLoadHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\facilities.cpp">
+      <Filter>Source Files\saveLoadHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\startButton\fileDropDownMenu_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

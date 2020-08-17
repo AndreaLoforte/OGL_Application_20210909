@@ -40,12 +40,13 @@ void App::update(){
 	fpcameraNS::CameraManager::update();
 	userInterface.update();
 
-	if (!UserInterface::paused)
+	if (UserInterface::UIon)
 	{
 		TimingData::update();
 		globalNS::DURATION = 0.1;// TimingData::get().lastFrameDuration * 0.005f;
 		if (globalNS::DURATION <= 0.0f) return;
 
+	//if(UserInterface::physicsOn)
 		for (int i = 0; i < objectManager.ApplicationCollectorList.size(); i++)
 			objectManager.ApplicationCollectorList[i]->OCupdate(globalNS::DURATION);
 

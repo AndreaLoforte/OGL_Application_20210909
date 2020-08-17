@@ -28,7 +28,7 @@ namespace uiNS {
 	void StartButton::mainMenu(GLFWwindow* w, int button, int action, int mode)
 	{
 		/*if (UserInterface::clicked(NonButtonMap::NOBUTTON))	*/
-		UserInterface::setFlags(false, false, false);
+		UserInterface::setFlags(true, false, false);
 		UserInterface::phc.hideDropDownMenu();
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		UserInterface::phc.showButton(NonButtonMap::FILE, NonButtonMap::FILE, NonButtonMap::FILE);
@@ -120,6 +120,36 @@ namespace uiNS {
 
 	}
 
+	void HightlightSelectedObject(const string& buttonID)
+	{
+		static bool turnOffNewColl = false;
+
+		collectorNS::ApplicationObjectCollector* newcoll;
+		static collectorNS::ApplicationObjectCollector* prevcoll = myobjectNS::ApplicationObjectManager::getObjectByCollectorID(buttonID);
+		newcoll = myobjectNS::ApplicationObjectManager::getObjectByCollectorID(buttonID);
+		if (newcoll)
+		{
+			/*light up the object only if i did not already*/
+			if (newcoll != prevcoll)
+			{
+				newcoll->getBody()->AOcolor *= 1.7;
+				if (prevcoll && turnOffNewColl)
+					prevcoll->getBody()->AOcolor *= 1 / 1.7;
+				prevcoll = newcoll;
+				turnOffNewColl = true;
+			}
+
+		}
+		else /*if now the cursor is pointing no object, turn off the last lighetd up object*/
+		{
+			if (turnOffNewColl)
+			{
+				prevcoll->getBody()->AOcolor *= 1 / 1.7;
+				turnOffNewColl = false;
+			}
+					
+		}
+	}
 
 
 	void StartButton::cursorPositionCallBack_highlightOnly(GLFWwindow* w, double x, double y)
@@ -130,15 +160,23 @@ namespace uiNS {
 
 
 		std::string buttonID{ UserInterface::cursorVStext() };
+		
+		HightlightSelectedObject(buttonID);
+		/*else
+			prevcoll->getBody()->AOcolor *= 2.0 / 3.0;*/
+			
+		
+
 		if (buttonID == NonButtonMap::NOBUTTON)
 		{
-			//UserInterface::phc.hideDropDownMenu();
 			return;
 		}
 
 		ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
 		UserInterface::highlightButton(b);
 	}
+
+
 
 
 

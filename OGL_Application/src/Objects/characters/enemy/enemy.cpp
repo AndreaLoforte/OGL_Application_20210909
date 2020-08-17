@@ -95,6 +95,18 @@ void Enemy::OSsetParameters() {
 
 
 
+void EnemyOC::canSleep(bool v)
+{
+	enemy.AOcanSleep(v);
+	/*turn off/on AI*/
+	brain.AIon = !v;
+	/*turn off/on physics body*/
+	enemy.body->setAwake(!v);
+	/*turn off/on collector*/
+	isOn = !v;
+}
+
+
 
 
 void EnemyOC::OCupdate(const float& duration)
@@ -200,7 +212,8 @@ void Enemy::create() {
 
 
 
-EnemyOC* EnemyOC::OCgetNewInstance()  {
+EnemyOC* EnemyOC::OCgetNewInstance()  
+{
 	//instanceCounter++;
 	EnemyOC* s(new EnemyOC());
 	//s->AOinstanceNumber = instanceCounter;

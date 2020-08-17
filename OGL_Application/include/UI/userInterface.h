@@ -25,7 +25,7 @@ namespace uiNS {
 		static StartButton* start;
 		static vector<ButtonInterface*> buttonFlow;
 		static double cursor_x, cursor_y;
-		static bool paused;
+		static bool UIon;
 		static bool physicsOn;
 		static bool AIon;
 		
@@ -46,7 +46,7 @@ namespace uiNS {
 
 		static void printExistingObjects(const string&);
 		static void printAssetObjectsList(const string&);
-		static void setFlags(const bool& pause, const bool& aion, const bool& physicson);
+		static void setFlags(const bool& uion, const bool& aion, const bool& physicson);
 
 	};
 

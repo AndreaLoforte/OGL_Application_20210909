@@ -6,8 +6,8 @@
 #include<assets.h>
 #include<extern_definitions.h>
 #include<gun.h>
-#include<saveloadhelper.h>
-
+//#include<saveloadhelper.h>
+#include<collectorLoader.h>
 
 namespace myobjectNS
 {
@@ -44,7 +44,7 @@ bool ApplicationObjectManager::loadData(string filename) {
 	ApplicationCollectorList.clear();
 
 	ifstream in(logNS::Logger::STOREDDATADIR + filename);
-	saveloadNS::CollectorSavings fh(in);
+	saveloadNS::CollectorLoader fh(in);
 	
 	if (!fh.FileIsEmpty)
 	{

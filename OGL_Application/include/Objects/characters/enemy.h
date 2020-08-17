@@ -81,29 +81,16 @@ namespace myobjectNS {
 		std::array<float, 3> fireSpot;
 	public:
 		EnemyOC();
-		~EnemyOC() {
-
-		}
+		~EnemyOC() {}
 		void clean() {}
 		void OCupdate(const float&) override;
-		void canSleep(bool v) override
-		{
-			enemy.AOcanSleep(v);
-			/*turn off/on AI*/
-			brain.AIon = !v;
-			/*turn off/on physics body*/
-			enemy.body->setAwake(!v);
-			/*turn off/on collector*/
-			isOn = !v;
-		}
-		//void OSsetParameters() override;
-
+		void canSleep(bool v) override;
 		EnemyOC* OCgetNewInstance() override;
 		void setParameters() override;		
-
 		std::string getCollectorName() override { return collectorName; }
 		Enemy* getBody() { return &enemy; }
 		void setActivityGround(myobjectNS::SurfaceBoundaries* sb)override { brain.activityArea = sb; }
+		myobjectNS::SurfaceBoundaries* getActivityGround()override { return brain.activityArea; }
 		
 	};
 

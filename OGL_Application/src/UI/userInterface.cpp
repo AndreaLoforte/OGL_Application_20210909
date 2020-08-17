@@ -11,7 +11,7 @@ namespace uiNS {
 	double UserInterface::cursor_x, UserInterface::cursor_y;
 	vector<ButtonInterface*> UserInterface::buttonFlow;
 	StartButton* UserInterface::start;
-	bool UserInterface::paused{ true };
+	bool UserInterface::UIon{ true };
 	bool UserInterface::physicsOn{ true };
 	bool UserInterface::AIon{ true };
 	printHelperNS::PrintHelperCollector UserInterface::phc;
@@ -78,9 +78,9 @@ namespace uiNS {
 
 
 
-	void UserInterface::setFlags(const bool& pause, const bool& aion, const bool& physicson)
+	void UserInterface::setFlags(const bool& uion, const bool& aion, const bool& physicson)
 	{
-		paused = pause;
+		UIon = pause;
 		AIon = aion;
 		physicsOn = physicson;
 	}
@@ -184,16 +184,16 @@ namespace uiNS {
 	void UserInterface::pause()
 	{
 
-		if (paused)
+		if (UIon)
 		{
-			paused = false;
+			UIon = false;
 			//UserInterface::ph.eraseFromMap("PAUSED");
 
 		}
 		else
 		{
 			//UserInterface::showButton("PAUSED", "PAUSE");
-			paused = true;
+			UIon = true;
 		}
 
 	}

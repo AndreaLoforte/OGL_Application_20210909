@@ -2,7 +2,7 @@
 #include<physics.h>
 #include<applicationObjectManager.h>
 #include<string>
-
+#include<collectorLoader.h>
 
 namespace myobjectNS {
 
@@ -85,7 +85,7 @@ namespace myobjectNS {
 
 	void ObjectAABB::specializedSave(std::ofstream& out)
 	{
-		out << saveloadNS::CollectorSavings::DOSIZETAG << std::endl;
+		out << saveloadNS::CollectorLoader::DOSIZETAG << std::endl;
 		out << L1 << " " << L2 << " " << L3 << std::endl;
 	}
 

@@ -1,5 +1,5 @@
-#ifndef IA_H
-#define IA_H
+#pragma once 
+
 
 #include<core.h>
 #include<fpcamera.h>
@@ -9,6 +9,7 @@
 #include<functional>
 #include<PrintHelper.h>
 #include<ground.h>
+#include<chrono>
 namespace myobjectNS {
 	class PlayerCharacterOC;
 	class OCGun;
@@ -48,15 +49,19 @@ namespace aiNS {
 		collectorNS::ActiveObject* myself;
 		myobjectNS::ApplicationObject* mybody;
 		RigidBody *myRB;
-		Vector3 myposition;
+		
 
 		
 		myobjectNS::SurfaceBoundaries* activityArea = NULL;
 
 
-		std::default_random_engine generator;
-		Vector3 randomDestination{ 0.0,0.0,0.0 };
+		Vector3 nextPosition{ 0.0,0.0,0.0 };
+		Vector3 currentPosition{ 0.0,0.0,0.0 };
 		Vector3 deltaMovement{ 0.0,0.0,0.0 };
+
+		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		std::default_random_engine generator{ seed };
+		Vector3 randomDestination{ 0.0,0.0,0.0 };
 		std::uniform_int_distribution<int> distribution{ -100,100 };
 
 		std::_Binder<std::_Unforced,
@@ -71,7 +76,7 @@ namespace aiNS {
 		{
 			mybody = myself->getBody();
 			myRB = mybody->getRB();
-			myposition = myRB->position;
+			currentPosition = myRB->position;
 		}
 
 		/*funzione che impone all'oggetto passato di seguire il mainCharacter*/
@@ -108,4 +113,3 @@ namespace aiNS {
 
 
 
-#endif
