@@ -63,7 +63,7 @@ namespace myobjectNS{
 		static void deleteObject(const int );
 		static bool deleteObject(const string&);
 		static void save(std::string);
-		static bool loadData(string filename);
+		static bool loadCollectors(string filename);
 		static bool loadActiveObjects(string filename);
 		static void setupObjectsParameters();
 		static void initObjectMaps();

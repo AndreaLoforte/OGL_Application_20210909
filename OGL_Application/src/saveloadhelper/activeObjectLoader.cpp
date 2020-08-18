@@ -22,26 +22,31 @@ namespace saveloadNS {
 
 
 
+
+
+
+
 	void ActiveObjectLoader::loadCollectorMapsIntoDataStructure()
 	{
+
 		/*itero su tutti i collettori*/
-		for (int i = 0; i < collectorsMap.getSize(); i++)
+		for (int i = 0; i < TAGLIST.at(STARTDELIMITER).getSize(); i++)
 		{
 			ActiveObjectDataStructure collettore;
-			collettore.collectorsID = collectorsMap.getLine(i);
-			collettore.pos_start = collectorsMap.getPos(i);
-			collettore.pos_end = collectorsDelimitersMap.getPos(i);
+			collettore.collectorsID =TAGLIST.at(STARTDELIMITER).getLine(i);
+			collettore.pos_start = TAGLIST.at(STARTDELIMITER).getPos(i);
+			collettore.pos_end = TAGLIST.at(ENDDELIMITER).getPos(i);
 
 
 			//now loading ActivityGroundID
-			for (int k = 0; k < ActivityGroundMap.getSize(); k++)
+			for (int k = 0; k < TAGLIST.at("ACTIVE_OBJECT_ACTIVITYGROUND_ID").getSize(); k++)
 			{
-				size_t ActivityGroundID_posInFile = ActivityGroundMap.getPos(k);
+				size_t ActivityGroundID_posInFile = TAGLIST.at("ACTIVE_OBJECT_ACTIVITYGROUND_ID").getPos(k);
 				//size_t aoTrMatrix_posInFile_LastRow = AOTrMatrixMap.getPos(k + 3);//5 = 1 riga tag + 4 righe numeriche
 				if (ActivityGroundID_posInFile > collettore.pos_start && ActivityGroundID_posInFile < collettore.pos_end)
 				{
 					//AOTrMatrix è una matrice di 4 righe, quindi devo prendere 4 stringhe
-					string activityGroundID = ActivityGroundMap.getLine(k + 1);
+					string activityGroundID = TAGLIST.at("ACTIVE_OBJECT_ACTIVITYGROUND_ID").getLine(k + 1);
 					collettore.activityGroundID = activityGroundID;
 
 				}
@@ -50,26 +55,26 @@ namespace saveloadNS {
 
 
 			/*itero su tutti gli oggetti dei collettori*/
-			for (int j = 0; j < ObjectsMap.getSize(); j++)
+			for (int j = 0; j < TAGLIST.at("AOobjectName").getSize(); j++)
 			{
-				size_t objectPosInFile = ObjectsMap.getPos(j);
-				size_t NextObjectPosInFile = ObjectsMap.getPos(j + 1);
+				size_t objectPosInFile = TAGLIST.at("AOobjectName").getPos(j);
+				size_t NextObjectPosInFile = TAGLIST.at("AOobjectName").getPos(j + 1);
 
 				/*quando la posizione dell'oggetto nel file, è contenuta dentro il range di posizione iniziale-finale
 				di un collettore, allora carico quell'oggetto*/
 				if (objectPosInFile > collettore.pos_start && objectPosInFile < collettore.pos_end)
 				{
 					collettore.AOobjects.push_back(AODataStructure());
-					collettore.AOobjects.back().ObjectName = ObjectsMap.getLine(j);
+					collettore.AOobjects.back().ObjectName = TAGLIST.at("AOobjectName").getLine(j);
 
 					//ora inserisco AOPosition : per ogni tag di AOposition devo verificare che il tag sia contenuto tra il nome dell'oggetto j e j+1
-					for (int k = 0; k < AOpositionMap.getSize(); k++)
+					for (int k = 0; k < TAGLIST.at("AOposition").getSize(); k++)
 					{
-						size_t aoposition_posInFile = AOpositionMap.getPos(k);
+						size_t aoposition_posInFile = TAGLIST.at("AOposition").getPos(k);
 
 						if (aoposition_posInFile > objectPosInFile && aoposition_posInFile < NextObjectPosInFile)
 						{
-							string AOpositionStringFormat = AOpositionMap.getLine(k);//il tag sta in k il valore in k+1;
+							string AOpositionStringFormat = TAGLIST.at("AOposition").getLine(k);//il tag sta in k il valore in k+1;
 
 							std::array<float, 3> pos = stringToVec3(AOpositionStringFormat);
 
@@ -79,13 +84,13 @@ namespace saveloadNS {
 					}
 
 					// LOADING ORIENTATION
-					for (int k = 0; k < AOorientationMap.getSize(); k++)
+					for (int k = 0; k < TAGLIST.at("AOorientation").getSize(); k++)
 					{
-						size_t aoorientatino_posInFile = AOorientationMap.getPos(k);
+						size_t aoorientatino_posInFile = TAGLIST.at("AOorientation").getPos(k);
 
 						if (aoorientatino_posInFile > objectPosInFile && aoorientatino_posInFile < NextObjectPosInFile)
 						{
-							string AOorientationStringFormat = AOorientationMap.getLine(k);//il tag sta in k il valore in k+1;
+							string AOorientationStringFormat = TAGLIST.at("AOorientation").getLine(k);//il tag sta in k il valore in k+1;
 
 							std::vector<float> orientation;
 							stringToFloatVec(AOorientationStringFormat, orientation);
@@ -99,13 +104,13 @@ namespace saveloadNS {
 					}
 
 					//LOADING COLOR OF THE OBJECT
-					for (int k = 0; k < AOcolorMap.getSize(); k++)
+					for (int k = 0; k < TAGLIST.at("AOcolor").getSize(); k++)
 					{
-						size_t aocolor_posInFile = AOcolorMap.getPos(k);
+						size_t aocolor_posInFile = TAGLIST.at("AOcolor").getPos(k);
 
 						if (aocolor_posInFile > objectPosInFile && aocolor_posInFile < NextObjectPosInFile)
 						{
-							string AOcolorStringFormat = AOcolorMap.getLine(k);//il tag sta in k il valore in k+1;
+							string AOcolorStringFormat = TAGLIST.at("AOcolor").getLine(k);//il tag sta in k il valore in k+1;
 
 							std::vector<float> color;
 							stringToFloatVec(AOcolorStringFormat, color);
@@ -119,13 +124,13 @@ namespace saveloadNS {
 
 
 					//LOADING SIZE OF THE OBJECT
-					for (int k = 0; k < DOsizeMap.getSize(); k++)
+					for (int k = 0; k < TAGLIST.at("DOsize").getSize(); k++)
 					{
-						size_t dosize_posInFile = DOsizeMap.getPos(k);
+						size_t dosize_posInFile = TAGLIST.at("DOsize").getPos(k);
 
 						if (dosize_posInFile > objectPosInFile && dosize_posInFile < NextObjectPosInFile)
 						{
-							string DOsizeStringFormat = DOsizeMap.getLine(k);//il tag sta in k il valore in k+1;
+							string DOsizeStringFormat = TAGLIST.at("DOsize").getLine(k);//il tag sta in k il valore in k+1;
 
 							std::vector<float> size;
 							stringToFloatVec(DOsizeStringFormat, size);
@@ -136,13 +141,13 @@ namespace saveloadNS {
 					}
 
 					//LOADING APPLICATION OBJECT IS ON FLAG
-					for (int k = 0; k < AOisonFlagMap.getSize(); k++)
+					for (int k = 0; k < TAGLIST.at("AOisOnFlag").getSize(); k++)
 					{
-						size_t isonflag_posInFile = AOisonFlagMap.getPos(k);
+						size_t isonflag_posInFile = TAGLIST.at("AOisOnFlag").getPos(k);
 
 						if (isonflag_posInFile > objectPosInFile && isonflag_posInFile < NextObjectPosInFile)
 						{
-							string isOnStringFormat = AOisonFlagMap.getLine(k);//il tag sta in k il valore in k+1;
+							string isOnStringFormat = TAGLIST.at("AOisOnFlag").getLine(k);//il tag sta in k il valore in k+1;
 							if (isOnStringFormat == "1")
 								collettore.AOobjects.back().isOn = true;
 							else
@@ -153,13 +158,13 @@ namespace saveloadNS {
 					}
 
 					//LOADING OBJECT COLLECTOR IS ON FLAG
-					for (int k = 0; k < OCisOnMap.getSize(); k++)
+					for (int k = 0; k < TAGLIST.at("OCisOnFlag").getSize(); k++)
 					{
-						size_t isonflag_posInFile = OCisOnMap.getPos(k);
+						size_t isonflag_posInFile = TAGLIST.at("OCisOnFlag").getPos(k);
 
 						if (isonflag_posInFile > collettore.pos_start && isonflag_posInFile < collettore.pos_end)
 						{
-							string isOnStringFormat = OCisOnMap.getLine(k);//il tag sta in k il valore in k+1;
+							string isOnStringFormat = TAGLIST.at("OCisOnFlag").getLine(k);//il tag sta in k il valore in k+1;
 							if (isOnStringFormat == "1")
 								collettore.isOn = true;
 							else
@@ -172,24 +177,24 @@ namespace saveloadNS {
 
 
 					//ora inserisco AOTrMatrix : per ogni tag di AOTrMatrix devo verificare che il tag sia contenuto tra il nome dell'oggetto j e j+1
-					for (int k = 0; k < AOTrMatrixMap.getSize(); k++)
+					for (int k = 0; k < TAGLIST.at("AOTrMatrix").getSize(); k++)
 					{
-						size_t aoTrMatrix_posInFile = AOTrMatrixMap.getPos(k);
-						size_t aoTrMatrix_posInFile_LastRow = AOTrMatrixMap.getPos(k + 3);//5 = 1 riga tag + 4 righe numeriche
+						size_t aoTrMatrix_posInFile = TAGLIST.at("AOTrMatrix").getPos(k);
+						size_t aoTrMatrix_posInFile_LastRow = TAGLIST.at("AOTrMatrix").getPos(k + 3);//5 = 1 riga tag + 4 righe numeriche
 						if (aoTrMatrix_posInFile > objectPosInFile && aoTrMatrix_posInFile_LastRow < NextObjectPosInFile)
 						{
 							//AOTrMatrix è una matrice di 4 righe, quindi devo prendere 4 stringhe
-							string row1 = AOTrMatrixMap.getLine(k);
-							string row2 = AOTrMatrixMap.getLine(k + 1);
-							string row3 = AOTrMatrixMap.getLine(k + 2);
-							string row4 = AOTrMatrixMap.getLine(k + 3);
+							string row1 = TAGLIST.at("AOTrMatrix").getLine(k);
+							string row2 = TAGLIST.at("AOTrMatrix").getLine(k + 1);
+							string row3 = TAGLIST.at("AOTrMatrix").getLine(k + 2);
+							string row4 = TAGLIST.at("AOTrMatrix").getLine(k + 3);
 
 							collettore.AOobjects.back().AOTrMatrix = stringToMat4(row1 + " " + row2 + " " + row3 + " " + row4);
 
 						}
 					}
 
-					
+
 
 				}
 			}
@@ -199,75 +204,6 @@ namespace saveloadNS {
 	}
 
 
-
-
-
-	void  ActiveObjectLoader::loadAllCollectorsMap()
-	{
-		for (int i = 0; i + 1 < totalLines; i++)
-		{
-			if (fileMap.getLine(i).find(COLLECTORTAG) != string::npos)
-			{
-				collectorsMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));//su questa mappa metto i tag dell'inizio dei collettori
-			}
-			if (fileMap.getLine(i).find(COLLECTORENDTAG) != string::npos)
-			{
-				collectorsDelimitersMap.insert(fileMap.getLine(i), fileMap.getPos(i));//su questa mappa metto i delimitatori dei collettori
-			}
-
-			if (fileMap.getLine(i).find(OBJECTNAMETAG) != string::npos)
-			{
-				//inserisco in mappa la linea successiva al tag
-				ObjectsMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-			}
-			if (fileMap.getLine(i).find(AOCOLORTAG) != string::npos)
-			{
-				//inserisco in mappa la linea successiva al tag
-				AOcolorMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-			}
-
-			string line = fileMap.getLine(i);
-			if (line.find(AOTRMATRIXTAG) != string::npos)
-			{
-				//la matrice è distribuita su 4 righe
-				AOTrMatrixMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-				AOTrMatrixMap.insert(fileMap.getLine(i + 2), fileMap.getPos(i + 2));
-				AOTrMatrixMap.insert(fileMap.getLine(i + 3), fileMap.getPos(i + 3));
-				AOTrMatrixMap.insert(fileMap.getLine(i + 4), fileMap.getPos(i + 4));
-			}
-			if (fileMap.getLine(i).find(DOSIZETAG) != string::npos)
-			{
-				//inserisco in mappa la linea successiva al tag
-				DOsizeMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-			}
-			if (fileMap.getLine(i).find(AOPOSITIONTAG) != string::npos)
-			{
-				//inserisco in mappa la linea successiva al tag
-				AOpositionMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-			}
-			if (fileMap.getLine(i).find(AOORIENTATIONTAG) != string::npos)
-			{
-				//inserisco in mappa la linea successiva al tag
-				AOorientationMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-			}
-			if (fileMap.getLine(i).find(AOISONFLAGTAG) != string::npos)
-			{
-				//inserisco in mappa la linea successiva al tag
-				AOisonFlagMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-			}
-			if (fileMap.getLine(i).find(COLLECTORISONTAG) != string::npos)
-			{
-				//inserisco in mappa la linea successiva al tag
-				OCisOnMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-			}
-			if (fileMap.getLine(i).find(ACTIVITYGROUNDID) != string::npos)
-			{
-				//inserisco in mappa la linea successiva al tag
-				ActivityGroundMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
-			}
-
-		}
-	}
 
 
 
@@ -297,7 +233,7 @@ namespace saveloadNS {
 
 
 
-			loadAllCollectorsMap();
+			loadAllCollectorsMap(TAGLIST);
 			loadCollectorMapsIntoDataStructure();
 
 

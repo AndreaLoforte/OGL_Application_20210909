@@ -22,6 +22,9 @@ namespace saveloadNS {
 
 	class FileMap {
 	public:
+		FileMap(){}
+		FileMap(const string s):fileMapID(s){}
+		string fileMapID;
 		/*collect each line of the file*/
 		vector<string> fileLines;
 		/*for each line, collect the 
@@ -53,7 +56,18 @@ namespace saveloadNS {
 
 	
 	/*definition of a class used only to generate hineritance*/
-	class FileHelper {};
+	class FileHelper {
+	public:
+		FileMap fileMap;
+		string s;
+		unsigned totalLines = 0;
+		unsigned totalChars = 0;
+		void loadLine(const string& TAG, FileMap& fmTarget);
+		void  loadAllCollectorsMap(map<string, FileMap>& TAGLIST);
+
+		const string TAG_ENDCOLLECTOR = "END----";
+		const string TAG_TYPEMATRIX = "Matrix";
+	};
 
 
 

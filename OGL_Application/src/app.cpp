@@ -117,7 +117,7 @@ bool App::loadProjectData(string filename) {
 	}
 	fpcameraNS::CameraManager::load(App::projectDataFileName);
 	
-	if (myobjectNS::ApplicationObjectManager::loadData(App::projectDataFileName)&&
+	if (myobjectNS::ApplicationObjectManager::loadCollectors(App::projectDataFileName)&&
 		myobjectNS::ApplicationObjectManager::loadActiveObjects(App::projectDataFileName))
 	{
 		myobjectNS::ApplicationObjectManager::setupObjectsParameters();

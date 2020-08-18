@@ -19,28 +19,6 @@ namespace saveloadNS {
 
 	class ActiveObjectLoader : public FileHelper {
 
-		/*fileMap , maps the entire file*/
-		FileMap fileMap;
-		string s;
-		unsigned totalLines = 0;
-		unsigned totalChars = 0;
-
-		/*following map are specific for
-		object or parameters inside object*/
-		FileMap collectorsMap;
-		FileMap collectorsDelimitersMap;
-		FileMap ObjectsMap;
-		FileMap AOpositionMap;
-		FileMap AOorientationMap;
-		FileMap AOTrMatrixMap;
-		FileMap AOcolorMap;
-		FileMap DOsizeMap;
-		FileMap AOisonFlagMap;
-		FileMap OCisOnMap;
-		FileMap ActivityGroundMap;
-
-
-
 		vector<ActiveObjectDataStructure> collectors;
 
 	public:
@@ -49,20 +27,16 @@ namespace saveloadNS {
 		virtual unsigned getTotalLines() { return totalLines; }
 		virtual unsigned& getTotalChars() { return totalChars; }
 
-		FileMap getCollectorsMap() { return collectorsMap; }
+		FileMap getCollectorsMap() { return TAGLIST.at(STARTDELIMITER);/* collectorsMap;*/ }
 
 		vector<ActiveObjectDataStructure>* getCollectors() { return &collectors; }
 
-		/*il metodo setAllCollectorsMap carica tutte
-		le mappe dei collettori in modo tale che ogni
-		oggetto/parametro di un collettore abbia la sua mappa*/
-		void loadAllCollectorsMap();
-
+	
 		/*il metodo loadCollectors.. legge dalle mappe
 		e porta i dati da formato stringa al loro vero
 		formato per poi inserirle nelle data structure*/
 		void loadCollectorMapsIntoDataStructure();
-
+		
 		static const string
 			COLLECTORTAG,
 			COLLECTORENDTAG,
@@ -76,6 +50,27 @@ namespace saveloadNS {
 			DOSIZETAG,
 			AOISONFLAGTAG,
 			ACTIVITYGROUNDID;
+
+
+		const string STARTDELIMITER = "ACTIVEOBJECT_";
+		const string ENDDELIMITER = "--------ACTIVEOBJECTEND--------";
+
+		map<string,FileMap> TAGLIST
+		{
+			{STARTDELIMITER,					FileMap("collectorsMap")},
+			{ENDDELIMITER,				FileMap("collectorsDelimitersMap")},
+			{"AOobjectName",					FileMap("ObjectsMap")},
+			{"AOposition",						FileMap("AOpositionMap")}	 ,
+			{"AOorientation",					FileMap("AOorientationMap")},
+			{"AOTrMatrix",						FileMap("AOTrMatrixMap")}	,			  
+			{"AOcolor",							FileMap("AOcolorMap")}	 ,
+			{"DOsize",							FileMap("DOsizeMap")}	 ,
+			{"AOisOnFlag",						FileMap("AOisonFlagMap")}	 ,
+			{"OCisOnFlag",						FileMap("OCisOnMap")}	 ,
+			{"ACTIVE_OBJECT_ACTIVITYGROUND_ID", FileMap("ActivityGroundMap")},
+		};
+
+
 	};
 
 
