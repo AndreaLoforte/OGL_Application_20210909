@@ -120,8 +120,8 @@ bool ApplicationObjectManager::loadActiveObjects(string filename) {
 				saveloadNS::ActiveObjectDataStructure collectorData = LoadedCollectors->at(i);
 
 				//carico direttamente i collettori : in base al collectorsID carico un tipo diverso di collettore
-				collectorNS::ActiveObject* newColl =static_cast<collectorNS::ActiveObject*>(
-					AssetNS::Assets::getNewCollector(collectorData.collectorsID));
+				collectorNS::ActiveObject* newColl =static_cast<collectorNS::ActiveObject*>
+					(AssetNS::Assets::getNewCollector(collectorData.collectorsID));
 
 				for (int j = 0; j < newColl->getSize(); j++)
 				{

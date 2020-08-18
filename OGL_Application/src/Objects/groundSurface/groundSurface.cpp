@@ -155,7 +155,7 @@ namespace myobjectNS {
 
 	void GroundSurface::create() {
 
-		myobjectNS::Ground::addSurface(this);
+		
 
 
 		setShaders();

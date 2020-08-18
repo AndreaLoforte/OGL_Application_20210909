@@ -122,7 +122,7 @@ namespace aiNS {
 		Vector3 vel = deltaMovement;
 		vel.normalise();
 
-		vel *= 50;
+		vel *= 10;
 
 
 		myRB->velocity = vel;

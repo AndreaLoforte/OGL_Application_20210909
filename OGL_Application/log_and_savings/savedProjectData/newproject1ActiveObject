@@ -9,7 +9,7 @@ enemy
 AOinstanceNumber
 0
 AOposition
--159.426 -5 4.52574
+-229.508 -5.39425 55.6862
 AOorientation
 1 0 0 0
 AOcolor
@@ -30,7 +30,7 @@ enemy
 AOinstanceNumber
 0
 AOposition
--245.973 -0.819885 31.673
+-230.396 -6.82993 -10.4142
 AOorientation
 1 0 0 0
 AOcolor
@@ -51,112 +51,7 @@ enemy
 AOinstanceNumber
 0
 AOposition
--200.212 -5 -34.111
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ACTIVEOBJECTEND--------
-ACTIVEOBJECT_
-enemy
-OCisOnFlag
-1
-ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_531
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
--26.3809 5 -233.606
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ACTIVEOBJECTEND--------
-ACTIVEOBJECT_
-enemy
-OCisOnFlag
-1
-ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_531
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
--17.5939 5 -199.857
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ACTIVEOBJECTEND--------
-ACTIVEOBJECT_
-enemy
-OCisOnFlag
-1
-ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_531
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
--41.5229 5 -188.538
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ACTIVEOBJECTEND--------
-ACTIVEOBJECT_
-enemy
-OCisOnFlag
-1
-ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_531
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
-52.8409 5 -191.765
-AOorientation
-1 0 0 0
-AOcolor
-1 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
---------ACTIVEOBJECTEND--------
-ACTIVEOBJECT_
-enemy
-OCisOnFlag
-1
-ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_531
-AOobjectName
-enemy
-AOinstanceNumber
-0
-AOposition
--49.6426 5 -140.61
+-197.798 -5.88307 19.7741
 AOorientation
 1 0 0 0
 AOcolor
@@ -177,7 +72,7 @@ enemy
 AOinstanceNumber
 0
 AOposition
--235.922 -0.669795 16.8214
+-158.18 -3.63024 -11.4701
 AOorientation
 1 0 0 0
 AOcolor
@@ -198,7 +93,7 @@ enemy
 AOinstanceNumber
 0
 AOposition
--181.842 -5 -87.7233
+-166.289 -5.22584 -62.4409
 AOorientation
 1 0 0 0
 AOcolor
@@ -219,7 +114,7 @@ enemy
 AOinstanceNumber
 0
 AOposition
--175.225 -5 -36.7825
+-210.878 -9.1197 0.661877
 AOorientation
 1 0 0 0
 AOcolor
@@ -234,13 +129,13 @@ enemy
 OCisOnFlag
 1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_531
+groundSurface_528
 AOobjectName
 enemy
 AOinstanceNumber
 0
 AOposition
--84.7222 5 -124.661
+-145.638 -6.59801 -63.3126
 AOorientation
 1 0 0 0
 AOcolor
@@ -255,13 +150,13 @@ enemy
 OCisOnFlag
 1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_531
+groundSurface_528
 AOobjectName
 enemy
 AOinstanceNumber
 0
 AOposition
-4.37654 5 -213.392
+-167.543 -8.04987 -27.4108
 AOorientation
 1 0 0 0
 AOcolor
@@ -276,13 +171,13 @@ enemy
 OCisOnFlag
 1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_542
+groundSurface_528
 AOobjectName
 enemy
 AOinstanceNumber
 0
 AOposition
-292.272 5 189.468
+-244.844 -4.49031 -24.5554
 AOorientation
 1 0 0 0
 AOcolor
@@ -297,13 +192,13 @@ enemy
 OCisOnFlag
 1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_542
+groundSurface_528
 AOobjectName
 enemy
 AOinstanceNumber
 0
 AOposition
-249.982 -5 228.756
+-213.293 -5.01678 -26.0705
 AOorientation
 1 0 0 0
 AOcolor
@@ -318,13 +213,13 @@ enemy
 OCisOnFlag
 1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_542
+groundSurface_528
 AOobjectName
 enemy
 AOinstanceNumber
 0
 AOposition
-180.894 -5 276.424
+-227.279 0.0681648 -16.9494
 AOorientation
 1 0 0 0
 AOcolor
@@ -335,160 +230,42 @@ DOsize
 5
 --------ACTIVEOBJECTEND--------
 ACTIVEOBJECT_
-playercharacter
+enemy
 OCisOnFlag
-0
+1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_528
 AOobjectName
-playercharacter
+enemy
 AOinstanceNumber
 0
 AOposition
--52.3901 5 259.172
-AOorientation
--0.491722 -0.532426 -0.493359 0.48098
-AOcolor
-0 0.764842 0.764842 0.8
-AOisOnFlag
-0
-DOsize
-5
-AOobjectName
-projectile
-AOinstanceNumber
-0
-AOposition
-33.1491 5 141.841
+-186.847 -9.37095 -12.5146
 AOorientation
 1 0 0 0
 AOcolor
-0.5 0.5 0.5 0.5
+1 0.5 0.5 0.5
 AOisOnFlag
 1
 DOsize
 5
-AOobjectName
-projectile
-AOinstanceNumber
-0
-AOposition
-33.1491 5 141.841
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
 1
-DOsize
-5
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+
 AOobjectName
-projectile
+enemy
 AOinstanceNumber
 0
 AOposition
-28.8176 5 124.404
+-219.58 -691795 -10.2693
 AOorientation
 1 0 0 0
 AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
-AOobjectName
-projectile
-AOinstanceNumber
-0
-AOposition
-16.1708 5 71.9728
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
-AOobjectName
-projectile
-AOinstanceNumber
-0
-AOposition
-11.4882 5 36.6067
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
-AOobjectName
-projectile
-AOinstanceNumber
-0
-AOposition
-11.4882 5 36.6067
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
-AOobjectName
-projectile
-AOinstanceNumber
-0
-AOposition
-11.4882 5 36.6067
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
-AOobjectName
-projectile
-AOinstanceNumber
-0
-AOposition
-22.2815 5 54.4047
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
-AOobjectName
-projectile
-AOinstanceNumber
-0
-AOposition
-36.3767 5 87.5167
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
-AOisOnFlag
-1
-DOsize
-5
-AOobjectName
-projectile
-AOinstanceNumber
-0
-AOposition
-51.5551 5 132.839
-AOorientation
-1 0 0 0
-AOcolor
-0.5 0.5 0.5 0.5
+1 0.5 0.5 0.5
 AOisOnFlag
 1
 DOsize

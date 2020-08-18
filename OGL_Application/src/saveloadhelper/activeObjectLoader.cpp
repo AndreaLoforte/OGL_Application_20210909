@@ -32,6 +32,23 @@ namespace saveloadNS {
 			collettore.pos_start = collectorsMap.getPos(i);
 			collettore.pos_end = collectorsDelimitersMap.getPos(i);
 
+
+			//now loading ActivityGroundID
+			for (int k = 0; k < ActivityGroundMap.getSize(); k++)
+			{
+				size_t ActivityGroundID_posInFile = ActivityGroundMap.getPos(k);
+				//size_t aoTrMatrix_posInFile_LastRow = AOTrMatrixMap.getPos(k + 3);//5 = 1 riga tag + 4 righe numeriche
+				if (ActivityGroundID_posInFile > collettore.pos_start && ActivityGroundID_posInFile < collettore.pos_end)
+				{
+					//AOTrMatrix è una matrice di 4 righe, quindi devo prendere 4 stringhe
+					string activityGroundID = ActivityGroundMap.getLine(k + 1);
+					collettore.activityGroundID = activityGroundID;
+
+				}
+			}
+
+
+
 			/*itero su tutti gli oggetti dei collettori*/
 			for (int j = 0; j < ObjectsMap.getSize(); j++)
 			{
@@ -172,6 +189,7 @@ namespace saveloadNS {
 						}
 					}
 
+					
 
 				}
 			}
@@ -241,6 +259,11 @@ namespace saveloadNS {
 			{
 				//inserisco in mappa la linea successiva al tag
 				OCisOnMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
+			}
+			if (fileMap.getLine(i).find(ACTIVITYGROUNDID) != string::npos)
+			{
+				//inserisco in mappa la linea successiva al tag
+				ActivityGroundMap.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
 			}
 
 		}

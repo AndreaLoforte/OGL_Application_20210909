@@ -90,7 +90,10 @@ namespace uiNS {
 
 		if (UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
 		{
-			clusterNS::ClusterManager::clusterMap.at(CLUSTERNAME).group.clear();
+			clusterNS::ClusterManager::it = clusterNS::ClusterManager::clusterMap.find(CLUSTERNAME);
+			if (clusterNS::ClusterManager::it != clusterNS::ClusterManager::clusterMap.end())
+				clusterNS::ClusterManager::it->second.group.clear();
+			
 			activeCharCL.group.clear();
 			setControls();
 			mainMenu(Application::window, 0, 0, 0);

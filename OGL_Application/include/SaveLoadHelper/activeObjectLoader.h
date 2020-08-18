@@ -37,6 +37,7 @@ namespace saveloadNS {
 		FileMap DOsizeMap;
 		FileMap AOisonFlagMap;
 		FileMap OCisOnMap;
+		FileMap ActivityGroundMap;
 
 
 

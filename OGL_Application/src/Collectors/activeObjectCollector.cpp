@@ -31,6 +31,8 @@ namespace collectorNS {
 		out << saveloadNS::ActiveObjectLoader::ACTIVITYGROUNDID << std::endl;
 		if (getActivityGround() != NULL)
 			out << getActivityGround()->p->getRB()->RBobjectID << std::endl;
+		else
+			out << std::endl;
 		for (int i = 0; i < Pcontainer->size(); i++)
 			getSubObject(i)->save(out);
 		out << saveloadNS::ActiveObjectLoader::COLLECTORENDTAG << std::endl;

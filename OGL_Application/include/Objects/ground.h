@@ -68,7 +68,8 @@ namespace myobjectNS {
 
 			instanceNumber = instanceCounter++;
 			body->RBobjectName = objectName;
-
+			
+			Ground::addSurface(this);
 		}
 
 
