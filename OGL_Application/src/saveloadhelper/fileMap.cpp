@@ -6,6 +6,145 @@ using namespace std;
 namespace saveloadNS {
 
 
+
+
+	void FileHelper::loadAttributeString(string& targetString, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	{
+		for (int k = 0; k < fm.getSize(); k++)
+		{
+			size_t fetchedData_posInFile = fm.getPos(k);
+
+			if (fetchedData_posInFile > pos_start && fetchedData_posInFile < pos_end)
+			{
+				targetString = fm.getLine(k + 1);
+			}
+		}
+
+	}
+
+	void FileHelper::loadAttributeArray(array<float, 3>& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	{
+		for (int k = 0; k < fm.getSize(); k++)
+		{
+			size_t array_posInFile = fm.getPos(k);
+
+			if (array_posInFile > pos_start && array_posInFile < pos_end)
+			{
+				string dataStringFormat = fm.getLine(k);
+				dataStorage = stringToVec3(dataStringFormat);
+
+			}
+		}
+
+	}
+
+	void FileHelper::loatQuaternion(mymathlibNS::Quaternion& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	{
+		for (int k = 0; k < fm.getSize(); k++)
+		{
+			size_t quaternion_posInFile = fm.getPos(k);
+
+			if (quaternion_posInFile > pos_start && quaternion_posInFile < pos_end)
+			{
+				string AOorientationStringFormat = fm.getLine(k);
+
+				std::vector<float> tempStorage;
+				stringToFloatVec(AOorientationStringFormat, tempStorage);
+
+				dataStorage.w = tempStorage[0];
+				dataStorage.x = tempStorage[1];
+				dataStorage.y = tempStorage[2];
+				dataStorage.z = tempStorage[3];
+
+			}
+		}
+
+	}
+
+
+	void FileHelper::loadvmathVec4(vmath::vec4& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	{
+		for (int k = 0; k < fm.getSize(); k++)
+		{
+			size_t vec4_posInFile = fm.getPos(k);
+
+			if (vec4_posInFile > pos_start && vec4_posInFile < pos_end)
+			{
+				string AOcolorStringFormat = fm.getLine(k);//il tag sta in k il valore in k+1;
+
+				std::vector<float> tempStorage;
+				stringToFloatVec(AOcolorStringFormat, tempStorage);
+				dataStorage[0] = tempStorage[0];
+				dataStorage[1] = tempStorage[1];
+				dataStorage[2] = tempStorage[2];
+				dataStorage[3] = tempStorage[3];
+
+			}
+		}
+	}
+
+	void FileHelper::loadvectorFloat(vector<float>& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	{
+		for (int k = 0; k < fm.getSize(); k++)
+		{
+			size_t vec_posInFile = fm.getPos(k);
+
+			if (vec_posInFile > pos_start && vec_posInFile < pos_end)
+			{
+				string StringFormat = fm.getLine(k);//il tag sta in k il valore in k+1;
+
+				std::vector<float> size;
+				stringToFloatVec(StringFormat, size);
+				for (int i = 0; i < size.size(); i++)
+					dataStorage.push_back(size[i]);
+
+			}
+		}
+
+	}
+
+	void FileHelper::loadBool(bool& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	{
+		for (int k = 0; k < fm.getSize(); k++)
+		{
+			size_t flag_posInFile = fm.getPos(k);
+
+			if (flag_posInFile > pos_start && flag_posInFile < pos_end)
+			{
+				string isOnStringFormat = fm.getLine(k);//il tag sta in k il valore in k+1;
+				if (isOnStringFormat == "1")
+					dataStorage = true;
+				else
+					dataStorage = false;
+
+
+			}
+		}
+	}
+
+	void FileHelper::loadvmathMatrix4(vmath::mat4& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	{
+		for (int k = 0; k < fm.getSize(); k++)
+		{
+			size_t Matrix_posInFile = fm.getPos(k);
+			size_t Matrix_posInFile_LastRow = fm.getPos(k + 3);//5 = 1 riga tag + 4 righe numeriche
+			if (Matrix_posInFile > pos_start && Matrix_posInFile_LastRow < pos_end)
+			{
+				//AOTrMatrix è una matrice di 4 righe, quindi devo prendere 4 stringhe
+				string row1 = fm.getLine(k);
+				string row2 = fm.getLine(k + 1);
+				string row3 = fm.getLine(k + 2);
+				string row4 = fm.getLine(k + 3);
+
+				dataStorage = stringToMat4(row1 + " " + row2 + " " + row3 + " " + row4);
+
+			}
+		}
+	}
+
+
+
+
 	void  FileHelper::loadAllCollectorsMap(map<string,FileMap>& TAGLIST)
 	{
 

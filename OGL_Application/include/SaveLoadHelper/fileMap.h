@@ -63,8 +63,14 @@ namespace saveloadNS {
 		unsigned totalLines = 0;
 		unsigned totalChars = 0;
 		void loadLine(const string& TAG, FileMap& fmTarget);
-		void  loadAllCollectorsMap(map<string, FileMap>& TAGLIST);
-
+		void loadAllCollectorsMap(map<string, FileMap>& TAGLIST);
+		void loadAttributeString(string& targetString, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
+		void loadAttributeArray(array<float, 3>& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
+		void loatQuaternion(mymathlibNS::Quaternion& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
+		void loadvmathVec4(vmath::vec4& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
+		void loadvectorFloat(vector<float>& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
+		void loadBool(bool& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
+		void loadvmathMatrix4(vmath::mat4& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
 		const string TAG_ENDCOLLECTOR = "END----";
 		const string TAG_TYPEMATRIX = "Matrix";
 	};

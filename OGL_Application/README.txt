@@ -13,26 +13,24 @@ and a simple implementation of enemy behaviour. It has 3 kind of camera
 transformations that the user can switch at runtime. 
 All of the progresses made during a session can be saved and restored later.
 
-It enbeds various functionality, most of which I developed by myself
-while others I integrated from third parties :
+features :
 
-- it has a GUI
-- it has a Physics Engine (I integrated the Cyclone physics library that
+- GUI (I wrote a simple library my self)
+- Physics Engine (I integrated the Cyclone physics library that
   was shipped as part of the book of Ian Millington (Game Physics).
   This library provides collision resolution, while collision detection 
   is managed only for some primitives, and it does not cope with tunneling.
   Therefore I integrated some part to handle the tunneling problem and to 
   add some simple primitives.
-
- - it integrates Irrklang sounds library
- - it integrates SOIL2 texture library
+ - Integrates Irrklang sounds library
+ - Integrates SOIL2 texture library
 
 
 ==========================================================================
 1. Directory structure overview
 ==========================================================================
   
-  \audio        	This folder contains audio files for the engine
+  \audio        	This folder stores audio files for the engine
                
   \DEPENDENCIES 	libraries for the various functionalities like 
   			texture	loading or windows and input managing etc.

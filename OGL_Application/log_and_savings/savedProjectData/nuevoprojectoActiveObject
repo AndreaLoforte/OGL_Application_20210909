@@ -9,7 +9,7 @@ enemy
 AOinstanceNumber
 0
 AOposition
--58.5472 5 -5.16948
+47.4663 5 22.996
 AOorientation
 1 0 0 0
 AOcolor
@@ -24,13 +24,13 @@ enemy
 OCisOnFlag
 1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_19
+groundSurface_18
 AOobjectName
 enemy
 AOinstanceNumber
 0
 AOposition
--32.8097 5 -193.233
+-20.5944 5 24.9447
 AOorientation
 1 0 0 0
 AOcolor
@@ -45,19 +45,40 @@ enemy
 OCisOnFlag
 1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_20
+groundSurface_18
 AOobjectName
 enemy
 AOinstanceNumber
 0
 AOposition
--173.362 5 -54.9859
+-5.41295 5 -11.6606
 AOorientation
 1 0 0 0
 AOcolor
 1 0.5 0.5 0.5
 AOisOnFlag
 1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+playercharacter
+OCisOnFlag
+0
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+
+AOobjectName
+playercharacter
+AOinstanceNumber
+0
+AOposition
+45.06 301.999 526.31
+AOorientation
+-0.216378 0.510395 -0.662741 -0.503443
+AOcolor
+0 0.764842 0.764842 0.8
+AOisOnFlag
+0
 DOsize
 5
 --------ACTIVEOBJECTEND--------
