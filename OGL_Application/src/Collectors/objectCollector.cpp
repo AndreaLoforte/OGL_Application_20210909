@@ -5,12 +5,11 @@
 #include<collectorLoader.h>
 namespace collectorNS {
 
-	//////////////////////////////////////////////////////////////////
-	//COSTRUTTORI
+
 
 	int ApplicationObjectCollector::collectorCounter;
 	const std::string ApplicationObjectCollector::COLLECTOR_TYPE{ "APPLICATIONCOLLECTOR" };
-
+	const string SEPARATOR = "_";
 
 
 	void ApplicationObjectCollector::canSleep(bool v)
@@ -20,7 +19,6 @@ namespace collectorNS {
 		for (int i = 0; i < Pcontainer->size(); i++)
 		{
 			Pcontainer->at(i)->AOcanSleep(v);
-			//Pcontainer->at(i)->getRB()->isAwake = !v;
 		}
 	}
 
@@ -31,7 +29,7 @@ namespace collectorNS {
 		collectorCounter++;
 		collectorNumber = collectorCounter;
 		collectorName = s;
-		collectorID = collectorName + "_" + std::to_string(collectorNumber);
+		collectorID = collectorName + SEPARATOR + std::to_string(collectorNumber);
 	}
 
 	ApplicationObjectCollector::ApplicationObjectCollector(const std::string s):
@@ -41,7 +39,7 @@ namespace collectorNS {
 		collectorCounter++;
 		collectorNumber = collectorCounter;
 		collectorName = s;
-		collectorID = collectorName + "_" + std::to_string(collectorNumber);
+		collectorID = collectorName + SEPARATOR + std::to_string(collectorNumber);
 
 	}
 
@@ -154,13 +152,13 @@ namespace collectorNS {
 	void ApplicationObjectCollector::setCollectorName() {
 
 		collectorName = Pcontainer->at(0)->AOobjectName;
-		collectorID = collectorName + " " + std::to_string(collectorNumber);
+		collectorID = collectorName + SEPARATOR + std::to_string(collectorNumber);
 	}
 
 	void ApplicationObjectCollector::setCollectorName(std::string s) {
 
 		collectorName = s;
-		collectorID = collectorName + " "+ std::to_string(collectorNumber);
+		collectorID = collectorName + SEPARATOR + std::to_string(collectorNumber);
 	}
 
 

@@ -34,15 +34,19 @@ namespace AssetNS {
 
 
 
-	void Assets::init() {
+	void Assets::init() 
+	{
 
-		//OGGETTI DA CUI COSTRUISCO COLLETTOR
+		/*INSERTING APPLICATION OBJECT IN ASSET LIST CANNOT BE DONE IN ONE STEP: 
+		1) INSERT APPLICATION OBJECT INTO ASSET AO LIST
+		2) APPLICATION OBJECTS HAVE A METHODS getCollector() THAT RETURNS 
+		A COLLECTOR FILLED WITH THE OBJECT THAT CALLED getCollector()*/
 
 
 		//assetAOList.push_back(new myobjectNS::Particle("particle"));
 		assetAOList.push_back(new myobjectNS::Grid("grid"));
 		assetAOList.push_back(new myobjectNS::Surface("surface"));
-		assetAOList.push_back(new myobjectNS::GroundSurface("groundSurface"));
+		//assetAOList.push_back(new myobjectNS::GroundSurface("groundSurface"));
 		assetAOList.push_back(new myobjectNS::Polygon("polygon"));
 		assetAOList.push_back(new myobjectNS::Build("object1"));//dentro file object1
 		assetAOList.push_back(new myobjectNS::Sphere("sphere"));
@@ -54,9 +58,8 @@ namespace AssetNS {
 		assetAOList.push_back(new myobjectNS::Triangle_tb("triangle_tb"));
 	
 
+		/*NOW CALLING getCollector() FOR EACH APPLICATION OBJECT*/
 	
-
-
 		for (int i = 0; i < assetAOList.size(); i++)
 		{//da ogni ApplicationObject ottengo un collettore usando la funzione getCollector()
 			//assetsList.push_back(assetAOList[i]->getCollector());
@@ -66,10 +69,10 @@ namespace AssetNS {
 			assetAOindex.emplace(std::pair<std::string, int>{ assetAOList[i]->AOobjectName, i });
 		}
 
-		//gun è un collettore e non un application Object quindi lo pusho direttamente nella lista dei collettori
-		//ssetsList.push_back(myobjectNS::Gun("Gun").OCgetNewInstance());
+		/*COLLECTOR ARE INSTERTED DIRECTLY INTO THE ASSET LIST*/
 		assetsList.push_back(new myobjectNS::EnemyOC());
 		assetsList.push_back(new myobjectNS::PlayerCharacterOC());
+		assetsList.push_back(new myobjectNS::GroundSurfaceOC());
 
 		//ogni applicationObject viene wrappato in un collector
 		//un collector può contenere più object

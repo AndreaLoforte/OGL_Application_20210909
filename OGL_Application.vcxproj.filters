@@ -632,6 +632,9 @@
     <ClCompile Include="OGL_Application\src\UI\startButton\file_menuFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OGL_Application\src\ApplicationObject\applicationObjectManager_saveLoad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="OGL_Application\src\Objects\build\build.frag">

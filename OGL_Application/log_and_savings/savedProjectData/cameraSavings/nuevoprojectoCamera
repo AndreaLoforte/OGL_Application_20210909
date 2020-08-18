@@ -1,0 +1,54 @@
+---------------CAMERA-----------------
+CameraID
+GROUNDCAMERA
+GlobalCoordinates
+0 -5 -200 
+Orientation
+1 0 0 0
+PreviousMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+ReversePreviousXrotationMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+--------------ENDCAMERA---------------
+---------------CAMERA-----------------
+CameraID
+FLYINGCAMERA
+GlobalCoordinates
+-3.77022 -211.917 -410.682 
+Orientation
+0.977109 0.189046 -0.0958062 -0.0185361
+PreviousMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+ReversePreviousXrotationMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+--------------ENDCAMERA---------------
+---------------CAMERA-----------------
+CameraID
+PANORAMICCAMERA
+GlobalCoordinates
+0 -70 -200 
+Orientation
+0.984808 0.173648 0 0
+PreviousMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+ReversePreviousXrotationMatrix
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+--------------ENDCAMERA---------------

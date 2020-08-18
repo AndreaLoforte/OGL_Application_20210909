@@ -30,7 +30,7 @@ namespace collectorNS {
 		out << isOn << std::endl;
 		out << saveloadNS::ActiveObjectLoader::ACTIVITYGROUNDID << std::endl;
 		if (getActivityGround() != NULL)
-			out << getActivityGround()->p->getRB()->RBobjectID << std::endl;
+			out << getActivityGround()->collectorID << std::endl;
 		else
 			out << std::endl;
 		for (int i = 0; i < Pcontainer->size(); i++)

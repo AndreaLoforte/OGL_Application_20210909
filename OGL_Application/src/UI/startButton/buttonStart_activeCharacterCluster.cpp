@@ -15,6 +15,20 @@ namespace uiNS {
 	void buttonCallback_editActiveCharacterCluster(GLFWwindow* w, int button, int action, int mods);
 
 
+
+	void buttonCallback_activeCharacter()
+	{
+		UserInterface::phc.hideDropDownMenu();
+		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, "SELECT ACTIVE CHARACTERS TO EDIT");
+		UserInterface::phc.showDropDownMenu(
+			ButtonMap::EDITOBJECTMODEBUTTON, activeObjectManagerNS::ActiveCharacterManager::getACID(), false);
+		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::EDITCLUSTER);
+		UserInterface::bfl.setMouseButtonCallback(StartButton::buttonCallback_selectActiveCharacter);
+		UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack_highlightOnly);
+
+	}
+
+
 	void buttonCallback_setClusterGround(GLFWwindow* w, int button, int action, int mods)
 	{
 		if (UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
@@ -25,7 +39,7 @@ namespace uiNS {
 		}
 
 		string groundID = UserInterface::cursorVStext();
-		myobjectNS::SurfaceBoundaries* gs = myobjectNS::Ground::getGround(groundID);
+		myobjectNS::GroundSurfaceOC* gs = myobjectNS::Ground::getGround(groundID);
 
 		clusterNS::Cluster c = clusterNS::ClusterManager::clusterMap.at(CLUSTERNAME);
 

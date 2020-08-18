@@ -52,7 +52,7 @@ namespace aiNS {
 		
 
 		
-		myobjectNS::SurfaceBoundaries* activityArea = NULL;
+		myobjectNS::GroundSurfaceOC* activityArea = NULL;
 
 
 		Vector3 nextPosition{ 0.0,0.0,0.0 };
@@ -79,8 +79,6 @@ namespace aiNS {
 			currentPosition = myRB->position;
 		}
 
-		/*funzione che impone all'oggetto passato di seguire il mainCharacter*/
-		void follow(myobjectNS::ApplicationObject*, myobjectNS::ApplicationObject*, const float& distance);
 		void follow(collectorNS::ActiveObject* obj, collectorNS::ActiveObject* target);
 		/*spotfire, spotTarget, gun*/
 		void shoot(const std::array<float,3>&, const std::array<float, 3>&,const unsigned&,myobjectNS::OCGun&);
@@ -90,6 +88,7 @@ namespace aiNS {
 		const bool& seekAndDestroy();
 		void moveRandomly();
 		void moveInsideBoundaries();
+		array<float, 3> getRandomPointInSurface(aiNS::myfirstIA* brain);
 	};
 
 

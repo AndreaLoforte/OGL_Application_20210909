@@ -1,0 +1,63 @@
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_18
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-58.5472 5 -5.16948
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_19
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-32.8097 5 -193.233
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+enemy
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_20
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+-173.362 5 -54.9859
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------

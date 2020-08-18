@@ -258,17 +258,6 @@ namespace uiNS {
 
 
 
-	void buttonCallback_activeCharacter()
-	{
-		UserInterface::phc.hideDropDownMenu();
-		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, "SELECT ACTIVE CHARACTERS TO EDIT");
-		UserInterface::phc.showDropDownMenu(
-			ButtonMap::EDITOBJECTMODEBUTTON, activeObjectManagerNS::ActiveCharacterManager::getACID(), false);
-		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::EDITCLUSTER);
-		UserInterface::bfl.setMouseButtonCallback(StartButton::buttonCallback_selectActiveCharacter);
-		UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack_highlightOnly);
-
-	}
 
 
 

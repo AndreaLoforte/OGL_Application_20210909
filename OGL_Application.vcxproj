@@ -222,6 +222,7 @@
   <ItemGroup>
     <ClCompile Include="OGL_Application\src\app.cpp" />
     <ClCompile Include="OGL_Application\src\application.cpp" />
+    <ClCompile Include="OGL_Application\src\ApplicationObject\applicationObjectManager_saveLoad.cpp" />
     <ClCompile Include="OGL_Application\src\baseObject.cpp" />
     <ClCompile Include="OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp" />
     <ClCompile Include="OGL_Application\src\cameraTransformations\cameraManager.cpp" />

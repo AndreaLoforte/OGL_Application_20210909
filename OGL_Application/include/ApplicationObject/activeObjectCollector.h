@@ -3,6 +3,10 @@
 #include<objectCollector.h>
 //#include<string>
 
+namespace myobjectNS {
+	class GroundSurfaceOC;
+}
+
 using namespace std;
 namespace collectorNS {
 
@@ -15,10 +19,15 @@ namespace collectorNS {
 		virtual int getHealt() { return healt; }
 		virtual void setHealt(int c) { healt += c; }
 		const bool& damage(const int& i = 10);
-		virtual void setActivityGround(myobjectNS::SurfaceBoundaries* sb) {}
+
+
+
+		virtual void setActivityGround(myobjectNS::GroundSurfaceOC* sb) {}
 		virtual void setActivityGround(const string&) {}
-		virtual myobjectNS::SurfaceBoundaries* getActivityGround() { return NULL; }
-		//void OCsave(std::ofstream& out) override;
+		virtual myobjectNS::GroundSurfaceOC* getActivityGround() { return NULL; }
+		
+		
+		
 		void OCsave(std::string& out) override;
 	};
 

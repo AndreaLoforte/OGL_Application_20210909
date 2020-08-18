@@ -27,7 +27,7 @@ namespace collectorNS{
 	puntato da Pcollector, che viene passato 
 	dall'istanza del collettore creata.
 	In questo modo ho una buona flessibilità nel senso che
-	se per esempio dato l'oggetto OCEnemy contenente l'oggetto
+	per esempio dato l'oggetto OCEnemy contenente l'oggetto
 	Gun e altri oggetti semplici.Sia OCEnemy che Gun sono collettori, ma io voglio che
 	i proiettili di gun vengano messi nello stesso contenitore di OCEnemy
 	=> creo in OCEnemy il contenitore e lo passo a Gun in modo che

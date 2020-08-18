@@ -139,20 +139,17 @@ namespace uiNS {
 		UserInterface::cursor_x = x;
 		UserInterface::cursor_y = y;
 
-
-
 		std::string buttonID{ UserInterface::cursorVStext() };
-		
-		HightlightSelectedObject(buttonID);
-		/*else
-			prevcoll->getBody()->AOcolor *= 2.0 / 3.0;*/
-			
-		
 
-		if (buttonID == NonButtonMap::NOBUTTON)
+
+		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
 		{
 			return;
 		}
+
+		
+		HightlightSelectedObject(buttonID);
+		
 
 		ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
 		UserInterface::highlightButton(b);

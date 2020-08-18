@@ -25,52 +25,37 @@ namespace aiNS {
 
 
 
-	/*funzione che imposta la velocità del nemico in modo che segua il main character.
-	attenzione : in questa funzione non stiamo aggiornando AOposition ! 
-	aggiorniamo direttamente la rigid body position! */
-	void myfirstIA::follow(myobjectNS::ApplicationObject* obj, myobjectNS::ApplicationObject* target, const float& distance)
+	array<float, 3> myfirstIA::getRandomPointInSurface(aiNS::myfirstIA* brain)
 	{
-		//if(!AIon || !seekAndDestroy()) return;
-		//static float i = 0.0;
-		//static const int M = 10;
+		myobjectNS::ApplicationObject* surface = activityArea->getBody();
+		array<float, 3> direction_v1{ surface->AOvertices[0][0] - surface->AOposition[0], surface->AOvertices[0][1] - surface->AOposition[1], surface->AOvertices[0][2] - surface->AOposition[2] };
+		array<float, 3> direction_v2{ surface->AOvertices[1][0] - surface->AOposition[0], surface->AOvertices[1][1] - surface->AOposition[1], surface->AOvertices[1][2] - surface->AOposition[2] };
+		array<float, 3> direction_v3{ surface->AOvertices[2][0] - surface->AOposition[0], surface->AOvertices[2][1] - surface->AOposition[1], surface->AOvertices[2][2] - surface->AOposition[2] };
+		array<float, 3> direction_v4{ surface->AOvertices[3][0] - surface->AOposition[0], surface->AOvertices[3][1] - surface->AOposition[1], surface->AOvertices[3][2] - surface->AOposition[2] };
 
-		///*mymathlibNS::Quaternion orientation;
-		//static const mymathlibNS::Quaternion orientation_offset(mymathlibNS::Quaternion::getQuaternionfromYAngle(90.0));
-		//orientation = mymathlibNS::Quaternion::getProduct(orientation_offset, pc.getPlayer()->getOrientation());*/
 
-		///*deve guardare nella direzione dell'oggetto seguito 
-		//non nella stessa direzione dell'oggetto seguito*/
+		float a = brain->random(), b = brain->random(), c = brain->random(), d = brain->random();
 
-		///*mymathlibNS::Quaternion moving_offset(mymathlibNS::Quaternion::getQuaternionfromXAngle(i++ / M));
-		//orientation = mymathlibNS::Quaternion::getProduct(moving_offset, orientation);
-		//obj->setOrientation(orientation);*/
+		float total_norm = std::abs(a) + std::abs(b) + std::abs(c) + std::abs(d);
+		float c1 = a / total_norm, c2 = b / total_norm, c3 = c / total_norm, c4 = d / total_norm;
 
-		//std::array<float, 3> targetpos = target->getPosition();
+		direction_v1 = mymathlibNS::stdLibHelper::array3fProd1s(direction_v1, c1);
+		direction_v2 = mymathlibNS::stdLibHelper::array3fProd1s(direction_v2, c2);
+		direction_v3 = mymathlibNS::stdLibHelper::array3fProd1s(direction_v3, c3);
+		direction_v4 = mymathlibNS::stdLibHelper::array3fProd1s(direction_v4, c4);
 
-		////prendo la posizione del corpo rigido
-		//Vector3  enemypos{ obj->getRB()->position };
-		////la uso per settare la posizione AOposition che passerò poi a gun come firespot
-		//obj->setPosition(conversionLibNS::conversionLibrary::cycloneVec3TostdArray(enemypos));
-		//std::array<float, 3> distance_v
-		//{ targetpos[0] - enemypos[0] ,
-		//	targetpos[1] - enemypos[1] ,
-		//	targetpos[2] - enemypos[2]
-		//};
 
-		///*myobjectNS::PrintHelper::mapNewString("IA", "enemy-target distance : " +
-		//	logNS::Logger::stdarray3ToString(distance_v));*/
-		//
-		//	obj->getRB()->velocity =
-		//	Vector3(
-		//		distance_v[0] / distance,
-		//		distance_v[1] / distance,
-		//		distance_v[2] / distance);
+		std::array<float, 3> randomPoint;
 
-		//	if (obj->getRB()->velocity == Vector3(0.0, 0.0, 0.0))
-		//		;
+		randomPoint = mymathlibNS::stdLibHelper::array3fSum(direction_v1, direction_v2);
+		randomPoint = mymathlibNS::stdLibHelper::array3fSum(randomPoint, direction_v3);
+		randomPoint = mymathlibNS::stdLibHelper::array3fSum(randomPoint, direction_v4);
 
+		randomPoint = mymathlibNS::stdLibHelper::array3fSum(randomPoint, surface->AOposition);
+
+
+		return (randomPoint);
 	}
-
 
 	const bool& myfirstIA::seekAndDestroy()
 	{
@@ -106,7 +91,7 @@ namespace aiNS {
 
 	void myfirstIA::moveRandomly()
 	{
-		if (activityArea == NULL || myobjectNS::Ground::grounds.size() == 0)
+		if (activityArea == NULL || myobjectNS::Ground::groundMap.size() == 0)
 		{
 			return;
 		}
@@ -115,7 +100,7 @@ namespace aiNS {
 
 		if (deltaMovement.magnitude() <=20.0)
 		{
-			nextPosition = conversionLibNS::conversionLibrary::stdArrayToCycloneVec3(activityArea->getRandomPointInSurface(this));
+			nextPosition = conversionLibNS::conversionLibrary::stdArrayToCycloneVec3(getRandomPointInSurface(this));
 		}
 	
 
