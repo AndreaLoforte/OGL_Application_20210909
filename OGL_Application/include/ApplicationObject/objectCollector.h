@@ -3,8 +3,8 @@
 
 #include<vector>
 #include<string>
-//#include<applicationObject.h>
-//#include<applicationDerivedObject.h>
+
+using namespace std;
 
 namespace myobjectNS {
 	class ApplicationObject;
@@ -83,6 +83,8 @@ public:
 	virtual std::string getCollectorName();
 	virtual void setCollectorName();
 	virtual void setCollectorName(std::string);
+	virtual void setCollectorNumber(const unsigned& i);
+	virtual void setCollectorID(const string& cID, const unsigned& cNumber);
 	virtual void  deleteAtPos(const int&);
 	static ApplicationObjectCollector* getCollector(myobjectNS::ApplicationObject*);
 	virtual void canSleep(bool);

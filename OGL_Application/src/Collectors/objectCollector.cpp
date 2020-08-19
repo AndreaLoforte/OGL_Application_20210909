@@ -108,10 +108,12 @@ namespace collectorNS {
 	
 	void ApplicationObjectCollector::OCsave(std::string& s)
 	{
-		static ofstream out(s);
+		ofstream out(s);
 		
 		out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
 		out << getCollectorName() << std::endl;
+		out << saveloadNS::CollectorLoader::COLLECTORNUMBER << std::endl;
+		out << collectorNumber << std::endl;
 		out << saveloadNS::CollectorLoader::COLLECTORISONTAG << std::endl;
 		out << isOn << std::endl;
 		for (int i = 0; i < Pcontainer->size(); i++)
@@ -161,6 +163,15 @@ namespace collectorNS {
 		collectorID = collectorName + SEPARATOR + std::to_string(collectorNumber);
 	}
 
+	void ApplicationObjectCollector::setCollectorNumber(const unsigned& i)
+	{
+		collectorNumber = i;
+	}
+
+	void ApplicationObjectCollector::setCollectorID(const string& cID, const unsigned& cNumber)
+	{
+		collectorID = cID + SEPARATOR + std::to_string(cNumber);	
+	}
 
 	
 	/*create collector from an ApplicationObject*/

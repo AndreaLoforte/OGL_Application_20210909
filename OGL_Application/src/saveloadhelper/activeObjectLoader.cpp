@@ -28,12 +28,12 @@ namespace saveloadNS {
 	{
 
 		/*itero su tutti i collettori*/
-		for (int i = 0; i < TAGLIST.at(STARTDELIMITER).getSize(); i++)
+		for (int i = 0; i < TAGLIST.at(COLLECTORTAG).getSize(); i++)
 		{
 			ActiveObjectDataStructure collettore;
-			collettore.collectorsID =TAGLIST.at(STARTDELIMITER).getLine(i);
-			collettore.pos_start = TAGLIST.at(STARTDELIMITER).getPos(i);
-			collettore.pos_end = TAGLIST.at(ENDDELIMITER).getPos(i);
+			collettore.collectorsID =TAGLIST.at(COLLECTORTAG).getLine(i);
+			collettore.pos_start = TAGLIST.at(COLLECTORTAG).getPos(i);
+			collettore.pos_end = TAGLIST.at(COLLECTORENDTAG).getPos(i);
 
 
 
@@ -59,12 +59,12 @@ namespace saveloadNS {
 		
 					loadAttributeString(collettore.AOobjects.back().ObjectName, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOobjectName"));
 					loadAttributeArray(collettore.AOobjects.back().AOposition, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOposition"));
-					loatQuaternion(collettore.AOobjects.back().AOorientation, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOorientation"));
-					loadvmathVec4(collettore.AOobjects.back().AOcolor, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOcolor"));
-					loadvectorFloat(collettore.AOobjects.back().AOsize, collettore.pos_start, collettore.pos_end, TAGLIST.at("DOsize"));
-					loadBool(collettore.AOobjects.back().isOn, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOisOnFlag"));
-					loadBool(collettore.isOn, collettore.pos_start, collettore.pos_end, TAGLIST.at("OCisOnFlag"));
-					loadvmathMatrix4(collettore.AOobjects.back().AOTrMatrix, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOTrMatrix"));
+					loadAttributeQuaternion(collettore.AOobjects.back().AOorientation, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOorientation"));
+					loadAttributevmathVec4(collettore.AOobjects.back().AOcolor, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOcolor"));
+					loadAttributevectorFloat(collettore.AOobjects.back().AOsize, collettore.pos_start, collettore.pos_end, TAGLIST.at("DOsize"));
+					loadAttributeBool(collettore.AOobjects.back().isOn, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOisOnFlag"));
+					loadAttributeBool(collettore.isOn, collettore.pos_start, collettore.pos_end, TAGLIST.at("OCisOnFlag"));
+					loadAttributevmathMatrix4(collettore.AOobjects.back().AOTrMatrix, collettore.pos_start, collettore.pos_end, TAGLIST.at("AOTrMatrix"));
 				}
 			}
 
@@ -101,7 +101,7 @@ namespace saveloadNS {
 			}
 
 
-
+			setTAGLIST(tagList);
 			loadAllCollectorsMap(TAGLIST);
 			loadCollectorMapsIntoDataStructure();
 

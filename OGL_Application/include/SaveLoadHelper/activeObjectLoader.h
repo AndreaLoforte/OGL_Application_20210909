@@ -27,7 +27,7 @@ namespace saveloadNS {
 		virtual unsigned getTotalLines() { return totalLines; }
 		virtual unsigned& getTotalChars() { return totalChars; }
 
-		FileMap getCollectorsMap() { return TAGLIST.at(STARTDELIMITER);/* collectorsMap;*/ }
+		FileMap getCollectorsMap() { return TAGLIST.at(COLLECTORTAG); }
 
 		vector<ActiveObjectDataStructure>* getCollectors() { return &collectors; }
 
@@ -51,26 +51,21 @@ namespace saveloadNS {
 			AOISONFLAGTAG,
 			ACTIVITYGROUNDID;
 
-
-		const string STARTDELIMITER = "ACTIVEOBJECT_";
-		const string ENDDELIMITER = "--------ACTIVEOBJECTEND--------";
-
-		map<string,FileMap> TAGLIST
+		vector<string> tagList
 		{
-			{STARTDELIMITER,					FileMap("collectorsMap")},
-			{ENDDELIMITER,				FileMap("collectorsDelimitersMap")},
-			{"AOobjectName",					FileMap("ObjectsMap")},
-			{"AOposition",						FileMap("AOpositionMap")}	 ,
-			{"AOorientation",					FileMap("AOorientationMap")},
-			{"AOTrMatrix",						FileMap("AOTrMatrixMap")}	,			  
-			{"AOcolor",							FileMap("AOcolorMap")}	 ,
-			{"DOsize",							FileMap("DOsizeMap")}	 ,
-			{"AOisOnFlag",						FileMap("AOisonFlagMap")}	 ,
-			{"OCisOnFlag",						FileMap("OCisOnMap")}	 ,
-			{"ACTIVE_OBJECT_ACTIVITYGROUND_ID", FileMap("ActivityGroundMap")},
+			COLLECTORTAG,
+			COLLECTORENDTAG,
+			OBJECTNAMETAG,
+			AOPOSITIONTAG,
+			AOORIENTATIONTAG,
+			AOTRMATRIXTAG,
+			AOCOLORTAG,
+			DOSIZETAG,
+			AOISONFLAGTAG,
+			COLLECTORISONTAG,
+			ACTIVITYGROUNDID,
 		};
-
-
+	
 	};
 
 

@@ -112,13 +112,13 @@ namespace myobjectNS
 
 					//carico direttamente i collettori : in base al collectorsID carico un tipo diverso di collettore
 					collectorNS::ApplicationObjectCollector* newColl =
-						AssetNS::Assets::getNewCollector(collectorData.collectorsID);
+						AssetNS::Assets::getNewCollector(collectorData.collectorsName);
 
 					for (int j = 0; j < newColl->getSize(); j++)
 					{
 						//newColl->collector ritorna in ogni caso il collettore della classe padre ApplicationObjectCollector
 						//bisogna fetchare il collettore corretto usando il polimorfismo!
-						newColl->setCollectorName(collectorData.collectorsID);
+						newColl->setCollectorID(collectorData.collectorsName,collectorData.collectorNumber);
 						newColl->canSleep(!collectorData.isOn);
 						newColl->getSubObject(j)->setPosition(collectorData.AOobjects[j].AOposition);
 						//newColl->getSubObject(j)->AOTrMatrix = collectorData.AOobjects[j].AOTrMatrix;

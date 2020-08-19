@@ -1,9 +1,16 @@
 #include<fileMap.h>
 #include<log.h>
-
+#include<regex>
 using namespace std;
 
 namespace saveloadNS {
+
+
+	void FileHelper::setTAGLIST(const vector<string>& tagList)
+	{
+		for (int i = 0; i < tagList.size(); i++)
+			TAGLIST.emplace(tagList[i], FileMap(tagList[i]));
+	}
 
 
 
@@ -38,7 +45,7 @@ namespace saveloadNS {
 
 	}
 
-	void FileHelper::loatQuaternion(mymathlibNS::Quaternion& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	void FileHelper::loadAttributeQuaternion(mymathlibNS::Quaternion& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
 	{
 		for (int k = 0; k < fm.getSize(); k++)
 		{
@@ -62,7 +69,7 @@ namespace saveloadNS {
 	}
 
 
-	void FileHelper::loadvmathVec4(vmath::vec4& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	void FileHelper::loadAttributevmathVec4(vmath::vec4& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
 	{
 		for (int k = 0; k < fm.getSize(); k++)
 		{
@@ -83,7 +90,7 @@ namespace saveloadNS {
 		}
 	}
 
-	void FileHelper::loadvectorFloat(vector<float>& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	void FileHelper::loadAttributevectorFloat(vector<float>& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
 	{
 		for (int k = 0; k < fm.getSize(); k++)
 		{
@@ -103,7 +110,7 @@ namespace saveloadNS {
 
 	}
 
-	void FileHelper::loadBool(bool& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	void FileHelper::loadAttributeBool(bool& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
 	{
 		for (int k = 0; k < fm.getSize(); k++)
 		{
@@ -122,7 +129,7 @@ namespace saveloadNS {
 		}
 	}
 
-	void FileHelper::loadvmathMatrix4(vmath::mat4& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	void FileHelper::loadAttributevmathMatrix4(vmath::mat4& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
 	{
 		for (int k = 0; k < fm.getSize(); k++)
 		{
@@ -158,8 +165,7 @@ namespace saveloadNS {
 
 	void FileHelper::loadLine(const string& TAG, FileMap& fmTarget)
 	{
-
-		if (TAG.find(TAG_ENDCOLLECTOR) != string::npos)
+		if (std::regex_match(TAG, std::regex(TAG_ENDCOLLECTOR)))
 		{
 			for (int i = 0; i < totalLines; i++)
 				if (fileMap.getLine(i).find(TAG) != string::npos)
@@ -174,8 +180,6 @@ namespace saveloadNS {
 		if (TAG.find(TAG_TYPEMATRIX) != string::npos)
 		{
 			linesNbr = 4;
-			/*look through all the fileMap, if TAG is found, insert in fmTarget
-		the follwint linesNbr lines of the file*/
 			for (int i = 0; i < totalLines; i++)
 				if (fileMap.getLine(i).find(TAG) != string::npos)
 				{
@@ -188,7 +192,7 @@ namespace saveloadNS {
 
 
 		for (int i = 0; i < totalLines; i++)
-			if (fileMap.getLine(i).find(TAG) != string::npos)
+			if(std::regex_match(fileMap.getLine(i),std::regex(TAG)))
 			{
 				fmTarget.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
 			}

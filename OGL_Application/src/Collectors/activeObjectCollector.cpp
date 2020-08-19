@@ -22,6 +22,9 @@ namespace collectorNS {
 	{
 		filename += "ActiveObject";
 		static ofstream out(filename);
+		/*out.open(filename, ofstream::trunc);
+		out.close();
+		out.open(filename);*/
 
 		//IDENTIFICO IL COLLETTORE
 		out << saveloadNS::ActiveObjectLoader::COLLECTORTAG << std::endl;

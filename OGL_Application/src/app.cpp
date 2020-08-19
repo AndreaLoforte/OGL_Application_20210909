@@ -92,9 +92,9 @@ void App::startup()
 void App::SaveProjectData(string filename) {
 
 	std::string filepath{ logNS::Logger::STOREDDATADIR + filename };
-	std::ofstream out(filepath);
+	/*std::ofstream out(filepath);
 	out.clear();
-	out.close();	
+	out.close();	*/
 
 	myobjectNS::ApplicationObjectManager::save(filename);
 	fpcameraNS::CameraManager::save();

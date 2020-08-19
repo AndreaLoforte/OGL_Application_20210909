@@ -31,7 +31,8 @@ namespace saveloadNS {
 
 	class CollectorDataStructure {
 	public:
-		string collectorsID;
+		string collectorsName;
+		unsigned collectorNumber;
 		size_t pos_start = 0, pos_end = 0;
 		bool isOn;
 		vector<AODataStructure> AOobjects;
@@ -41,27 +42,6 @@ namespace saveloadNS {
 
 	class CollectorLoader : public FileHelper {
 
-		/*fileMap , maps the entire file*/
-		FileMap fileMap;
-		string s;
-		unsigned totalLines = 0;
-		unsigned totalChars = 0;
-
-		/*following map are specific for
-		object or parameters inside object*/
-		FileMap collectorsMap;
-		FileMap collectorsDelimitersMap;
-		FileMap ObjectsMap;
-		FileMap AOpositionMap;
-		FileMap AOorientationMap;
-		FileMap AOTrMatrixMap;
-		FileMap AOcolorMap;
-		FileMap DOsizeMap;
-		FileMap AOisonFlagMap;
-		FileMap OCisOnMap;
-
-
-
 		vector<CollectorDataStructure> collectors;
 
 	public:
@@ -70,14 +50,14 @@ namespace saveloadNS {
 		virtual unsigned getTotalLines() { return totalLines; }
 		virtual unsigned& getTotalChars() { return totalChars; }
 
-		FileMap getCollectorsMap() { return collectorsMap; }
+		FileMap getCollectorsMap() { return TAGLIST.at(COLLECTORTAG); }
 
 		vector<CollectorDataStructure>* getCollectors() { return &collectors; }
 
 		/*il metodo setAllCollectorsMap carica tutte
 		le mappe dei collettori in modo tale che ogni
 		oggetto/parametro di un collettore abbia la sua mappa*/
-		void loadAllCollectorsMap();
+		//void loadAllCollectorsMap();
 
 		/*il metodo loadCollectors.. legge dalle mappe
 		e porta i dati da formato stringa al loro vero
@@ -88,6 +68,7 @@ namespace saveloadNS {
 			COLLECTORTAG,
 			COLLECTORENDTAG,
 			COLLECTORISONTAG,
+			COLLECTORNUMBER,
 			OBJECTNAMETAG,
 			AOPOSITIONTAG,
 			AOORIENTATIONTAG,
@@ -96,6 +77,22 @@ namespace saveloadNS {
 			AOCOLORTAG,
 			DOSIZETAG,
 			AOISONFLAGTAG;
+
+		vector<string> tagList
+		{
+			COLLECTORTAG,
+			COLLECTORENDTAG,
+			COLLECTORISONTAG,
+			COLLECTORNUMBER,
+			OBJECTNAMETAG,
+			AOPOSITIONTAG,
+			AOORIENTATIONTAG,
+			AOTRMATRIXTAG,
+			AOINSTANCENUMBERTAG,
+			AOCOLORTAG,
+			DOSIZETAG,
+			AOISONFLAGTAG
+		};
 	};
 
 
