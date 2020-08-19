@@ -1,10 +1,12 @@
 #pragma once
-#pragma once
 #include<collectorLoader.h>
-
+#include<activeObjectCollector.h>
+//#include <experimental/filesystem>
 using namespace std;
 namespace saveloadNS {
 
+
+	const string ACTIVEOBJECTSAVINGFILE = "activeObject";
 
 	class ActiveObjectDataStructure {
 	public:
@@ -68,6 +70,12 @@ namespace saveloadNS {
 	
 	};
 
+
+	class ActiveObjectSaver
+	{
+	public:
+		static ofstream* save(collectorNS::ActiveObject* coll, std::string& filename);
+	};
 
 
 

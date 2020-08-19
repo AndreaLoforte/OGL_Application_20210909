@@ -101,7 +101,7 @@
       <AdditionalIncludeDirectories>.\OGL_Application\include\shadersFacility;.\OGL_Application\include\Physics\AdvancedPhysics;.\OGL_Application\include\Physics;.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\include\GLFW;.\OGL_Application\DEPENDENCIES\SB7;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\OGL_Application\include\SaveLoadHelper;.\OGL_Application\include\;.\OGL_Application\include\cameraTransformations;.\OGL_Application\include\ApplicationObject;.\OGL_Application\include\Objects;.\OGL_Application\include\UI;.\OGL_Application\include\LibAndFacility;.\OGL_Application\include\Objects\characters;.\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ShowIncludes>true</ShowIncludes>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
     <Link>
@@ -238,6 +238,7 @@
     <ClCompile Include="OGL_Application\src\Objects\particle\my_particle.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\polygon\polygon.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectLoader.cpp" />
+    <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectSaver.cpp" />
     <ClCompile Include="OGL_Application\src\UI\buttonfunctionLoader.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart.cpp" />
     <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject.cpp" />
@@ -245,7 +246,7 @@
     <ClCompile Include="OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp" />
     <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject_moveObject.cpp" />
     <ClCompile Include="OGL_Application\src\UI\printHelperCollector.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart2.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_mainCallbackFunc.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_activeCharacterCluster.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\editGames_menuFunctions.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\file_menuFunctions.cpp" />

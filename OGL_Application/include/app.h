@@ -23,7 +23,7 @@
 		/*Istanziare le classi sotto garantisce una corretta inizializzazione senza la quale
 		sarebbe necessario chiamare delle funzioni di setup su App::startup. Questa soluzione è più pulita!*/
 		myobjectNS::ApplicationObjectManager objectManager;
-		fpcameraNS::CameraManager cameraManager{ projectDataFileName };
+		fpcameraNS::CameraManager cameraManager;
 		myphysicsNS::CollisorePolimorfo polyCollisor;
 		soundNS::soundMap soundEngine;
 		aiNS::AI ai;

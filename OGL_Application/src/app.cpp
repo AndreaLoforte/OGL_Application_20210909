@@ -6,7 +6,7 @@
 #include<fstream>
 #include<stdio.h>
 std::string App::projectDataFileName{ "AppObj" };
-string App::defaultProjectFileName{ "defaultProjectName" };
+string App::defaultProjectFileName{ "projectsList" };
 printHelperNS::PrintHelper App::ph{ "App" };
 
 void App::switchPhysics() {}
@@ -89,32 +89,30 @@ void App::startup()
 
 
 
-void App::SaveProjectData(string filename) {
-
-	std::string filepath{ logNS::Logger::STOREDDATADIR + filename };
-	/*std::ofstream out(filepath);
-	out.clear();
-	out.close();	*/
-
-	myobjectNS::ApplicationObjectManager::save(filename);
+void App::SaveProjectData(string projectName) {
+;
+	myobjectNS::ApplicationObjectManager::save(projectName);
 	fpcameraNS::CameraManager::save();
 	
 	
-	std::ofstream out2(logNS::Logger::STOREDDATADIR+ defaultProjectFileName);
+	std::ofstream out2(logNS::Logger::PROJECTMAINDIR+ defaultProjectFileName, fstream::app);
 
-	out2 << filename;
+	out2 << projectName << std::endl;
 
 	
 }
 
-bool App::loadProjectData(string filename) {
+bool App::loadProjectData(string projectName) {
 
-	if (filename == "default")
+	if (projectName == "default")
 	{
-		string s = logNS::Logger::STOREDDATADIR + defaultProjectFileName;
+		/*retriving default project name*/
+		string s = logNS::Logger::PROJECTMAINDIR + defaultProjectFileName;
 		ifstream infile(s);
 		infile >> App::projectDataFileName;
 	}
+
+	logNS::Logger::PROJECTDIR = logNS::Logger::STOREDDATADIR + App::projectDataFileName + "/";
 	fpcameraNS::CameraManager::load(App::projectDataFileName);
 	
 	if (myobjectNS::ApplicationObjectManager::loadCollectors(App::projectDataFileName)&&
@@ -123,20 +121,17 @@ bool App::loadProjectData(string filename) {
 		myobjectNS::ApplicationObjectManager::setupObjectsParameters();
 		return true;
 	}
-
-	/*if (myobjectNS::ApplicationObjectManager::loadActiveObjects(App::projectDataFileName))
-	{
-		myobjectNS::ApplicationObjectManager::setupObjectsParameters();
-		return true;
-	}*/
 	
 	return false;
 }
 
-bool App::deleteProjectData(string filename) {
-	string s = logNS::Logger::STOREDDATADIR + filename;
+bool App::deleteProjectData(string projectName) {
+	string s = logNS::Logger::STOREDDATADIR + projectName + "/";
 
-	ifstream in(s);
+	
+	return false;
+
+	/*ifstream in(s);
 	if (in.is_open())
 		in.close();
 	if (remove(s.c_str()) != 0)
@@ -148,7 +143,7 @@ bool App::deleteProjectData(string filename) {
 	else {
 		puts("File successfully deleted");
 		return true;
-	}
+	}*/
 		
 }
 

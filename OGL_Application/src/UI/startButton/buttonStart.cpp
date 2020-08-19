@@ -68,39 +68,7 @@ namespace uiNS {
 
 
 
-	void StartButton::load(GLFWwindow* w, int button, int action, int mods)
-	{
-
-		if (action == GLFW_RELEASE) return;
-
-		App::projectDataFileName = UserInterface::cursorVStext();
-		
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
-		{
-			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
-			cursorButtonCallBack(Application::window, 0, 1, 0);
-		}
-
-
-
-		if (App::loadProjectData(App::projectDataFileName))
-		{
-			
-			UserInterface::phc.hideDropDownMenu();
-			setControls();
-			//UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
-			UserInterface::phc.showButton(NonButtonMap::FILE, "LOADCONFIRM", "LOADED PROJECT " + App::projectDataFileName);
-			return;
-		}
-		else {
-			UserInterface::phc.showButton(NonButtonMap::FILE, "LOADWARN", "COULD NOT LOAD PROJECT " + App::projectDataFileName);
-			setControls();
-		}
-
-		
-			
-
-	}
+	
 
 	void HightlightSelectedObject(const string& buttonID)
 	{

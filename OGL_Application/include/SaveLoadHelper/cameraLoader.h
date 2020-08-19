@@ -5,6 +5,8 @@
 using namespace std;
 namespace saveloadNS {
 
+	const string CAMERASAVINGFILE = "camera";
+
 	class CameraDataStructure
 	{
 	public:

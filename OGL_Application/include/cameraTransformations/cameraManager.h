@@ -8,16 +8,13 @@ namespace fpcameraNS {
 
 	/* CAMERA MANAGER */
 	class CameraManager {
-		static std::string cameraSavingsFilename;
-		static std::string cameraSavingsDirectory;
 		friend class Transformation;
 		//APPROFONDIRE CHIAMATE A FUNZIONI VIRTUALI E CASTING DI PUNTATORI!
 		static std::vector<Transformation*> cameraList;
 		static unsigned activeCamIndex;
-		static std::string projectDataFileName;
 		static printHelperNS::PrintHelper ph;
 	public:
-		CameraManager(std::string projectdatafilename);
+		
 
 		static  const Transformation& getActiveCamera() { return *cameraList[activeCamIndex]; }
 		static  Transformation& getActiveCameraLH() { return *cameraList[activeCamIndex]; }//LH leftHand

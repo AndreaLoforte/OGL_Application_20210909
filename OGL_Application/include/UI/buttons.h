@@ -90,6 +90,7 @@ namespace uiNS {
 		static void deleteProjectData(GLFWwindow* w, int button, int action, int mods);
 		static void buttonCallback_selectActiveCharacter(GLFWwindow* w, int button, int action, int mods);
 		static void setControls_controlMode();
+		static void showProjectsList();
 	};
 
 

@@ -42,12 +42,15 @@ namespace logNS {
 		static std::map<std::string, bool> isFirstWrite;
 		static std::string LOGDIR;
 		static std::string STOREDDATADIR;
+		static std::string PROJECTDIR;
+		static std::string PROJECTMAINDIR;
 		static bool FIRST_LOG_ACCESS;
 		static bool FIRST_DATAPROJECT_ACCESS;
 		static std::vector<std::string> files_fullpath;
 		static std::vector<std::string> log_list;
 		static std::vector<std::string> MatrixComponent;
 		static std::ofstream storedDatafile;
+		static std::string projectsListFilename;
 
 	
 		Logger() {
@@ -102,6 +105,8 @@ namespace logNS {
 		static int checkIfstream(std::ifstream&);
 		static int safeIFread(std::ifstream&,std::string&);
 		static void exploreFolder(std::string dir, std::vector<std::string>& fileList);
+		static bool deleteProjectData(const std::string& projectName);
+		static void updateProjectsListFile();
 	};
 
 

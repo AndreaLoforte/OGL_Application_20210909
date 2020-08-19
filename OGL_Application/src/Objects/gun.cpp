@@ -150,10 +150,10 @@ void OCGun::shootTowards(const std::array<float, 3>& pos, const std::array<float
 //
 //}
 
-void OCGun::OCsave(std::string& filename) {
+ofstream* OCGun::OCsave(std::string& filename) {
 
 
-	ofstream out(filename);
+	static ofstream out(filename);
 
 	out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
 	out << getCollectorName() << std::endl;
@@ -165,6 +165,7 @@ void OCGun::OCsave(std::string& filename) {
 	}
 	out << saveloadNS::CollectorLoader::COLLECTORENDTAG << std::endl;
 
+	return &out;
 
 }
 

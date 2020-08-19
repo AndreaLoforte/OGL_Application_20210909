@@ -26,6 +26,24 @@ namespace uiNS {
 	}
 
 
+	void StartButton::showProjectsList()
+	{
+		vector<string> fileNames;
+		std::string projectsListFile = logNS::Logger::PROJECTMAINDIR + App::defaultProjectFileName;
+		std::ifstream in(projectsListFile);
+		unsigned i = 0;
+		string s;
+		while (in.is_open() && !in.eof())
+		{
+			getline(in, s);
+			fileNames.push_back(s);
+		}
+
+		UserInterface::phc.showDropDownMenu(NonButtonMap::FILE, fileNames);
+	}
+
+	
+
 	void   StartButton::cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode)
 	{
 
@@ -40,11 +58,7 @@ namespace uiNS {
 			{
 				UserInterface::phc.hideDropDownMenu();
 				UserInterface::phc.showButton(NonButtonMap::FILE, "SELECT PROJECT DATA TO LOAD");
-
-				vector<string> fileNames;
-				logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, fileNames);
-
-				UserInterface::phc.showDropDownMenu(NonButtonMap::FILE, fileNames);
+				showProjectsList();
 
 				UserInterface::bfl.setMouseButtonCallback(load);
 				UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack_highlightOnly);
@@ -64,15 +78,10 @@ namespace uiNS {
 
 			if (UserInterface::clicked(NonButtonMap::DELETEPROJECT))
 			{
-				
-				exploreFolder();
+				showProjectsList();
 				
 				UserInterface::bfl.setMouseButtonCallback(deleteProjectData);
 				UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack_highlightOnly);
-				/*UserInterface::bfl.setMouseCursorCallback(cursorCallbackNewProject);
-				UserInterface::bfl.setKeyCallback(newProjectKey);
-				newProjectKey(0, 1);
-				newProjectMouseButton(0, 1);*/
 
 			}
 

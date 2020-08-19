@@ -14,16 +14,60 @@ namespace uiNS {
 		logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, v);
 		UserInterface::phc.showDropDownMenu(NonButtonMap::FILE, v);
 		UserInterface::phc.showButton(NonButtonMap::FILE, ButtonMap::BACKBUTTON);
+		
+	}
+
+	vector<string> exploreFolder_noprint()
+	{
+		vector<string> v;
+		logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, v);
+		return v;
 	}
 
 
+
+	void StartButton::load(GLFWwindow* w, int button, int action, int mods)
+	{
+
+		if (action == GLFW_RELEASE) return;
+
+		App::projectDataFileName = UserInterface::cursorVStext();
+
+		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		{
+			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
+			UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack);
+			mainMenu(Application::window, 0, 0, 0);
+			return;
+		}
+
+
+
+		if (App::loadProjectData(App::projectDataFileName))
+		{
+
+			UserInterface::phc.hideDropDownMenu();
+			setControls();
+			//UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
+			UserInterface::phc.showButton(NonButtonMap::FILE, "LOADCONFIRM", "LOADED PROJECT " + App::projectDataFileName);
+			return;
+		}
+		else {
+			UserInterface::phc.showButton(NonButtonMap::FILE, "LOADWARN", "COULD NOT LOAD PROJECT " + App::projectDataFileName);
+			setControls();
+		}
+
+
+
+
+	}
 
 
 	void StartButton::deleteProjectData(GLFWwindow* w, int button, int action, int mods)
 	{
 
 
-		string filename = UserInterface::cursorVStext();
+		string projectName = UserInterface::cursorVStext();
 
 
 		if (UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
@@ -32,17 +76,17 @@ namespace uiNS {
 			mainMenu(Application::window, 0, 0, 0);
 			return;
 		}
-
-		if (App::deleteProjectData(filename))
+		
+		
+		if (logNS::Logger::deleteProjectData(projectName))
 		{
-			//UserInterface::phc.hideDropDownMenu();
-			exploreFolder();
-			UserInterface::phc.showButton(NonButtonMap::FILE, filename + " data file deleted");
-
+			StartButton::showProjectsList();
+			UserInterface::phc.showButton(NonButtonMap::FILE, projectName + " data file deleted");
+			logNS::Logger::updateProjectsListFile();
 		}
 		else {
 			//UserInterface::phc.hideDropDownMenu();
-			UserInterface::phc.showButton(NonButtonMap::FILE, "could not delete project file " + filename);
+			UserInterface::phc.showButton(NonButtonMap::FILE, "could not delete project file " + projectName);
 			//setControls();
 		}
 

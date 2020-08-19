@@ -3,6 +3,8 @@
 #include<assets.h>
 #include<textRenderer.h>
 #include<fpcamera.h>
+#include<experimental/filesystem>/*THIS IS DEPRECATED*/
+
 
 namespace exceptionNS {
 
@@ -27,7 +29,9 @@ namespace logNS {
 
 
 	std::string Logger::LOGDIR{ Application::getApplicationRootDir() + "/OGL_Application/log_and_savings/" };
-	std::string Logger::STOREDDATADIR{ LOGDIR + "savedProjectData/" };
+	std::string Logger::STOREDDATADIR{ LOGDIR + "projectData/" };
+	std::string Logger::PROJECTMAINDIR{ LOGDIR + "project/" };
+	std::string Logger::PROJECTDIR;
 	std::vector<std::string> Logger::files_fullpath{ LOGDIR };
 	std::vector<std::string> Logger::log_list;
 	bool Logger::FIRST_LOG_ACCESS = true;
@@ -581,6 +585,33 @@ void Logger::writeLog(std::string Log, int i1, int i2, int i3, std::string filen
 				FindClose(hFind);
 			}
 	}
+
+
+	std::string Logger::projectsListFilename = "projectsList";
+
+	void Logger::updateProjectsListFile()
+	{
+		vector<string> fileNames;
+		logNS::Logger::exploreFolder(logNS::Logger::STOREDDATADIR, fileNames);
+		ofstream ofs(PROJECTMAINDIR + projectsListFilename);
+
+
+		for (int i = 0; i < fileNames.size(); i++)
+			ofs << fileNames[i];
+	}
+
+
+	bool Logger::deleteProjectData(const std::string& projectName)
+	{
+		std::string s = STOREDDATADIR+projectName + "/";
+		
+		
+		if(std::experimental::filesystem::remove_all(s.c_str()))
+			return true;
+		else
+			return false;
+	}
+
 
 	void Logger::exploreFolder(std::string dir, std::vector<std::string>& fileList) 
 	{

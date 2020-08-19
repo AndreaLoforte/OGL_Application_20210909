@@ -8,21 +8,24 @@
 #include<gun.h>
 #include<activeobjectloader.h>
 #include<collectorLoader.h>
+#include<set>
+#include<fstream>
+using namespace std;
 
 namespace myobjectNS
 {
 
 
 
-	void ApplicationObjectManager::save(std::string fileName) {
+	void ApplicationObjectManager::save(std::string projectName) {
 
-		static std::ofstream out(logNS::Logger::STOREDDATADIR + fileName);
-		static string s = logNS::Logger::STOREDDATADIR + fileName;
+		set<ofstream*> ofstreamlist;
 
 		for (int i = 0; i < ApplicationCollectorList.size(); i++)
-			//ApplicationCollectorList[i]->OCsave(out);
-			ApplicationCollectorList[i]->OCsave(s);
+			ofstreamlist.emplace(ApplicationCollectorList[i]->OCsave(logNS::Logger::PROJECTDIR));
 
+		for (set<ofstream*>::iterator it = ofstreamlist.begin(); it != ofstreamlist.end(); it++)
+			(*it)->close();
 	}
 
 
@@ -30,10 +33,8 @@ namespace myobjectNS
 
 	bool ApplicationObjectManager::loadActiveObjects(string filename) {
 
-		//ApplicationCollectorList.clear();
-
-		filename += "ActiveObject";
-		ifstream in(logNS::Logger::STOREDDATADIR + filename);
+		string savings = logNS::Logger::PROJECTDIR + saveloadNS::ACTIVEOBJECTSAVINGFILE;
+		ifstream in(savings);
 		saveloadNS::ActiveObjectLoader fh(in);
 
 		if (!fh.FileIsEmpty)
@@ -44,7 +45,7 @@ namespace myobjectNS
 			{
 				//CHIUDO E RIAPRO IL FILE PER RIPOSIZIONARE IL CURSORE A ZERO
 				in.close();
-				in.open(logNS::Logger::STOREDDATADIR + App::projectDataFileName);
+				in.open(savings);
 
 				for (int i = 0; i < LoadedCollectors->size(); i++)
 				{
@@ -88,11 +89,11 @@ namespace myobjectNS
 
 
 
-	bool ApplicationObjectManager::loadCollectors(string filename) {
+	bool ApplicationObjectManager::loadCollectors(string projectName) {
 
 		ApplicationCollectorList.clear();
 
-		ifstream in(logNS::Logger::STOREDDATADIR + filename);
+		ifstream in(logNS::Logger::PROJECTDIR + saveloadNS::COLLECTORSAVINGFILE);
 		saveloadNS::CollectorLoader fh(in);
 
 		if (!fh.FileIsEmpty)

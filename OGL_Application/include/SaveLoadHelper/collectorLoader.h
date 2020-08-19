@@ -5,6 +5,8 @@
 using namespace std;
 namespace saveloadNS {
 
+	const string COLLECTORSAVINGFILE = "collectors";
+
 	/*Application Object Data container :
 		from here loaded data will be poured into
 		real Application Object*/
