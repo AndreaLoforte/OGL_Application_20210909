@@ -19,9 +19,9 @@ namespace collectorNS {
 	}
 	
 
-	ofstream* ActiveObject::OCsave(std::string& filename)
+	void ActiveObject::OCsave(std::string& filename)
 	{
-		return saveloadNS::ActiveObjectSaver::save(this, filename);
+		saveloadNS::ActiveObjectSaver::save(this, filename);
 
 	}
 

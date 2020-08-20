@@ -164,6 +164,7 @@
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\activeObjectLoader.h" />
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\cameraLoader.h" />
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\collectorLoader.h" />
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\saver.h" />
     <ClInclude Include="OGL_Application\include\UI\inputs.h" />
     <ClInclude Include="OGL_Application\include\log.h" />
     <ClInclude Include="OGL_Application\include\LibAndFacility\mymathlib.h" />
@@ -239,6 +240,8 @@
     <ClCompile Include="OGL_Application\src\Objects\polygon\polygon.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectLoader.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectSaver.cpp" />
+    <ClCompile Include="OGL_Application\src\saveloadhelper\collectorSaver.cpp" />
+    <ClCompile Include="OGL_Application\src\saveloadhelper\saver.cpp" />
     <ClCompile Include="OGL_Application\src\UI\buttonfunctionLoader.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart.cpp" />
     <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject.cpp" />

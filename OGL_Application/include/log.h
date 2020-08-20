@@ -107,6 +107,7 @@ namespace logNS {
 		static void exploreFolder(std::string dir, std::vector<std::string>& fileList);
 		static bool deleteProjectData(const std::string& projectName);
 		static void updateProjectsListFile();
+		static bool createDirectory(const std::string& projectName);
 	};
 
 

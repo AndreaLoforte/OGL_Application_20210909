@@ -32,6 +32,7 @@ namespace uiNS {
 	{
 		static const string
 			NOBUTTON,
+			PROJECTNAME,
 			NEXTOBJECT,
 			PREVOBJECT,
 			SELECTOBJECT,

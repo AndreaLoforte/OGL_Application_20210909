@@ -31,7 +31,8 @@ namespace uiNS {
 
 		if (action == GLFW_RELEASE) return;
 
-		App::projectDataFileName = UserInterface::cursorVStext();
+		
+		string s = UserInterface::cursorVStext();
 
 		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
 		{
@@ -41,25 +42,28 @@ namespace uiNS {
 			return;
 		}
 
+		vector<string> list{ exploreFolder_noprint() };
+		for (int i = 0; i < list.size(); i++)
+			if (s == list[i])
+			{
+				App::projectDataFileName = s;
 
+				if (App::loadProjectData(App::projectDataFileName))
+				{
 
-		if (App::loadProjectData(App::projectDataFileName))
-		{
+					UserInterface::phc.hideDropDownMenu();
+					setControls();
+					//UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
+					UserInterface::phc.showButton(NonButtonMap::FILE, "LOADCONFIRM", "LOADED PROJECT " + App::projectDataFileName);
+					return;
+				}
+				else {
+					UserInterface::phc.showButton(NonButtonMap::FILE, "LOADWARN", "COULD NOT LOAD PROJECT " + App::projectDataFileName);
+					setControls();
+				}
 
-			UserInterface::phc.hideDropDownMenu();
-			setControls();
-			//UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
-			UserInterface::phc.showButton(NonButtonMap::FILE, "LOADCONFIRM", "LOADED PROJECT " + App::projectDataFileName);
-			return;
-		}
-		else {
-			UserInterface::phc.showButton(NonButtonMap::FILE, "LOADWARN", "COULD NOT LOAD PROJECT " + App::projectDataFileName);
-			setControls();
-		}
-
-
-
-
+				return;
+			}
 	}
 
 
@@ -122,9 +126,13 @@ namespace uiNS {
 		{
 			UserInterface::phc.hideDropDownMenu();
 			UserInterface::phc.showButton(NonButtonMap::FILE, "NEWPROJECTCONFIRM", "NEW PROJECT CREATED");
-			UserInterface::phc.showButton(NonButtonMap::FILE, "NEWPROJECTHINT", "Use Edit Project to create new objects, and start creating your world", 1, 0.2);
 			App::projectDataFileName = UserInterface::typer.textTyper.text;
+			logNS::Logger::PROJECTDIR = logNS::Logger::STOREDDATADIR + App::projectDataFileName + "/";
+			logNS::Logger::createDirectory(logNS::Logger::PROJECTDIR);
+			logNS::Logger::updateProjectsListFile();
+			
 			App::loadProjectData(App::projectDataFileName);
+			mainMenu(Application::window, 0, 0, 0);
 			setControls();
 		}
 

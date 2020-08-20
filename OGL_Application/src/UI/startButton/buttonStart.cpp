@@ -37,6 +37,7 @@ namespace uiNS {
 		UserInterface::phc.showButton(NonButtonMap::EDITSOUNDS, NonButtonMap::EDITSOUNDS);
 		UserInterface::phc.showButton(ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON, ButtonMap::EDITGAMEMODEBUTTON);
 		UserInterface::phc.showButton(NonButtonMap::CAMERAVIEW, fpcameraNS::CameraManager::getActiveCameraType());
+		UserInterface::phc.showButton(NonButtonMap::PROJECTNAME,"PROJECTNAME", "project : "+App::projectDataFileName);
 		UserInterface::phc.showButton(NonButtonMap::QUITBUTTON, NonButtonMap::QUITBUTTON);
 
 	}
@@ -44,10 +45,7 @@ namespace uiNS {
 
 	void StartButton::setControls(){
 		UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
-
 		UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
-		//StartButton::cursorButtonCallBack(Application::window, 0, 1, 0);
-
 		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
 	}
 

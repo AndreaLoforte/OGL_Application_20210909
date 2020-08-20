@@ -1,7 +1,7 @@
 #pragma once
 #include<collectorLoader.h>
 #include<activeObjectCollector.h>
-//#include <experimental/filesystem>
+#include<saver.h>
 using namespace std;
 namespace saveloadNS {
 
@@ -71,10 +71,13 @@ namespace saveloadNS {
 	};
 
 
-	class ActiveObjectSaver
+	class ActiveObjectSaver : dataSaver
 	{
+		
 	public:
-		static ofstream* save(collectorNS::ActiveObject* coll, std::string& filename);
+		static ofstream out;
+		bool savingSessionIsOpen = false;
+		static void save(collectorNS::ActiveObject* coll, std::string& filename);
 	};
 
 

@@ -19,13 +19,10 @@ namespace myobjectNS
 
 	void ApplicationObjectManager::save(std::string projectName) {
 
-		set<ofstream*> ofstreamlist;
-
 		for (int i = 0; i < ApplicationCollectorList.size(); i++)
-			ofstreamlist.emplace(ApplicationCollectorList[i]->OCsave(logNS::Logger::PROJECTDIR));
+			ApplicationCollectorList[i]->OCsave(logNS::Logger::PROJECTDIR);
 
-		for (set<ofstream*>::iterator it = ofstreamlist.begin(); it != ofstreamlist.end(); it++)
-			(*it)->close();
+		
 	}
 
 

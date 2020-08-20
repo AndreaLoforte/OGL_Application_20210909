@@ -5,6 +5,9 @@
 #include<set>
 #include<fstream>
 #include<stdio.h>
+#include<saver.h>
+
+
 std::string App::projectDataFileName{ "AppObj" };
 string App::defaultProjectFileName{ "projectsList" };
 printHelperNS::PrintHelper App::ph{ "App" };
@@ -90,14 +93,13 @@ void App::startup()
 
 
 void App::SaveProjectData(string projectName) {
-;
+	
+	saveloadNS::dataSaver::openSavingSession();
+
 	myobjectNS::ApplicationObjectManager::save(projectName);
 	fpcameraNS::CameraManager::save();
 	
-	
-	std::ofstream out2(logNS::Logger::PROJECTMAINDIR+ defaultProjectFileName, fstream::app);
-
-	out2 << projectName << std::endl;
+	saveloadNS::dataSaver::closeSavingSession();
 
 	
 }
@@ -112,7 +114,9 @@ bool App::loadProjectData(string projectName) {
 		infile >> App::projectDataFileName;
 	}
 
+	
 	logNS::Logger::PROJECTDIR = logNS::Logger::STOREDDATADIR + App::projectDataFileName + "/";
+	
 	fpcameraNS::CameraManager::load(App::projectDataFileName);
 	
 	if (myobjectNS::ApplicationObjectManager::loadCollectors(App::projectDataFileName)&&

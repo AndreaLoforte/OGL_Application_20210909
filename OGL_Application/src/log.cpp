@@ -597,7 +597,25 @@ void Logger::writeLog(std::string Log, int i1, int i2, int i3, std::string filen
 
 
 		for (int i = 0; i < fileNames.size(); i++)
-			ofs << fileNames[i];
+			ofs << fileNames[i] << std::endl;
+	}
+
+	bool Logger::createDirectory(const std::string& projectDir)
+	{
+		
+			if (CreateDirectoryA(projectDir.c_str(), NULL) ||
+				ERROR_ALREADY_EXISTS == GetLastError())
+			{
+				// CopyFile(...)
+				return true;
+			}
+			else
+			{
+				// Failed to create directory.
+				return false;
+			}
+
+			return true;
 	}
 
 

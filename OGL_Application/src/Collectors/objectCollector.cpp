@@ -106,21 +106,10 @@ namespace collectorNS {
 	}
 
 	
-	ofstream* ApplicationObjectCollector::OCsave(std::string& s)
+	void ApplicationObjectCollector::OCsave(std::string& s)
 	{
-		static ofstream out(logNS::Logger::PROJECTDIR+saveloadNS::COLLECTORSAVINGFILE);
 		
-		out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
-		out << getCollectorName() << std::endl;
-		out << saveloadNS::CollectorLoader::COLLECTORNUMBER << std::endl;
-		out << collectorNumber << std::endl;
-		out << saveloadNS::CollectorLoader::COLLECTORISONTAG << std::endl;
-		out << isOn << std::endl;
-		for (int i = 0; i < Pcontainer->size(); i++)
-			getSubObject(i)->save(out);
-		out << saveloadNS::CollectorLoader::COLLECTORENDTAG << std::endl;
-
-		return &out;
+		saveloadNS::CollectorSaver::save(this, s);
 
 	}
 

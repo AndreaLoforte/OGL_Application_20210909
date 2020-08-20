@@ -28,7 +28,7 @@ namespace collectorNS {
 		
 		
 		
-		ofstream* OCsave(std::string& out) override;
+		void OCsave(std::string& out) override;
 	};
 
 

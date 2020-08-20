@@ -351,6 +351,9 @@
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\activeObjectLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OGL_Application\include\SaveLoadHelper\saver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
@@ -636,6 +639,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectSaver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\saver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\saveloadhelper\collectorSaver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

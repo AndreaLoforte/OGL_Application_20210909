@@ -134,23 +134,8 @@ void OCGun::shootTowards(const std::array<float, 3>& pos, const std::array<float
 }
 
 
-//
-//void OCGun::OCsave(std::ofstream& out) {
-//
-//	out << saveloadNS::CollectorLoader::COLLECTORTAG << std::endl;
-//	out << getCollectorName() << std::endl;
-//	for (int i = 0; i < Pcontainer->size(); i++)
-//	{
-//		if (Pcontainer->at(i)->AOobjectName == "projectile");
-//		if (Pcontainer->at(i)->AOobjectName == "viewfinder")
-//			Pcontainer->at(i)->save(out);
-//	}
-//	out << saveloadNS::CollectorLoader::COLLECTORENDTAG << std::endl;
-//
-//
-//}
 
-ofstream* OCGun::OCsave(std::string& filename) {
+void OCGun::OCsave(std::string& filename) {
 
 
 	static ofstream out(filename);
@@ -164,8 +149,6 @@ ofstream* OCGun::OCsave(std::string& filename) {
 			Pcontainer->at(i)->save(out);
 	}
 	out << saveloadNS::CollectorLoader::COLLECTORENDTAG << std::endl;
-
-	return &out;
 
 }
 

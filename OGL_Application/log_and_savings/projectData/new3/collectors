@@ -1,13 +1,13 @@
 COLLECTOR_
-frameOfRef
+sphere
 COLLECTOR_NUMBER
-32
+36
 OCisOnFlag
 0
 AOobjectName
-frameOfRef
+sphere
 AOinstanceNumber
-0
+4
 AOposition
 0 0 0
 AOorientation
@@ -16,17 +16,19 @@ AOcolor
 0.5 0.5 0.5 0.5
 AOisOnFlag
 1
+DOsize
+5
 --------ENDCOLLECTOR--------
 COLLECTOR_
-groundSurface
+surface
 COLLECTOR_NUMBER
-33
+37
 OCisOnFlag
 0
 AOobjectName
-groundSurface
+surface
 AOinstanceNumber
-8
+7
 AOposition
 0 0 0
 AOorientation

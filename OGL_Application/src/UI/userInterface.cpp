@@ -32,13 +32,14 @@ namespace uiNS {
 		using namespace textRendererNS;
 
 		printHelperNS::PrintHelper ph1{ "uiInterface",NonButtonMap::FILE ,-0.9f,0.95f };
-		printHelperNS::PrintHelper ph2{ "uiInterface",ButtonMap::EDITGAMEMODEBUTTON,-0.7f,0.95f };
-		printHelperNS::PrintHelper ph3{ "uiInterface",ButtonMap::EDITOBJECTMODEBUTTON,-0.4f,0.95f };
-		printHelperNS::PrintHelper ph4{ "uiInterface",NonButtonMap::EDITSOUNDS , 0.f,0.95f };
-		printHelperNS::PrintHelper ph5{ "uiInterface",ButtonMap::CONTROLMODEBUTTON, 0.3f,0.95f };
-		printHelperNS::PrintHelper ph6{ "uiInterface",NonButtonMap::CAMERAVIEW , 0.6f,0.95f };
+		printHelperNS::PrintHelper ph2{ "uiInterface",ButtonMap::EDITGAMEMODEBUTTON,-0.75f,0.95f };
+		printHelperNS::PrintHelper ph3{ "uiInterface",ButtonMap::EDITOBJECTMODEBUTTON,-0.5f,0.95f };
+		printHelperNS::PrintHelper ph4{ "uiInterface",NonButtonMap::EDITSOUNDS ,- 0.25f,0.95f };
+		printHelperNS::PrintHelper ph5{ "uiInterface",ButtonMap::CONTROLMODEBUTTON, 0.0f,0.95f };
+		printHelperNS::PrintHelper ph6{ "uiInterface",NonButtonMap::CAMERAVIEW , 0.3f,0.95f };
+		printHelperNS::PrintHelper ph8{ "uiInterface",NonButtonMap::PROJECTNAME,0.65,0.95 };
 		printHelperNS::PrintHelper ph7{ "uiInterface",NonButtonMap::QUITBUTTON , 0.95f,0.95f };
-
+		
 
 		phc.printHmap.emplace(NonButtonMap::FILE, ph1);
 		phc.printHmap.emplace(ButtonMap::EDITGAMEMODEBUTTON, ph2);
@@ -46,6 +47,7 @@ namespace uiNS {
 		phc.printHmap.emplace(NonButtonMap::EDITSOUNDS, ph4);
 		phc.printHmap.emplace(ButtonMap::CONTROLMODEBUTTON, ph5);
 		phc.printHmap.emplace(NonButtonMap::CAMERAVIEW, ph6);
+		phc.printHmap.emplace(NonButtonMap::PROJECTNAME, ph8);
 		phc.printHmap.emplace(NonButtonMap::QUITBUTTON, ph7);
 		
 
@@ -58,6 +60,7 @@ namespace uiNS {
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::EDITSOUNDS));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::CONTROLMODEBUTTON));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::CAMERAVIEW));
+		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::PROJECTNAME));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::QUITBUTTON));
 
 

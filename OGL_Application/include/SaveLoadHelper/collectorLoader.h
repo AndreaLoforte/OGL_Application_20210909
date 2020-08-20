@@ -1,7 +1,7 @@
 #pragma once
 #include<fileMap.h>
-
-
+#include<saver.h>
+#include<objectCollector.h>
 using namespace std;
 namespace saveloadNS {
 
@@ -97,6 +97,15 @@ namespace saveloadNS {
 		};
 	};
 
+
+
+	class CollectorSaver : dataSaver
+	{
+	public:
+	
+		static ofstream out;
+		static	void save(collectorNS::ApplicationObjectCollector* coll, std::string& projectName);
+	};
 
 
 

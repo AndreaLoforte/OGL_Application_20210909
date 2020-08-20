@@ -4,6 +4,7 @@
 #include<buttonEditObject.h>
 namespace uiNS {
 	const string NonButtonMap::NOBUTTON = "NO BUTTON";
+	const string NonButtonMap::PROJECTNAME = "PROJECTNAME";
 	const string NonButtonMap::NEXTOBJECT = "NEXT OBJECT";
 	const string NonButtonMap::PREVOBJECT = "PREVIOUS OBJECT";
 	const string NonButtonMap::SELECTOBJECT = "SELECT OBJECT";
@@ -42,8 +43,8 @@ namespace uiNS {
 	const string ButtonMap::ESCAPEBUTTON = "QUIT";
 	const string ButtonMap::BACKBUTTON = "<<";
 	const string ButtonMap::CONTROLMODEBUTTON = "CONTROLMODE";
-	const string ButtonMap::EDITOBJECTMODEBUTTON = "EDITOBJECTMODE";
-	const string ButtonMap::EDITGAMEMODEBUTTON = "EDITGAME";
+	const string ButtonMap::EDITOBJECTMODEBUTTON = "EDIT OBJECT";
+	const string ButtonMap::EDITGAMEMODEBUTTON = "EDIT GAME";
 	const string ButtonMap::STARTINGBUTTON = "START";
 	const string ButtonMap::SAVEBUTTON = "SAVE";
 	const string ButtonMap::QUITANDSAVE = "QUIT_AND_SAVE";

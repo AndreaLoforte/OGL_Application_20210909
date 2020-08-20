@@ -128,7 +128,7 @@ public:
 	void OCrender() override;
 	void OCsetParameters() override;
 	//void OCsave(std::ofstream& out) override;
-	ofstream* OCsave(std::string& filename) override;
+	void OCsave(std::string& filename) override;
 	std::string getCollectorName() override {
 		return "Gun";
 	}

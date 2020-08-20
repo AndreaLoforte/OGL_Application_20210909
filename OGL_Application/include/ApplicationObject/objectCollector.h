@@ -68,7 +68,7 @@ public:
 	virtual myobjectNS::ApplicationObject* getSubObject(int i);
 	virtual unsigned getSize() { return Pcontainer->size(); }
 	//virtual void OCsave(std::ofstream& out);
-	virtual ofstream* OCsave(std::string& s);
+	virtual void OCsave(std::string& s);
 	virtual ApplicationObjectCollector* OCgetNewInstance();
 	virtual void OCcreateObject();
 	virtual void OCsetParameters();

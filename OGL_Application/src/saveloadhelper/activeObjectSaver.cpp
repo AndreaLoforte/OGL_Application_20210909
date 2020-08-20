@@ -8,20 +8,17 @@
 using namespace std;
 namespace saveloadNS {
 
-	ofstream* ActiveObjectSaver::save(collectorNS::ActiveObject* coll, std::string& projectName)
+	ofstream ActiveObjectSaver::out;
+
+	void ActiveObjectSaver::save(collectorNS::ActiveObject* coll, std::string& projectName)
 	{
-		if (CreateDirectoryA(logNS::Logger::PROJECTDIR.c_str(), NULL) ||
-			ERROR_ALREADY_EXISTS == GetLastError())
+
+		saveloadNS::dataSaver::ofstreamList.insert(&out);
+		if (!out.is_open())
 		{
-			// CopyFile(...)
+			out.open(logNS::Logger::PROJECTDIR + saveloadNS::ACTIVEOBJECTSAVINGFILE);
 		}
-		else
-		{
-			// Failed to create directory.
-			return NULL;
-		}
-		
-		static ofstream out(logNS::Logger::PROJECTDIR + saveloadNS::ACTIVEOBJECTSAVINGFILE);
+			
 		
 		//IDENTIFICO IL COLLETTORE
 		out << saveloadNS::ActiveObjectLoader::COLLECTORTAG << std::endl;
@@ -36,9 +33,6 @@ namespace saveloadNS {
 		for (int i = 0; i < coll->Pcontainer->size(); i++)
 			coll->getSubObject(i)->save(out);
 		out << saveloadNS::ActiveObjectLoader::COLLECTORENDTAG << std::endl;
-
-
-		return &out;
 
 	}
 
