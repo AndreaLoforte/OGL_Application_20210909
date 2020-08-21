@@ -94,6 +94,7 @@ namespace myobjectNS {
 	public:
 		GroundSurfaceOC();
 		GroundSurfaceOC* OCgetNewInstance() override;
+		void OCcreateObject() override;
 	};
 
 

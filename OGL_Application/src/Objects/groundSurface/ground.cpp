@@ -21,9 +21,16 @@ namespace myobjectNS {
 	GroundSurfaceOC* GroundSurfaceOC::OCgetNewInstance()
 	{
 		GroundSurfaceOC* coll{ new GroundSurfaceOC() };
-		Ground::addSurface(coll);
+		
 		return coll;
 
+	}
+
+
+	void GroundSurfaceOC::OCcreateObject()
+	{
+		Ground::addSurface(this);
+		gs.create();
 	}
 
 

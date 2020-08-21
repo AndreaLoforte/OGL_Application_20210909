@@ -94,7 +94,6 @@ namespace myobjectNS
 		void create()override{}
 		ObjectPlane* getNewInstance()override;
 		std::string getRBObjectID() override { return body->RBobjectID; }
-		//collectorNS::ObjectPlaneCollector* getCollector() override;
 		void render(const fpcameraNS::Transformation& cam) override {}
 		void specializedSave(std::ofstream&) override;
 

@@ -632,9 +632,6 @@
     <ClCompile Include="OGL_Application\src\ApplicationObject\applicationObjectManager_saveLoad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_mainCallbackFunc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -645,6 +642,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\saveloadhelper\collectorSaver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_printMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

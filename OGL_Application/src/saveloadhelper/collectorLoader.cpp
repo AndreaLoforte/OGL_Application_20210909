@@ -8,7 +8,7 @@ namespace saveloadNS {
 
 
 	const string
-		CollectorLoader::COLLECTORTAG = "COLLECTOR_",
+		CollectorLoader::COLLECTORTAG = "--------COLLECTOR--------",
 		CollectorLoader::COLLECTORNUMBER = "COLLECTOR_NUMBER",
 		CollectorLoader::COLLECTORENDTAG = "--------ENDCOLLECTOR--------",
 		CollectorLoader::OBJECTNAMETAG = "AOobjectName",

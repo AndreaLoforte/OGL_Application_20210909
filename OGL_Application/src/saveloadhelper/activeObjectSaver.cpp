@@ -23,6 +23,8 @@ namespace saveloadNS {
 		//IDENTIFICO IL COLLETTORE
 		out << saveloadNS::ActiveObjectLoader::COLLECTORTAG << std::endl;
 		out << coll->getCollectorName() << std::endl;
+		out << saveloadNS::ActiveObjectLoader::COLLECTORNUMBER << std::endl;
+		out << coll->collectorNumber << std::endl;
 		out << saveloadNS::ActiveObjectLoader::COLLECTORISONTAG << std::endl;
 		out << coll->isOn << std::endl;
 		out << saveloadNS::ActiveObjectLoader::ACTIVITYGROUNDID << std::endl;

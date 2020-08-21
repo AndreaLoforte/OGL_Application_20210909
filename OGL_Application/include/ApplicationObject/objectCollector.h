@@ -60,7 +60,7 @@ public:
 	
 	ApplicationObjectCollector(const std::string s, AOcontainer* coll);
 	ApplicationObjectCollector(const std::string s);
-	ApplicationObjectCollector() {};// = delete;
+	ApplicationObjectCollector()  = delete;
 
 	~ApplicationObjectCollector();
 

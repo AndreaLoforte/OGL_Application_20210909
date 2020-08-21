@@ -233,6 +233,7 @@ namespace uiNS
 		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
 		{
 			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallback_editObject);
+			UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
 			cursorButtonCallback_editObject(Application::window, 0, 0, 0);
 		}
 

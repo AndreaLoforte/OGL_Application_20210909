@@ -129,29 +129,6 @@ bool App::loadProjectData(string projectName) {
 	return false;
 }
 
-bool App::deleteProjectData(string projectName) {
-	string s = logNS::Logger::STOREDDATADIR + projectName + "/";
-
-	
-	return false;
-
-	/*ifstream in(s);
-	if (in.is_open())
-		in.close();
-	if (remove(s.c_str()) != 0)
-	{
-		perror("Error deleting file");
-		return false;
-	}
-		
-	else {
-		puts("File successfully deleted");
-		return true;
-	}*/
-		
-}
-
-
 // resetta l'intera applicazione in modo da poter caricare un nuovo file
 void App::reset()
 {

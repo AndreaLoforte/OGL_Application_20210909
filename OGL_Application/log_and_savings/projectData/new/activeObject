@@ -1,5 +1,30 @@
 ACTIVEOBJECT_
+enemy
+COLLECTOR_NUMBER
+18
+OCisOnFlag
+0
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_20
+AOobjectName
+enemy
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
 playercharacter
+COLLECTOR_NUMBER
+15
 OCisOnFlag
 0
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
@@ -9,22 +34,47 @@ playercharacter
 AOinstanceNumber
 0
 AOposition
--0 76.4979 143.564
+-0 102.996 187.128
 AOorientation
--0.622006 0.336317 -0.699521 -0.103296
+-0.180031 0.683805 -0.403049 -0.580992
 AOcolor
 0 0.764842 0.764842 0.8
 AOisOnFlag
-1
+0
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+ACTIVEOBJECT_
+playercharacter
+COLLECTOR_NUMBER
+15
+OCisOnFlag
+0
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+
+AOobjectName
+playercharacter
+AOinstanceNumber
+0
+AOposition
+-0 102.996 187.128
+AOorientation
+-0.180031 0.683805 -0.403049 -0.580992
+AOcolor
+0 0.764842 0.764842 0.8
+AOisOnFlag
+0
 DOsize
 5
 --------ACTIVEOBJECTEND--------
 ACTIVEOBJECT_
 enemy
+COLLECTOR_NUMBER
+30
 OCisOnFlag
 0
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-
+groundSurface_20
 AOobjectName
 enemy
 AOinstanceNumber

@@ -9,6 +9,7 @@ namespace saveloadNS {
 	const string
 		ActiveObjectLoader::COLLECTORTAG = "ACTIVEOBJECT_",
 		ActiveObjectLoader::COLLECTORENDTAG = "--------ACTIVEOBJECTEND--------",
+		ActiveObjectLoader::COLLECTORNUMBER = "COLLECTOR_NUMBER",
 		ActiveObjectLoader::OBJECTNAMETAG = "AOobjectName",
 		ActiveObjectLoader::AOPOSITIONTAG = "AOposition",
 		ActiveObjectLoader::AOORIENTATIONTAG = "AOorientation",
@@ -31,7 +32,8 @@ namespace saveloadNS {
 		for (int i = 0; i < TAGLIST.at(COLLECTORTAG).getSize(); i++)
 		{
 			ActiveObjectDataStructure collettore;
-			collettore.collectorsID =TAGLIST.at(COLLECTORTAG).getLine(i);
+			collettore.collectorName =TAGLIST.at(COLLECTORTAG).getLine(i);
+			collettore.collectorNumber = std::stoi(TAGLIST.at(COLLECTORNUMBER).getLine(i));
 			collettore.pos_start = TAGLIST.at(COLLECTORTAG).getPos(i);
 			collettore.pos_end = TAGLIST.at(COLLECTORENDTAG).getPos(i);
 

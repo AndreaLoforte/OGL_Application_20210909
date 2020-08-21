@@ -10,7 +10,8 @@ namespace saveloadNS {
 
 	class ActiveObjectDataStructure {
 	public:
-		string collectorsID;
+		string collectorName;
+		unsigned collectorNumber;
 		string activityGroundID;
 		size_t pos_start = 0, pos_end = 0;
 		bool isOn;
@@ -42,6 +43,7 @@ namespace saveloadNS {
 		static const string
 			COLLECTORTAG,
 			COLLECTORENDTAG,
+			COLLECTORNUMBER,
 			COLLECTORISONTAG,
 			OBJECTNAMETAG,
 			AOPOSITIONTAG,
@@ -57,6 +59,7 @@ namespace saveloadNS {
 		{
 			COLLECTORTAG,
 			COLLECTORENDTAG,
+			COLLECTORNUMBER,
 			OBJECTNAMETAG,
 			AOPOSITIONTAG,
 			AOORIENTATIONTAG,

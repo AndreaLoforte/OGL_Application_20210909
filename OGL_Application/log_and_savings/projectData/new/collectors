@@ -1,7 +1,108 @@
-COLLECTOR_
+--------COLLECTOR--------
+groundSurface
+COLLECTOR_NUMBER
+18
+OCisOnFlag
+0
+AOobjectName
+groundSurface
+AOinstanceNumber
+5
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+object1
+COLLECTOR_NUMBER
+19
+OCisOnFlag
+0
+AOobjectName
+object1
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+triangle_tb
+COLLECTOR_NUMBER
+20
+OCisOnFlag
+0
+AOobjectName
+triangle_tb
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+surface
+COLLECTOR_NUMBER
+21
+OCisOnFlag
+0
+AOobjectName
+surface
+AOinstanceNumber
+6
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+grid
+COLLECTOR_NUMBER
+22
+OCisOnFlag
+0
+AOobjectName
+grid
+AOinstanceNumber
+4
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
 frameOfRef
 COLLECTOR_NUMBER
-32
+23
 OCisOnFlag
 0
 AOobjectName
@@ -15,16 +116,56 @@ AOorientation
 AOcolor
 0.5 0.5 0.5 0.5
 AOisOnFlag
-1
+0
 --------ENDCOLLECTOR--------
-COLLECTOR_
-groundSurface
+--------COLLECTOR--------
+point
 COLLECTOR_NUMBER
-33
+24
 OCisOnFlag
 0
 AOobjectName
-groundSurface
+point
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+sphere
+COLLECTOR_NUMBER
+25
+OCisOnFlag
+0
+AOobjectName
+sphere
+AOinstanceNumber
+2
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+surface
+COLLECTOR_NUMBER
+26
+OCisOnFlag
+0
+AOobjectName
+surface
 AOinstanceNumber
 8
 AOposition
@@ -34,7 +175,26 @@ AOorientation
 AOcolor
 0.5 0.5 0.5 0.5
 AOisOnFlag
-1
+0
 DOsize
 100 0 100
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+triangle
+COLLECTOR_NUMBER
+27
+OCisOnFlag
+0
+AOobjectName
+triangle
+AOinstanceNumber
+0
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
 --------ENDCOLLECTOR--------
