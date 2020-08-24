@@ -1,6 +1,6 @@
 #include<buttons.h>
 #include<applicationObjectManager.h>
-#include<activeCharacterManager.h>
+#include<activeObjectManager.h>
 #include<inputs.h>
 #include<app.h>
 #include<buttonEditObject.h>

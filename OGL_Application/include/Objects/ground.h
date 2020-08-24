@@ -92,8 +92,12 @@ namespace myobjectNS {
 		collectorNS::AOcontainer ground;
 		GroundSurface gs;
 	public:
-		GroundSurfaceOC();
+		/*this constrctor should be called when creating a new instance*/
+		GroundSurfaceOC(const string& collName);
+		/*this constructor should be called when restoring an existing instance*/
+		GroundSurfaceOC(const string& collName,const unsigned& collNumber);
 		GroundSurfaceOC* OCgetNewInstance() override;
+		GroundSurfaceOC* OCloadInstance(const unsigned& collNumber) override;
 		void OCcreateObject() override;
 	};
 

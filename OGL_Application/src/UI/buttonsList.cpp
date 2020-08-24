@@ -3,6 +3,8 @@
 namespace textRendererNS {
 
 
+	ButtonsList::~ButtonsList(){}
+
 
 	string ButtonsList::find(string id)
 	{

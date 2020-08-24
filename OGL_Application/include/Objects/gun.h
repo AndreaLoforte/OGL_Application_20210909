@@ -94,14 +94,7 @@ public:
 
 	//default constructor : utilizzo il container di default ownContainer
 	OCGun():ApplicationObjectCollector("Gun")
-	{
-		char c('_');
-		collectorID = "GUN";
-		collectorID.push_back(c);
-		collectorID.append(std::to_string(collectorNumber));
-		//ownContainer.push_back(myobjectNS::ViewFinder().getNewInstance());
-		collectorName = "Gun";
-	}
+	{}
 
 	OCGun(collectorNS::AOcontainer* coll) :
 		ApplicationObjectCollector("Gun",coll)
@@ -147,7 +140,7 @@ public:
 	}
 
 
-	void setCollectorName() { collectorName = "Gun"; }
+	//void setCollectorName() { collectorName = "Gun"; }
 
 
 

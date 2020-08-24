@@ -42,24 +42,29 @@ namespace saveloadNS {
 		unsigned totalChars = 0;
 
 
-		CameraSavings(ifstream& in);
+		CameraSavings(ifstream& in) :
+			FileHelper(in, {
+			CAMERATAG,
+			CAMERAID,
+			CAMERAGLBCOORDS,
+			CAMERAORIENTATION,
+			CAMERAMATRIX1,
+			CAMERAMATRIX2,
+			ENDCAMERATAG
+				},this) {}
 		bool FileIsEmpty = false;
 		unsigned getTotalLines() { return fileMap.fileLines.size(); }
 		unsigned& getTotalChars() { return totalChars; }
 
 		vector<CameraDataStructure>* getCameras() { return &cameras; }
-		/*il metodo setAllCameraMap carica tutte
-		le mappe dei collettori in modo tale che ogni
-		oggetto/parametro di un collettore abbia la sua mappa*/
 
-		void setAllCameraMap();
+		//void setAllCameraMap();
 		/*il metodo loadCamera.. legge dalle mappe
 		e porta i dati da formato stringa al loro vero
 		formato per poi inserirle nelle data structure*/
-		void loadCameraMapsIntoDataStructure();
+		void loadMapsIntoDataStructure() ;
 
 		static const string
-
 			CAMERATAG,
 			CAMERAID,
 			CAMERAGLBCOORDS,
@@ -67,6 +72,9 @@ namespace saveloadNS {
 			CAMERAMATRIX1,
 			CAMERAMATRIX2,
 			ENDCAMERATAG;
+
+
+		
 	};
 
 

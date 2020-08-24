@@ -333,9 +333,6 @@
     <ClInclude Include="OGL_Application\include\Objects\polygon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\Objects\characters\activeCharacterManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\ApplicationObject\activeObjectCollector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -352,6 +349,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\saver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\characters\activeObjectManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -599,9 +599,6 @@
     <ClCompile Include="OGL_Application\src\Objects\groundSurface\ground.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\Objects\characters\activeCharacterManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_activeCharacterCluster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -647,6 +644,9 @@
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_printMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\characters\activeObjectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="OGL_Application\src\Objects\build\build.frag">
@@ -654,12 +654,6 @@
     </None>
     <None Include="OGL_Application\src\Objects\build\build.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
-    </None>
-    <None Include="OGL_Application\src\Objects\characters\enemy\enemy.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\enemy</Filter>
-    </None>
-    <None Include="OGL_Application\src\Objects\characters\enemy\enemy.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\enemy</Filter>
     </None>
     <None Include="OGL_Application\src\Objects\characters\playercharacter\playercharacter.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\playercharacter</Filter>
@@ -749,5 +743,11 @@
     <None Include="OGL_Application\src\Objects\polygon\polygon.frag" />
     <None Include="OGL_Application\src\Objects\groundSurface\groundSurface.frag" />
     <None Include="OGL_Application\src\Objects\groundSurface\groundSurface.vert" />
+    <None Include="OGL_Application\src\Objects\characters\enemy\enemyBody.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\enemy</Filter>
+    </None>
+    <None Include="OGL_Application\src\Objects\characters\enemy\enemyBody.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\enemy</Filter>
+    </None>
   </ItemGroup>
 </Project>

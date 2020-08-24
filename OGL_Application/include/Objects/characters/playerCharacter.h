@@ -5,7 +5,7 @@
 #include<applicationDerivedObject.h>
 #include<AI.h>
 #include<gun.h>
-
+#include<activeObjectCollector.h>
 
 
 namespace myobjectNS {
@@ -74,7 +74,6 @@ namespace myobjectNS {
 
 	class PlayerCharacterOC final :public collectorNS::ActiveObject {
 		
-		static int instanceCounter;
 		collectorNS::AOcontainer playerContainer;
 		OCGun gun{&playerContainer};
 		PlayerCharacter pc;
@@ -86,20 +85,19 @@ namespace myobjectNS {
 		static PlayerCharacterOC* main;
 		static bool mainIsSet;
 
-		PlayerCharacterOC() : 
-		ActiveObject("playercharacter",&playerContainer)
+		PlayerCharacterOC() :
+			ActiveObject("playercharacter", &playerContainer)
 		{
 			main = this;
 			mainIsSet = true;
 			//InputsNS::Controls::setPlayer(this);
 			playerContainer.push_back(&pc);
-			activeObjectID = "playercharacter";
+			
 			healt = 1000;
+			
 		}
-		/*PlayerCharacter(){}*/
+		~PlayerCharacterOC() override;
 
-
-		~PlayerCharacterOC() {}
 		const std::array<float, 3>& getPosition() { return pc.main->getPosition(); }
 
 		PlayerCharacterOC* OCgetNewInstance() override;

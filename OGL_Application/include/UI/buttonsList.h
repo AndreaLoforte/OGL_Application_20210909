@@ -31,10 +31,9 @@ namespace textRendererNS {
 			LINESPACING = 0.1*text_scale;
 			buttonslistSize = 0;
 			text_tot_size = 0;
-			list_it = buttons.begin();
-
-			
+			list_it = buttons.begin();	
 		}
+		~ButtonsList();
 
 		//void mapStringOnBranch(string branchID, string key, string content);
 		uiNS::ButtonInterface* mapStringOnBranch(string branchID, string key, string content, unsigned buttonLevel, float scale = 0.3);

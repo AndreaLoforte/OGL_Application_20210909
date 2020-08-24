@@ -1,6 +1,6 @@
 #include<buttons.h>
 #include<applicationObjectManager.h>
-#include<activeCharacterManager.h>
+#include<activeObjectManager.h>
 #include<inputs.h>
 #include<app.h>
 #include<buttonEditObject.h>
@@ -21,7 +21,7 @@ namespace uiNS {
 		UserInterface::phc.hideDropDownMenu();
 		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, "SELECT ACTIVE CHARACTERS TO EDIT");
 		UserInterface::phc.showDropDownMenu(
-			ButtonMap::EDITOBJECTMODEBUTTON, activeObjectManagerNS::ActiveCharacterManager::getACID(), false);
+			ButtonMap::EDITOBJECTMODEBUTTON, activeObjectManagerNS::ActiveObjectManager::getACID(), false);
 		UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, NonButtonMap::EDITCLUSTER);
 		UserInterface::bfl.setMouseButtonCallback(StartButton::buttonCallback_selectActiveCharacter);
 		UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack_highlightOnly);

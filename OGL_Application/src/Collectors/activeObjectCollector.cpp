@@ -2,8 +2,16 @@
 #include<applicationDerivedObject.h>
 #include<ground.h>
 #include<activeobjectloader.h>
-
+#include<activeObjectManager.h>
 namespace collectorNS {
+
+
+	
+
+	ActiveObject::~ActiveObject()
+	{
+		activeObjectManagerNS::ActiveObjectManager::del(this);
+	}
 
 
 
@@ -25,5 +33,10 @@ namespace collectorNS {
 
 	}
 
+	
+	ActiveObject* ActiveObject::OCloadActiveObject( const unsigned& collNumber)
+	{
+		return 0;
+	}
 
 }

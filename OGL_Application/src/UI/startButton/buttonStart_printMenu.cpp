@@ -92,7 +92,8 @@ namespace uiNS {
 		{
 			if (turnOffNewColl)
 			{
-				prevcoll->getBody()->AOcolor *= 1 / 1.7;
+				if (prevcoll)
+					prevcoll->getBody()->AOcolor *= 1 / 1.7;
 				turnOffNewColl = false;
 			}
 					

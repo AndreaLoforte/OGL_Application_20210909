@@ -7,7 +7,7 @@ namespace saveloadNS {
 
 
 	const string
-		ActiveObjectLoader::COLLECTORTAG = "ACTIVEOBJECT_",
+		ActiveObjectLoader::COLLECTORTAG = "--------ACTIVEOBJECT--------",
 		ActiveObjectLoader::COLLECTORENDTAG = "--------ACTIVEOBJECTEND--------",
 		ActiveObjectLoader::COLLECTORNUMBER = "COLLECTOR_NUMBER",
 		ActiveObjectLoader::OBJECTNAMETAG = "AOobjectName",
@@ -22,11 +22,13 @@ namespace saveloadNS {
 		ActiveObjectLoader::ACTIVITYGROUNDID = "ACTIVE_OBJECT_ACTIVITYGROUND_ID";
 
 
-
+	vector<ActiveObjectDataStructure> ActiveObjectLoader::collectors;
 	
 
-	void ActiveObjectLoader::loadCollectorMapsIntoDataStructure()
+	void ActiveObjectLoader::loadMapsIntoDataStructure()
 	{
+		
+		collectors.clear();
 
 		/*itero su tutti i collettori*/
 		for (int i = 0; i < TAGLIST.at(COLLECTORTAG).getSize(); i++)
@@ -37,13 +39,8 @@ namespace saveloadNS {
 			collettore.pos_start = TAGLIST.at(COLLECTORTAG).getPos(i);
 			collettore.pos_end = TAGLIST.at(COLLECTORENDTAG).getPos(i);
 
-
-
 			loadAttributeString(collettore.activityGroundID, collettore.pos_start, collettore.pos_end, TAGLIST.at("ACTIVE_OBJECT_ACTIVITYGROUND_ID"));
 	
-	
-
-
 
 			/*itero su tutti gli oggetti dei collettori*/
 			for (int j = 0; j < TAGLIST.at("AOobjectName").getSize(); j++)
@@ -74,41 +71,5 @@ namespace saveloadNS {
 		}
 	}
 
-
-
-
-
-	ActiveObjectLoader::ActiveObjectLoader(ifstream& in)
-	{
-
-		if (in.is_open())
-		{
-			while (!in.eof() && (int/*casting is needed to avoid ambiguous operator !=*/)in.tellg() != -1)
-			{
-				getline(in, s);
-				size_t cursor_pos = in.tellg();
-				size_t lineLength = s.length();
-				size_t line_beg = cursor_pos - lineLength - 2; //2 extra char "\n"
-				fileMap.insert(s, line_beg);
-
-			}
-
-			totalLines = fileMap.getSize();
-
-
-			if (fileMap.getCharNumber() == 0)
-			{
-				FileIsEmpty = true;
-				return;
-			}
-
-
-			setTAGLIST(tagList);
-			loadAllCollectorsMap(TAGLIST);
-			loadCollectorMapsIntoDataStructure();
-
-
-		}
-	}
 }
 

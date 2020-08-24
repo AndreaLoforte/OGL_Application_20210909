@@ -18,7 +18,7 @@ namespace myobjectNS {
 namespace collectorNS{
 
 	typedef std::vector<myobjectNS::ApplicationObject*> AOcontainer;
-	
+	class ActiveObject;
 
 	///////////////////////////////////////APPLICATIONOBJECT COLLECTOR///////////////////////////////////////
 
@@ -51,18 +51,21 @@ public:
 	std::string collectorOwnership{ "none" };
 	static const std::string COLLECTOR_TYPE;
 	static int collectorCounter;
-	std::string collectorName;
-	std::string collectorID;
-	unsigned collectorNumber;
+	const std::string collectorName;
+	const std::string collectorID;
+	const unsigned collectorNumber;
 	bool isOn = false;
 	
-	/*dove risiedono gli oggetti veri e propri*/
 	
-	ApplicationObjectCollector(const std::string s, AOcontainer* coll);
+	/*when loading stored collectors we want to restore the original collector number*/
+	ApplicationObjectCollector(const std::string collName,const unsigned collNumber, AOcontainer* coll);
+	ApplicationObjectCollector(const std::string collName,  AOcontainer* coll);
+	ApplicationObjectCollector(const std::string collName, const unsigned collNumber);
+	//ApplicationObjectCollector(const std::string collName,  AOcontainer* coll);
 	ApplicationObjectCollector(const std::string s);
 	ApplicationObjectCollector()  = delete;
 
-	~ApplicationObjectCollector();
+	virtual ~ApplicationObjectCollector();
 
 	//////////////////////METODI
 	virtual myobjectNS::ApplicationObject* getSubObject(int i);
@@ -81,10 +84,8 @@ public:
 	virtual std::string getCollectorType()const { return COLLECTOR_TYPE; }
 	virtual ApplicationObjectCollector* getCopy();
 	virtual std::string getCollectorName();
-	virtual void setCollectorName();
-	virtual void setCollectorName(std::string);
-	virtual void setCollectorNumber(const unsigned& i);
-	virtual void setCollectorID(const string& cID, const unsigned& cNumber);
+	virtual ApplicationObjectCollector* OCloadInstance(const unsigned& collNumber);
+	virtual ActiveObject* OCloadActiveObject(const unsigned& collNumber);
 	virtual void  deleteAtPos(const int&);
 	static ApplicationObjectCollector* getCollector(myobjectNS::ApplicationObject*);
 	virtual void canSleep(bool);

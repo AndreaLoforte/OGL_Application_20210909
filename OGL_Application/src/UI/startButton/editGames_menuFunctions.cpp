@@ -12,18 +12,38 @@ namespace uiNS {
 	{
 		string buttonID{ UserInterface::cursorVStext() };
 
-		if (!myobjectNS::ApplicationObjectManager::createNewObject(buttonID) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if(UserInterface::clicked(NonButtonMap::NOBUTTON))
+		{
 			resetCallbackFunc();
+			return;
+		}
+
+		if(!myobjectNS::ApplicationObjectManager::createNewObject(buttonID))
+		{
+			resetCallbackFunc();
+			return;
+		}
 	}
 
 	void StartButton::deleteObject()
 	{
 		string buttonID{ UserInterface::cursorVStext() };
 
-		if (!myobjectNS::ApplicationObjectManager::deleteObject(buttonID) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+
+		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		{
 			resetCallbackFunc();
+			return;
+		}
+			
+
+		if (myobjectNS::ApplicationObjectManager::deleteObject(buttonID))
+			 UserInterface::printExistingObjects(ButtonMap::EDITGAMEMODEBUTTON);
 		else
-			UserInterface::printExistingObjects(ButtonMap::EDITGAMEMODEBUTTON);
+		{
+			resetCallbackFunc();
+			return;
+		}
 	}
 
 

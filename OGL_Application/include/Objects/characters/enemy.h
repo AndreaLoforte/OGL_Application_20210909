@@ -9,7 +9,7 @@
 #include<AI.h>
 #include<gun.h>
 #include<playerCharacter.h>
-
+#include<activeObjectCollector.h>
 
 namespace myobjectNS {
 
@@ -51,7 +51,7 @@ namespace myobjectNS {
 
 		Enemy* getNewInstance() override {
 			instanceCounter++;
-			Enemy *s(new Enemy("enemy"));
+			Enemy *s(new Enemy("enemyBody"));
 			s->AOinstanceNumber = instanceCounter;
 			return s; 
 		}
@@ -70,27 +70,32 @@ namespace myobjectNS {
 		/*tutti gli oggetti e i sottooggetti afferenti ad EnemyOC
 		vanno nel container enemycoll*/
 		collectorNS::AOcontainer enemycoll;
-		Enemy enemy{ "enemy" };
+		Enemy enemyBody{ "enemyBody" };
 		/*brain must be initialized after enemy otherwise
 		its constructor will throw exception when using enemy methods*/
 		aiNS::myfirstIA brain{ this };
-		
 		//collettore da costruire passandogli un contenitore
 		OCGun gun{ &enemycoll };
 		int healt = 100;
 		std::array<float, 3> fireSpot;
 	public:
-		EnemyOC();
-		~EnemyOC() {}
+		/*this constructor should be called when 
+		creating a new instance*/
+		EnemyOC(const string& collName);
+		/*this constructor should be called when restoring
+		an existing instance*/
+		EnemyOC(const string& collName,const unsigned& collNumber);
+		~EnemyOC() override;
 		void clean() {}
 		void OCupdate(const float&) override;
 		void canSleep(bool v) override;
 		EnemyOC* OCgetNewInstance() override;
+		EnemyOC* OCloadActiveObject(const unsigned& collNumber) override;
 		void setParameters() override;		
 		std::string getCollectorName() override { return collectorName; }
-		Enemy* getBody() { return &enemy; }
+		Enemy* getBody() { return &enemyBody; }
 		void setActivityGround(myobjectNS::GroundSurfaceOC* sb)override { brain.activityArea = sb; }
-		void setActivityGround(const string& s);
+		void setActivityGround(const string& s) override;
 
 		myobjectNS::GroundSurfaceOC* getActivityGround()override { return brain.activityArea; }
 		

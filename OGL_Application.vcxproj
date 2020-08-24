@@ -146,7 +146,7 @@
     <ClInclude Include="OGL_Application\include\ApplicationObject\activeObjectCollector.h" />
     <ClInclude Include="OGL_Application\include\baseObject.h" />
     <ClInclude Include="OGL_Application\include\cameraTransformations\cameraManager.h" />
-    <ClInclude Include="OGL_Application\include\Objects\characters\activeCharacterManager.h" />
+    <ClInclude Include="OGL_Application\include\Objects\characters\activeObjectManager.h" />
     <ClInclude Include="OGL_Application\include\Objects\ground.h" />
     <ClInclude Include="OGL_Application\include\LibAndFacility\conversionLIB.h" />
     <ClInclude Include="OGL_Application\include\LibAndFacility\toStringLib.h" />
@@ -227,7 +227,7 @@
     <ClCompile Include="OGL_Application\src\baseObject.cpp" />
     <ClCompile Include="OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp" />
     <ClCompile Include="OGL_Application\src\cameraTransformations\cameraManager.cpp" />
-    <ClCompile Include="OGL_Application\src\Objects\characters\activeCharacterManager.cpp" />
+    <ClCompile Include="OGL_Application\src\Objects\characters\activeObjectManager.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\groundSurface\ground.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\groundSurface\groundSurface.cpp" />
     <ClCompile Include="OGL_Application\src\LibAndFacility\conversionLIB.cpp" />
@@ -335,8 +335,8 @@
     <None Include="OGL_Application\src\Objects\sphere\sphere.frag" />
     <None Include="OGL_Application\src\Objects\build\build.frag" />
     <None Include="OGL_Application\src\Objects\build\build.vert" />
-    <None Include="OGL_Application\src\Objects\characters\enemy\enemy.frag" />
-    <None Include="OGL_Application\src\Objects\characters\enemy\enemy.vert" />
+    <None Include="OGL_Application\src\Objects\characters\enemy\enemyBody.frag" />
+    <None Include="OGL_Application\src\Objects\characters\enemy\enemyBody.vert" />
     <None Include="OGL_Application\src\Objects\characters\playercharacter\playercharacter.frag" />
     <None Include="OGL_Application\src\Objects\characters\playercharacter\playercharacter.vert" />
     <None Include="OGL_Application\src\Objects\frameOfRef\frameOfRef.frag" />

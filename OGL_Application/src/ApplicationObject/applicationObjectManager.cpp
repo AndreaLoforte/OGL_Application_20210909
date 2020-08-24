@@ -215,17 +215,14 @@ bool ApplicationObjectManager::deleteObject(const string& objName) {
 	if (it != collectorIDMap.end())
 	{
 		collectorPos = it->second;
+		delete ApplicationCollectorList[it->second];
 		ApplicationCollectorList.erase(ApplicationCollectorList.begin() + collectorPos);
 		initObjectMaps();
 		return true;
 	}
 	else
 		return false;
-		/*ph.mapButtonOnBranch(
-			uiNS::UserInterface::getParentButton()->getButtonID(),
-			uiNS::UserInterface::getParentButton()->getButtonID(),
-			"object does not exist");*/
-	
+
 	
 }
 

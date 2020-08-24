@@ -6,7 +6,7 @@ namespace myobjectNS {
 
 	PlayerCharacter* PlayerCharacter::main;
 	bool PlayerCharacter::mainIsSet;
-	int PlayerCharacterOC::instanceCounter;
+	//int PlayerCharacterOC::instanceCounter;
 	PlayerCharacterOC* PlayerCharacterOC::main;
 	bool PlayerCharacterOC::mainIsSet;
 
@@ -119,9 +119,6 @@ namespace myobjectNS {
 			mainIsSet = true;
 			return main;
 		}
-
-
-
 	}
 
 
@@ -207,7 +204,11 @@ namespace myobjectNS {
 	//////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////
 
-
+	PlayerCharacterOC::~PlayerCharacterOC() 
+	{
+		delete main;
+		mainIsSet = false;
+	}
 	
 
 
@@ -216,8 +217,8 @@ namespace myobjectNS {
 		
 		if (mainIsSet)
 		{
-			InputsNS::Controls::setPlayer(this);
-			return main;
+			/*same as returning null but cross platform*/
+			return 0;
 		}
 			
 		else

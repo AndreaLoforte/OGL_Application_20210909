@@ -22,8 +22,12 @@ namespace saveloadNS {
 		CollectorLoader::COLLECTORISONTAG = "OCisOnFlag";
 
 
-	void CollectorLoader::loadCollectorMapsIntoDataStructure()
+	vector<CollectorDataStructure> CollectorLoader::collectors;
+
+
+	void CollectorLoader::loadMapsIntoDataStructure()
 	{
+		collectors.clear();
 		/*itero su tutti i collettori*/
 		for (int i = 0; i < TAGLIST.at(COLLECTORTAG).getSize(); i++)
 		{
@@ -64,36 +68,4 @@ namespace saveloadNS {
 
 
 
-	CollectorLoader::CollectorLoader(ifstream& in)
-	{
-
-		if (in.is_open())
-		{
-			while (!in.eof() && (int/*casting is needed to avoid ambiguous operator !=*/)in.tellg() != -1)
-			{
-				getline(in, s);
-				size_t cursor_pos = in.tellg();
-				size_t lineLength = s.length();
-				size_t line_beg = cursor_pos - lineLength - 2; //2 extra char "\n"
-				fileMap.insert(s, line_beg);
-
-			}
-
-			totalLines = fileMap.getSize();
-
-
-			if (fileMap.getCharNumber() == 0)
-			{
-				FileIsEmpty = true;
-				return;
-			}
-
-
-			setTAGLIST(tagList);
-			loadAllCollectorsMap(TAGLIST);
-			loadCollectorMapsIntoDataStructure();
-
-
-		}
-	}
 }

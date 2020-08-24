@@ -2,7 +2,7 @@
 #include<assert.h>
 #include<playerCharacter.h>
 #include<cameraManager.h>
-#include<activeCharacterManager.h>
+#include<activeObjectManager.h>
 
 
 namespace myobjectNS{
@@ -97,11 +97,11 @@ void Enemy::OSsetParameters() {
 
 void EnemyOC::canSleep(bool v)
 {
-	enemy.AOcanSleep(v);
+	enemyBody.AOcanSleep(v);
 	/*turn off/on AI*/
 	brain.AIon = !v;
 	/*turn off/on physics body*/
-	enemy.body->setAwake(!v);
+	enemyBody.body->setAwake(!v);
 	/*turn off/on collector*/
 	isOn = !v;
 }
@@ -123,19 +123,35 @@ void EnemyOC::OCupdate(const float& duration)
 	
 }
 
-EnemyOC::EnemyOC() : ActiveObject("enemy", &enemycoll)
+EnemyOC::EnemyOC(const string& collName ) : 
+	ActiveObject(collName, ApplicationObjectCollector::collectorCounter++,&enemycoll)
 {
-	enemycoll.push_back(&enemy);
+	enemycoll.push_back(&enemyBody);
 	brain.setTarget(myobjectNS::PlayerCharacterOC::getPlayer());
 	gun.setCollectorOwnership(collectorID);
-	enemy.setCollectorOwnership(collectorID);
+	enemyBody.setCollectorOwnership(collectorID);
+}
+
+
+EnemyOC::EnemyOC(const string& collName, const unsigned& collNumber) :
+	ActiveObject(collName, collNumber, &enemycoll)
+{
+	enemycoll.push_back(&enemyBody);
+	brain.setTarget(myobjectNS::PlayerCharacterOC::getPlayer());
+	gun.setCollectorOwnership(collectorID);
+	enemyBody.setCollectorOwnership(collectorID);
+}
+
+EnemyOC::~EnemyOC()
+{
+	activeObjectManagerNS::ActiveObjectManager::del(this);
 }
 
 
 
 
 void EnemyOC::setParameters() {
-	enemy.setParameters();
+	enemyBody.setParameters();
 	gun.setParameters();
 	
 }
@@ -146,6 +162,33 @@ void EnemyOC::setActivityGround(const string& s)
 	brain.activityArea = myobjectNS::Ground::getGround(s);
 
 }
+
+
+
+EnemyOC* EnemyOC::OCloadActiveObject(const unsigned& collNumber)
+{
+	EnemyOC* s(new EnemyOC("Enemy", collNumber));
+	activeObjectManagerNS::ActiveObjectManager::add(s);
+
+	return s;
+
+}
+
+
+EnemyOC* EnemyOC::OCgetNewInstance()
+{
+	EnemyOC* s(new EnemyOC("Enemy"));
+
+	activeObjectManagerNS::ActiveObjectManager::add(s);
+
+	return s;
+}
+
+
+
+
+
+
 
 
 void Enemy::create() {
@@ -217,18 +260,6 @@ void Enemy::create() {
 
 }
 
-
-
-EnemyOC* EnemyOC::OCgetNewInstance()  
-{
-	//instanceCounter++;
-	EnemyOC* s(new EnemyOC());
-	//s->AOinstanceNumber = instanceCounter;
-
-	activeObjectManagerNS::ActiveCharacterManager::add(s);
-	
-	return s;
-}
 
 
 }

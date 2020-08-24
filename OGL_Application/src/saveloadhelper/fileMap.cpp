@@ -6,6 +6,10 @@ using namespace std;
 namespace saveloadNS {
 
 
+	
+	
+
+
 	void FileHelper::setTAGLIST(const vector<string>& tagList)
 	{
 		for (int i = 0; i < tagList.size(); i++)
@@ -23,7 +27,7 @@ namespace saveloadNS {
 
 			if (fetchedData_posInFile > pos_start && fetchedData_posInFile < pos_end)
 			{
-				targetString = fm.getLine(k + 1);
+				targetString = fm.getLine(k);
 			}
 		}
 
@@ -165,17 +169,6 @@ namespace saveloadNS {
 
 	void FileHelper::loadLine(const string& TAG, FileMap& fmTarget)
 	{
-		if (std::regex_match(TAG, std::regex(TAG_ENDCOLLECTOR)))
-		{
-			for (int i = 0; i < totalLines; i++)
-				if (fileMap.getLine(i).find(TAG) != string::npos)
-				{
-					fmTarget.insert(fileMap.getLine(i), fileMap.getPos(i));
-				}
-
-			return;
-		}
-
 		unsigned linesNbr = 1;
 		if (TAG.find(TAG_TYPEMATRIX) != string::npos)
 		{
@@ -194,6 +187,11 @@ namespace saveloadNS {
 		for (int i = 0; i < totalLines; i++)
 			if(std::regex_match(fileMap.getLine(i),std::regex(TAG)))
 			{
+				if (TAG.find("END") != string::npos)
+				{
+					fmTarget.insert(fileMap.getLine(i), fileMap.getPos(i));
+					continue;
+				}
 				fmTarget.insert(fileMap.getLine(i + 1), fileMap.getPos(i + 1));
 			}
 	}
@@ -242,7 +240,13 @@ namespace saveloadNS {
 
 
 
-	
+	unsigned& FileMap::getCharNumber(const ifstream& in)
+	{
+
+		for (int i = 0; i < fileLines.size(); i++)
+			charnumber += fileLines[i].length();
+		return charnumber;
+	}
 
 
 

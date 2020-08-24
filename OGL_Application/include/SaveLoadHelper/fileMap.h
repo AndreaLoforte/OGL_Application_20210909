@@ -40,12 +40,7 @@ namespace saveloadNS {
 		size_t getPos(unsigned i);
 		/*get the map size*/
 		unsigned& getSize();
-		unsigned& getCharNumber()
-		{
-			for (int i = 0; i < fileLines.size(); i++)
-				charnumber += fileLines[i].length();
-			return charnumber;
-		}
+		unsigned& getCharNumber(const ifstream& in);
 		/*funzione che ritorna tutte le stringhe della 
 		mappa contenute dentro il range specificato*/
 		vector<string> getContentInRange(size_t, size_t);
@@ -58,11 +53,14 @@ namespace saveloadNS {
 	/*definition of a class used only to generate hineritance*/
 	class FileHelper {
 	public:
+		template <typename T>
+		FileHelper(ifstream& in, vector<string> tagList, T *p );
 		map<string, FileMap> TAGLIST;
 		FileMap fileMap;
 		string s;
 		unsigned totalLines = 0;
 		unsigned totalChars = 0;
+		bool FileIsEmpty = false;
 		void setTAGLIST(const vector<string>& tagList);
 		void loadLine(const string& TAG, FileMap& fmTarget);
 		void loadAllCollectorsMap(map<string, FileMap>& TAGLIST);
@@ -73,10 +71,58 @@ namespace saveloadNS {
 		void loadAttributevectorFloat(vector<float>& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
 		void loadAttributeBool(bool& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
 		void loadAttributevmathMatrix4(vmath::mat4& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
-		const string TAG_ENDCOLLECTOR = "END----";
 		const string TAG_TYPEMATRIX = "Matrix";
+
+		void loadMapsIntoDataStructure(){}
 	};
 
+
+
+	template<typename T>
+	FileHelper::FileHelper(ifstream& in, vector<string> tagList, T* p)
+	{
+		size_t cursor_pos = 0;
+		size_t lineLength = 0;
+		size_t line_beg = 0;
+
+		if (in.is_open())
+		{
+			while (!in.eof() && (int/*casting is needed to avoid ambiguous operator !=*/)in.tellg() != -1 )
+			{
+				getline(in, s);
+				cursor_pos = in.tellg();
+				lineLength = s.length();
+				line_beg = cursor_pos - lineLength - 2; //2 extra char "\n"
+				if (line_beg < 0 || line_beg > 10000000)
+					in.bad();
+					///std::cout << "hello" << std::endl;
+					//in.bad();
+				else
+				fileMap.insert(s, line_beg);
+
+			
+
+			}
+
+			totalLines = fileMap.getSize();
+
+
+			const size_t charsNumber = fileMap.getCharNumber(in);
+
+			if (charsNumber == 0)
+			{
+				FileIsEmpty = true;
+				return;
+			}
+
+
+			setTAGLIST(tagList);
+			loadAllCollectorsMap(TAGLIST);
+			p->loadMapsIntoDataStructure();
+
+
+		}
+	}
 
 
 

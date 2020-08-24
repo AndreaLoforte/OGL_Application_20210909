@@ -6,22 +6,37 @@
 
 namespace myobjectNS {
 
-	//std::vector<GroundSurfaceOC> Ground::grounds;
 	std::map<string, GroundSurfaceOC*> Ground::groundMap;
 	Ground::GroudMapIterator  Ground::groundMapIT;
 
 
-	GroundSurfaceOC::GroundSurfaceOC():
-	ApplicationObjectCollector("groundSurface", &ground)
+	GroundSurfaceOC::GroundSurfaceOC(const string& collName):
+	ApplicationObjectCollector(collName, ApplicationObjectCollector::collectorCounter++,&ground)
 	{
 		ground.push_back(&gs);
+		//Ground::addSurface(this);
+	}
+
+	GroundSurfaceOC::GroundSurfaceOC(const string& collName, const unsigned& collNumber):
+		ApplicationObjectCollector(collName, collNumber, &ground)
+	{
+		ground.push_back(&gs);
+		//Ground::addSurface(this);
 	}
 
 
 	GroundSurfaceOC* GroundSurfaceOC::OCgetNewInstance()
 	{
-		GroundSurfaceOC* coll{ new GroundSurfaceOC() };
-		
+		GroundSurfaceOC* coll{ new GroundSurfaceOC("groundSurface") };
+		Ground::addSurface(this);
+		return coll;
+
+	}
+
+	GroundSurfaceOC* GroundSurfaceOC::OCloadInstance(const unsigned& collNumber)
+	{
+		GroundSurfaceOC* coll{ new GroundSurfaceOC("groundSurface", collNumber) };
+		Ground::addSurface(coll);
 		return coll;
 
 	}
@@ -29,7 +44,7 @@ namespace myobjectNS {
 
 	void GroundSurfaceOC::OCcreateObject()
 	{
-		Ground::addSurface(this);
+		//Ground::addSurface(this);
 		gs.create();
 	}
 

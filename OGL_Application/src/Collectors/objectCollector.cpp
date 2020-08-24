@@ -3,13 +3,66 @@
 #include<applicationDerivedObject.h>
 #include<cameraManager.h>
 #include<collectorLoader.h>
+#include<activeObjectCollector.h>
 namespace collectorNS {
-
-
 
 	int ApplicationObjectCollector::collectorCounter;
 	const std::string ApplicationObjectCollector::COLLECTOR_TYPE{ "APPLICATIONCOLLECTOR" };
 	const string SEPARATOR = "_";
+
+
+	/*this constructor should be called only when loading an instance, so we can restore 
+	the original collNumber*/
+	ApplicationObjectCollector::ApplicationObjectCollector(const std::string collName, const unsigned collNumber, AOcontainer* coll) :
+		externalContainer(true),
+		Pcontainer(coll),
+		collectorNumber(collNumber),
+		collectorName(collName),
+		collectorID(collectorName + SEPARATOR + std::to_string(collNumber))
+	{
+		collectorCounter = collNumber + 1;
+	}
+
+	ApplicationObjectCollector::ApplicationObjectCollector(const std::string collName, AOcontainer* coll) :
+		externalContainer(true),
+		Pcontainer(coll),
+		collectorNumber(ApplicationObjectCollector::collectorCounter),
+		collectorName(collName),
+		collectorID(collectorName + SEPARATOR + std::to_string(ApplicationObjectCollector::collectorCounter))
+	{
+		ApplicationObjectCollector::collectorCounter++;
+	}
+
+
+	ApplicationObjectCollector::ApplicationObjectCollector(const std::string collName, const unsigned collNumber) :
+		externalContainer(false),
+		Pcontainer(&ownContainer),
+		collectorNumber(collNumber),
+		collectorName(collName),
+		collectorID(collectorName + SEPARATOR + std::to_string(collNumber))
+	{
+		collectorCounter = collNumber + 1;
+	}
+
+
+	ApplicationObjectCollector::ApplicationObjectCollector(const std::string collName) :
+		externalContainer(false),
+		Pcontainer(&ownContainer),
+		collectorNumber(ApplicationObjectCollector::collectorCounter),
+		collectorName(collName),
+		collectorID(collectorName + SEPARATOR + std::to_string(ApplicationObjectCollector::collectorCounter))
+	{
+		ApplicationObjectCollector::collectorCounter++;
+	}
+
+
+
+
+
+
+
+
+	
 
 
 	void ApplicationObjectCollector::canSleep(bool v)
@@ -22,26 +75,7 @@ namespace collectorNS {
 		}
 	}
 
-	ApplicationObjectCollector::ApplicationObjectCollector(const std::string s, AOcontainer* coll) :
-		externalContainer(true),
-		Pcontainer(coll)
-	{
-		collectorCounter++;
-		collectorNumber = collectorCounter;
-		collectorName = s;
-		collectorID = collectorName + SEPARATOR + std::to_string(collectorNumber);
-	}
 
-	ApplicationObjectCollector::ApplicationObjectCollector(const std::string s):
-		externalContainer(false),
-		Pcontainer(&ownContainer)
-	{
-		collectorCounter++;
-		collectorNumber = collectorCounter;
-		collectorName = s;
-		collectorID = collectorName + SEPARATOR + std::to_string(collectorNumber);
-
-	}
 
 	ApplicationObjectCollector* ApplicationObjectCollector::getCopy() {
 
@@ -115,12 +149,41 @@ namespace collectorNS {
 
 
 	ApplicationObjectCollector* ApplicationObjectCollector::OCgetNewInstance() {
-		ApplicationObjectCollector* coll(new ApplicationObjectCollector(collectorName,new AOcontainer));
+
+		ApplicationObjectCollector* coll
+		(new ApplicationObjectCollector
+		(collectorName,ApplicationObjectCollector::collectorCounter,new AOcontainer));
+
 		for (int i = 0; i < Pcontainer->size(); i++)
 			coll->Pcontainer->push_back(Pcontainer->at(i)->getNewInstance());
 
 		return coll;
 	}
+
+	ApplicationObjectCollector* ApplicationObjectCollector::OCloadInstance(const unsigned& collNumber) 
+	{
+
+		ApplicationObjectCollector* coll
+		(new ApplicationObjectCollector(collectorName, collNumber, new AOcontainer));
+
+		for (int i = 0; i < Pcontainer->size(); i++)
+			coll->Pcontainer->push_back(Pcontainer->at(i)->getNewInstance());
+
+		return coll;
+	}
+
+	ActiveObject* ApplicationObjectCollector::OCloadActiveObject(const unsigned& collNumber)
+	{
+
+		ActiveObject* coll
+		(new ActiveObject(ApplicationObjectCollector::collectorName, collNumber, new AOcontainer));
+
+		for (int i = 0; i < Pcontainer->size(); i++)
+			coll->Pcontainer->push_back(Pcontainer->at(i)->getNewInstance());
+
+		return coll;
+	}
+
 
 
 	myobjectNS::ApplicationObject* ApplicationObjectCollector::getSubObject(int i)
@@ -142,36 +205,18 @@ namespace collectorNS {
 		return Pcontainer->at(0)->AOobjectName;
 	}
 
-	void ApplicationObjectCollector::setCollectorName() {
-
-		collectorName = Pcontainer->at(0)->AOobjectName;
-		collectorID = collectorName + SEPARATOR + std::to_string(collectorNumber);
-	}
-
-	void ApplicationObjectCollector::setCollectorName(std::string s) {
-
-		collectorName = s;
-		collectorID = collectorName + SEPARATOR + std::to_string(collectorNumber);
-	}
-
-	void ApplicationObjectCollector::setCollectorNumber(const unsigned& i)
-	{
-		collectorNumber = i;
-	}
-
-	void ApplicationObjectCollector::setCollectorID(const string& cID, const unsigned& cNumber)
-	{
-		collectorID = cID + SEPARATOR + std::to_string(cNumber);	
-	}
-
 	
 	/*create collector from an ApplicationObject*/
 	ApplicationObjectCollector* ApplicationObjectCollector::getCollector(myobjectNS::ApplicationObject* obj)
 	{
+
 		collectorNS::ApplicationObjectCollector * coll = 
-			new collectorNS::ApplicationObjectCollector(obj->AOobjectName,new collectorNS::AOcontainer);
+			new collectorNS::ApplicationObjectCollector
+			(obj->AOobjectName,
+				new collectorNS::AOcontainer);
+
 		coll->Pcontainer->push_back(obj->getNewInstance());
-		coll->setCollectorName();
+		//coll->setCollectorName();
 		return coll;
 	}
 

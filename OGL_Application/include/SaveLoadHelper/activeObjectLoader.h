@@ -22,11 +22,32 @@ namespace saveloadNS {
 
 	class ActiveObjectLoader : public FileHelper {
 
-		vector<ActiveObjectDataStructure> collectors;
+		/*must be static otherwise is clearead (because initialized)
+		after class constructor call()*/
+		static vector<ActiveObjectDataStructure> collectors;
 
 	public:
-		ActiveObjectLoader(ifstream& in);
-		bool FileIsEmpty = false;
+		ActiveObjectLoader(ifstream& in) :
+			FileHelper(in, 
+				{
+		/*can't pass as a vector because it is
+		initialized after the call to FileHelper constructor*/
+			COLLECTORTAG,
+			COLLECTORENDTAG,
+			COLLECTORNUMBER,
+			OBJECTNAMETAG,
+			AOPOSITIONTAG,
+			AOORIENTATIONTAG,
+			AOTRMATRIXTAG,
+			AOCOLORTAG,
+			DOSIZETAG,
+			AOISONFLAGTAG,
+			COLLECTORISONTAG,
+			ACTIVITYGROUNDID,
+				},
+				this) {}
+		
+
 		virtual unsigned getTotalLines() { return totalLines; }
 		virtual unsigned& getTotalChars() { return totalChars; }
 
@@ -38,7 +59,7 @@ namespace saveloadNS {
 		/*il metodo loadCollectors.. legge dalle mappe
 		e porta i dati da formato stringa al loro vero
 		formato per poi inserirle nelle data structure*/
-		void loadCollectorMapsIntoDataStructure();
+		void loadMapsIntoDataStructure() ;
 		
 		static const string
 			COLLECTORTAG,
@@ -55,22 +76,7 @@ namespace saveloadNS {
 			AOISONFLAGTAG,
 			ACTIVITYGROUNDID;
 
-		vector<string> tagList
-		{
-			COLLECTORTAG,
-			COLLECTORENDTAG,
-			COLLECTORNUMBER,
-			OBJECTNAMETAG,
-			AOPOSITIONTAG,
-			AOORIENTATIONTAG,
-			AOTRMATRIXTAG,
-			AOCOLORTAG,
-			DOSIZETAG,
-			AOISONFLAGTAG,
-			COLLECTORISONTAG,
-			ACTIVITYGROUNDID,
-		};
-	
+		
 	};
 
 

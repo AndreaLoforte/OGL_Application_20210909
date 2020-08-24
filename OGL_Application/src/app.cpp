@@ -6,7 +6,7 @@
 #include<fstream>
 #include<stdio.h>
 #include<saver.h>
-
+#include<activeObjectManager.h>
 
 std::string App::projectDataFileName{ "AppObj" };
 string App::defaultProjectFileName{ "projectsList" };
@@ -120,7 +120,7 @@ bool App::loadProjectData(string projectName) {
 	fpcameraNS::CameraManager::load(App::projectDataFileName);
 	
 	if (myobjectNS::ApplicationObjectManager::loadCollectors(App::projectDataFileName)&&
-		myobjectNS::ApplicationObjectManager::loadActiveObjects(App::projectDataFileName))
+		activeObjectManagerNS::ActiveObjectManager::loadActiveObjects(App::projectDataFileName))
 	{
 		myobjectNS::ApplicationObjectManager::setupObjectsParameters();
 		return true;

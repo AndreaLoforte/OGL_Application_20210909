@@ -1,6 +1,6 @@
 #include<buttons.h>
 #include<applicationObjectManager.h>
-#include<activeCharacterManager.h>
+#include<activeObjectManager.h>
 #include<inputs.h>
 #include<app.h>
 #include<buttonEditObject.h>
@@ -130,7 +130,7 @@ namespace uiNS {
 			logNS::Logger::PROJECTDIR = logNS::Logger::STOREDDATADIR + App::projectDataFileName + "/";
 			logNS::Logger::createDirectory(logNS::Logger::PROJECTDIR);
 			logNS::Logger::updateProjectsListFile();
-			activeObjectManagerNS::ActiveCharacterManager::list.clear();
+			activeObjectManagerNS::ActiveObjectManager::activeObjectlist.clear();
 			myobjectNS::Ground::groundMap.clear();
 			App::loadProjectData(App::projectDataFileName);
 			mainMenu(Application::window, 0, 0, 0);

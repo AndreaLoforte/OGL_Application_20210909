@@ -1,86 +1,247 @@
-ACTIVEOBJECT_
-enemy
+--------ACTIVEOBJECT--------
+Enemy
 COLLECTOR_NUMBER
-18
+28
 OCisOnFlag
-0
+1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_20
+groundSurface_34
 AOobjectName
-enemy
+enemyBody
 AOinstanceNumber
 0
 AOposition
-0 0 0
+8.21485 5 -261.75
 AOorientation
 1 0 0 0
 AOcolor
 1 0.5 0.5 0.5
 AOisOnFlag
-0
+1
 DOsize
 5
 --------ACTIVEOBJECTEND--------
-ACTIVEOBJECT_
-playercharacter
-COLLECTOR_NUMBER
-15
-OCisOnFlag
-0
-ACTIVE_OBJECT_ACTIVITYGROUND_ID
-
-AOobjectName
-playercharacter
-AOinstanceNumber
-0
-AOposition
--0 102.996 187.128
-AOorientation
--0.180031 0.683805 -0.403049 -0.580992
-AOcolor
-0 0.764842 0.764842 0.8
-AOisOnFlag
-0
-DOsize
-5
---------ACTIVEOBJECTEND--------
-ACTIVEOBJECT_
-playercharacter
-COLLECTOR_NUMBER
-15
-OCisOnFlag
-0
-ACTIVE_OBJECT_ACTIVITYGROUND_ID
-
-AOobjectName
-playercharacter
-AOinstanceNumber
-0
-AOposition
--0 102.996 187.128
-AOorientation
--0.180031 0.683805 -0.403049 -0.580992
-AOcolor
-0 0.764842 0.764842 0.8
-AOisOnFlag
-0
-DOsize
-5
---------ACTIVEOBJECTEND--------
-ACTIVEOBJECT_
-enemy
+--------ACTIVEOBJECT--------
+Enemy
 COLLECTOR_NUMBER
 30
 OCisOnFlag
-0
+1
 ACTIVE_OBJECT_ACTIVITYGROUND_ID
-groundSurface_20
+groundSurface_34
 AOobjectName
-enemy
+enemyBody
 AOinstanceNumber
 0
 AOposition
-0 0 0
+-5.71412 5 -199.346
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+--------ACTIVEOBJECT--------
+Enemy
+COLLECTOR_NUMBER
+32
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_34
+AOobjectName
+enemyBody
+AOinstanceNumber
+0
+AOposition
+-10.4616 -6.13822 -172.351
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+--------ACTIVEOBJECT--------
+Enemy
+COLLECTOR_NUMBER
+34
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_36
+AOobjectName
+enemyBody
+AOinstanceNumber
+0
+AOposition
+20.6693 5 -25.6408
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+--------ACTIVEOBJECT--------
+Enemy
+COLLECTOR_NUMBER
+36
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_36
+AOobjectName
+enemyBody
+AOinstanceNumber
+0
+AOposition
+86.3152 5 -63.6
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+--------ACTIVEOBJECT--------
+Enemy
+COLLECTOR_NUMBER
+38
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_35
+AOobjectName
+enemyBody
+AOinstanceNumber
+0
+AOposition
+-156.374 5 -63.6674
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+--------ACTIVEOBJECT--------
+Enemy
+COLLECTOR_NUMBER
+40
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_35
+AOobjectName
+enemyBody
+AOinstanceNumber
+0
+AOposition
+-207.391 5 -24.5491
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+--------ACTIVEOBJECT--------
+Enemy
+COLLECTOR_NUMBER
+42
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_36
+AOobjectName
+enemyBody
+AOinstanceNumber
+0
+AOposition
+-9.19195 5 42.0821
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+--------ACTIVEOBJECT--------
+Enemy
+COLLECTOR_NUMBER
+44
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_36
+AOobjectName
+enemyBody
+AOinstanceNumber
+0
+AOposition
+-0.557018 -10018.3 0
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+--------ACTIVEOBJECT--------
+Enemy
+COLLECTOR_NUMBER
+46
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+groundSurface_36
+AOobjectName
+enemyBody
+AOinstanceNumber
+0
+AOposition
+-18.9935 5 39.6159
+AOorientation
+1 0 0 0
+AOcolor
+1 0.5 0.5 0.5
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------
+--------ACTIVEOBJECT--------
+Enemy
+COLLECTOR_NUMBER
+48
+OCisOnFlag
+1
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+
+AOobjectName
+enemyBody
+AOinstanceNumber
+0
+AOposition
+1559.75 -1.28877e+06 0
 AOorientation
 1 0 0 0
 AOcolor

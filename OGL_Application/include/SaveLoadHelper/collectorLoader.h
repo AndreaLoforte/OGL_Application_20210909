@@ -44,11 +44,27 @@ namespace saveloadNS {
 
 	class CollectorLoader : public FileHelper {
 
-		vector<CollectorDataStructure> collectors;
+		/*must be static otherwise is clearead (because initialized)
+		after class constructor call()*/
+		static vector<CollectorDataStructure> collectors;
 
 	public:
-		CollectorLoader(ifstream& in);
-		bool FileIsEmpty = false;
+		CollectorLoader(ifstream& in) :
+			FileHelper(in, {
+			COLLECTORTAG,
+			COLLECTORENDTAG,
+			COLLECTORISONTAG,
+			COLLECTORNUMBER,
+			OBJECTNAMETAG,
+			AOPOSITIONTAG,
+			AOORIENTATIONTAG,
+			AOTRMATRIXTAG,
+			AOINSTANCENUMBERTAG,
+			AOCOLORTAG,
+			DOSIZETAG,
+			AOISONFLAGTAG
+				},this) {}
+		//bool FileIsEmpty = false;
 		virtual unsigned getTotalLines() { return totalLines; }
 		virtual unsigned& getTotalChars() { return totalChars; }
 
@@ -56,15 +72,11 @@ namespace saveloadNS {
 
 		vector<CollectorDataStructure>* getCollectors() { return &collectors; }
 
-		/*il metodo setAllCollectorsMap carica tutte
-		le mappe dei collettori in modo tale che ogni
-		oggetto/parametro di un collettore abbia la sua mappa*/
-		//void loadAllCollectorsMap();
-
 		/*il metodo loadCollectors.. legge dalle mappe
 		e porta i dati da formato stringa al loro vero
 		formato per poi inserirle nelle data structure*/
-		void loadCollectorMapsIntoDataStructure();
+		void loadMapsIntoDataStructure() ;
+
 
 		static const string
 			COLLECTORTAG,
@@ -80,21 +92,6 @@ namespace saveloadNS {
 			DOSIZETAG,
 			AOISONFLAGTAG;
 
-		vector<string> tagList
-		{
-			COLLECTORTAG,
-			COLLECTORENDTAG,
-			COLLECTORISONTAG,
-			COLLECTORNUMBER,
-			OBJECTNAMETAG,
-			AOPOSITIONTAG,
-			AOORIENTATIONTAG,
-			AOTRMATRIXTAG,
-			AOINSTANCENUMBERTAG,
-			AOCOLORTAG,
-			DOSIZETAG,
-			AOISONFLAGTAG
-		};
 	};
 
 

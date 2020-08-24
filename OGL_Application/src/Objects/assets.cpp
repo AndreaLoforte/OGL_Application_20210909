@@ -18,6 +18,7 @@
 #include<enemy.h>
 #include<playerCharacter.h>
 #include<boxAABB.h>
+#include<activeObjectManager.h>
 
 
 namespace AssetNS {
@@ -70,9 +71,9 @@ namespace AssetNS {
 		}
 
 		/*COLLECTOR ARE INSTERTED DIRECTLY INTO THE ASSET LIST*/
-		assetsList.push_back(new myobjectNS::EnemyOC());
+		assetsList.push_back(new myobjectNS::EnemyOC("Enemy"));
 		assetsList.push_back(new myobjectNS::PlayerCharacterOC());
-		assetsList.push_back(new myobjectNS::GroundSurfaceOC());
+		assetsList.push_back(new myobjectNS::GroundSurfaceOC("groundSurface"));
 
 		//ogni applicationObject viene wrappato in un collector
 		//un collector può contenere più object
@@ -99,6 +100,33 @@ namespace AssetNS {
 
 		return assetAOList[index];
 
+	}
+
+
+	collectorNS::ApplicationObjectCollector* Assets::loadCollector(const string& Collname, const unsigned& number)
+	{
+		//checking if collector name is found among assets
+		map<string, int>::iterator it = assetIndex.find(Collname);
+		if (it == assetIndex.end()) return NULL;
+
+		/*if found, load collector*/
+		collectorNS::ApplicationObjectCollector* newColl = 
+			assetsList[assetIndex.at(Collname)]->OCloadInstance(number);
+		return newColl;
+	}
+
+	collectorNS::ActiveObject* Assets::loadActiveObject(const string& Collname, const unsigned& number)
+	{
+		//checking if collector name is found among assets
+		map<string, int>::iterator it = assetIndex.find(Collname);
+		if (it == assetIndex.end()) return NULL;
+
+		/*if found, load collector*/
+		collectorNS::ActiveObject* newColl =
+			(assetsList[assetIndex.at(Collname)]->OCloadActiveObject(number));
+
+		
+		return newColl;
 	}
 
 
