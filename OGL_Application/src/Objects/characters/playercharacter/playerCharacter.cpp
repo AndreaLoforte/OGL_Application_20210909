@@ -218,7 +218,7 @@ namespace myobjectNS {
 		if (mainIsSet)
 		{
 			/*same as returning null but cross platform*/
-			return 0;
+			return main;
 		}
 			
 		else

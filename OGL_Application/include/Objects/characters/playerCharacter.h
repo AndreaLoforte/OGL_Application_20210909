@@ -108,6 +108,11 @@ namespace myobjectNS {
 		void changeFirepower(const double& yscroll);
 
 		ApplicationObject* getBody() { return &pc; }
+		ActiveObject* OCloadActiveObject(const unsigned& collNumber) override
+		{	
+			InputsNS::Controls::setPlayer(main);
+			return main;
+		}
 
 	};
 
