@@ -11,7 +11,7 @@ namespace saveloadNS {
 	{
 	public:
 		string CameraID;
-		float GlobalCoords[3];
+		array<float,3> GlobalCoords;
 		mymathlibNS::Quaternion orientation;
 		vmath::mat4 prev_Mat;
 		vmath::mat4 reversePrevXrotMat;
@@ -21,25 +21,25 @@ namespace saveloadNS {
 	class CameraSavings : public FileHelper {
 
 		/*fileMap , maps the entire file*/
-		FileMap fileMap;
+		//FileMap fileMap;
 		string s = "";
 
 		/*following map are specific for
 		object or parameters inside object*/
 
-		FileMap CameraMap;
+	/*	FileMap CameraMap;
 		FileMap CameraDelimitersMap;
 		FileMap CameraGLBCoordsMap;
 		FileMap CameraOrientationMap;
 		FileMap CameraPrevMatrixMap;
 		FileMap CameraInversePrevXRotMat;
-		FileMap CameraIDMap;
+		FileMap CameraIDMap;*/
 
 		vector<CameraDataStructure> cameras;
 
 	public:
-		unsigned totalLines = 0;
-		unsigned totalChars = 0;
+		/*unsigned totalLines = 0;
+		unsigned totalChars = 0;*/
 
 
 		CameraSavings(ifstream& in) :
