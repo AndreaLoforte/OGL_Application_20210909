@@ -87,7 +87,7 @@ namespace uiNS {
 
 	void UserInterface::setFlags(const bool& uion, const bool& aion, const bool& physicson)
 	{
-		UIon = pause;
+		UIon = uion;
 		AIon = aion;
 		physicsOn = physicson;
 	}

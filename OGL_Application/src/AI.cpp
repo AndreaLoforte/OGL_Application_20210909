@@ -24,7 +24,7 @@ namespace aiNS {
 
 
 
-
+	/*FUNZIONE UTILIZZATA DALLA FUNZIONE moverandomly()*/
 	array<float, 3> myfirstIA::getRandomPointInSurface(aiNS::myfirstIA* brain)
 	{
 		myobjectNS::ApplicationObject* surface = activityArea->getBody();
@@ -66,7 +66,8 @@ namespace aiNS {
 	void myfirstIA::follow(collectorNS::ActiveObject* obj,collectorNS::ActiveObject* target)
 	{
 		//if (!target) return;
-		if (!target||!AIon || !obj->isOn || !UserInterface::AIon) return;
+		bool target_is_set = target;
+		if (!target_is_set ||!AIon || !obj->isOn) return;
 
 		std::array<float, 3> targetpos = target->getBody()->getPosition();
 
@@ -84,9 +85,23 @@ namespace aiNS {
 		targetDistanceNorm = mymathlibNS::stdLibHelper::norm(distance_v);
 		/*if the target is not inside the sight region => move randomly */
 		if (!target->isOn || !target->isAlive || targetDistanceNorm > activationDistance)
-		{
 			moveRandomly();
+		/*else move towards the target*/
+		else
+		{
+			Vector3 vel;
+			vel.x = distance_v[0];
+			/*vel.y = distance_v[1];*/ /*da non modificare per non avere levitazione antigravitazionale*/
+			vel.z = distance_v[2];
+			vel.normalise();
+
+			vel *= 10;
+
+
+			myRB->velocity.x = vel.x;
+			myRB->velocity.z = vel.z;
 		}
+
 	}
 
 	void myfirstIA::moveRandomly()
@@ -115,36 +130,19 @@ namespace aiNS {
 	}
 
 
+
 	void myfirstIA::moveInsideBoundaries()
-	{	
+	{
 		
 
-		static std::uniform_int_distribution<int> distribution{ -1000, 1000 };
-		static auto random = std::bind(distribution, generator);
 
-		if (deltaMovement.magnitude() <= 5)
-		{
-			randomDestination[0] = random();
-			randomDestination[1] = 0.0;
-			randomDestination[2] = random();
-		
-		}
-
-			deltaMovement[0] = randomDestination[0] - currentPosition[0];
-			deltaMovement[1] = 0.0;
-			deltaMovement[2] = randomDestination[2] - currentPosition[2];
-
-			Vector3 vel = deltaMovement;
-			vel.normalise();
-
-			vel *= 50;
-
-			vel.y = myRB->velocity.y;
-	
-
-			myRB->velocity = vel;
-		
 	}
+
+
+
+
+
+
 
 
 

@@ -155,6 +155,7 @@ namespace uiNS
 			{ "Editing Object " + myobjectNS::ApplicationObjectManager::getEditableObjectName(),
 			NonButtonMap::ADJUSTSIZE,NonButtonMap::ADJUSTCOLOR,
 			NonButtonMap::OBJECTPOSITION,NonButtonMap::OBJECTSWITCH,
+
 			ButtonMap::BACKBUTTON });
 		
 		if (action == GLFW_RELEASE) return;

@@ -42,7 +42,7 @@ namespace aiNS {
 		myobjectNS::PlayerCharacterOC* target;
 		std::array<float, 3> targetDistance;
 		float targetDistanceNorm;
-		const float activationDistance = 1000;
+		const float activationDistance = 200;
 		bool seekAndDest = true;
 		/*IA cache all the relevant pointers of the
 		controlled object*/

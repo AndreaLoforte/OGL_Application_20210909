@@ -18,7 +18,7 @@ namespace uiNS {
 
 	void StartButton::setControls_controlMode()
 	{
-		UserInterface::setFlags(true, true, true);
+		UserInterface::setFlags(false, true, true);
 		glfwSetInputMode(Application::window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
 		UserInterface::bfl.setMouseCursorCallback(InputsNS::Controls::cursor_callback);

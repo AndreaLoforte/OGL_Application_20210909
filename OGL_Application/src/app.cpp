@@ -44,9 +44,9 @@ void App::update(){
 	fpcameraNS::CameraManager::update();
 	userInterface.update();
 
-	if (UserInterface::UIon)
+	if (!UserInterface::UIon)
 	{
-		TimingData::update();
+		///TimingData::update();
 		globalNS::DURATION = 0.1;// TimingData::get().lastFrameDuration * 0.005f;
 		if (globalNS::DURATION <= 0.0f) return;
 
