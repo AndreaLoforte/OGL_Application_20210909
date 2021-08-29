@@ -60,7 +60,7 @@ namespace InputsNS{
 
 		if (key == GLFW_KEY_V)
 		 {
-			soundNS::soundMap::startSounds();
+			soundNS::soundMap::switchSoundsOnOff();
 		}
 
 		

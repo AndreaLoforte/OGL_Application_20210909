@@ -82,7 +82,7 @@ public:
 	friend class myphysicsNS::CollisorePolimorfo;
 	friend class InputsNS::Controls;
 	unsigned int projcounter{ 0 };
-	unsigned velmodule = 500;
+	unsigned velmodule = 100;
 	bool trigger = false;
 	/*oltre questo numero di proiettili,
 	eliminiamo uno vecchio per crearne uno nuovo*/

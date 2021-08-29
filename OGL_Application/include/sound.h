@@ -67,8 +67,8 @@ namespace soundNS {
 
 		static void collisionSound(const Contact& contact);
 		static void collisionSound(const Contact* contact, const unsigned&);
-		static void update();
-		static void startSounds();
+		static void updateListenerPosition();
+		static void switchSoundsOnOff();
 		static irrklang::vec3df convertIntoIrrklang(const std::array<float, 3>& vec);
 
 	};

@@ -106,7 +106,7 @@
     <Link />
     <Link>
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3dll.lib;freetype.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\build\src\Debug;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\bin\winx64-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib;.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\build\src\Debug;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\bin\winx64-visualStudio;%(AdditionalLibraryDir;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
@@ -165,6 +165,7 @@
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\cameraLoader.h" />
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\collectorLoader.h" />
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\saver.h" />
+    <ClInclude Include="OGL_Application\include\UI\buttonEditSounds.h" />
     <ClInclude Include="OGL_Application\include\UI\inputs.h" />
     <ClInclude Include="OGL_Application\include\log.h" />
     <ClInclude Include="OGL_Application\include\LibAndFacility\mymathlib.h" />
@@ -243,6 +244,7 @@
     <ClCompile Include="OGL_Application\src\saveloadhelper\collectorSaver.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\saver.cpp" />
     <ClCompile Include="OGL_Application\src\UI\buttonfunctionLoader.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\editSound\ButtonEditSound.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_printMenu.cpp" />
     <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject.cpp" />
     <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp" />

@@ -93,17 +93,17 @@ namespace uiNS {
 			{ ButtonMap::QUITANDSAVE,ButtonMap::QUITNOSAVE, ButtonMap::BACKBUTTON });
 
 
-		if (UserInterface::clicked(ButtonMap::QUITANDSAVE))
+		if (UserInterface::cursorPointing(ButtonMap::QUITANDSAVE))
 		{
 			App::SaveProjectData(App::projectDataFileName);
 			glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
 		}
 
-		if(UserInterface::clicked(ButtonMap::QUITNOSAVE))
+		if(UserInterface::cursorPointing(ButtonMap::QUITNOSAVE))
 			glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
 
 		
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON))
 			;/*UserInterface::back();*/
 
 

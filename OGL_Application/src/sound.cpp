@@ -10,7 +10,7 @@ namespace soundNS {
 
 #pragma comment(lib, "irrKlang.lib")
 
-	static const string projectile_plane_coll_sound_filename = "myshotsound.wav";
+	static const string projectile_plane_coll_sound_filename = "myshotsound_ogg.ogg";
 	static const string rumRogers_soundtrack_filename = "RumRogersCottage_edited.ogg";
 
 	map<CollisionPair, string> soundMap::collisionSoundMap;
@@ -33,45 +33,39 @@ namespace soundNS {
 
 		irrklang::ISoundEngine *dev = irrklang::createIrrKlangDevice(irrklang::ESOD_WIN_MM);
 		
-
-	
+		/* se per es: setDefault3DSoundMinDistance(1) => sento il suono solo se sono estremamente vicino alla sorgente*/
+		soundMap::engine->setDefault3DSoundMinDistance(50);
 
 	}
 
 
-
-	void soundMap::startSounds()
+	
+	void soundMap::switchSoundsOnOff()
 	{
-		update();
+		updateListenerPosition();
 
-		string filename_ = SOUNDSDIR + rumRogers_soundtrack_filename;
-		const char * filename = filename_.c_str();
+		static string filename_ = SOUNDSDIR + rumRogers_soundtrack_filename;
+		static const char * filename = filename_.c_str();
 
 
-		//irrklang::ISoundSource *source = engine->addSoundSourceFromFile(filename);
+		static irrklang::ISound* soundtrack = engine->play3D(filename, { 0.0,0.0,0.0 }, true, true, true);
 
-		/*in generale pare non sia garantito che engine->play ritorni il puntatore al suono !
-		Inoltre irrklang fa già il caching del puntatore, quindi non farti problemi
-		a richiamarlo ogni volta!*/
-		static irrklang::ISoundSource* sound = engine->getSoundSource(filename);//, { 0.0,0.0,0.0 }, true, true, true);
-		//static irrklang::ISound sound_ = 
 		
-		static bool play = false;
+		//soundtrack->setMinDistance(50.0f);
+		soundtrack->setVolume(1);
+		
+
+		
+		static bool play = true;
 		if (play)
 		{
 			
-			//engine->play2D(sound);
-			engine->play3D(sound, { 0.0,0.0,0.0 },false,true);
-			engine->setDefault3DSoundMinDistance(50.0f);
-			//sound->setVolume(0.7);
-			
-			
+			soundtrack->setIsPaused(true);
 			play = false;
 		}
 		else
 		{
-			engine->play3D(sound, { 0.0,0.0,0.0 }, true, true);
-			engine->setDefault3DSoundMinDistance(50.0f);
+			soundtrack->setIsPaused(false);
 			play = true;
 		}
 			
@@ -117,7 +111,7 @@ namespace soundNS {
 					
 					/*se non si chiama setIsPaused il puntatore non viene inizializzato???*/
 					shot_sound->setVolume(collisionSoundMagnitude);
-					//shot_source->setDefaultVolume(0);
+					//shot_sound->setMinDistance(50.0f);
 					shot_sound->setIsPaused(false);
 					
 					
@@ -138,7 +132,7 @@ namespace soundNS {
 
 
 
-	void soundMap::update()
+	void soundMap::updateListenerPosition()
 	{
 		static myobjectNS::PlayerCharacter* pc;
 		std::array<float, 3> arr = pc->getPosition();
@@ -168,29 +162,29 @@ namespace soundNS {
 	void soundMap::collisionSound(const Contact& contact)
 	{
 
-		map<CollisionPair, string>::iterator iterator_to_collisionSound =
-			collisionSoundMap.find(CollisionPair{ contact.body[0]->RBobjectName, contact.body[1]->RBobjectName });
-		if (iterator_to_collisionSound != collisionSoundMap.end())
-		{
+		//map<CollisionPair, string>::iterator iterator_to_collisionSound =
+		//	collisionSoundMap.find(CollisionPair{ contact.body[0]->RBobjectName, contact.body[1]->RBobjectName });
+		//if (iterator_to_collisionSound != collisionSoundMap.end())
+		//{
 
-			string collisionSoundFileName = iterator_to_collisionSound->second;
-			//collisionSoundMap.find(CollisionPair{ contact.body[0]->RBobjectID, contact.body[1]->RBobjectID });
+		//	string collisionSoundFileName = iterator_to_collisionSound->second;
+		//	//collisionSoundMap.find(CollisionPair{ contact.body[0]->RBobjectID, contact.body[1]->RBobjectID });
 
-			const char *c = collisionSoundFileName.c_str();
+		//	const char *c = collisionSoundFileName.c_str();
 
 
-			float pos[3];
-			pos[0] = contact.contactPoint[0];
-			pos[1] = contact.contactPoint[1];
-			pos[2] = contact.contactPoint[2];
-			irrklang::vec3df contactPosition(pos[0], pos[1], pos[2]);
-			engine->play3D(c, contactPosition);
+		//	float pos[3];
+		//	pos[0] = contact.contactPoint[0];
+		//	pos[1] = contact.contactPoint[1];
+		//	pos[2] = contact.contactPoint[2];
+		//	irrklang::vec3df contactPosition(pos[0], pos[1], pos[2]);
+		//	engine->play3D(c, contactPosition);
 
-		}
-		else
-		{
-			logNS::Logger::writeLog("did not found sound file for collision");
-		}
+		//}
+		//else
+		//{
+		//	logNS::Logger::writeLog("did not found sound file for collision");
+		//}
 	}
 
 

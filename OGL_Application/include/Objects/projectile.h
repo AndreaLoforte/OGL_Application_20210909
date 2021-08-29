@@ -32,7 +32,7 @@ namespace myobjectNS{
 	 {
 		 radius = 2.0;
 		 AOposition = fireSpot;
-		 vel_module = 1000;
+		 vel_module = 10;
 		 AOCollisorID = 0;//sphere
 	 }
 	 ~Projectile() {}

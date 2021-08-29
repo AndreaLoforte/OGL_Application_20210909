@@ -109,7 +109,7 @@ namespace uiNS {
 		std::string buttonID{ UserInterface::cursorVStext() };
 
 
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			return;
 		}

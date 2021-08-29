@@ -2,10 +2,13 @@
 #include<playerCharacter.h>
 #include<cameraManager.h>
 #include<collectorLoader.h>
+#include<app.h>
 namespace myobjectNS{
 
 	
-
+	const string shoot_audiofilename = "myshotsound.wav";
+	const string shoot_audiofile_fullpath = App::audio_dir + shoot_audiofilename;
+	const char* shoot_audiofile_fullpath_c_str = shoot_audiofile_fullpath.c_str();
 
 void Gun::create() {
 
@@ -107,7 +110,7 @@ void OCGun::shootAt(const std::array<float, 3>& enemypos, const std::array<float
 	//myobjectNS::PrintHelper::mapNewString("ENEMYPOS", "Enemy pos :" + logNS::Logger::stdarray3ToString(distance));
 	
 	soundNS::soundMap::engine->play3D
-	("./root/OGL_Application/audio/myshotsound.wav", soundNS::toIrrklang::stdfarray(enemypos));
+	(shoot_audiofile_fullpath_c_str, soundNS::toIrrklang::stdfarray(enemypos));
 	
 }
 
@@ -128,7 +131,8 @@ void OCGun::shootTowards(const std::array<float, 3>& pos, const std::array<float
 	/*imposto lo sparo sempre a volume massimo.*/
 	irrklang::vec3df playerpos = soundNS::toIrrklang::stdfarray(pos);
 	soundNS::soundMap::engine->setSoundVolume(1);
-	soundNS::soundMap::engine->play2D("./root/OGL_Application/audio/myshotsound.wav");
+
+	soundNS::soundMap::engine->play2D(shoot_audiofile_fullpath_c_str);
 
 
 }

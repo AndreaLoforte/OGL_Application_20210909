@@ -133,10 +133,11 @@ namespace InputsNS{
 	void Controls::mouse_button_callback_editMode(GLFWwindow* window, int button, int action, int mods)
 	{
 		/*want to call the function only for press actions*/
-		if(action != GLFW_RELEASE)
-		userInterface->cursorVStext();
+		if (action != GLFW_RELEASE)
+			userInterface->cursorVStext();
 
 	}
+
 
 
     

@@ -207,14 +207,14 @@ namespace uiNS
 	{
 		if (action == GLFW_RELEASE) return;
 
-		if (UserInterface::clicked(NonButtonMap::TYPEPOSITION))
+		if (UserInterface::cursorPointing(NonButtonMap::TYPEPOSITION))
 		{
 			typeRotation = false;
 			typePosition = true;
 			key_callbackMove(Application::window, 0, 0, 1, 0);
 			return;
 		}
-		if (UserInterface::clicked(NonButtonMap::TYPEROTATION))
+		if (UserInterface::cursorPointing(NonButtonMap::TYPEROTATION))
 		{
 			typePosition = false;
 			typeRotation = true;
@@ -222,7 +222,7 @@ namespace uiNS
 			return;
 		}
 		
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			typePosition = false;
 			typeRotation = false;
@@ -230,7 +230,7 @@ namespace uiNS
 			return;
 		}
 
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON))
 		{
 			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallback_editObject);
 			UserInterface::bfl.setKeyCallback(InputsNS::Controls::key_callbackControl);
@@ -238,7 +238,7 @@ namespace uiNS
 		}
 
 
-		if (UserInterface::clicked(NonButtonMap::QUITBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::QUITBUTTON))
 		{
 			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
 			QuitButton::showMenu();

@@ -42,11 +42,11 @@ namespace uiNS
 				obj->collectorID, obj->collectorID + " was added to the cluster");
 		}
 
-		if (UserInterface::clicked(NonButtonMap::EDITCLUSTER))
+		if (UserInterface::cursorPointing(NonButtonMap::EDITCLUSTER))
 			editClusterMenu(Application::window, 0, 1, 0);
 
 
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON))
 		{
 			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
 			UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
@@ -78,14 +78,14 @@ namespace uiNS
 	void EditObjectModeButton::mouseButtonCallback_editCluster(GLFWwindow* w, int button, int action_, int mods)
 	{
 
-		if (UserInterface::clicked(NonButtonMap::CLUSTERSWITCH))
+		if (UserInterface::cursorPointing(NonButtonMap::CLUSTERSWITCH))
 		{
 			UserInterface::bfl.setMouseButtonCallback(clusterSwitch);
 			clusterSwitch();
 			return;
 		}
 
-		if (UserInterface::clicked(NonButtonMap::CLUSTERPOSITION))
+		if (UserInterface::cursorPointing(NonButtonMap::CLUSTERPOSITION))
 		{
 			UserInterface::bfl.setKeyCallback(key_callbackMoveCluster);
 			UserInterface::bfl.setMouseButtonCallback(mouseButtonCallback_editClusterLVL2);
@@ -94,7 +94,7 @@ namespace uiNS
 		}
 
 
-		if (UserInterface::clicked(NonButtonMap::CLUSTERCOLOR))
+		if (UserInterface::cursorPointing(NonButtonMap::CLUSTERCOLOR))
 		{
 			UserInterface::bfl.setKeyCallback(key_callbackClusterColor);
 			UserInterface::bfl.setMouseButtonCallback(mouseButtonCallback_editClusterLVL2);
@@ -104,7 +104,7 @@ namespace uiNS
 
 
 
-		if (UserInterface::clicked(NonButtonMap::SAVECLUSTER))
+		if (UserInterface::cursorPointing(NonButtonMap::SAVECLUSTER))
 		{
 			std::string clusterName = "cluster_" + std::to_string(clusterNS::ClusterManager::clusterMap.size());
 			clusterNS::ClusterManager::clusterMap.insert({clusterName, cluster });
@@ -113,10 +113,10 @@ namespace uiNS
 			return;
 		}
 
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON))
 			createCluster(Application::window, 0, 1, 0);
 			
-		if (UserInterface::clicked(NonButtonMap::QUITBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::QUITBUTTON))
 			UserInterface::bfl.setMouseButtonCallback(QuitButton::showMenu);
 
 
@@ -125,10 +125,10 @@ namespace uiNS
 	void EditObjectModeButton::mouseButtonCallback_editClusterLVL2()
 	{
 
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON))
 			editClusterMenu(Application::window, 0, 1, 0);
 			
-		if (UserInterface::clicked(NonButtonMap::QUITBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::QUITBUTTON))
 			UserInterface::bfl.setMouseButtonCallback(QuitButton::showMenu);
 
 	}
@@ -141,7 +141,7 @@ namespace uiNS
 		UserInterface::phc.showDropDownMenu(uiNS::ButtonMap::EDITOBJECTMODEBUTTON,
 			{"SWITCH GROUP OFF" ,"SWITCH GROUP ON" ,ButtonMap::BACKBUTTON});
 	
-		if (UserInterface::clicked("SWITCH GROUP OFF"))
+		if (UserInterface::cursorPointing("SWITCH GROUP OFF"))
 		{
 			for (int i = 0; i < cluster.group.size(); i++)
 			{
@@ -150,7 +150,7 @@ namespace uiNS
 			}
 		}
 
-		if (UserInterface::clicked("SWITCH GROUP ON"))
+		if (UserInterface::cursorPointing("SWITCH GROUP ON"))
 		{
 			for (int i = 0; i < cluster.group.size(); i++)
 			{
@@ -159,7 +159,7 @@ namespace uiNS
 			}
 		}
 
-		if(UserInterface::clicked(ButtonMap::BACKBUTTON))
+		if(UserInterface::cursorPointing(ButtonMap::BACKBUTTON))
 		{
 			UserInterface::bfl.setMouseButtonCallback(mouseButtonCallback_editCluster);
 			mouseButtonCallback_editCluster(Application::window, 0, 1, 0);

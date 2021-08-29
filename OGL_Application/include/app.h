@@ -58,6 +58,7 @@
 		logNS::Logger log;
 
 		static string defaultProjectFileName;
+		static string audio_dir;
 	};
 
 

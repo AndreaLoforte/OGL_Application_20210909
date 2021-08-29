@@ -31,7 +31,7 @@ namespace uiNS {
 
 	void buttonCallback_setClusterGround(GLFWwindow* w, int button, int action, int mods)
 	{
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON) || UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			buttonCallback_editActiveCharacterCluster(Application::window, 0, 0, 0);
 			
@@ -58,12 +58,12 @@ namespace uiNS {
 
 	void buttonCallback_editActiveCharacterCluster(GLFWwindow* w, int button, int action, int mods)
 	{
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON) || UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			buttonCallback_activeCharacter();
 		}
 
-		if(UserInterface::clicked("SET LOCATION"))
+		if(UserInterface::cursorPointing("SET LOCATION"))
 		{
 			UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, "Choose one of the following grounds for this cluster");
 			UserInterface::phc.showDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON, myobjectNS::Ground::getGroundList(),false);
@@ -88,7 +88,7 @@ namespace uiNS {
 				coll->collectorID, coll->collectorID + " was added to the cluster");
 		}
 
-		if (UserInterface::clicked(NonButtonMap::EDITCLUSTER))
+		if (UserInterface::cursorPointing(NonButtonMap::EDITCLUSTER))
 		{
 			clusterNS::ClusterManager::it = clusterNS::ClusterManager::clusterMap.find(CLUSTERNAME);
 			if (clusterNS::ClusterManager::it != clusterNS::ClusterManager::clusterMap.end())
@@ -102,7 +102,7 @@ namespace uiNS {
 
 		}
 
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON) || UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			clusterNS::ClusterManager::it = clusterNS::ClusterManager::clusterMap.find(CLUSTERNAME);
 			if (clusterNS::ClusterManager::it != clusterNS::ClusterManager::clusterMap.end())

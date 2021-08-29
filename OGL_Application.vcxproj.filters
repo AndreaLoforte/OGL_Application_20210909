@@ -354,6 +354,9 @@
     <ClInclude Include="OGL_Application\include\Objects\characters\activeObjectManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OGL_Application\include\UI\buttonEditSounds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
@@ -645,6 +648,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Objects\characters\activeObjectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\editSound\ButtonEditSound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

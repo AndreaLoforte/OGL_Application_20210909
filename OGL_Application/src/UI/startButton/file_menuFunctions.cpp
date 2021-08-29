@@ -34,7 +34,7 @@ namespace uiNS {
 		
 		string s = UserInterface::cursorVStext();
 
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			UserInterface::bfl.setMouseButtonCallback(cursorButtonCallBack);
 			UserInterface::bfl.setMouseCursorCallback(cursorPositionCallBack);
@@ -74,7 +74,7 @@ namespace uiNS {
 		string projectName = UserInterface::cursorVStext();
 
 
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON) || UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			setControls();
 			mainMenu(Application::window, 0, 0, 0);
@@ -110,7 +110,7 @@ namespace uiNS {
 
 	void StartButton::newProjectMouseButton(int key, int action)
 	{
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON) || UserInterface::clicked(ButtonMap::BACKBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::NOBUTTON) || UserInterface::cursorPointing(ButtonMap::BACKBUTTON))
 		{
 			UserInterface::typer.textTyper.reset();
 			mainMenu(Application::window, 0, 1, 0);

@@ -31,6 +31,7 @@ namespace uiNS {
 		control->setUserInterface(this);
 		using namespace textRendererNS;
 
+		//INIZIALIZZO I VARI PULSANTI E LI POSIZIONO NELL'INTERFACCIA
 		printHelperNS::PrintHelper ph1{ "uiInterface",NonButtonMap::FILE ,-0.9f,0.95f };
 		printHelperNS::PrintHelper ph2{ "uiInterface",ButtonMap::EDITGAMEMODEBUTTON,-0.75f,0.95f };
 		printHelperNS::PrintHelper ph3{ "uiInterface",ButtonMap::EDITOBJECTMODEBUTTON,-0.5f,0.95f };
@@ -40,7 +41,7 @@ namespace uiNS {
 		printHelperNS::PrintHelper ph8{ "uiInterface",NonButtonMap::PROJECTNAME,0.65,0.95 };
 		printHelperNS::PrintHelper ph7{ "uiInterface",NonButtonMap::QUITBUTTON , 0.95f,0.95f };
 		
-
+		//???? COLLETTORE DI PULSANTI ?
 		phc.printHmap.emplace(NonButtonMap::FILE, ph1);
 		phc.printHmap.emplace(ButtonMap::EDITGAMEMODEBUTTON, ph2);
 		phc.printHmap.emplace(ButtonMap::EDITOBJECTMODEBUTTON, ph3);
@@ -51,17 +52,20 @@ namespace uiNS {
 		phc.printHmap.emplace(NonButtonMap::QUITBUTTON, ph7);
 		
 
-
+		//inserisco nella lista dei pulsanti da renderizzare tutti i pulsanti inseriti in printHmap
 		phc.updateRenderer();
+
+
 		
-		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::FILE));
+		//??? SEMBRA FARE LA STESSA COSA CHE FA CON la chiamata updateRenderer()
+		/*textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::FILE));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::EDITGAMEMODEBUTTON));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::EDITOBJECTMODEBUTTON));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::EDITSOUNDS));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::CONTROLMODEBUTTON));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::CAMERAVIEW));
 		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::PROJECTNAME));
-		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::QUITBUTTON));
+		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::QUITBUTTON));*/
 
 
 		start = new StartButton();
@@ -217,7 +221,9 @@ namespace uiNS {
 
 	
 
-
+	/*QUESTA FUNZIONE RITORNA L'ID DEL PULSANTE SUL QUALE 
+	SI TROVA IL CURSORE. SE IL CURSORE NON SI TROVA SOPRA
+	UN PULSANTE RESTITUISCE L'ID DI NOBUTTON*/
 	std::string UserInterface::cursorVStext()
 	{
 		using namespace textRendererNS;
@@ -243,7 +249,7 @@ namespace uiNS {
 
 
 	/*function that checks if the buttonID passed has been pressed*/
-	bool UserInterface::clicked(const string& bID)
+	bool UserInterface::cursorPointing(const string& bID)
 	{
 		static string buttonID = NonButtonMap::NOBUTTON;
 		static unsigned functionCallID = 0;

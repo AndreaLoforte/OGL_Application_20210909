@@ -73,7 +73,7 @@ void Sphere::setRigidBodyParameters() {
 
 	body->setPosition(AOposition[0], AOposition[0], AOposition[0]);
 	body->setOrientation(AOorientation[0], AOorientation[1], AOorientation[2], AOorientation[3]);
-	body->setVelocity(0.0, 50.0, 0.0);
+	body->setVelocity(0.0, 10.0, 0.0);
 	body->setAcceleration(Vector3::GRAVITY);
 
 	body->_calculateTransformMatrix(body->transformMatrix,body->position,body->orientation);

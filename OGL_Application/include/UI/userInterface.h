@@ -35,7 +35,7 @@ namespace uiNS {
 		static void pause();
 		//static std::string cursorVStext(const double& x, const double& y);
 		static std::string cursorVStext();
-		static bool clicked(const string&);
+		static bool cursorPointing(const string&);
 		static ButtonInterface* getParentButton();
 		static ButtonInterface* getButtonFromList(const string& bid);
 		static void update();

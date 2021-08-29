@@ -46,7 +46,7 @@ namespace uiNS
 			2) do click a NonButton
 			3) do click a Button*/
 			std::string buttonID{ UserInterface::cursorVStext() };
-			if (UserInterface::clicked(NonButtonMap::SELECTOBJECT))
+			if (UserInterface::cursorPointing(NonButtonMap::SELECTOBJECT))
 			{
 				//UserInterface::clickButton(buttonID);
 				UserInterface::bfl.setMouseButtonCallback(selectObject);
@@ -78,20 +78,20 @@ namespace uiNS
 	{
 
 
-		UserInterface::cursor_x = x;
-		UserInterface::cursor_y = y;
+		//UserInterface::cursor_x = x;
+		//UserInterface::cursor_y = y;
 
 
 
-		std::string buttonID{ UserInterface::cursorVStext() };
-		if (buttonID == NonButtonMap::NOBUTTON)
-		{
-			//UserInterface::phc.hideDropDownMenu();
-			return;
-		}
+		//std::string buttonID{ UserInterface::cursorVStext() };
+		//if (buttonID == NonButtonMap::NOBUTTON)
+		//{
+		//	//UserInterface::phc.hideDropDownMenu();
+		//	return;
+		//}
 
-		ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
-		UserInterface::highlightButton(b);
+		//ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
+		//UserInterface::highlightButton(b);
 
 
 
@@ -112,7 +112,7 @@ namespace uiNS
 			/*check if the buttonID is an objectID we can set as editable object*/
 		
 
-		if(UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if(UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
 			UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
@@ -133,7 +133,7 @@ namespace uiNS
 		}
 
 
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON))
 		{
 			UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
 			UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
@@ -160,7 +160,7 @@ namespace uiNS
 		if (action == GLFW_RELEASE) return;
 		
 
-		if (UserInterface::clicked(NonButtonMap::ADJUSTSIZE))
+		if (UserInterface::cursorPointing(NonButtonMap::ADJUSTSIZE))
 		{
 			UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON, 5);
 			UserInterface::bfl.setKeyCallback(key_callbackEditSize);
@@ -168,7 +168,7 @@ namespace uiNS
 			return;
 		}
 
-		if (UserInterface::clicked(NonButtonMap::ADJUSTCOLOR))
+		if (UserInterface::cursorPointing(NonButtonMap::ADJUSTCOLOR))
 		{
 			UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,5);
 			UserInterface::bfl.setKeyCallback(key_callbackEditColor);
@@ -176,7 +176,7 @@ namespace uiNS
 			return;
 		}
 
-		if (UserInterface::clicked(NonButtonMap::OBJECTSWITCH))
+		if (UserInterface::cursorPointing(NonButtonMap::OBJECTSWITCH))
 		{
 			UserInterface::phc.hideDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON, 5);
 			ObjectSwitch(myobjectNS::ApplicationObjectManager::getEditableCollector());
@@ -185,19 +185,19 @@ namespace uiNS
 
 	
 
-		if (UserInterface::clicked(NonButtonMap::OBJECTPOSITION))
+		if (UserInterface::cursorPointing(NonButtonMap::OBJECTPOSITION))
 		{
 			editPosition();
 			
 			return;
 		}
 
-		if (UserInterface::clicked(ButtonMap::BACKBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::BACKBUTTON))
 		{
 			goToEditObject();
 		}
 
-		if (UserInterface::clicked(NonButtonMap::QUITBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::QUITBUTTON))
 			glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
 
 

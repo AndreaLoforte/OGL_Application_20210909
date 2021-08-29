@@ -10,6 +10,7 @@
 
 std::string App::projectDataFileName{ "AppObj" };
 string App::defaultProjectFileName{ "projectsList" };
+string App::audio_dir{"./OGL_Application/audio/"};
 printHelperNS::PrintHelper App::ph{ "App" };
 
 void App::switchPhysics() {}
@@ -55,11 +56,12 @@ void App::update(){
 
 		myphysicsNS::CollisorePolimorfo::update(globalNS::DURATION);
 
-		soundNS::soundMap::update();
+		soundNS::soundMap::updateListenerPosition();
 		soundNS::soundMap::collisionSound(polyCollisor.contacts, polyCollisor.frameContactCounter);
 
 		aiNS::AI::updateHealt(polyCollisor.contacts, polyCollisor.frameContactCounter);
 	}
+
 }
 
 
@@ -80,7 +82,7 @@ void App::startup()
 
 	loadProjectData();
 
-	soundEngine.startSounds();
+	soundEngine.switchSoundsOnOff();
 	//controls.setup(this);
 	userInterface.init();
 	textRenderer.create();

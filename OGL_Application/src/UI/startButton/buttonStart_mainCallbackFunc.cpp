@@ -4,6 +4,7 @@
 #include<inputs.h>
 #include<app.h>
 #include<buttonEditObject.h>
+#include<buttonEditSounds.h>
 #include<userInterface.h>
 #include<ground.h>
 namespace uiNS {
@@ -43,18 +44,20 @@ namespace uiNS {
 	}
 
 	
-
+	/*QUANDO CLICCO COL MOUSE SU UNO DEI PULSANTI DEI MENU' A TENDINA VIENE RICHIAMATA
+	QUESTA FUNZIONE. PER CAPIRE QUALE PULSANTE DELLA TENDINA HO CLICCATO USO SEMPRE LA FUNZIONE
+	"CURSORPOINTING" E CHIAMO LA FUNZIONE OPPORTUNA*/
 	void   StartButton::cursorButtonCallBack(GLFWwindow* w, int button, int action, int mode)
 	{
 
 
 		if (action == GLFW_RELEASE) return;
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 			UserInterface::phc.hideDropDownMenu();
 
 		//FILE DROP DOWN MENU
 		{
-			if (UserInterface::clicked(NonButtonMap::LOADPROJECT))
+			if (UserInterface::cursorPointing(NonButtonMap::LOADPROJECT))
 			{
 				UserInterface::phc.hideDropDownMenu();
 				UserInterface::phc.showButton(NonButtonMap::FILE, "SELECT PROJECT DATA TO LOAD");
@@ -65,7 +68,7 @@ namespace uiNS {
 
 			}
 
-			if (UserInterface::clicked(NonButtonMap::NEWPROJECT))
+			if (UserInterface::cursorPointing(NonButtonMap::NEWPROJECT))
 			{
 				
 				UserInterface::bfl.setMouseButtonCallback(newProjectMouseButton);
@@ -76,7 +79,7 @@ namespace uiNS {
 
 			}
 
-			if (UserInterface::clicked(NonButtonMap::DELETEPROJECT))
+			if (UserInterface::cursorPointing(NonButtonMap::DELETEPROJECT))
 			{
 				showProjectsList();
 				
@@ -86,7 +89,7 @@ namespace uiNS {
 			}
 
 
-			if (UserInterface::clicked(NonButtonMap::PROGRAMINFOS))
+			if (UserInterface::cursorPointing(NonButtonMap::PROGRAMINFOS))
 			{
 				static size_t i;
 				UserInterface::phc.hideDropDownMenu();
@@ -103,23 +106,23 @@ namespace uiNS {
 
 			}
 
-			if (UserInterface::clicked(ButtonMap::SAVEBUTTON))
+			if (UserInterface::cursorPointing(ButtonMap::SAVEBUTTON))
 			{
 				App::SaveProjectData(App::projectDataFileName);
 				UserInterface::phc.showButton(NonButtonMap::FILE, "SAVECONFIRM", "SAVED");
 			}
 
 
-			if (UserInterface::clicked(ButtonMap::QUITANDSAVE))
+			if (UserInterface::cursorPointing(ButtonMap::QUITANDSAVE))
 			{
 				App::SaveProjectData(App::projectDataFileName);
 				glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
 			}
-			if (UserInterface::clicked(ButtonMap::QUITNOSAVE))
+			if (UserInterface::cursorPointing(ButtonMap::QUITNOSAVE))
 				glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
 
 
-			if (UserInterface::clicked(NonButtonMap::QUITBUTTON))
+			if (UserInterface::cursorPointing(NonButtonMap::QUITBUTTON))
 				glfwSetWindowShouldClose(Application::window, GLFW_TRUE);
 
 
@@ -130,7 +133,7 @@ namespace uiNS {
 		{
 
 
-			if (UserInterface::clicked(NonButtonMap::FLYINGCAMERA))
+			if (UserInterface::cursorPointing(NonButtonMap::FLYINGCAMERA))
 			{
 				fpcameraNS::CameraManager::setActiveCameraIndex(1);
 				UserInterface::phc.substituteButton(NonButtonMap::CAMERAVIEW, NonButtonMap::FLYINGCAMERA, NonButtonMap::FLYINGCAMERA, 0);
@@ -139,7 +142,7 @@ namespace uiNS {
 
 			}
 
-			if (UserInterface::clicked(NonButtonMap::GROUNDCAMERA))
+			if (UserInterface::cursorPointing(NonButtonMap::GROUNDCAMERA))
 			{
 				fpcameraNS::CameraManager::setActiveCameraIndex(0);
 				UserInterface::phc.substituteButton(NonButtonMap::CAMERAVIEW, NonButtonMap::GROUNDCAMERA, NonButtonMap::GROUNDCAMERA, 0);
@@ -148,7 +151,7 @@ namespace uiNS {
 
 			}
 
-			if (UserInterface::clicked(NonButtonMap::PANORAMICCAMERA))
+			if (UserInterface::cursorPointing(NonButtonMap::PANORAMICCAMERA))
 			{
 				fpcameraNS::CameraManager::setActiveCameraIndex(2);
 				UserInterface::phc.substituteButton(NonButtonMap::CAMERAVIEW, NonButtonMap::PANORAMICCAMERA, NonButtonMap::PANORAMICCAMERA, 0);
@@ -163,14 +166,14 @@ namespace uiNS {
 
 		/*COTROL DROP DOWN MENU*/
 		{
-			if (UserInterface::clicked("ENTER CONTROL MODE"))
+			if (UserInterface::cursorPointing("ENTER CONTROL MODE"))
 			{
 				UserInterface::phc.turnOffAllButtons();
 				UserInterface::phc.showButton(ButtonMap::CONTROLMODEBUTTON, "CTRL + E to exit Control mode");
 				setControls_controlMode();
 			}
 
-			if (UserInterface::clicked(SWITCHAI))
+			if (UserInterface::cursorPointing(SWITCHAI))
 			{
 				if (UserInterface::AIon)
 				{
@@ -185,7 +188,7 @@ namespace uiNS {
 				}
 	
 			}
-			if (UserInterface::clicked(SWITCHPHYSICS))
+			if (UserInterface::cursorPointing(SWITCHPHYSICS))
 			{
 				if (UserInterface::physicsOn)
 				{
@@ -209,25 +212,25 @@ namespace uiNS {
 
 		/*EDIT OBJECT MODE*/
 		{
-			if (UserInterface::clicked(NonButtonMap::SELECTOBJECT))
+			if (UserInterface::cursorPointing(NonButtonMap::SELECTOBJECT))
 				EditObjectModeButton::goToEditObject();
 
 
-			if (UserInterface::clicked(NonButtonMap::EDITCLUSTER))
+			if (UserInterface::cursorPointing(NonButtonMap::EDITCLUSTER))
 				clusterNS::ClusterManager::printClusterList();
-			if (UserInterface::clicked(NonButtonMap::CREATECLUSTER))
+			if (UserInterface::cursorPointing(NonButtonMap::CREATECLUSTER))
 			{
 				EditObjectModeButton::createCluster(Application::window, 0, 1, 0);
 			}
 
 
-			if (UserInterface::clicked(NonButtonMap::GROUND))
+			if (UserInterface::cursorPointing(NonButtonMap::GROUND))
 			{
 				UserInterface::phc.showDropDownMenu(
 					ButtonMap::EDITOBJECTMODEBUTTON, myobjectNS::Ground::getGroundList());
 			}
 
-			if (UserInterface::clicked(NonButtonMap::ACTIVECHARACTER))
+			if (UserInterface::cursorPointing(NonButtonMap::ACTIVECHARACTER))
 			{
 				buttonCallback_activeCharacter();
 			}
@@ -235,18 +238,17 @@ namespace uiNS {
 		}
 
 		
-		
 
 		//EDIT GAME DROP DOWN MENU
 		{
-			if (UserInterface::clicked(ButtonMap::CREATEBUTTON))
+			if (UserInterface::cursorPointing(ButtonMap::CREATEBUTTON))
 			{	
-					if ( UserInterface::clicked(ButtonMap::BACKBUTTON) || UserInterface::clicked(NonButtonMap::NOBUTTON))
+					/*if ( UserInterface::cursorPointing(ButtonMap::BACKBUTTON) || UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 					{
 						UserInterface::bfl.setMouseButtonCallback(StartButton::cursorButtonCallBack);
 						StartButton::mainMenu(Application::window, 0, 0, 0);
 						return;
-					}
+					}*/
 					
 					{
 						UserInterface::printAssetObjectsList(ButtonMap::EDITGAMEMODEBUTTON);
@@ -255,12 +257,26 @@ namespace uiNS {
 				
 			}
 
-			if (UserInterface::clicked(ButtonMap::DELETEBUTTON))
+			if (UserInterface::cursorPointing(ButtonMap::DELETEBUTTON))
 			{
 				UserInterface::printExistingObjects(ButtonMap::EDITGAMEMODEBUTTON);
 				UserInterface::bfl.setMouseButtonCallback(StartButton::deleteObject);
 			}
 		}
+
+
+
+
+		//EDIT SOUND DROP DOWN MENU
+		{
+			if (UserInterface::cursorPointing("SWITCH ON/OFF"))
+			{
+				uiNS::EditSoundsButton::switchSoundsONOFF();
+
+			}
+
+		}
+
 
 	}
 
@@ -269,7 +285,9 @@ namespace uiNS {
 
 
 
-
+	/*QUESTA FUNZIONE E' RESPONSABILE DELLA COMPARSA DEI MENU' A TENDINA.
+	QUANDO IL CURSORE SI TROVA IN CORRISPONDENZA DI UN PULSANTE LA FUNZIONE "CLICKED" RITORNA 
+	TRUE E LA FUNZIONE SHOWDROPDOWN MOSTRA I PULSANTI ELENCATI*/
 	void StartButton::cursorPositionCallBack(GLFWwindow* w, double x, double y)
 	{
 		UserInterface::cursor_x = x;
@@ -277,7 +295,7 @@ namespace uiNS {
 
 
 
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			//resetCallbackFunc();
 			return;
@@ -288,7 +306,7 @@ namespace uiNS {
 		ButtonInterface* b = UserInterface::getButtonFromList(buttonID);
 		UserInterface::highlightButton(b);
 
-		if (UserInterface::clicked(NonButtonMap::FILE))
+		if (UserInterface::cursorPointing(NonButtonMap::FILE))
 		{
 
 			UserInterface::phc.showDropDownMenu(
@@ -303,21 +321,26 @@ namespace uiNS {
 
 		}
 
-		if (UserInterface::clicked(ButtonMap::CONTROLMODEBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::CONTROLMODEBUTTON))
 		{
 			UserInterface::phc.showDropDownMenu(ButtonMap::CONTROLMODEBUTTON, 
 				{ "ENTER CONTROL MODE", SWITCHPHYSICS,SWITCHAI });
 		}
 
 
-		if (UserInterface::clicked(ButtonMap::EDITGAMEMODEBUTTON))
+		if (UserInterface::cursorPointing(ButtonMap::EDITGAMEMODEBUTTON))
 		{
 			UserInterface::phc.showDropDownMenu(ButtonMap::EDITGAMEMODEBUTTON,
 				{ ButtonMap::CREATEBUTTON,ButtonMap::DELETEBUTTON });
 		}
 
+		if (UserInterface::cursorPointing(NonButtonMap::EDITSOUNDS))
+		{
+			UserInterface::phc.showDropDownMenu(NonButtonMap::EDITSOUNDS,{ "SWITCH ON/OFF"});
+		}
 
-		if (UserInterface::clicked(ButtonMap::EDITOBJECTMODEBUTTON))
+
+		if (UserInterface::cursorPointing(ButtonMap::EDITOBJECTMODEBUTTON))
 		{
 			UserInterface::phc.showDropDownMenu(ButtonMap::EDITOBJECTMODEBUTTON,
 				{ NonButtonMap::SELECTOBJECT,
@@ -330,7 +353,7 @@ namespace uiNS {
 
 
 
-		if (UserInterface::clicked(UserInterface::phc.getPHbyID(NonButtonMap::CAMERAVIEW).getHeader()))
+		if (UserInterface::cursorPointing(UserInterface::phc.getPHbyID(NonButtonMap::CAMERAVIEW).getHeader()))
 		{
 			UserInterface::phc.showDropDownMenu(NonButtonMap::CAMERAVIEW,
 				{ NonButtonMap::GROUNDCAMERA,NonButtonMap::FLYINGCAMERA,NonButtonMap::PANORAMICCAMERA });

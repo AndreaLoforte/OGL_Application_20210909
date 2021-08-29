@@ -12,7 +12,7 @@ namespace uiNS {
 	{
 		string buttonID{ UserInterface::cursorVStext() };
 
-		if(UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if(UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			resetCallbackFunc();
 			return;
@@ -30,7 +30,7 @@ namespace uiNS {
 		string buttonID{ UserInterface::cursorVStext() };
 
 
-		if (UserInterface::clicked(NonButtonMap::NOBUTTON))
+		if (UserInterface::cursorPointing(NonButtonMap::NOBUTTON))
 		{
 			resetCallbackFunc();
 			return;
