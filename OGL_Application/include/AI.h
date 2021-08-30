@@ -87,7 +87,7 @@ namespace aiNS {
 		void update();
 		const bool& seekAndDestroy();
 		void moveRandomly();
-		void moveInsideBoundaries();
+		void moveInsideBoundaries(array<float,3>&);
 		array<float, 3> getRandomPointInSurface(aiNS::myfirstIA* brain);
 	};
 

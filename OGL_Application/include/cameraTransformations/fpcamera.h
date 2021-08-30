@@ -119,25 +119,24 @@ namespace fpcameraNS{
 
     ~Transformation(){}
     
-	 bool hasMoved = false;
     //fpCamera member methods for mouse input
-	 inline void rotXcw(const GLfloat& xpos) 
+	 virtual void rotXcw(const GLfloat& xpos) 
 	 { 
-		 static GLfloat prev_xpos = xpos;
+		/* static GLfloat prev_xpos = xpos;
 		 static GLfloat delta_xpos;
 		 delta_xpos = xpos - prev_xpos;
 		 xangle += delta_xpos;
 		 prev_xpos = xpos;
-		hasMoved = true; 
+		hasMoved = true; */
 	 }
-	 inline void rotYcw(const GLfloat& ypos) 
+	 virtual void rotYcw(const GLfloat& ypos) 
 	 { 
-		 static GLfloat prev_ypos = ypos;
+		/* static GLfloat prev_ypos = ypos;
 		 static GLfloat delta_ypos;
 		 delta_ypos = ypos - prev_ypos;
 		 yangle += delta_ypos; 
 		 prev_ypos = ypos;
-		 hasMoved = true; 
+		 hasMoved = true; */
 	 }
 
 	 //fpCamera member methods for keyboards input
@@ -148,16 +147,16 @@ namespace fpcameraNS{
 		 if (i < 0)
 			 tr_step *= 0.333;
 	 }
-	 inline void moveFw() { ztr += tr_step; hasMoved = true; }
-     inline void moveBw(){ ztr -= tr_step; hasMoved = true;}
-     inline void moveLt(){ xtr += tr_step; hasMoved = true;}
-     inline void moveRt(){ xtr -= tr_step;hasMoved = true;}
-     inline void rotXccw(){ xangle -= rot_step;hasMoved = true;}
-     inline void rotXcw(){ xangle += rot_step; hasMoved = true;}
-     inline void rotYccw(){ yangle -= rot_step; hasMoved = true;}
-     inline void rotYcw(){ yangle += rot_step; hasMoved = true;}
-     inline void moveUp(){ytr += tr_step; hasMoved = true;}//2
-     inline void moveDown(){ ytr -= tr_step; hasMoved = true;}//1
+	 inline void moveFw() { ztr += tr_step;      }
+     inline void moveBw(){ ztr -= tr_step;       }
+     inline void moveLt(){ xtr += tr_step;       }
+     inline void moveRt(){ xtr -= tr_step;       }
+     inline void rotXccw(){ xangle -= rot_step;  }
+     inline void rotXcw(){ xangle += rot_step;   }
+     inline void rotYccw(){ yangle -= rot_step;  }
+     inline void rotYcw(){ yangle += rot_step;   }
+     inline void moveUp(){ytr += tr_step;        }
+     inline void moveDown(){ ytr -= tr_step;     }
      //inline void moveBy(const float xshift, const float yshift, const float zshift){xtr += xshift; ytr += yshift; ztr += zshift;}
      inline void warn(){std::cerr<<"inputs.cpp::key_callback | pointer to cam not initialized"<<std::endl;}
 	 inline void switchPrintInfos() {
@@ -173,7 +172,6 @@ namespace fpcameraNS{
 	 virtual void setCamera(){}
 	
 	const vmath::mat4& getPlayerCamera()const { return PM; } 
-	void computeGlobalCoords();
 	void computeGlobalCoordsFromInverseM();
 	void updateLookat();
 	void update();
@@ -211,9 +209,10 @@ public:
 	}
 	void setCamera() override ;
 	string getCameraType() override { return camType; }
-	
-	
 
+	/*##############################*/
+	void rotXcw(const GLfloat& xrot) override;
+	void rotYcw(const GLfloat& yrot) override;
 };
 
 
@@ -230,6 +229,11 @@ public:
 	}
 	void setCamera() override;
 	string getCameraType() override { return camType; }
+
+	/*###################################*/
+	void rotXcw(const GLfloat& xrot) override;
+	void rotYcw(const GLfloat& yrot) override;
+
 };
 
 

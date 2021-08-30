@@ -2,10 +2,11 @@
 #include<PrintHelper.h>
 #include<userInterface.h>
 #include<cameraLoader.h>
+#include<inputs.h>
 namespace fpcameraNS {
 
 
-	unsigned CameraManager::activeCamIndex = 1;
+	unsigned CameraManager::activeCamIndex = fpcameraNS::FLYING_CAMERA_INDEX;
 	std::vector<Transformation*> CameraManager::cameraList;
 	printHelperNS::PrintHelper CameraManager::ph{ "cameraManager" };
 
@@ -39,6 +40,12 @@ namespace fpcameraNS {
 			activeCamIndex = 0;
 		}
 
+	}
+
+
+	void CameraManager::setActiveCameraIndex(int activeCameraIndex) {
+		activeCamIndex = activeCameraIndex;
+		InputsNS::Controls::changeCameraIndex(activeCameraIndex);
 	}
 
 	

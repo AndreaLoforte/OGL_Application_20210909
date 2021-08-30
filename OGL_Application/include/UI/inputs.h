@@ -39,7 +39,9 @@ namespace InputsNS{
     public:
 		static App* app_pt;
 		static unsigned mode; //0 : control mode, 1 = moveMode, 2 = editMode
-
+		static unsigned activeCameraIndex;
+		static float stored_cursor_coords[3][2];
+		static bool load_stored_cursor_coords;
 	~Controls() {}
 
     Controls(){
@@ -47,6 +49,11 @@ namespace InputsNS{
 		//initObjectIndex();
         
     }
+	static void changeCameraIndex(int& i)
+	{
+		activeCameraIndex = i;
+		load_stored_cursor_coords = true;
+		}
         static void key_callbackControl(GLFWwindow*,int,int,int,int);
 		static void cursor_callback(GLFWwindow*, double, double);
 		static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
@@ -68,7 +75,6 @@ namespace InputsNS{
 		void setButtonCallback(GLFWwindow*);
 		void setCursorCallback(GLFWwindow*);
 		
-		void changeCamera() {}
 		int chooseObject(int);
 		/*int typing(int,int activity);
 		bool NInsertion(int key, int action, int numberToInsert, vector<float>& vec);*/

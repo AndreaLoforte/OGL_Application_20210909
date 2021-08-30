@@ -6,6 +6,11 @@
 
 namespace fpcameraNS {
 
+	static unsigned FLYING_CAMERA_INDEX = 1;
+	static unsigned GROUND_CAMERA_INDEX = 0;
+	static unsigned PANORAMIC_CAMERA_INDEX = 2;
+
+
 	/* CAMERA MANAGER */
 	class CameraManager {
 		friend class Transformation;
@@ -38,9 +43,7 @@ namespace fpcameraNS {
 
 		static void load(const string&);
 
-		static void setActiveCameraIndex(int activeCameraIndex) {
-			activeCamIndex = activeCameraIndex;
-		}
+		static void setActiveCameraIndex(int activeCameraIndex);
 
 		//
 		static void switchPrintInfos() {

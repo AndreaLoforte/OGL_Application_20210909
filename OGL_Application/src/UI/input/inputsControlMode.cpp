@@ -71,6 +71,7 @@ namespace InputsNS{
 				UserInterface::bfl.setMouseCursorCallback(StartButton::cursorPositionCallBack);
 				UserInterface::phc.turnOffAllButtons();
 				StartButton::mainMenu(Application::window, 0, 1, 0);
+				InputsNS::Controls::load_stored_cursor_coords = true;
 			}
 		
 
@@ -105,55 +106,6 @@ namespace InputsNS{
 		if(stateD == GLFW_PRESS)
 			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
 
-	/*	
-		UserInterface::showButton("stateW1","stateW "+ std::to_string(stateW));
-		UserInterface::showButton("stateA1", "stateA "+ std::to_string(stateA));
-		UserInterface::showButton("stateS1", "stateS "+ std::to_string(stateS));
-		UserInterface::showButton("stateD1", "stateD "+ std::to_string(stateD));*/
-
-		//////////////////////////////////////////////////////////////////
-
-		/*if (stateW == GLFW_PRESS && stateA == GLFW_PRESS)
-		{
-			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
-			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
-			return;
-		}
-
-		if (stateW == GLFW_PRESS && stateD == GLFW_PRESS)
-		{
-			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
-			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
-			return;
-		}
-		if (stateS == GLFW_PRESS && stateD == GLFW_PRESS)
-		{
-			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
-			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
-			return;
-		}
-		if (stateS == GLFW_PRESS && stateA == GLFW_PRESS)
-		{
-			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
-			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
-			return;
-		}*/
-
-
-
-	
-		/*if (stateS == GLFW_PRESS && stateD == GLFW_PRESS)
-		{
-			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
-			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
-			return;
-		}
-		if (stateS == GLFW_PRESS && stateA == GLFW_PRESS)
-		{
-			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
-			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
-			return;
-		}*/
 
 
 	

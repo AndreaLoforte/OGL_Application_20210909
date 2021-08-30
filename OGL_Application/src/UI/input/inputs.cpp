@@ -13,8 +13,11 @@ namespace InputsNS{
 	GLboolean Controls::hideCursor = true;
 	int Controls::scrollCallbackCallerID = 0;
 	unsigned Controls::mode = 0;
+	unsigned Controls::activeCameraIndex = 0;
+	float Controls::stored_cursor_coords[3][2]{ 0.0 };
 	uiNS::UserInterface* Controls::userInterface;
 	App* Controls::app_pt;
+	bool Controls::load_stored_cursor_coords = true;
 	std::vector<int> Typer::objNumberChoosed;
 	std::map<int, int> Typer::glfw_KeyConversion
 	{ {48,0},{49,1},{50,2},{51,3},{52,4},{53,5},{54,6},{55,7},{56,8},{57,9} };

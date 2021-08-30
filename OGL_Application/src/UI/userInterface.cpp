@@ -55,19 +55,6 @@ namespace uiNS {
 		//inserisco nella lista dei pulsanti da renderizzare tutti i pulsanti inseriti in printHmap
 		phc.updateRenderer();
 
-
-		
-		//??? SEMBRA FARE LA STESSA COSA CHE FA CON la chiamata updateRenderer()
-		/*textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::FILE));
-		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::EDITGAMEMODEBUTTON));
-		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::EDITOBJECTMODEBUTTON));
-		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::EDITSOUNDS));
-		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(ButtonMap::CONTROLMODEBUTTON));
-		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::CAMERAVIEW));
-		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::PROJECTNAME));
-		textRendererNS::TextRenderer::printList.push_back(&UserInterface::phc.getPHbyID(NonButtonMap::QUITBUTTON));*/
-
-
 		start = new StartButton();
 		buttonFlow.push_back(start);
 		ButtonMap();

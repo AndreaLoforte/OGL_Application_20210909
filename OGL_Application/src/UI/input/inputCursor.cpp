@@ -72,11 +72,19 @@ namespace InputsNS{
 
 	void Controls::cursor_callback(GLFWwindow* window, double xpos, double ypos)
 	{
-		
-		fpcameraNS::CameraManager::getActiveCameraLH().rotXcw(ypos / 10);
-		fpcameraNS::CameraManager::getActiveCameraLH().rotYcw(xpos / 10);
+		static float delta_x, delta_y;
+		if (load_stored_cursor_coords)
+		{
+			delta_x = xpos - stored_cursor_coords[activeCameraIndex][0];
+			delta_y = ypos - stored_cursor_coords[activeCameraIndex][1];
+			load_stored_cursor_coords = false;
+		}
 
+		stored_cursor_coords[activeCameraIndex][0] = xpos - delta_x;
+		stored_cursor_coords[activeCameraIndex][1] = ypos - delta_y;
 
+		fpcameraNS::CameraManager::getActiveCameraLH().rotXcw(stored_cursor_coords[activeCameraIndex][1] / 10);
+		fpcameraNS::CameraManager::getActiveCameraLH().rotYcw(stored_cursor_coords[activeCameraIndex][0] / 10);
 	}//Controls::cursor_callback
 
 

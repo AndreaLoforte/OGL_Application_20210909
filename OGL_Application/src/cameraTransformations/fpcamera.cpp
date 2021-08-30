@@ -94,19 +94,7 @@ namespace fpcameraNS{
 
 
 
-void Transformation::computeGlobalCoordsFromInverseM() {
-	
-
-	/*	inverseM = mymathlibNS::inverseMatrix(M);
-
-		camForGLBcoords[0] = inverseM[3][0];
-		camForGLBcoords[1] = inverseM[3][1];
-		camForGLBcoords[2] = inverseM[3][2];
-
-		camOrientation = mymathlibNS::Quaternion::getQuaternionProductfromAngles(-xangle,-yangle,-zangle);*/
-
-	
-}
+void Transformation::computeGlobalCoordsFromInverseM() {}
 
 
 
@@ -123,6 +111,47 @@ void Transformation::updateLookat() {
 	lookat[2] =  M[2][2] * lookat[2];
 
 }
+
+
+void FlyingCamera::rotXcw(const GLfloat& xrot)
+{
+	static GLfloat prev_xrot = xrot;
+	static GLfloat delta_xrot;
+	delta_xrot = xrot - prev_xrot;
+	xangle += delta_xrot;
+	prev_xrot = xrot;
+}
+
+void FlyingCamera::rotYcw(const GLfloat& yrot)
+{
+	static GLfloat prev_yrot = yrot;
+	static GLfloat delta_yrot;
+	delta_yrot = yrot - prev_yrot;
+	yangle += delta_yrot;
+	prev_yrot = yrot;
+}
+
+
+void GroundCamera::rotXcw(const GLfloat& xrot)
+{
+
+	static GLfloat prev_xrot = xrot;
+	static GLfloat delta_xrot;
+	delta_xrot = xrot - prev_xrot;
+	xangle += delta_xrot;
+	prev_xrot = xrot;
+}
+void GroundCamera::rotYcw(const GLfloat& yrot)
+{
+	static GLfloat prev_yrot = yrot;
+	static GLfloat delta_yrot;
+	delta_yrot = yrot - prev_yrot;
+	yangle += delta_yrot;
+	prev_yrot = yrot;
+}
+
+
+
 
 
 

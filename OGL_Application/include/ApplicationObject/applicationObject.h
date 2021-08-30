@@ -66,6 +66,8 @@ namespace myobjectNS{
 		std::string AOgetInstanceID();
 		virtual std::string getRBObjectID() { return "RigidBodyID undefined"; }
 		std::string AOobjectName;
+
+		/*matrice di trasformazione complessiva del corpo (traslazione + rotazione)*/
 		vmath::mat4 AOTrMatrix = vmath::mat4::identity();
 		void save(std::ofstream&);
 		virtual void specializedSave(std::ofstream&){}

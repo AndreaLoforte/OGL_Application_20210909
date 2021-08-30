@@ -135,7 +135,7 @@ namespace uiNS {
 
 			if (UserInterface::cursorPointing(NonButtonMap::FLYINGCAMERA))
 			{
-				fpcameraNS::CameraManager::setActiveCameraIndex(1);
+				fpcameraNS::CameraManager::setActiveCameraIndex(fpcameraNS::FLYING_CAMERA_INDEX);
 				UserInterface::phc.substituteButton(NonButtonMap::CAMERAVIEW, NonButtonMap::FLYINGCAMERA, NonButtonMap::FLYINGCAMERA, 0);
 				UserInterface::phc.hideDropDownMenu(NonButtonMap::CAMERAVIEW, 0);
 				UserInterface::phc.showButton(NonButtonMap::CAMERAVIEW, NonButtonMap::FLYINGCAMERA);
@@ -144,7 +144,7 @@ namespace uiNS {
 
 			if (UserInterface::cursorPointing(NonButtonMap::GROUNDCAMERA))
 			{
-				fpcameraNS::CameraManager::setActiveCameraIndex(0);
+				fpcameraNS::CameraManager::setActiveCameraIndex(fpcameraNS::GROUND_CAMERA_INDEX);
 				UserInterface::phc.substituteButton(NonButtonMap::CAMERAVIEW, NonButtonMap::GROUNDCAMERA, NonButtonMap::GROUNDCAMERA, 0);
 				UserInterface::phc.hideDropDownMenu(NonButtonMap::CAMERAVIEW, 0);
 				UserInterface::phc.showButton(NonButtonMap::CAMERAVIEW, NonButtonMap::GROUNDCAMERA);
@@ -153,7 +153,7 @@ namespace uiNS {
 
 			if (UserInterface::cursorPointing(NonButtonMap::PANORAMICCAMERA))
 			{
-				fpcameraNS::CameraManager::setActiveCameraIndex(2);
+				fpcameraNS::CameraManager::setActiveCameraIndex(fpcameraNS::PANORAMIC_CAMERA_INDEX);
 				UserInterface::phc.substituteButton(NonButtonMap::CAMERAVIEW, NonButtonMap::PANORAMICCAMERA, NonButtonMap::PANORAMICCAMERA, 0);
 				UserInterface::phc.hideDropDownMenu(NonButtonMap::CAMERAVIEW, 0);
 				UserInterface::phc.showButton(NonButtonMap::CAMERAVIEW, NonButtonMap::PANORAMICCAMERA);
