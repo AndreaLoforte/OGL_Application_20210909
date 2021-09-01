@@ -251,7 +251,7 @@
     <ClCompile Include="OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp" />
     <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject_moveObject.cpp" />
     <ClCompile Include="OGL_Application\src\UI\printHelperCollector.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_mainCallbackFunc.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_MAIN_CALLBACK_FUNCTION.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_activeCharacterCluster.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\editGames_menuFunctions.cpp" />
     <ClCompile Include="OGL_Application\src\UI\startButton\file_menuFunctions.cpp" />

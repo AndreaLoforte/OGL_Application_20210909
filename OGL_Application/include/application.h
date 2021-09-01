@@ -18,8 +18,7 @@ public :
 	static std::string application_root_dir;
   
 public:
-	Application() {
-	}
+	Application();
 	~Application() {
 		
 	}
@@ -28,7 +27,7 @@ public:
   static GLint window_height;
   static GLfloat aspect;
   
-  static int init();
+  //static int init();
   //static void startup();
   static void shutdown();
   //static void key_callback(GLFWwindow*,int,int,int,int);

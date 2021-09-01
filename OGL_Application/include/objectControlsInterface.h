@@ -23,14 +23,14 @@ namespace objectControlsNS {
 		bool mustPrintEditColor = true;
 		static printHelperNS::PrintHelper ph;
 	public:
-		void key_callbackEditSize(GLFWwindow*, int, int, int, int);
+		/*void key_callbackEditSize(GLFWwindow*, int, int, int, int);
 		void key_callbackEditColor(GLFWwindow*, int, int, int, int);
 		static void setKeyCallbackEditSize(GLFWwindow * window);
 		static void setKeyCallbackEditColor(GLFWwindow * window);
 		static void setScrollCallback(GLFWwindow*);
 		static void ObjectPhysicsSwitcher(myobjectNS::ApplicationObject*);
 		static void ObjectSwitch(collectorNS::ApplicationObjectCollector*);
-		void scroll_callback(GLFWwindow*, double, double);
+		void scroll_callback(GLFWwindow*, double, double);*/
 		static bool mustPrint;
 		
 		

@@ -4,25 +4,47 @@
 #include<baseObject.h>
 #include<applicationDerivedObject.h>
 #include<physics.h>
+#include<objectCollector.h>
 namespace myobjectNS{
 
-  class FrameOfRef :public ApplicationObject,public BaseObject{
+
+	/*perchè FrameOFRef dovrebbe essere un oggetto sferico?
+	Non lo è! mi serve appioppargli la fisica per poterlo spostare
+	come tutti gli altri oggetti. Lo assimilo quindi ad una sfera minuscola
+	centrata nell'origine degli assi*/
+  class FrameOfRef :public ObjectSphere, public ShaderObject{
 	  friend class myphysicsNS::CollisorePolimorfo;
    GLfloat length = 10.0f;
    
  public:
-	 FrameOfRef(std::string sh_prog_name) :
-		 ApplicationObject(sh_prog_name),
-		 BaseObject(sh_prog_name){}
+	 FrameOfRef(std::string sh_prog_name = "frameOfRef") :
+		 ObjectSphere(sh_prog_name),
+		 ShaderObject(sh_prog_name)
+	 {
+		 create();
+	 }
 
    void render(const fpcameraNS::Transformation&) override;
-   void setPosition(float, float, float);
+   void setParameters();
    void create()override;
    FrameOfRef* getNewInstance();
+   
  };
 
 
- 
+  class FrameOfRefOC : public collectorNS::ApplicationObjectCollector {
+
+	  collectorNS::AOcontainer frofr_container;
+	  FrameOfRef frofr;
+  public:
+	  FrameOfRefOC(const string& collName);
+	  FrameOfRefOC(const string& collName, const unsigned& collNumber);
+
+	  FrameOfRefOC* OCgetNewInstance() override;
+	  FrameOfRefOC* OCloadInstance(const unsigned& collNumber) override;
+	  void OCcreateObject() override;
+
+ };
 
 
 

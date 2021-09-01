@@ -40,7 +40,7 @@ namespace myobjectNS {
 
 
 
-	class GroundSurface :public ObjectPlane, public BaseObject {
+	class GroundSurface :public ObjectPlane, public ShaderObject {
 		string objectName = "GroundSurface";
 		static unsigned instanceCounter;
 		unsigned instanceNumber;
@@ -50,20 +50,17 @@ namespace myobjectNS {
 	public:
 		GroundSurface(std::string sh_prog_name = "groundSurface", GLfloat l = 100) :
 			ObjectPlane(sh_prog_name, 100, 0, 100),
-			BaseObject(sh_prog_name)
+			ShaderObject(sh_prog_name)
 		{
-
 			CollisionFinitePlane::size[0] = l;
 			CollisionFinitePlane::size[1] = 0;
 			CollisionFinitePlane::size[2] = l;
 
 			instanceNumber = instanceCounter++;
 			body->RBobjectName = objectName;
-			
-			
+
+			create();
 		}
-
-
 
 		void clean() {}
 		void render(const fpcameraNS::Transformation&) override;
@@ -75,6 +72,7 @@ namespace myobjectNS {
 		void AOsetShaders() override { setShaders(); }
 		void setRigidBodyParameters();
 		void setParameters()override;
+
 		GroundSurface* getNewInstance()override {
 			GroundSurface* s(new GroundSurface("groundSurface"));
 			return s;

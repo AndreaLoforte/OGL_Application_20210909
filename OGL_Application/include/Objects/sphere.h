@@ -8,7 +8,7 @@
 #include<objectCollector.h>
 namespace myobjectNS {
 
-	class Sphere final :public ObjectSphere, public BaseObject{
+	class Sphere final :public ObjectSphere, public ShaderObject{
 		friend class myphysicsNS::CollisorePolimorfo;
 		GLuint VAO, VBO;
 		static int instanceCounter;
@@ -21,7 +21,7 @@ namespace myobjectNS {
 	public:
 		Sphere(std::string sh_prog_name) :
 			ObjectSphere(sh_prog_name),
-			BaseObject(sh_prog_name) {
+			ShaderObject(sh_prog_name) {
 			
 			//body = new RigidBody();
 		}

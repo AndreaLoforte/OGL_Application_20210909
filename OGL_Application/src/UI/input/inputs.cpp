@@ -68,56 +68,56 @@ namespace InputsNS{
 			return;
 		}
 
-		//EDITOBJECT MODE
-		if (mode == 1) 
-		{
-			auto L_key_callbackMove = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
-			{
-				static_cast<Controls*>(glfwGetWindowUserPointer(w))->key_callbackMove(w, i1, i2, i3, i4);
-			};
-			glfwSetKeyCallback(window, L_key_callbackMove);
-			return;
+		////EDITOBJECT MODE
+		//if (mode == 1) 
+		//{
+		//	auto L_key_callbackMove = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
+		//	{
+		//		static_cast<Controls*>(glfwGetWindowUserPointer(w))->key_callbackMove(w, i1, i2, i3, i4);
+		//	};
+		//	glfwSetKeyCallback(window, L_key_callbackMove);
+		//	return;
 
-		}
+		//}
 
-		//EDITGAME MODE
-		if (mode == 2) 
-		{
-			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-			auto L_key_callbackEdit = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
-			{
-				static_cast<Controls*>(glfwGetWindowUserPointer(w))->key_callbackEdit(w, i1, i2, i3, i4);
-			};
-			glfwSetKeyCallback(window, L_key_callbackEdit);
+		////EDITGAME MODE
+		//if (mode == 2) 
+		//{
+		//	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+		//	auto L_key_callbackEdit = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
+		//	{
+		//		static_cast<Controls*>(glfwGetWindowUserPointer(w))->key_callbackEdit(w, i1, i2, i3, i4);
+		//	};
+		//	glfwSetKeyCallback(window, L_key_callbackEdit);
 
-			auto L_cursor_callback = [](GLFWwindow* w, double d1, double d2)
-			{
-				static_cast<Controls*>(glfwGetWindowUserPointer(w))->cursor_callback_editMode(w, d1, d2);
-			};
-			glfwSetCursorPosCallback(window, L_cursor_callback);
+		//	auto L_cursor_callback = [](GLFWwindow* w, double d1, double d2)
+		//	{
+		//		static_cast<Controls*>(glfwGetWindowUserPointer(w))->cursor_callback_editMode(w, d1, d2);
+		//	};
+		//	glfwSetCursorPosCallback(window, L_cursor_callback);
 
-			auto L_mouse_button_callback = [](GLFWwindow* w, int i1, int i2, int i3)
-			{
-				static_cast<Controls*>(glfwGetWindowUserPointer(w))->mouse_button_callback_editMode(w, i1, i2, i3);
-			};
-			glfwSetMouseButtonCallback(window, L_mouse_button_callback);
+		//	auto L_mouse_button_callback = [](GLFWwindow* w, int i1, int i2, int i3)
+		//	{
+		//		static_cast<Controls*>(glfwGetWindowUserPointer(w))->mouse_button_callback_editMode(w, i1, i2, i3);
+		//	};
+		//	glfwSetMouseButtonCallback(window, L_mouse_button_callback);
 
-			return;
-		}
+		//	return;
+		//}
 
-		if (mode == 3) 
-		{
-			auto L_key_callbackESC = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
-			{
-				//casto w a puntatore alla funzione key_callback di Controls
-				static_cast<Controls*>(glfwGetWindowUserPointer(w))->key_callbackESC(w, i1, i2, i3, i4);
-			};
-			glfwSetKeyCallback(window, L_key_callbackESC);
+		//if (mode == 3) 
+		//{
+		//	auto L_key_callbackESC = [](GLFWwindow* w, int i1, int i2, int i3, int i4)
+		//	{
+		//		//casto w a puntatore alla funzione key_callback di Controls
+		//		static_cast<Controls*>(glfwGetWindowUserPointer(w))->key_callbackESC(w, i1, i2, i3, i4);
+		//	};
+		//	glfwSetKeyCallback(window, L_key_callbackESC);
 
-			
+		//	
 
-			return;
-		}
+		//	return;
+		//}
 
 
 

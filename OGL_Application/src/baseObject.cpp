@@ -4,14 +4,14 @@ namespace myobjectNS
 {
 
 
-void BaseObject::clean() {}
-void BaseObject::setTextures() {}
+void ShaderObject::clean() {}
+void ShaderObject::setTextures() {}
 
 
 
 
 
-void BaseObject::printShaderLinkState(const GLint &status, const GLchar *log)
+void ShaderObject::printShaderLinkState(const GLint &status, const GLchar *log)
 {
   if (!status)
   {
@@ -21,7 +21,7 @@ void BaseObject::printShaderLinkState(const GLint &status, const GLchar *log)
 }
 
  
-void BaseObject::printVShaderLog(const char *log)
+void ShaderObject::printVShaderLog(const char *log)
 {
 	logNS::Logger::writeLog("baseObject.cpp : printVShaderLog : vshader for shader_program did not compile", shader_prog_name);
 	logNS::Logger::writeLog("baseObject.cpp : printVShaderLog : VERTEX LOG IS : ",log, shader_prog_name);
@@ -30,7 +30,7 @@ void BaseObject::printVShaderLog(const char *log)
 
 
 
-void BaseObject::printFShaderLog(const char *log)
+void ShaderObject::printFShaderLog(const char *log)
 {
 	logNS::Logger::writeLog("baseObject.cpp : printFShaderLog : fshader for shader_program did not compile", shader_prog_name);
 	logNS::Logger::writeLog("baseObject.cpp : printFShaderLog : FRAGMENT LOG IS : ",log, shader_prog_name);
@@ -43,7 +43,7 @@ void BaseObject::printFShaderLog(const char *log)
 
 
 
-void BaseObject::setShaders()
+void ShaderObject::setShaders()
 {
   shader_prog = glCreateProgram();
 

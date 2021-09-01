@@ -36,11 +36,12 @@ GLFWcursor* getCursor() {
 
 
 
-int Application::init()
+Application::Application()
 {
 
   if(!glfwInit())
-    return 0;
+	  /*SCRIVI LOG E CONSOLE*/
+    //return 0;
   
   //talvolta le hint sono utili talvolta limitano l'estensione
    /*glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);
@@ -64,7 +65,8 @@ int Application::init()
 	if (!window)
 	{
 		glfwTerminate();
-		return 0;
+		/*SCRIVI LOG E CONSOLE*/
+		//return 0;
 	}
 
  
@@ -86,7 +88,8 @@ int Application::init()
     gl3wInit();
 
     glInfo(true);
-    return 1;
+	/*SCRIVI LOG E CONSOLE*/
+    //return 1;
 }  
 
 

@@ -6,7 +6,7 @@
 
 namespace myobjectNS {
 
-	class BoxAABB final :public ObjectAABB, public BaseObject{
+	class BoxAABB final :public ObjectAABB, public ShaderObject{
 		friend class myphysicsNS::CollisorePolimorfo;
 		 GLuint VAO, buffer;
 		static const  int N = 36;
@@ -14,7 +14,7 @@ namespace myobjectNS {
 		
 	public:
 		BoxAABB(std::string sh_prog_name, GLfloat w = 5, GLfloat h = 10, GLfloat d = 8) :
-			ObjectAABB(sh_prog_name,w,h,d), BaseObject(sh_prog_name) {}
+			ObjectAABB(sh_prog_name,w,h,d), ShaderObject(sh_prog_name) {}
 
 	
 

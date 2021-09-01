@@ -36,7 +36,7 @@
 		
 		
 	public:
-		App() {}
+		App():Application::Application(){}
 		~App() {}
 
 		textRendererNS::TextRenderer textRenderer{ "text" };

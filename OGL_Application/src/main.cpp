@@ -13,17 +13,7 @@ int main(){
   
  App app;
   
-  if(!app.init())
-    {
-      std::cout<<"main.cpp : ERROR : app.init() return error"<<std::endl;
-      return -1;
-    }
-    else
-    {
-      std::cout<<"main.cpp : app.init() completed"<<std::endl;
-    }
-    
-    
+  
   app.startup();
 
 

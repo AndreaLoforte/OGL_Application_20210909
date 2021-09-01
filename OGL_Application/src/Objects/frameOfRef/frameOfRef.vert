@@ -1,7 +1,11 @@
 #version 450 core
 //frameofref
-layout (location = 10) uniform mat4 transformMatrix;
+//uniform mat4 transformMatrix;
 //layout (location = 11) uniform float length_;
+
+//in vec4 vertices;
+uniform mat4 modelviewM;
+uniform mat4 transfM;
 
 flat out int index;
 
@@ -22,6 +26,6 @@ void main(){
 
 
 			   index = gl_VertexID;
-     gl_Position = transformMatrix*vertices[gl_VertexID];
+     gl_Position = modelviewM*transfM*vertices[gl_VertexID];
 	 
 }

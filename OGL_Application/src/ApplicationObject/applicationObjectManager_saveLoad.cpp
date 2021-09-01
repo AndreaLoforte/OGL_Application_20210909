@@ -32,54 +32,61 @@ namespace myobjectNS
 		ApplicationCollectorList.clear();
 
 		ifstream in(logNS::Logger::PROJECTDIR + saveloadNS::COLLECTORSAVINGFILE);
-		saveloadNS::CollectorLoader fh(in);
 
-		if (!fh.FileIsEmpty)
+		if (in.is_open())
 		{
-			vector<saveloadNS::CollectorDataStructure>* LoadedCollectors = fh.getCollectors();
+			saveloadNS::CollectorLoader fh(in);
 
-			if (in.is_open())
+			if (!fh.FileIsEmpty)
 			{
-				//CHIUDO E RIAPRO IL FILE PER RIPOSIZIONARE IL CURSORE A ZERO
-				in.close();
-				in.open(logNS::Logger::STOREDDATADIR + App::projectDataFileName);
+				vector<saveloadNS::CollectorDataStructure>* LoadedCollectors = fh.getCollectors();
 
-				for (int i = 0; i < LoadedCollectors->size(); i++)
+				if (in.is_open())
 				{
+					//CHIUDO E RIAPRO IL FILE PER RIPOSIZIONARE IL CURSORE A ZERO
+					in.close();
+					in.open(logNS::Logger::STOREDDATADIR + App::projectDataFileName);
 
-					saveloadNS::CollectorDataStructure collectorData = LoadedCollectors->at(i);
-
-					//carico direttamente i collettori : in base al collectorsID carico un tipo diverso di collettore
-					collectorNS::ApplicationObjectCollector* newColl =
-						AssetNS::Assets::loadCollector(collectorData.collectorsName,collectorData.collectorNumber);
-
-					for (int j = 0; j < newColl->getSize(); j++)
+					for (int i = 0; i < LoadedCollectors->size(); i++)
 					{
-						//newColl->collector ritorna in ogni caso il collettore della classe padre ApplicationObjectCollector
-						//bisogna fetchare il collettore corretto usando il polimorfismo!
-						//newColl->setCollectorID(collectorData.collectorsName,collectorData.collectorNumber);
-						newColl->canSleep(!collectorData.isOn);
-						newColl->getSubObject(j)->setPosition(collectorData.AOobjects[j].AOposition);
-						//newColl->getSubObject(j)->AOTrMatrix = collectorData.AOobjects[j].AOTrMatrix;
-						newColl->getSubObject(j)->setOrientation(collectorData.AOobjects[j].AOorientation);
-						newColl->getSubObject(j)->setColor(collectorData.AOobjects[j].AOcolor);
-						newColl->getSubObject(j)->setSize(collectorData.AOobjects[j].AOsize);
 
-					}
+						saveloadNS::CollectorDataStructure collectorData = LoadedCollectors->at(i);
 
-					ApplicationCollectorList.push_back(newColl);
+						//carico direttamente i collettori : in base al collectorsID carico un tipo diverso di collettore
+						collectorNS::ApplicationObjectCollector* newColl =
+							AssetNS::Assets::loadCollector(collectorData.collectorsName, collectorData.collectorNumber);
 
-				}//for
+						for (int j = 0; j < newColl->getSize(); j++)
+						{
+							//newColl->collector ritorna in ogni caso il collettore della classe padre ApplicationObjectCollector
+							//bisogna fetchare il collettore corretto usando il polimorfismo!
+							//newColl->setCollectorID(collectorData.collectorsName,collectorData.collectorNumber);
+							newColl->canSleep(!collectorData.isOn);
+							newColl->getSubObject(j)->setPosition(collectorData.AOobjects[j].AOposition);
+							//newColl->getSubObject(j)->AOTrMatrix = collectorData.AOobjects[j].AOTrMatrix;
+							newColl->getSubObject(j)->setOrientation(collectorData.AOobjects[j].AOorientation);
+							newColl->getSubObject(j)->setColor(collectorData.AOobjects[j].AOcolor);
+							newColl->getSubObject(j)->setSize(collectorData.AOobjects[j].AOsize);
 
-				initObjectMaps();
+						}
 
-				return true;
-			}
-			else {
-				return false;
+						ApplicationCollectorList.push_back(newColl);
+
+					}//for
+
+					initObjectMaps();
+
+					return true;
+				}
+				else {
+					return false;
+				}
+
 			}
 
 		}
+
+		
 	}
 
 

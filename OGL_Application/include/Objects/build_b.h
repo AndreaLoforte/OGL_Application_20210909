@@ -6,7 +6,7 @@
 
 namespace myobjectNS {
 
-	class Build_b final :public ObjectBox, public BaseObject{
+	class Build_b final :public ObjectBox, public ShaderObject{
 		friend class myphysicsNS::CollisorePolimorfo;
 		 GLuint VAO, buffer;
 		static const  int N = 36;
@@ -14,7 +14,7 @@ namespace myobjectNS {
 		
 	public:
 		Build_b(std::string sh_prog_name, GLfloat w = 5, GLfloat h = 10, GLfloat d = 8) :
-			ObjectBox(sh_prog_name,w,h,d), BaseObject(sh_prog_name) {}
+			ObjectBox(sh_prog_name,w,h,d), ShaderObject(sh_prog_name) {}
 
 	
 

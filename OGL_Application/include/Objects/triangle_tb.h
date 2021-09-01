@@ -8,7 +8,7 @@
 
 namespace myobjectNS {
 
-	class Triangle_tb final :public ApplicationObject, public BaseObject {
+	class Triangle_tb final :public ApplicationObject, public ShaderObject {
 		GLuint triangle_vao;
 		GLuint triangle_buffer;
 		GLuint texture;
@@ -17,7 +17,7 @@ namespace myobjectNS {
 	public:
 		Triangle_tb(std::string sh_prog_name) :
 			ApplicationObject(sh_prog_name),
-			BaseObject(sh_prog_name) {
+			ShaderObject(sh_prog_name) {
 
 		}
 		~Triangle_tb() {

@@ -22,7 +22,7 @@ namespace myobjectNS{
 	static const string VERTEXSHADERSEXT = ".vert";
 	static const string FRAGMENTSHADERSEXT = ".frag";
 
-	class BaseObject {
+	class ShaderObject {
 	public:
 		GLuint VAO;
 		GLuint VBO;
@@ -41,8 +41,8 @@ namespace myobjectNS{
 	   bool readyToDraw = false;
 
   public:
-	  BaseObject(){}
-	  BaseObject(std::string sh_prog_name,std::string shadersDir) {
+	  ShaderObject(){}
+	  ShaderObject(std::string sh_prog_name,std::string shadersDir) {
 		  fullpath = Application::getApplicationRootDir();
 		  fullpath += SHADERSROOTDIR;
 		  shader_prog_name = sh_prog_name;
@@ -54,7 +54,7 @@ namespace myobjectNS{
 
 	  }
 
-    BaseObject(std::string sh_prog_name){
+    ShaderObject(std::string sh_prog_name){
 		fullpath = Application::getApplicationRootDir();
 		fullpath += SHADERSROOTDIR;
 		shader_prog_name = sh_prog_name;

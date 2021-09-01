@@ -4,13 +4,13 @@
 #include<applicationDerivedObject.h>
 namespace myobjectNS {
 
-	class Point final :public ApplicationObject, public BaseObject {
+	class Point final :public ApplicationObject, public ShaderObject {
 		GLuint VAO, buffer;
 
 	public:
 		Point(std::string sh_prog_name) :
 			ApplicationObject(sh_prog_name),
-			BaseObject(sh_prog_name) {
+			ShaderObject(sh_prog_name) {
 
 
 		}

@@ -27,10 +27,10 @@ namespace myobjectNS {
 
 	void ViewFinder::setPosition(float x, float y, float z) {
 
-		/*  BaseObject::offset[0] = x;
-		  BaseObject::offset[1] = y;
-		  BaseObject::offset[2] = z;
-		  BaseObject::offset[3] = 1.0;*/
+		/*  ShaderObject::offset[0] = x;
+		  ShaderObject::offset[1] = y;
+		  ShaderObject::offset[2] = z;
+		  ShaderObject::offset[3] = 1.0;*/
 
 
 	}

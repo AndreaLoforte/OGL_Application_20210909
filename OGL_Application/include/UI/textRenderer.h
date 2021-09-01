@@ -46,7 +46,7 @@ namespace textRendererNS {
 	// A renderer class for rendering text displayed by a font loaded using the 
 	// FreeType library. A single font is loaded, processed into a list of Character
 	// items for later rendering.
-	class TextRenderer : public myobjectNS::ApplicationObject, public myobjectNS::BaseObject
+	class TextRenderer : public myobjectNS::ApplicationObject, public myobjectNS::ShaderObject
 	{
 		
 	public:
@@ -54,7 +54,7 @@ namespace textRendererNS {
 
 		TextRenderer(std::string sh_prog_name) :
 			ApplicationObject(sh_prog_name),
-			BaseObject(sh_prog_name) {}
+			ShaderObject(sh_prog_name) {}
 		
 
 		void render(const fpcameraNS::Transformation&) override;

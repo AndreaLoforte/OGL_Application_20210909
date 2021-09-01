@@ -1,0 +1,126 @@
+--------COLLECTOR--------
+frameOfRef
+COLLECTOR_NUMBER
+17
+OCisOnFlag
+0
+AOobjectName
+frameOfRef
+AOinstanceNumber
+0
+AOposition
+-99 0 -99
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+groundSurface
+COLLECTOR_NUMBER
+18
+OCisOnFlag
+0
+AOobjectName
+groundSurface
+AOinstanceNumber
+5
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+grid
+COLLECTOR_NUMBER
+19
+OCisOnFlag
+0
+AOobjectName
+grid
+AOinstanceNumber
+4
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+frameOfRef
+COLLECTOR_NUMBER
+20
+OCisOnFlag
+0
+AOobjectName
+frameOfRef
+AOinstanceNumber
+0
+AOposition
+102 0 -102
+AOorientation
+0.707107 0 -0.707107 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+frameOfRef
+COLLECTOR_NUMBER
+21
+OCisOnFlag
+0
+AOobjectName
+frameOfRef
+AOinstanceNumber
+0
+AOposition
+-99 0 99
+AOorientation
+0.707107 0 0.707107 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+frameOfRef
+COLLECTOR_NUMBER
+22
+OCisOnFlag
+0
+AOobjectName
+frameOfRef
+AOinstanceNumber
+0
+AOposition
+99 0 99
+AOorientation
+1.80677e-07 0 1 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+5
+--------ENDCOLLECTOR--------

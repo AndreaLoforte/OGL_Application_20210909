@@ -6,7 +6,7 @@
 
 namespace myobjectNS {
 
-	class ViewFinder :public ApplicationObject, public BaseObject {
+	class ViewFinder :public ApplicationObject, public ShaderObject {
 		//GLuint VAO;
 
 		GLfloat length = 10.0f;
@@ -15,7 +15,7 @@ namespace myobjectNS {
 		ViewFinder():ViewFinder("viewfinder"){}
 		ViewFinder(std::string sh_prog_name) :
 			ApplicationObject(sh_prog_name),
-			BaseObject(sh_prog_name) {}
+			ShaderObject(sh_prog_name) {}
 
 		void render(const fpcameraNS::Transformation&) override;
 		void render();

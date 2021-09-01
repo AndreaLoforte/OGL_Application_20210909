@@ -206,7 +206,7 @@ namespace myobjectNS {
 
 	PlayerCharacterOC::~PlayerCharacterOC() 
 	{
-		delete main;
+		//delete main;
 		mainIsSet = false;
 	}
 	

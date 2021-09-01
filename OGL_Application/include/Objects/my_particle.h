@@ -26,7 +26,7 @@ namespace myobjectNS{
      * linear forces, and impulses applied to it. The particle manages
      * its state and allows access through a set of methods.
      */
-    class Particle final :public ApplicationObject, public BaseObject {
+    class Particle final :public ApplicationObject, public ShaderObject {
     public:
 
         GLuint vao;
@@ -35,7 +35,7 @@ namespace myobjectNS{
  public:
  Particle(std::string sh_prog_name):
 	 ApplicationObject(sh_prog_name),
-	 BaseObject(sh_prog_name){
+	 ShaderObject(sh_prog_name){
 	
      
      }

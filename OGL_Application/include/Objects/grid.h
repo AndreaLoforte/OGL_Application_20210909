@@ -9,19 +9,20 @@ class CollisionPlane;
 
 namespace myobjectNS{
 
-	class Grid final :public ObjectPlane, public BaseObject {
+	class Grid final :public ObjectPlane, public ShaderObject {
 		friend class myphysicsNS::CollisorePolimorfo;
 		static unsigned instanceCounter;
 		GLuint groundTex;
-		GLuint VAO;
+		//GLuint VAO;
 	public:
 		Grid(std::string sh_prog_name):
 			ObjectPlane(sh_prog_name,100,0,100),
-			BaseObject(sh_prog_name){
+			ShaderObject(sh_prog_name){
 
 			instanceNumber = instanceCounter++;
 			body->RBobjectName = sh_prog_name;
 		
+			create();
 		}
 		void clean() {}
 		void create()override;

@@ -64,7 +64,10 @@ namespace myobjectNS{
 		virtual ApplicationObject* getNewInstance();
 		//virtual collectorNS::ApplicationObjectCollector* getCollector();
 		std::string AOgetInstanceID();
+
+		/*getRBObjectID ritorna l'ID del Rigid Body associato a questo AO (Application Object)*/
 		virtual std::string getRBObjectID() { return "RigidBodyID undefined"; }
+		virtual RigidBody* getRB();
 		std::string AOobjectName;
 
 		/*matrice di trasformazione complessiva del corpo (traslazione + rotazione)*/
@@ -102,7 +105,7 @@ namespace myobjectNS{
 		virtual int getHealt() { return -1; }
 		virtual void setHealt(const int&){}
 		virtual void switchPhysics(const bool v){}
-		virtual RigidBody* getRB();
+		
 		void AOcanSleep(const bool v)
 		{
 			AOisOn = !v;

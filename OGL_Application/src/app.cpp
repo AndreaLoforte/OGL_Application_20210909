@@ -112,7 +112,7 @@ bool App::loadProjectData(string projectName) {
 	{
 		/*retriving default project name*/
 		string s = logNS::Logger::PROJECTMAINDIR + defaultProjectFileName;
-		ifstream infile(s);
+ 		ifstream infile(s);
 		infile >> App::projectDataFileName;
 	}
 

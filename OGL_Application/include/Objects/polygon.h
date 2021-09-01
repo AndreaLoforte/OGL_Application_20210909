@@ -8,9 +8,9 @@
 namespace myobjectNS {
 
 
-	class Polygon : public ApplicationObject, public BaseObject{
+	class Polygon : public ApplicationObject, public ShaderObject{
 	public:
-		Polygon(const string& s):BaseObject(s),ApplicationObject(s)
+		Polygon(const string& s):ShaderObject(s),ApplicationObject(s)
 		{
 			AOobjectName = s;
 		}

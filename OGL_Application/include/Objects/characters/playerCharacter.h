@@ -11,7 +11,7 @@
 namespace myobjectNS {
 
 	
-	class PlayerCharacter final :public ObjectSphere, public BaseObject{
+	class PlayerCharacter final :public ObjectSphere, public ShaderObject{
 		GLuint VAO, VBO;
 		static int instanceCounter;
 		static constexpr GLuint N = 100, M = 50;
@@ -30,7 +30,7 @@ namespace myobjectNS {
 
 		PlayerCharacter(std::string sh_prog_name = "playercharacter") :
 			ObjectSphere(sh_prog_name),
-			BaseObject(sh_prog_name,"characters/playercharacter/") {
+			ShaderObject(sh_prog_name,"characters/playercharacter/") {
 			AOcolor[0] = 1.0;
 			AOcolor[0] = .5;
 			AOcolor[0] = .5;

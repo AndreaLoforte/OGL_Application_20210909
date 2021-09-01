@@ -8,7 +8,7 @@
 #include<objectCollector.h>
 namespace myobjectNS {
 
-	class Triangle final :public ApplicationObject, public BaseObject{
+	class Triangle final :public ApplicationObject, public ShaderObject{
 		GLuint triangle_vao;
 		GLuint triangle_buffer;
 		const unsigned vai = 0;
@@ -16,7 +16,7 @@ namespace myobjectNS {
 	public:
 		Triangle(std::string sh_prog_name) :
 			ApplicationObject(sh_prog_name),
-			BaseObject(sh_prog_name) {
+			ShaderObject(sh_prog_name) {
 		
 		}
 		~Triangle() {

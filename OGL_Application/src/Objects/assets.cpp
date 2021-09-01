@@ -51,7 +51,7 @@ namespace AssetNS {
 		assetAOList.push_back(new myobjectNS::Polygon("polygon"));
 		assetAOList.push_back(new myobjectNS::Build("object1"));//dentro file object1
 		assetAOList.push_back(new myobjectNS::Sphere("sphere"));
-		assetAOList.push_back(new myobjectNS::FrameOfRef("frameOfRef"));
+		//assetAOList.push_back(new myobjectNS::FrameOfRef("frameOfRef"));
 		assetAOList.push_back(new myobjectNS::Build_b("build"));
 		//assetAOList.push_back(new myobjectNS::BoxAABB("boxAABB"));
 		assetAOList.push_back(new myobjectNS::Triangle("triangle"));
@@ -74,6 +74,7 @@ namespace AssetNS {
 		assetsList.push_back(new myobjectNS::EnemyOC("Enemy"));
 		assetsList.push_back(new myobjectNS::PlayerCharacterOC());
 		assetsList.push_back(new myobjectNS::GroundSurfaceOC("groundSurface"));
+		assetsList.push_back(new myobjectNS::FrameOfRefOC("frame_of_Ref"));
 
 		//ogni applicationObject viene wrappato in un collector
 		//un collector può contenere più object

@@ -50,63 +50,68 @@ namespace activeObjectManagerNS
 
 		string savings = logNS::Logger::PROJECTDIR + saveloadNS::ACTIVEOBJECTSAVINGFILE;
 		ifstream in(savings);
-		saveloadNS::ActiveObjectLoader fh(in);
+		if(in.is_open())
+		{
+			saveloadNS::ActiveObjectLoader fh(in);
 
-		try {
-			if (!fh.FileIsEmpty)
-			{
-				vector<saveloadNS::ActiveObjectDataStructure>* LoadedCollectors = fh.getCollectors();
-
-				if (in.is_open())
+			try {
+				if (!fh.FileIsEmpty)
 				{
-					//CHIUDO E RIAPRO IL FILE PER RIPOSIZIONARE IL CURSORE A ZERO
-					in.close();
-					in.open(savings);
+					vector<saveloadNS::ActiveObjectDataStructure>* LoadedCollectors = fh.getCollectors();
 
-					for (int i = 0; i < LoadedCollectors->size(); i++)
+					if (in.is_open())
 					{
+						//CHIUDO E RIAPRO IL FILE PER RIPOSIZIONARE IL CURSORE A ZERO
+						in.close();
+						in.open(savings);
 
-						saveloadNS::ActiveObjectDataStructure collectorData = LoadedCollectors->at(i);
-
-						//carico direttamente i collettori : in base al collectorsID carico un tipo diverso di collettore
-						collectorNS::ActiveObject* newColl =
-							(AssetNS::Assets::loadActiveObject(collectorData.collectorName, collectorData.collectorNumber));
-
-						add(newColl);
-
-						newColl->setActivityGround(collectorData.activityGroundID);
-
-						for (int j = 0; j < newColl->getSize(); j++)
+						for (int i = 0; i < LoadedCollectors->size(); i++)
 						{
-							newColl->canSleep(!collectorData.isOn);
-							newColl->getSubObject(j)->setPosition(collectorData.AOobjects[j].AOposition);
-							newColl->getSubObject(j)->setOrientation(collectorData.AOobjects[j].AOorientation);
-							newColl->getSubObject(j)->setColor(collectorData.AOobjects[j].AOcolor);
-							newColl->getSubObject(j)->setSize(collectorData.AOobjects[j].AOsize);
 
-						}
+							saveloadNS::ActiveObjectDataStructure collectorData = LoadedCollectors->at(i);
 
-						ApplicationObjectManager::ApplicationCollectorList.push_back(newColl);
-						
-						
-					}//for
+							//carico direttamente i collettori : in base al collectorsID carico un tipo diverso di collettore
+							collectorNS::ActiveObject* newColl =
+								(AssetNS::Assets::loadActiveObject(collectorData.collectorName, collectorData.collectorNumber));
 
-					ApplicationObjectManager::initObjectMaps();
+							add(newColl);
 
-					return true;
+							newColl->setActivityGround(collectorData.activityGroundID);
+
+							for (int j = 0; j < newColl->getSize(); j++)
+							{
+								newColl->canSleep(!collectorData.isOn);
+								newColl->getSubObject(j)->setPosition(collectorData.AOobjects[j].AOposition);
+								newColl->getSubObject(j)->setOrientation(collectorData.AOobjects[j].AOorientation);
+								newColl->getSubObject(j)->setColor(collectorData.AOobjects[j].AOcolor);
+								newColl->getSubObject(j)->setSize(collectorData.AOobjects[j].AOsize);
+
+							}
+
+							ApplicationObjectManager::ApplicationCollectorList.push_back(newColl);
+
+
+						}//for
+
+						ApplicationObjectManager::initObjectMaps();
+
+						return true;
+					}
+					else 
+					{
+						return false;
+					}
+
 				}
-				else {
-					return false;
-				}
+			}
+			catch (const std::exception& ex) {
 
+				printHelperNS::PrintHelper ph("activeObjectManager", 0.5, 0.5);
+				ph.mapNewString("LOADWARNING", "FAILED TO LOAD DEFAULT PROJECT");
+				return false;
 			}
 		}
-		catch (const std::exception& ex) {
-			
-			printHelperNS::PrintHelper ph("activeObjectManager", 0.5, 0.5);
-			ph.mapNewString("LOADWARNING", "FAILED TO LOAD DEFAULT PROJECT");
-			return false;
-		}
+		
 	}
 
 

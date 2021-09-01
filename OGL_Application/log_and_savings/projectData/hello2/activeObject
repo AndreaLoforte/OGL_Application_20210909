@@ -1,0 +1,23 @@
+--------ACTIVEOBJECT--------
+playercharacter
+COLLECTOR_NUMBER
+13
+OCisOnFlag
+0
+ACTIVE_OBJECT_ACTIVITYGROUND_ID
+
+AOobjectName
+playercharacter
+AOinstanceNumber
+0
+AOposition
+-237.649 100.705 50.9755
+AOorientation
+0.785762 0.582864 -0.00307623 -0.206985
+AOcolor
+0 0.764842 0.764842 0.8
+AOisOnFlag
+1
+DOsize
+5
+--------ACTIVEOBJECTEND--------

@@ -13,7 +13,7 @@
 
 namespace myobjectNS {
 
-	class Enemy final :public ObjectSphere, public BaseObject{
+	class Enemy final :public ObjectSphere, public ShaderObject{
 		
 		friend class myphysicsNS::CollisorePolimorfo;
 		friend class OCEnemy;
@@ -27,7 +27,7 @@ namespace myobjectNS {
 	public:
 		Enemy(std::string sh_prog_name) :
 			ObjectSphere(sh_prog_name),
-			BaseObject(sh_prog_name, "characters/enemy/") {
+			ShaderObject(sh_prog_name, "characters/enemy/") {
 			AOcolor[0] = 1.0;
 			AOcolor[0] = .5;
 			AOcolor[0] = .5;

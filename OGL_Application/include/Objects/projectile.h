@@ -9,7 +9,7 @@
 
 namespace myobjectNS{
 
-  class Projectile final :public ObjectSphere, public BaseObject{
+  class Projectile final :public ObjectSphere, public ShaderObject{
 	  friend class myphysicsNS::CollisorePolimorfo;
 	  friend class Gun;
 	  GLuint VAO;
@@ -28,7 +28,7 @@ namespace myobjectNS{
  public:
 	 Projectile(std::string sh_prog_name = "projectile", std::array<float, 3> fireSpot = { 0.0,0.0,0.0 }) :
 		 ObjectSphere(sh_prog_name),
-		 BaseObject(sh_prog_name)
+		 ShaderObject(sh_prog_name)
 	 {
 		 radius = 2.0;
 		 AOposition = fireSpot;

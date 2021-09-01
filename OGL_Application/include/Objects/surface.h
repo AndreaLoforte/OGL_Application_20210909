@@ -10,7 +10,7 @@ class CollisionPlane;
 
 namespace myobjectNS{
 
-	class Surface :public ObjectPlane, public BaseObject{
+	class Surface :public ObjectPlane, public ShaderObject{
 		friend class myphysicsNS::CollisorePolimorfo;
 		GLuint VAO, VBO;
 		string objectName = "Surface";
@@ -21,7 +21,7 @@ namespace myobjectNS{
 	public:
 		Surface(std::string sh_prog_name, GLfloat l = 100):
 			ObjectPlane(sh_prog_name,100,0,100),
-			BaseObject(sh_prog_name) 
+			ShaderObject(sh_prog_name) 
 		{
 
 			CollisionFinitePlane::size[0] = l;
