@@ -155,7 +155,13 @@ namespace myobjectNS
 		ObjectBox* getNewInstance()override;
 		//collectorNS::ObjectBoxCollector* getCollector() override;
 		void specializedSave(std::ofstream&) override;
-		//void setParameters() override{}
+		void setSize(const std::vector<float>& sz) override
+		{
+			AOsize = sz;
+			L1 = AOsize.at(0);
+			L2 = AOsize.at(1);
+			L3 = AOsize.at(2);
+		}
 		void changeDimensions(const GLfloat& w, const GLfloat& h, const GLfloat& d)
 		{
 			L1 = w;

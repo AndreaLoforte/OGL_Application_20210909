@@ -64,7 +64,7 @@ namespace myobjectNS {
 	//////////////////////////////////////////////////////////////////77
 
 
-	class EnemyOC final :public collectorNS::ActiveObject {
+	class EnemyOC final :public collectorNS::ActiveObjectCollector {
 
 		friend class myphysicsNS::CollisorePolimorfo;
 		/*tutti gli oggetti e i sottooggetti afferenti ad EnemyOC

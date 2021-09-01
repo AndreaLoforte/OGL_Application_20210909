@@ -86,7 +86,7 @@ namespace saveloadNS {
 	public:
 		static ofstream out;
 		bool savingSessionIsOpen = false;
-		static void save(collectorNS::ActiveObject* coll, std::string& filename);
+		static void save(collectorNS::ActiveObjectCollector* coll, std::string& filename);
 	};
 
 

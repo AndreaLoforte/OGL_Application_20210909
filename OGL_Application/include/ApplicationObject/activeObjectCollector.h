@@ -10,17 +10,17 @@ namespace myobjectNS {
 using namespace std;
 namespace collectorNS {
 
-	class ActiveObject : public ApplicationObjectCollector {
+	class ActiveObjectCollector : public ApplicationObjectCollector {
 	public:
-		ActiveObject(const std::string collName, AOcontainer* c) :
+		ActiveObjectCollector(const std::string collName, AOcontainer* c) :
 			ApplicationObjectCollector(collName, c),
 			activeObjectID(collName) {}
 
-		ActiveObject(const std::string collName,const unsigned& collNumber, AOcontainer* c) :
+		ActiveObjectCollector(const std::string collName,const unsigned& collNumber, AOcontainer* c) :
 			activeObjectID(collName),
 			ApplicationObjectCollector(collName, collNumber,c) {}
 
-		virtual ~ActiveObject() override;
+		virtual ~ActiveObjectCollector() override;
 		const std::string activeObjectID;
 		int healt = 100;
 		bool isAlive = true;
@@ -32,7 +32,7 @@ namespace collectorNS {
 		virtual void setActivityGround(const string&) {}
 		virtual myobjectNS::GroundSurfaceOC* getActivityGround() { return NULL; }
 		virtual string getCollectorName() override { return collectorName; }
-		virtual ActiveObject* OCloadActiveObject(const unsigned& collNumber);
+		virtual ActiveObjectCollector* OCloadActiveObject(const unsigned& collNumber);
 		void OCsave(std::string& out) override;
 	};
 

@@ -45,7 +45,7 @@ namespace uiNS {
 
 		for (int i = 0; i < c.group.size(); i++)
 		{
-			static_cast<collectorNS::ActiveObject*>(c.group[i])->setActivityGround(gs);
+			static_cast<collectorNS::ActiveObjectCollector*>(c.group[i])->setActivityGround(gs);
 			UserInterface::phc.showButton(ButtonMap::EDITOBJECTMODEBUTTON, "ground setted for "+c.group[i]->collectorID);
 		}
 			

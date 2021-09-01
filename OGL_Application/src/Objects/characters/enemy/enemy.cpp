@@ -124,7 +124,7 @@ void EnemyOC::OCupdate(const float& duration)
 }
 
 EnemyOC::EnemyOC(const string& collName ) : 
-	ActiveObject(collName, ApplicationObjectCollector::collectorCounter++,&enemycoll)
+	ActiveObjectCollector(collName, ApplicationObjectCollector::collectorCounter++,&enemycoll)
 {
 	enemycoll.push_back(&enemyBody);
 	brain.setTarget(myobjectNS::PlayerCharacterOC::getPlayer());
@@ -134,7 +134,7 @@ EnemyOC::EnemyOC(const string& collName ) :
 
 
 EnemyOC::EnemyOC(const string& collName, const unsigned& collNumber) :
-	ActiveObject(collName, collNumber, &enemycoll)
+	ActiveObjectCollector(collName, collNumber, &enemycoll)
 {
 	enemycoll.push_back(&enemyBody);
 	brain.setTarget(myobjectNS::PlayerCharacterOC::getPlayer());

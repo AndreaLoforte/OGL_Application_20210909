@@ -67,7 +67,7 @@ namespace aiNS {
 	}
 
 
-	void myfirstIA::follow(collectorNS::ActiveObject* obj,collectorNS::ActiveObject* target)
+	void myfirstIA::follow(collectorNS::ActiveObjectCollector* obj,collectorNS::ActiveObjectCollector* target)
 	{
 		//if (!target) return;
 		bool target_is_set = target;
@@ -194,7 +194,7 @@ namespace aiNS {
 
 
 
-	void myfirstIA::setTarget(collectorNS::ActiveObject* t) 
+	void myfirstIA::setTarget(collectorNS::ActiveObjectCollector* t) 
 	{ 
 		target = dynamic_cast<myobjectNS::PlayerCharacterOC*>(t); 
 		AIon = true;
@@ -228,8 +228,8 @@ namespace aiNS {
 
 
 	void myfirstIA::shoot(
-		collectorNS::ActiveObject* obj,
-		collectorNS::ActiveObject* target,
+		collectorNS::ActiveObjectCollector* obj,
+		collectorNS::ActiveObjectCollector* target,
 		const unsigned& repFreq,
 		myobjectNS::OCGun& gun)
 	{
@@ -271,8 +271,8 @@ namespace aiNS {
 
 			auto lambda_updateEnemyHealt = [&]
 			{
-				collectorNS::ActiveObject * obj = 
-					static_cast<collectorNS::ActiveObject*>
+				collectorNS::ActiveObjectCollector * obj = 
+					static_cast<collectorNS::ActiveObjectCollector*>
 					(ApplicationObjectManager::getObjectByRBID(contact.body[obj_index]->RBobjectID));
 
 				if(!obj->damage())

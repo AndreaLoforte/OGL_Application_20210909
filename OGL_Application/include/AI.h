@@ -46,7 +46,7 @@ namespace aiNS {
 		bool seekAndDest = true;
 		/*IA cache all the relevant pointers of the
 		controlled object*/
-		collectorNS::ActiveObject* myself;
+		collectorNS::ActiveObjectCollector* myself;
 		myobjectNS::ApplicationObject* mybody;
 		RigidBody *myRB;
 		
@@ -72,18 +72,18 @@ namespace aiNS {
 		int gunTimer = 0;
 		int gunRepFreq = 100;
 	public:	
-		myfirstIA(collectorNS::ActiveObject* I):myself(I)
+		myfirstIA(collectorNS::ActiveObjectCollector* I):myself(I)
 		{
 			mybody = myself->getBody();
 			myRB = mybody->getRB();
 			currentPosition = myRB->position;
 		}
 
-		void follow(collectorNS::ActiveObject* obj, collectorNS::ActiveObject* target);
+		void follow(collectorNS::ActiveObjectCollector* obj, collectorNS::ActiveObjectCollector* target);
 		/*spotfire, spotTarget, gun*/
 		void shoot(const std::array<float,3>&, const std::array<float, 3>&,const unsigned&,myobjectNS::OCGun&);
-		void shoot(collectorNS::ActiveObject*, collectorNS::ActiveObject*,  const unsigned&, myobjectNS::OCGun&);
-		void setTarget(collectorNS::ActiveObject* t);
+		void shoot(collectorNS::ActiveObjectCollector*, collectorNS::ActiveObjectCollector*,  const unsigned&, myobjectNS::OCGun&);
+		void setTarget(collectorNS::ActiveObjectCollector* t);
 		void update();
 		const bool& seekAndDestroy();
 		void moveRandomly();

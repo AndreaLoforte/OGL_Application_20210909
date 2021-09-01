@@ -18,7 +18,7 @@ namespace myobjectNS {
 namespace collectorNS{
 
 	typedef std::vector<myobjectNS::ApplicationObject*> AOcontainer;
-	class ActiveObject;
+	class ActiveObjectCollector;
 
 	///////////////////////////////////////APPLICATIONOBJECT COLLECTOR///////////////////////////////////////
 
@@ -85,7 +85,7 @@ public:
 	virtual ApplicationObjectCollector* getCopy();
 	virtual std::string getCollectorName();
 	virtual ApplicationObjectCollector* OCloadInstance(const unsigned& collNumber);
-	virtual ActiveObject* OCloadActiveObject(const unsigned& collNumber);
+	virtual ActiveObjectCollector* OCloadActiveObject(const unsigned& collNumber);
 	virtual void  deleteAtPos(const int&);
 	static ApplicationObjectCollector* getCollector(myobjectNS::ApplicationObject*);
 	virtual void canSleep(bool);

@@ -1,20 +1,20 @@
-#include<build_b.h>
+#include<Box_physical.h>
 
 namespace myobjectNS {
 
-	void Build_b::render(const fpcameraNS::Transformation& cam)
+	void Box_physical::render(const fpcameraNS::Transformation& cam)
 	{
 		
 		glUseProgram(shader_prog);
 		glBindVertexArray(VAO);
 		
-		GLuint modelviewT_loc = glGetUniformLocation(shader_prog, "modelviewT");
-		GLuint physicsT_loc = glGetUniformLocation(shader_prog, "physicsT");
+		GLuint modelviewT_attrib_loc = glGetUniformLocation(shader_prog, "modelviewT");
+		GLuint AOTrMatrix_attrib_loc = glGetUniformLocation(shader_prog, "AOTrMatrix");
 
 
 		glUniform4fv(0, 1, AOcolor);
-		glUniformMatrix4fv(physicsT_loc, 1, GL_FALSE, AOTrMatrix);
-		glUniformMatrix4fv(modelviewT_loc, 1, GL_FALSE, cam.getPlayerCamera());
+		glUniformMatrix4fv(AOTrMatrix_attrib_loc, 1, GL_FALSE, AOTrMatrix);
+		glUniformMatrix4fv(modelviewT_attrib_loc, 1, GL_FALSE, cam.getPlayerCamera());
 		
 
 		glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -26,7 +26,7 @@ namespace myobjectNS {
 
 
 
-	void Build_b::update(const float& duration){
+	void Box_physical::update(const float& duration){
 
 		/*body->integrate(duration);
 		CollisionPrimitive::calculateInternals();*/
@@ -37,15 +37,14 @@ namespace myobjectNS {
 	}
 
 
-	void Build_b::setParameters() {
+	void Box_physical::setParameters() {
 
 		setRigidBodyParameters();
+		create();
 
 	}
-	
 
-
-	void Build_b::setRigidBodyParameters() {
+	void Box_physical::setRigidBodyParameters() {
 
 		body->clearAccumulators();
 
@@ -70,12 +69,18 @@ namespace myobjectNS {
 
 		body->setAcceleration(Vector3::GRAVITY);
 
+		/*la funzione _calculateTransformMatrix va a settare la matrice body->transformMatrix
+		in base ai vettori position e orientation. Questa matrice viene utilizzata in tutta la parte fisica
+		ma non può essere inviata allo shader (non è il formato adatto per openGL). Pertanto si utilizza
+		la funzione getGLTransform per scrivere su AOTrMatrix la matrice da inviare allo shader per
+		trasformare il disegno*/
 		body->_calculateTransformMatrix(body->transformMatrix,body->position,body->orientation);
+		body->getGLTransform(AOTrMatrix);
 		CollisionPrimitive::calculateInternals();
 
 	}
 
-	void Build_b::setPosition(const std::array<float, 3>& pos) {
+	void Box_physical::setPosition(const std::array<float, 3>& pos) {
 
 		/*position[0] = x;
 		position[1] = y;
@@ -87,7 +92,7 @@ namespace myobjectNS {
 
 
 
-	void Build_b::create() {
+	void Box_physical::create() {
 
 		GLfloat w = L1/2, h = L2/2, d = L3/2, s = 1.0f;
 		using namespace vmath;

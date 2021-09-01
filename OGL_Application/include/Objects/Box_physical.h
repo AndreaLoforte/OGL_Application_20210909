@@ -6,20 +6,26 @@
 
 namespace myobjectNS {
 
-	class Build_b final :public ObjectBox, public ShaderObject{
+	class Box_physical final :public ObjectBox, public ShaderObject{
+		const string className = "Box_physical";
 		friend class myphysicsNS::CollisorePolimorfo;
 		 GLuint VAO, buffer;
 		static const  int N = 36;
 		vmath::vec4 vertices[N];
 		
 	public:
-		Build_b(std::string sh_prog_name, GLfloat w = 5, GLfloat h = 10, GLfloat d = 8) :
-			ObjectBox(sh_prog_name,w,h,d), ShaderObject(sh_prog_name) {}
+		Box_physical(std::string sh_prog_name, GLfloat w = 5, GLfloat h = 10, GLfloat d = 8) :
+			ObjectBox(sh_prog_name,w,h,d), ShaderObject(sh_prog_name) 
+		{
+			create();
+		}
 
 	
 
 		void render(const fpcameraNS::Transformation&) override;
+		/*questa funzione setta i parametri fisici*/
 		void setPosition(const std::array<float,3>&);
+		/*questa funzione setta la matrice per il disegno*/
 		void setRigidBodyParameters();
 		void setParameters()override;
 		void create()override;
@@ -27,8 +33,8 @@ namespace myobjectNS {
 		void reset()override {
 			setRigidBodyParameters();
 		}
-		Build_b* getNewInstance()override { 
-			Build_b *b(new Build_b("build"));
+		Box_physical* getNewInstance()override { 
+			Box_physical *b(new Box_physical(className));
 			return b; 
 		}
 

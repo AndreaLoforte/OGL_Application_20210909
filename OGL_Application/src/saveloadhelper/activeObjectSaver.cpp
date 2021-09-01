@@ -10,7 +10,7 @@ namespace saveloadNS {
 
 	ofstream ActiveObjectSaver::out;
 
-	void ActiveObjectSaver::save(collectorNS::ActiveObject* coll, std::string& projectName)
+	void ActiveObjectSaver::save(collectorNS::ActiveObjectCollector* coll, std::string& projectName)
 	{
 
 		saveloadNS::dataSaver::ofstreamList.insert(&out);

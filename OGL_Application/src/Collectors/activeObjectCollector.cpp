@@ -8,14 +8,14 @@ namespace collectorNS {
 
 	
 
-	ActiveObject::~ActiveObject()
+	ActiveObjectCollector::~ActiveObjectCollector()
 	{
 		activeObjectManagerNS::ActiveObjectManager::del(this);
 	}
 
 
 
-	const bool& ActiveObject::damage(const int& i)
+	const bool& ActiveObjectCollector::damage(const int& i)
 	{
 
 		healt -= i;
@@ -27,14 +27,14 @@ namespace collectorNS {
 	}
 	
 
-	void ActiveObject::OCsave(std::string& filename)
+	void ActiveObjectCollector::OCsave(std::string& filename)
 	{
 		saveloadNS::ActiveObjectSaver::save(this, filename);
 
 	}
 
 	
-	ActiveObject* ActiveObject::OCloadActiveObject( const unsigned& collNumber)
+	ActiveObjectCollector* ActiveObjectCollector::OCloadActiveObject( const unsigned& collNumber)
 	{
 		return 0;
 	}

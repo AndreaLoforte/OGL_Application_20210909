@@ -124,7 +124,7 @@ void ApplicationObjectManager::kill(const string& RBobjectID)
 
 }
 
-void ApplicationObjectManager::kill(const collectorNS::ActiveObject* obj){}
+void ApplicationObjectManager::kill(const collectorNS::ActiveObjectCollector* obj){}
 
 collectorNS::ApplicationObjectCollector* 
 ApplicationObjectManager::getObjectByRBID(std::string RBobjectID)

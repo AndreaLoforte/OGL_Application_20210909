@@ -195,7 +195,7 @@
     <ClInclude Include="OGL_Application\include\Objects\characters\enemy.h" />
     <ClInclude Include="OGL_Application\include\Objects\characters\playerCharacter.h" />
     <ClInclude Include="OGL_Application\include\Objects\assets.h" />
-    <ClInclude Include="OGL_Application\include\Objects\build_b.h" />
+    <ClInclude Include="OGL_Application\include\Objects\Box_physical.h" />
     <ClInclude Include="OGL_Application\include\Objects\point.h" />
     <ClInclude Include="OGL_Application\include\Objects\surface.h" />
     <ClInclude Include="OGL_Application\include\UI\buttonEditObject.h" />
@@ -294,7 +294,7 @@
     <ClCompile Include="OGL_Application\src\Collectors\activeObjectCollector.cpp" />
     <ClCompile Include="OGL_Application\src\Collectors\objectCollector.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\assets.cpp" />
-    <ClCompile Include="OGL_Application\src\Objects\build\build_b.cpp" />
+    <ClCompile Include="OGL_Application\src\Objects\Box_physical\Box_physical.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\gun.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\point\point.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\surface\surface.cpp" />
@@ -335,8 +335,8 @@
     <None Include="OGL_Application\src\Objects\projectile\projectile.frag" />
     <None Include="OGL_Application\src\Objects\projectile\projectile.vert" />
     <None Include="OGL_Application\src\Objects\sphere\sphere.frag" />
-    <None Include="OGL_Application\src\Objects\build\build.frag" />
-    <None Include="OGL_Application\src\Objects\build\build.vert" />
+    <None Include="OGL_Application\src\Objects\Box_physical\Box_physical.frag" />
+    <None Include="OGL_Application\src\Objects\Box_physical\Box_physical.vert" />
     <None Include="OGL_Application\src\Objects\characters\enemy\enemyBody.frag" />
     <None Include="OGL_Application\src\Objects\characters\enemy\enemyBody.vert" />
     <None Include="OGL_Application\src\Objects\characters\playercharacter\playercharacter.frag" />

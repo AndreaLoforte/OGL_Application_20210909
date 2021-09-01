@@ -72,21 +72,21 @@ namespace myobjectNS {
 /////////////////////////////////////////////////////////////
 	///////////////////////////////
 
-	class PlayerCharacterOC final :public collectorNS::ActiveObject {
+	class PlayerCharacterOC final :public collectorNS::ActiveObjectCollector {
 		
 		collectorNS::AOcontainer playerContainer;
 		OCGun gun{&playerContainer};
 		PlayerCharacter pc;
 
 	public:
-		/*ogni oggetto che creo ha un puntatore
+		/*ogni avtive object che creo ha un puntatore
 		all'oggetto principale (in realtà vorrei
 		non poter creare altri player)*/
 		static PlayerCharacterOC* main;
 		static bool mainIsSet;
 
 		PlayerCharacterOC() :
-			ActiveObject("playercharacter", &playerContainer)
+			ActiveObjectCollector("playercharacter", &playerContainer)
 		{
 			main = this;
 			mainIsSet = true;
@@ -108,7 +108,7 @@ namespace myobjectNS {
 		void changeFirepower(const double& yscroll);
 
 		ApplicationObject* getBody() { return &pc; }
-		ActiveObject* OCloadActiveObject(const unsigned& collNumber) override
+		ActiveObjectCollector* OCloadActiveObject(const unsigned& collNumber) override
 		{	
 			InputsNS::Controls::setPlayer(main);
 			return main;

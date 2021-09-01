@@ -73,7 +73,7 @@ namespace myobjectNS{
 		static collectorNS::ApplicationObjectCollector* getObjectByCollectorID(const std::string& s);
 		static std::string printEditableObjectInfos();
 		static void kill(const std::string&);
-		static void kill(const collectorNS::ActiveObject*);
+		static void kill(const collectorNS::ActiveObjectCollector*);
 		
 		
 	};

@@ -44,7 +44,7 @@ namespace AssetNS {
 		static myobjectNS::ApplicationObject* getNewObject(int index);
 		static collectorNS::ApplicationObjectCollector* getNewCollector(int index);
 		static collectorNS::ApplicationObjectCollector* loadCollector(const string& name, const unsigned& number);
-		static collectorNS::ActiveObject* loadActiveObject(const string& Collname, const unsigned& number);
+		static collectorNS::ActiveObjectCollector* loadActiveObject(const string& Collname, const unsigned& number);
 
 	};
 

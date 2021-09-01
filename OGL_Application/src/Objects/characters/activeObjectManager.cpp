@@ -10,9 +10,9 @@ using namespace myobjectNS;
 namespace activeObjectManagerNS
 {
 
-	vector<collectorNS::ActiveObject*>  ActiveObjectManager::activeObjectlist;
+	vector<collectorNS::ActiveObjectCollector*>  ActiveObjectManager::activeObjectlist;
 
-	void ActiveObjectManager::add(collectorNS::ActiveObject* p)
+	void ActiveObjectManager::add(collectorNS::ActiveObjectCollector* p)
 	{
 		activeObjectlist.push_back(p);
 	}
@@ -29,9 +29,9 @@ namespace activeObjectManagerNS
 	}
 
 
-	bool ActiveObjectManager::del(collectorNS::ActiveObject* p)
+	bool ActiveObjectManager::del(collectorNS::ActiveObjectCollector* p)
 	{
-		vector<collectorNS::ActiveObject*>::iterator it;
+		vector<collectorNS::ActiveObjectCollector*>::iterator it;
 		for (it = activeObjectlist.begin(); it != activeObjectlist.end(); it++)
 			if ((*it)->collectorID == p->collectorID)
 			{
@@ -71,7 +71,7 @@ namespace activeObjectManagerNS
 							saveloadNS::ActiveObjectDataStructure collectorData = LoadedCollectors->at(i);
 
 							//carico direttamente i collettori : in base al collectorsID carico un tipo diverso di collettore
-							collectorNS::ActiveObject* newColl =
+							collectorNS::ActiveObjectCollector* newColl =
 								(AssetNS::Assets::loadActiveObject(collectorData.collectorName, collectorData.collectorNumber));
 
 							add(newColl);

@@ -5,7 +5,7 @@
 #include<triangle_b.h>
 #include<triangle_tb.h>
 #include<point.h>
-#include<build_b.h>
+#include<Box_physical.h>
 #include<object1.h>
 #include<grid.h>
 #include<surface.h>
@@ -52,7 +52,7 @@ namespace AssetNS {
 		assetAOList.push_back(new myobjectNS::Build("object1"));//dentro file object1
 		assetAOList.push_back(new myobjectNS::Sphere("sphere"));
 		//assetAOList.push_back(new myobjectNS::FrameOfRef("frameOfRef"));
-		assetAOList.push_back(new myobjectNS::Build_b("build"));
+		assetAOList.push_back(new myobjectNS::Box_physical("Box_physical"));
 		//assetAOList.push_back(new myobjectNS::BoxAABB("boxAABB"));
 		assetAOList.push_back(new myobjectNS::Triangle("triangle"));
 		assetAOList.push_back(new myobjectNS::Point("point"));
@@ -116,14 +116,14 @@ namespace AssetNS {
 		return newColl;
 	}
 
-	collectorNS::ActiveObject* Assets::loadActiveObject(const string& Collname, const unsigned& number)
+	collectorNS::ActiveObjectCollector* Assets::loadActiveObject(const string& Collname, const unsigned& number)
 	{
 		//checking if collector name is found among assets
 		map<string, int>::iterator it = assetIndex.find(Collname);
 		if (it == assetIndex.end()) return NULL;
 
 		/*if found, load collector*/
-		collectorNS::ActiveObject* newColl =
+		collectorNS::ActiveObjectCollector* newColl =
 			(assetsList[assetIndex.at(Collname)]->OCloadActiveObject(number));
 
 		

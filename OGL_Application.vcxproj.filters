@@ -162,9 +162,6 @@
     <ClInclude Include="OGL_Application\include\Objects\boxAABB.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\Objects\build_b.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\Objects\cluster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -357,6 +354,9 @@
     <ClInclude Include="OGL_Application\include\UI\buttonEditSounds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\Box_physical.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
@@ -406,9 +406,6 @@
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Objects\boxAABB\boxAABB.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\Objects\build\build_b.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Objects\characters\enemy\enemy.cpp">
       <Filter>Source Files\characters</Filter>
@@ -653,14 +650,11 @@
     <ClCompile Include="OGL_Application\src\baseObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\Box_physical\Box_physical.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="OGL_Application\src\Objects\build\build.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
-    </None>
-    <None Include="OGL_Application\src\Objects\build\build.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
-    </None>
     <None Include="OGL_Application\src\Objects\characters\playercharacter\playercharacter.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\playercharacter</Filter>
     </None>
@@ -754,6 +748,12 @@
     </None>
     <None Include="OGL_Application\src\Objects\characters\enemy\enemyBody.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\character\enemy</Filter>
+    </None>
+    <None Include="OGL_Application\src\Objects\Box_physical\Box_physical.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
+    </None>
+    <None Include="OGL_Application\src\Objects\Box_physical\Box_physical.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
     </None>
   </ItemGroup>
 </Project>

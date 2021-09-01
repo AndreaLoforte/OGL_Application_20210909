@@ -172,11 +172,11 @@ namespace collectorNS {
 		return coll;
 	}
 
-	ActiveObject* ApplicationObjectCollector::OCloadActiveObject(const unsigned& collNumber)
+	ActiveObjectCollector* ApplicationObjectCollector::OCloadActiveObject(const unsigned& collNumber)
 	{
 
-		ActiveObject* coll
-		(new ActiveObject(ApplicationObjectCollector::collectorName, collNumber, new AOcontainer));
+		ActiveObjectCollector* coll
+		(new ActiveObjectCollector(ApplicationObjectCollector::collectorName, collNumber, new AOcontainer));
 
 		for (int i = 0; i < Pcontainer->size(); i++)
 			coll->Pcontainer->push_back(Pcontainer->at(i)->getNewInstance());

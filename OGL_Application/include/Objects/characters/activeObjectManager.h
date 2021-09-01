@@ -12,12 +12,12 @@ namespace activeObjectManagerNS
 	class ActiveObjectManager
 	{
 	public:
-		static vector<collectorNS::ActiveObject*> activeObjectlist;
+		static vector<collectorNS::ActiveObjectCollector*> activeObjectlist;
 
-		static void add(collectorNS::ActiveObject* p);
+		static void add(collectorNS::ActiveObjectCollector* p);
 		static vector<string> getACID();
 		static bool loadActiveObjects(string filename);
-		static bool del(collectorNS::ActiveObject*);
+		static bool del(collectorNS::ActiveObjectCollector*);
 	};
 
 
