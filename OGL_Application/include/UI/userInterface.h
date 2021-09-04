@@ -22,6 +22,7 @@ namespace uiNS {
 		static InputsNS::Controls* control;
 		/*phc : printHelper collector*/
 		static printHelperNS::PrintHelperCollector phc;
+		static printHelperNS::Timed_PrintHelper timed_ph;
 		static StartButton* start;
 		static vector<ButtonInterface*> buttonFlow;
 		static double cursor_x, cursor_y;

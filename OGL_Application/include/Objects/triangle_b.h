@@ -1,7 +1,7 @@
 #ifndef TRIANGLE_OBJ
 #define TRIANGLE_OBJ
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 #include<assert.h>
 //#include<collide_fine.h>

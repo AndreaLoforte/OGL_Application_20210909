@@ -63,6 +63,7 @@ namespace saveloadNS {
 		bool FileIsEmpty = false;
 		void setTAGLIST(const vector<string>& tagList);
 		void loadLine(const string& TAG, FileMap& fmTarget);
+		void loadAttributeFloat(float& f_number, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
 		void loadAllCollectorsMap(map<string, FileMap>& TAGLIST);
 		void loadAttributeString(string& targetString, const size_t& pos_start, const size_t& pos_end, FileMap& fm);
 		void loadAttributeArray(array<float, 3>& dataStorage, const size_t& pos_start, const size_t& pos_end, FileMap& fm);

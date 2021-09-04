@@ -1,13 +1,14 @@
 #version 450 core
 layout (location = 0) in vec4 triangle;
-uniform mat4 transformMatrix;
+uniform mat4 modelviewMatrix;
+uniform mat4 AOTrMatrix;
 
 out vec2 tex_coords;
 
 void main(void)
 {
-	//tex_coords = (transformMatrix*triangle).xy;
+	//tex_coords = (modelviewMatrix*triangle).xy;
 	
-	gl_Position = transformMatrix*triangle;
+	gl_Position = modelviewMatrix*AOTrMatrix*triangle;
 	tex_coords = triangle.xy;
 }

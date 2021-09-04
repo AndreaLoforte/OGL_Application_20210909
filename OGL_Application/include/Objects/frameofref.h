@@ -1,7 +1,7 @@
 #ifndef FOR_OBJ
 #define FOR_OBJ
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 #include<physics.h>
 #include<objectCollector.h>
@@ -12,20 +12,20 @@ namespace myobjectNS{
 	Non lo è! mi serve appioppargli la fisica per poterlo spostare
 	come tutti gli altri oggetti. Lo assimilo quindi ad una sfera minuscola
 	centrata nell'origine degli assi*/
-  class FrameOfRef :public ObjectSphere, public ShaderObject{
+  class FrameOfRef :public ApplicationObject, public ShaderObject{
 	  friend class myphysicsNS::CollisorePolimorfo;
-   GLfloat length = 10.0f;
+	  GLfloat length = 10.0f;
    
  public:
 	 FrameOfRef(std::string sh_prog_name = "frameOfRef") :
-		 ObjectSphere(sh_prog_name),
+		 ApplicationObject(sh_prog_name),
 		 ShaderObject(sh_prog_name)
 	 {
 		 create();
 	 }
 
    void render(const fpcameraNS::Transformation&) override;
-   void setParameters();
+   //void setParameters();
    void create()override;
    FrameOfRef* getNewInstance();
    

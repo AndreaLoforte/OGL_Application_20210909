@@ -34,6 +34,7 @@ namespace uiNS
 		static void editClusterMenu(GLFWwindow* w, int button, int action_, int mods);
 		static void key_callbackEditColor(GLFWwindow* window, int key, int scancode, int action, int mods);
 		static void key_callbackEditSize(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void key_callback_scale(GLFWwindow* window, int key, int scancode, int action, int mods);
 		static void ObjectSwitch(collectorNS::ApplicationObjectCollector* obj);
 		static void clusterSwitch();
 		static void key_callbackClusterColor(GLFWwindow* window, int key, int scancode, int action, int mods);

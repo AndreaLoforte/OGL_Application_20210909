@@ -12,29 +12,15 @@ namespace printHelperNS {
 	public:
 		PrintHelper(
 			const std::string& pOwner,
-			const float& x = 0.0,
-			const float& y = 0.0,  
-			const float& scale = 0.3) :
-			printerOwner(pOwner),
-			mapIDbutton_button{ x,y,scale }
-		{
-				printerID = pOwner;
-		}
-
+			const float x = 0.0,
+			const float y = 0.0,
+			const float scale = 0.3);
 		PrintHelper(
 			const std::string& pOwner,
 			const std::string& pID,
-			const float& x = 0.0,
-			const float& y = 0.0,
-			const float& scale = 0.3) :
-			printerOwner(pOwner),
-			printerID(pID),
-			mapIDbutton_button{ x,y,scale }
-		{}
-
-
-
-
+			const float x = 0.0,
+			const float y = 0.0,
+			const float scale = 0.3);
 
 		~PrintHelper() {
 			delete[] VBO;
@@ -73,6 +59,35 @@ namespace printHelperNS {
 		string getHeader() { return mapIDbutton_button.begin()->getButtonID(); }
 	};
 
+	/***********************************************************************/
+	/***********************************************************************/
+	/***********************************************************************/
+
+	/*PRINT HELPER A TEMPO PER LA STAMPA DI WARNING E MESSAGGI TEMPORANEI*/
+
+	class Timed_PrintHelper : public PrintHelper{
+		friend class TextRenderer;
+		std::string printerOwner;
+		std::string printerID;
+		unsigned frame_counter = 0;
+	public:
+		Timed_PrintHelper(
+			const std::string pOwner,
+			const float x = 0.0,
+			const float y = 0.0,
+			const float scale = 0.3,
+			const array<float,4> color = { 0.8f,0.5f,0.0f,1.f });
+
+		float color_text[4] = { 0.3f,0.6f,0.8f,1.0f };
+		static bool triggered;
+		textRendererNS::ButtonsList mapIDbutton_button;
+		void updateRenderer();
+	};
+
+
+	/***********************************************************************/
+	/***********************************************************************/
+	/***********************************************************************/
 
 
 

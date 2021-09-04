@@ -25,32 +25,111 @@ namespace myobjectNS {
 	}
 
 
-		//void ObjectPlane::AOtrX(int sign)	{
-		//	AOTrMatrix = vmath::translate(AOshift[0] * sign, 0.0f, 0.0f)*AOTrMatrix;
-		//	setParameters();
-		//}
-		//void ObjectPlane::AOtrY(int sign)	{
-		//	AOTrMatrix = vmath::translate(0.0f, AOshift[0] * sign, 0.0f)*AOTrMatrix;
-		//	setParameters();
-		//}
-		//void ObjectPlane::AOtrZ(int sign)	{
-		//	AOTrMatrix = vmath::translate(0.0f, 0.0f, AOshift[0] * sign)*AOTrMatrix;
-		//	setParameters();
-		//}
-		//void ObjectPlane::AOrotX(int sign)	{
-		//	AOTrMatrix *= vmath::rotate(AOrot[0] * sign, vmath::vec3(1.0f, .0f, 0.0f));
-		//	setParameters();
-		//}
-		//void ObjectPlane::AOrotY(int sign)	{
-		//	AOTrMatrix *= vmath::rotate(AOrot[0] * sign, vmath::vec3(.0f, 1.0f, 0.0f));
-		//	/*sempre specificare f per float!*/
-		//	setParameters();
-		//}
-		//void ObjectPlane::AOrotZ(int sign)	{
-		//	AOTrMatrix *= vmath::rotate(AOrot[0] * sign, vmath::vec3(.0f, 0.0f, 1.0f));
-		//	/*sempre specificare f per float!*/
-		//	setParameters();
-		//}
+	/*############################## SET SIZE, CHANGE DIMENSION ############################*/
+	void ObjectAABB::changeDimensions(const GLfloat& w, const GLfloat& h, const GLfloat& d)
+	{
+		L1 = w;
+		L2 = h;
+		L3 = d;
+		create();
+	}
+	void ObjectAABB::setSize(const std::vector<float>& sz)
+	{
+		changeDimensions(sz[0], sz[1], sz[2]);
+	}
+
+	
+
+
+	void ObjectBox::setSize(const std::vector<float>& sz)
+	{
+		AOsize = sz;
+		L1 = AOsize.at(0);
+		L2 = AOsize.at(1);
+		L3 = AOsize.at(2);
+	}
+	void ObjectBox::changeDimensions(const GLfloat& w, const GLfloat& h, const GLfloat& d)
+	{
+		L1 = w;
+		L2 = h;
+		L3 = d;
+		halfSize[0] = L1 / 2;
+		halfSize[1] = L2 / 2;
+		halfSize[2] = L3 / 2;
+		create();
+	}
+
+
+	void ObjectPlane::changeDimensions(const GLfloat& w, const GLfloat& h)
+	{
+		CollisionFinitePlane::size[0] = w;
+		CollisionFinitePlane::size[1] = 0;
+		CollisionFinitePlane::size[2] = h;
+
+		ApplicationObject::setSize({ w,0,h });
+		create();
+	}
+
+	/*chiamata da application manager in loading*/
+	void ObjectPlane::setSize(const std::vector<float>& sz)
+	{
+		size[0] = sz[0];
+		size[1] = sz[1];
+		size[2] = sz[2];
+
+		ApplicationObject::setSize(sz);
+		/*AOsize.push_back(sz[0]);
+		AOsize.push_back(sz[1]);
+		AOsize.push_back(sz[2]);*/
+
+	}
+
+
+	void ObjectSphere::changeRadius(float Rad)
+	{
+		DOradius = Rad;
+		radius = DOradius;
+		create();
+	}
+	void ObjectSphere::setSize(const std::vector<float>& sz)
+	{
+		changeRadius(sz[0]);
+	}
+
+	/*#################### SCALE OBJECT ####################################à*/
+
+	void ObjectSphere::scaleDimension(const float& s)
+	{
+		/*Matrix4 scaleMat = Matrix4();
+		scaleMat.setDiagonal(s, s, s);
+		body->transformMatrix = body->transformMatrix * scaleMat;*/
+		radius = radius * s;
+	}
+
+
+	void ObjectBox::scaleDimension(const float& s)
+	{
+		Matrix4 scaleMat = Matrix4();
+		scaleMat.setDiagonal(s, s, s);
+		body->transformMatrix = body->transformMatrix * scaleMat;
+	}
+
+	void ObjectPlane::scaleDimension(const float& s)
+	{
+		Matrix4 scaleMat = Matrix4();
+		scaleMat.setDiagonal(s, s, s);
+		body->transformMatrix = body->transformMatrix * scaleMat;
+	}
+
+	void ObjectAABB::scaleDimension(const float& s)
+	{
+		Matrix4 scaleMat = Matrix4();
+		scaleMat.setDiagonal(s, s, s);
+		body->transformMatrix = body->transformMatrix * scaleMat;
+	}
+
+
+	/*#####################################*/
 
 		
 
@@ -195,7 +274,59 @@ namespace myobjectNS {
 		return obj;
 	}
 
+	/*################# DO_CAN_SLEEP ###################################*/
+	void ObjectSphere::DOcanSleep(const bool& v)
+	{
+		body->canSleep = v;
+		body->isAwake = !v;
+	}
 
+	void ObjectBox::DOcanSleep(const bool& v)
+	{
+		body->canSleep = v;
+		body->isAwake = !v;
+	}
+
+	void ObjectAABB::DOcanSleep(const bool& v)
+	{
+		body->canSleep = v;
+		body->isAwake = !v;
+	}
+
+	void ObjectPlane::DOcanSleep(const bool& v)
+	{
+		body->canSleep = v;
+		body->isAwake = !v;
+	}
+
+	/*################### UPDATE PHYSICS ################################*/
+
+	void ObjectSphere::updatePhysics(const float& duration)
+	{
+		body->integrate(duration);
+		calculateInternals();
+	}
+
+
+	void ObjectBox::updatePhysics(const float& duration) 
+	{
+		body->integrate(duration);
+		calculateInternals();
+	}
+
+
+	void ObjectAABB::updatePhysics(const float& duration)
+	{
+		body->integrate(duration);
+		calculateInternals();
+	}
+
+
+	void ObjectPlane::updatePhysics(const float& duration)
+	{
+		body->integrate(duration);
+		calculateInternals();
+	}
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////

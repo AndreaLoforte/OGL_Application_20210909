@@ -3,12 +3,13 @@
 namespace myobjectNS {
 
 
-	void Triangle_tb::render(fpcameraNS::Transformation& cam)
+	void Triangle_tb::render(const fpcameraNS::Transformation& cam)
 	{
 
 		glUseProgram(shader_prog);
 		static GLuint va_location = glGetAttribLocation(shader_prog, "triangle");
-		static GLuint transformMatrix_Location = glGetUniformLocation(shader_prog, "transformMatrix");
+		static GLuint modelview_attrib_location = glGetUniformLocation(shader_prog, "modelviewMatrix");
+		static GLuint AOTrMatrix_attrib_location = glGetUniformLocation(shader_prog, "AOTrMatrix");
 		static GLuint sampler_location = glGetUniformLocation(shader_prog, "s");
 
 		glBindVertexArray(triangle_vao);
@@ -16,10 +17,11 @@ namespace myobjectNS {
 		glEnableVertexArrayAttrib(triangle_vao, va_location);
 		
 		glUniform1i(sampler_location, 0);
-		glUniformMatrix4fv(transformMatrix_Location, 1, GL_FALSE, cam.getPlayerCamera());
+		glUniformMatrix4fv(modelview_attrib_location, 1, GL_FALSE, cam.getPlayerCamera());
+		glUniformMatrix4fv(AOTrMatrix_attrib_location, 1, GL_FALSE, AOTrMatrix);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glDisableVertexArrayAttrib(triangle_vao, va_location);
-
+		glBindVertexArray(-1);
 	}
 
 	void Triangle_tb::create() {
@@ -51,9 +53,13 @@ namespace myobjectNS {
 		glTextureStorage2D(texture, 1, GL_RGBA32F, 256, 256);
 		glBindTexture(GL_TEXTURE_2D, texture);
 		
+
+		string stem = "/OGL_Application/textures/Crater_Cluster.png";
+		stem = Application::application_root_dir.c_str() + stem;
+
 		texture = SOIL_load_OGL_texture
 		(
-			"C:/Users/lofor/Source/Repos/OGL_Application-master/root/OGL_Application/Textures/2016-12-24-PHOTO-00003910.png",
+			stem.c_str(),
 			SOIL_LOAD_AUTO,
 			SOIL_CREATE_NEW_ID,
 			SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT

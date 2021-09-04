@@ -16,6 +16,7 @@ namespace saveloadNS {
 		unsigned instanceNumber;
 		vmath::mat4 AOTrMatrix;
 		std::array<float, 3> AOposition;
+		float AOscale;
 		std::vector<float> AOsize;
 		vmath::vec4 AOcolor;
 		mymathlibNS::Quaternion AOorientation;
@@ -57,6 +58,7 @@ namespace saveloadNS {
 			COLLECTORNUMBER,
 			OBJECTNAMETAG,
 			AOPOSITIONTAG,
+			AOSCALE,
 			AOORIENTATIONTAG,
 			AOTRMATRIXTAG,
 			AOINSTANCENUMBERTAG,
@@ -88,6 +90,7 @@ namespace saveloadNS {
 			AOORIENTATIONTAG,
 			AOTRMATRIXTAG,
 			AOINSTANCENUMBERTAG,
+			AOSCALE,
 			AOCOLORTAG,
 			DOSIZETAG,
 			AOISONFLAGTAG;

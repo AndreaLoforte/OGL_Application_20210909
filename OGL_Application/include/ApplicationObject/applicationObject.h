@@ -28,6 +28,7 @@ namespace myobjectNS{
 		float deltaShift = 3.0;
 		std::array<float,3> AOrot{ 0.0,0.0,0.0 };
 		std::vector<float> AOsize;
+		float scale;
 		mymathlibNS::Quaternion AOorientation{ 1.0,0.0,0.0,0.0 };//quaternione unitario
 		std::array<float, 3> AOposition;
 		vmath::vec4 AOcolor{ 0.5,0.5,0.5,0.5 };
@@ -50,7 +51,7 @@ namespace myobjectNS{
 		void AOupdate(const float& duration);
 		virtual void update(const float& duration) {}
 		virtual void updatePhysics(const float& duration){}
-		virtual void setParameters() {}
+		virtual void setParameters();
 		void virtual AOtrX(int sign) ;
 		void virtual AOtrY(int sign) ;
 		void virtual AOtrZ(int sign) ;
@@ -80,45 +81,18 @@ namespace myobjectNS{
 		const std::array<float, 3>& getPosition() { return AOposition; }
 		void setOrientation(mymathlibNS::Quaternion q) { AOorientation = q; }
 		const mymathlibNS::Quaternion& getOrientation() { return AOorientation; }
-		virtual void setColor(const vmath::vec4& col)
-		{
-			AOcolor[0] = col[0];
-			AOcolor[1] = col[1];
-			AOcolor[2] = col[2];
-			AOcolor[3] = col[3];
-
-		}
-		virtual void changeColor(const std::vector<float>& col)
-		{
-			AOcolor[0] = col[0];
-			AOcolor[1] = col[1];
-			AOcolor[2] = col[2];
-			AOcolor[3] = col[3];
-		}
-		virtual void setSize(const std::vector<float>& sz)
-		{
-			AOsize = sz;
-		}
-	
+		virtual void setColor(const vmath::vec4& col);
+		virtual void changeColor(const std::vector<float>& col);
+		virtual void setSize(const std::vector<float>& sz);
+		virtual void scaleDimension(const float&);
 		virtual void makesound(){}
 		/*funzione da sovrascrivere nelle final classes*/
 		virtual int getHealt() { return -1; }
 		virtual void setHealt(const int&){}
 		virtual void switchPhysics(const bool v){}
-		
-		void AOcanSleep(const bool v)
-		{
-			AOisOn = !v;
-			DOcanSleep(v);
-		}
-		
+		void AOcanSleep(const bool v);
 		virtual void DOcanSleep(const bool&){}
-
-
-		virtual void setCollectorOwnership(const std::string s)
-		{
-			AOcollectorOwnershipID = s;
-		}
+		virtual void setCollectorOwnership(const std::string s);
 
 		
 

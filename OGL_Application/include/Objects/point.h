@@ -1,6 +1,6 @@
 #pragma once
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 namespace myobjectNS {
 

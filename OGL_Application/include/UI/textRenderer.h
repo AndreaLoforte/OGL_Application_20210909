@@ -13,7 +13,7 @@
 #include<gl3w.h>
 #include<glfw3.h>
 #include <glm.hpp>
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<string>
 #include<applicationObject.h>
 
@@ -46,33 +46,32 @@ namespace textRendererNS {
 	// A renderer class for rendering text displayed by a font loaded using the 
 	// FreeType library. A single font is loaded, processed into a list of Character
 	// items for later rendering.
-	class TextRenderer : public myobjectNS::ApplicationObject, public myobjectNS::ShaderObject
+	class TextRenderer : public myobjectNS::ApplicationObject
 	{
-		
+		static myobjectNS::ShaderObject shaderObj;
 	public:
 		static vector<printHelperNS::PrintHelper*> printList;
 
 		TextRenderer(std::string sh_prog_name) :
-			ApplicationObject(sh_prog_name),
-			ShaderObject(sh_prog_name) {}
+			ApplicationObject(sh_prog_name)
+		{
+			shaderObj.setShaders();
+		}
 		
 
-		void render(const fpcameraNS::Transformation&) override;
-		void RenderText(printHelperNS::PrintHelper&);
+		static void render(const vector<printHelperNS::PrintHelper*> ph = printList);
+		static void RenderText(printHelperNS::PrintHelper&);
 		void create()override;
 		static void Load(std::string font, GLuint fontSize);// Pre-compiles a list of characters from the given font
-		static void refreshText();
 		static void printMatrix44(std::string& , vmath::mat4&, std::string);
 		static void printEditableObjectInfos();
 
-		
-		
 	private:
 		// Holds a list of pre-compiled Characters
 		static std::map<GLchar, Character> charMap;
 		static GLfloat x_off, y_off;
-		GLfloat xy_offset[2];
-		GLfloat integral_x_advance = 0;
+		static GLfloat xy_offset[2];
+		static GLfloat integral_x_advance;
 		static bool printInfos ;
 		
 		

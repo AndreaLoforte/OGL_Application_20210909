@@ -1,7 +1,7 @@
 #ifndef TEXTURED_BUFFERED_TRIANGLE_OBJ
 #define TEXTURED_BUFFERED_TRIANGLE_OBJ
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 #include<assert.h>
 #include<objectCollector.h>
@@ -25,7 +25,7 @@ namespace myobjectNS {
 		}
 		void clean() {}
 		void update(double duration) {}
-		void render(fpcameraNS::Transformation&);
+		void render(const fpcameraNS::Transformation&) override;
 		Triangle_tb* getNewInstance()override { 
 			Triangle_tb *t(new Triangle_tb("triangle_tb"));
 			return t; 

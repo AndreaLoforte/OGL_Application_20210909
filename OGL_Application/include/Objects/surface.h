@@ -1,7 +1,7 @@
  #ifndef SURFACE_OBJ
 #define SURFACE_OBJ
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 #include<physics.h>
 #include<array>

@@ -1,7 +1,7 @@
  #ifndef GROUND_OBJ
 #define GROUND_OBJ
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 #include<physics.h>
 #include<objectCollector.h>

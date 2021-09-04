@@ -1,18 +1,40 @@
 #pragma once
 #include<PrintHelper.h>
+#include<userInterface.h>
 namespace printHelperNS {
 
 	
 		void PrintHelperCollector::updateRenderer()
-		{
-			
+		{	
 			for (it = printHmap.begin(); it != printHmap.end(); it++)
 			{
 				textRendererNS::TextRenderer::printList.push_back(&it->second);
 			}
-
-				
 		}
+
+		void Timed_PrintHelper::updateRenderer()
+		{
+			static vector<printHelperNS::PrintHelper*> timed_ph;
+			//if(!triggered)
+			{
+				timed_ph = vector<printHelperNS::PrintHelper*>{ &UserInterface::timed_ph };
+				textRendererNS::TextRenderer::render(timed_ph);
+				triggered = true;
+			}
+			/*if (frame_counter == 1000)
+			{
+				triggered = false;
+				frame_counter = 0;
+			}
+				
+			
+			frame_counter++;*/
+			
+		} 
+
+
+
+
 
 
 		PrintHelper& PrintHelperCollector::getPH(unsigned index)
@@ -46,7 +68,7 @@ namespace printHelperNS {
 
 
 
-		/*-phID specifies which branch this text should be putted under
+		/*-phID specifies which branch (that is, which printHelper inside the map) this text should be putted under
 		-stringID specifies an ID for this text : under the same phID, text
 		with the same stringID will be ovverridden.
 		- text is the actual text shown
@@ -54,10 +76,10 @@ namespace printHelperNS {
 		-scale specify the scale for this button*/
 		void PrintHelperCollector::showButton(const string& phID, const string& stringID, const string& text, const unsigned& buttonLevel, const float& scale )
 		{
-				
 			it = printHmap.find(phID);
 			if (it == printHmap.end())
 			{
+				
 				static PrintHelper p{ "WARNINGPRINT",-0.4,-0.8,0.0 };
 				textRendererNS::TextRenderer::printList.push_back(&p);
 				p.mapButtonOnBranch("WARNINGPRINT", 
@@ -198,6 +220,11 @@ namespace printHelperNS {
 				printHmap.erase(it);
 		}
 
+
+		/*#################################################################*/
+		/*TIMED PRINT HELPER*/
+
+		
 
 
 

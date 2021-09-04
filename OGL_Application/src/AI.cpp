@@ -119,7 +119,18 @@ namespace aiNS {
 
 	void myfirstIA::moveInsideBoundaries(array<float, 3>& targetPos)
 	{
+		/*CONTROLLO CHE IL PUNTATORE SIA VALIDO*/
+		if (!activityArea)
+		{
+			/*INSERISCO LA STRINGA DI WARNING SOLO SE NON E' GIA' STAMPATA A SCHERMO*/
+			//if (!UserInterface::timed_ph.triggered)
+				UserInterface::timed_ph.mapNewString("WARNING_ACTIVITY_AREA_NOT_INITIALIZED", "The Active Object " + this->myself->activeObjectID + " WAS NOT ASSIGNED TO ANY GROUND SURFACE");
+			return;
+		}
 		myobjectNS::ApplicationObject* surface = activityArea->getBody();
+		
+		
+
 
 		/*inverto la matrice di trasformazione del piano*/
 		vmath::mat4 inverse_groundSurfaceTransf_matrix = mymathlibNS::inverseMatrix(activityArea->getBody()->AOTrMatrix);

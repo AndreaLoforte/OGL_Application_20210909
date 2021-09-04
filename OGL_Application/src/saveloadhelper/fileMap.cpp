@@ -16,6 +16,23 @@ namespace saveloadNS {
 			TAGLIST.emplace(tagList[i], FileMap(tagList[i]));
 	}
 
+	void FileHelper::loadAttributeFloat(float& f_number, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
+	{
+		for (int k = 0; k < fm.getSize(); k++)
+		{
+			size_t fetchedData_posInFile = fm.getPos(k);
+
+			if (fetchedData_posInFile > pos_start && fetchedData_posInFile < pos_end)
+			{
+				std::string s = fm.getLine(k);
+				f_number = std::strtof(s.c_str(),NULL);
+			}
+		}
+
+	}
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 #ifndef VIEWFINDER_OBJ
 #define VIEWFINDER_OBJ
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 
 namespace myobjectNS {

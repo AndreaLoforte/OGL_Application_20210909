@@ -23,11 +23,6 @@ namespace myobjectNS {
 		glBindVertexArray(-1);
 	}
 
-	void Grid::render()
-	{
-	}
-
-
 	void Grid::setPosition(float x, float y, float z) {
 	}
 

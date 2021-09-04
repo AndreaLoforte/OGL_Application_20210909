@@ -32,13 +32,13 @@ namespace myobjectNS{
 	 glCreateVertexArrays(1, &VAO);
   }
 
-  void FrameOfRef::setParameters() {
+ /* void FrameOfRef::setParameters() {
 
 	  body->setPosition(AOposition[0], AOposition[1], AOposition[2]);
 	  body->setOrientation(AOorientation[0], AOorientation[1], AOorientation[2], AOorientation[3]);
 	  body->_calculateTransformMatrix(body->transformMatrix, body->position, body->orientation);
 	  body->getGLTransform(AOTrMatrix);
-  }
+  }*/
 
 
 

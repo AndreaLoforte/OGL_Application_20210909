@@ -3,6 +3,71 @@
 #include<buttonsList.h>
 namespace printHelperNS {
 
+	bool Timed_PrintHelper::triggered = false;
+
+	/*COSTRUTTORI*/
+	Timed_PrintHelper::Timed_PrintHelper(const std::string pOwner,const float x,const float y,const float scale,const std::array<float, 4> color) :
+		printerOwner(pOwner),
+		mapIDbutton_button{ x,y,scale },
+		PrintHelper(pOwner, x, y, scale)
+	{
+		printerID = pOwner;		
+	}
+
+
+	PrintHelper::PrintHelper(const std::string& pOwner,const float x,const float y,const float scale) :
+		printerOwner(pOwner),
+		mapIDbutton_button{ x,y,scale }
+	{
+		printerID = pOwner;
+		
+	}
+
+	PrintHelper::PrintHelper(const std::string& pOwner, const std::string& pID, const float x, const float y, const float scale) :
+		printerOwner(pOwner),
+		printerID(pID),
+		mapIDbutton_button{ x,y,scale }
+	{
+
+	}
+
+	/*#############################*/
+
+	/*static attribute of the class*/
+	GLuint PrintHelper::classVBBI = 0;
+
+	void PrintHelper::create()
+	{
+		VBO = new GLuint;
+		VBO_size = 1;
+		/*do not use glGenBuffer*/
+		glCreateBuffers(VBO_size, VBO);
+		initBuffer();
+		glGenVertexArrays(1, &VAO);
+		instanceVBBI = classVBBI;
+		classVBBI++;
+	}
+
+
+	/*##################*/
+
+
+	void PrintHelper::initBuffer() {
+
+
+		GLfloat vertices[6][4];
+		for (int i = 0; i < VBO_size; i++)
+		{
+			glNamedBufferStorage(VBO[i], sizeof(vertices), vertices, GL_DYNAMIC_STORAGE_BIT);
+		}
+	}
+
+
+/*###############################*/
+
+
+
+
 	
 
 	void PrintHelper::mapNewString(std::string id, std::string s)
@@ -88,33 +153,9 @@ namespace printHelperNS {
 	}
 
 	
-	/*static attribute of the class*/
-	GLuint PrintHelper::classVBBI = 0;
-
-	void PrintHelper::create() 
-	{
-		VBO = new GLuint;
-		VBO_size = 1;
-		/*do not use glGenBuffer*/
-		glCreateBuffers(VBO_size, VBO);
-		initBuffer();
-		glGenVertexArrays(1, &VAO);
-		instanceVBBI = classVBBI;
-		classVBBI++;
-	}
-
-	void PrintHelper::initBuffer() {
 
 
-		GLfloat vertices[6][4];
-		for (int i = 0; i < VBO_size; i++)
-		{
-			glNamedBufferStorage(VBO[i], sizeof(vertices), vertices, GL_DYNAMIC_STORAGE_BIT);
-		}
-	}
-
-
-
+	
 
 	
 

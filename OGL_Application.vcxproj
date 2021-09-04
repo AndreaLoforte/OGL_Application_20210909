@@ -75,7 +75,7 @@
     <LibraryPath>C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;.\root\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;C:\Users\lofor\Source\Repos\OGL_Application-master\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>.\OGL_Application\root\OGL_Application\include\LibAndFacility;.\OGL_Application\root\OGL_Application\include\cameraTransformations;.\OGL_Application\root\OGL_Application\include\ApplicationObject;.\OGL_Application\root\OGL_Application\include\Objects;.\OGL_Application\root\OGL_Application\include\Objects\UI;.\OGL_Application\root\OGL_Application\include\Objects\characters;.\OGL_Application\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\OGL_Application\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>.\OGL_Application\root\OGL_Application\DEPENDENCIES\MathLibAndMore;.\OGL_Application\root\OGL_Application\include\cameraTransformations;.\OGL_Application\root\OGL_Application\include\ApplicationObject;.\OGL_Application\root\OGL_Application\include\Objects;.\OGL_Application\root\OGL_Application\include\Objects\UI;.\OGL_Application\root\OGL_Application\include\Objects\characters;.\OGL_Application\root\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\OGL_Application\root\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\OGL_Application\root\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\lib-vc2015;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\win64;.\OGL_Application\DEPENDENCIES\LIBRARIES\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;$(LibraryPath)</LibraryPath>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
@@ -98,7 +98,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\OGL_Application\include\shadersFacility;.\OGL_Application\include\Physics\AdvancedPhysics;.\OGL_Application\include\Physics;.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\include\GLFW;.\OGL_Application\DEPENDENCIES\SB7;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\OGL_Application\include\SaveLoadHelper;.\OGL_Application\include\;.\OGL_Application\include\cameraTransformations;.\OGL_Application\include\ApplicationObject;.\OGL_Application\include\Objects;.\OGL_Application\include\UI;.\OGL_Application\include\LibAndFacility;.\OGL_Application\include\Objects\characters;.\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\OGL_Application\include\shadersFacility;.\OGL_Application\include\Physics\AdvancedPhysics;.\OGL_Application\include\Physics;.\OGL_Application\DEPENDENCIES\LIBRARIES\glfw-3.3.2\glfw-3.3.2\include\GLFW;.\OGL_Application\DEPENDENCIES\SB7;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include\freetype;.\OGL_Application\DEPENDENCIES\freetype-windows-binaries-master\freetype-windows-binaries-master\include;.\OGL_Application\include\SaveLoadHelper;.\OGL_Application\include\;.\OGL_Application\include\cameraTransformations;.\OGL_Application\include\ApplicationObject;.\OGL_Application\include\Objects;.\OGL_Application\include\UI;.\OGL_Application\DEPENDENCIES\MathLibAndMore;.\OGL_Application\include\Objects\ActiveObjects;.\OGL_Application\DEPENDENCIES\glm-0.9.9.7\glm\glm;.\OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2;.\OGL_Application\DEPENDENCIES\irrKlang-64bit-1.6.0\include;$(IncludePath)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ShowIncludes>true</ShowIncludes>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -144,18 +144,18 @@
     <ClInclude Include="OGL_Application\include\app.h" />
     <ClInclude Include="OGL_Application\include\application.h" />
     <ClInclude Include="OGL_Application\include\ApplicationObject\activeObjectCollector.h" />
-    <ClInclude Include="OGL_Application\include\baseObject.h" />
+    <ClInclude Include="OGL_Application\include\shaderObject.h" />
     <ClInclude Include="OGL_Application\include\cameraTransformations\cameraManager.h" />
-    <ClInclude Include="OGL_Application\include\Objects\characters\activeObjectManager.h" />
+    <ClInclude Include="OGL_Application\include\Objects\ActiveObjects\activeObjectManager.h" />
     <ClInclude Include="OGL_Application\include\Objects\ground.h" />
-    <ClInclude Include="OGL_Application\include\LibAndFacility\conversionLIB.h" />
-    <ClInclude Include="OGL_Application\include\LibAndFacility\toStringLib.h" />
+    <ClInclude Include="OGL_Application\DEPENDENCIES\MathLibAndMore\conversionLIB.h" />
+    <ClInclude Include="OGL_Application\DEPENDENCIES\MathLibAndMore\toStringLib.h" />
     <ClInclude Include="OGL_Application\include\Objects\boxAABB.h" />
     <ClInclude Include="OGL_Application\include\Objects\cluster.h" />
     <ClInclude Include="OGL_Application\include\Objects\frameofref.h" />
     <ClInclude Include="OGL_Application\include\Objects\grid.h" />
     <ClInclude Include="OGL_Application\include\Objects\my_particle.h" />
-    <ClInclude Include="OGL_Application\include\Objects\object1.h" />
+    <ClInclude Include="OGL_Application\include\Objects\Box_nonPhysical.h" />
     <ClInclude Include="OGL_Application\include\Objects\polygon.h" />
     <ClInclude Include="OGL_Application\include\Objects\projectile.h" />
     <ClInclude Include="OGL_Application\include\Objects\sphere.h" />
@@ -168,12 +168,12 @@
     <ClInclude Include="OGL_Application\include\UI\buttonEditSounds.h" />
     <ClInclude Include="OGL_Application\include\UI\inputs.h" />
     <ClInclude Include="OGL_Application\include\log.h" />
-    <ClInclude Include="OGL_Application\include\LibAndFacility\mymathlib.h" />
+    <ClInclude Include="OGL_Application\DEPENDENCIES\MathLibAndMore\mymathlib.h" />
     <ClInclude Include="OGL_Application\include\Physics\body.h" />
     <ClInclude Include="OGL_Application\include\Physics\collide_coarse.h" />
     <ClInclude Include="OGL_Application\include\Physics\collide_fine.h" />
     <ClInclude Include="OGL_Application\include\Physics\contacts.h" />
-    <ClInclude Include="OGL_Application\include\Physics\core.h" />
+    <ClInclude Include="OGL_Application\DEPENDENCIES\MathLibAndMore\core.h" />
     <ClInclude Include="OGL_Application\include\Physics\particle.h" />
     <ClInclude Include="OGL_Application\include\Physics\pcontact.h" />
     <ClInclude Include="OGL_Application\include\Physics\pfgen.h" />
@@ -192,8 +192,8 @@
     <ClInclude Include="OGL_Application\include\ApplicationObject\applicationDerivedObject.h" />
     <ClInclude Include="OGL_Application\include\ApplicationObject\applicationObject.h" />
     <ClInclude Include="OGL_Application\include\ApplicationObject\applicationObjectManager.h" />
-    <ClInclude Include="OGL_Application\include\Objects\characters\enemy.h" />
-    <ClInclude Include="OGL_Application\include\Objects\characters\playerCharacter.h" />
+    <ClInclude Include="OGL_Application\include\Objects\ActiveObjects\enemy.h" />
+    <ClInclude Include="OGL_Application\include\Objects\ActiveObjects\playerCharacter.h" />
     <ClInclude Include="OGL_Application\include\Objects\assets.h" />
     <ClInclude Include="OGL_Application\include\Objects\Box_physical.h" />
     <ClInclude Include="OGL_Application\include\Objects\point.h" />
@@ -225,7 +225,7 @@
     <ClCompile Include="OGL_Application\src\app.cpp" />
     <ClCompile Include="OGL_Application\src\application.cpp" />
     <ClCompile Include="OGL_Application\src\ApplicationObject\applicationObjectManager_saveLoad.cpp" />
-    <ClCompile Include="OGL_Application\src\baseObject.cpp" />
+    <ClCompile Include="OGL_Application\src\shaderObject.cpp" />
     <ClCompile Include="OGL_Application\src\ApplicationObject\applicationDerivedObjectAdvanced.cpp" />
     <ClCompile Include="OGL_Application\src\cameraTransformations\cameraManager.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\characters\activeObjectManager.cpp" />
@@ -236,28 +236,28 @@
     <ClCompile Include="OGL_Application\src\Objects\cluster.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\frameOfRef\frameofref.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\grid\grid.cpp" />
-    <ClCompile Include="OGL_Application\src\Objects\object1\object1.cpp" />
+    <ClCompile Include="OGL_Application\src\Objects\Box_nonPhysical\Box_nonPhysical.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\particle\my_particle.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\polygon\polygon.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectLoader.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectSaver.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\collectorSaver.cpp" />
     <ClCompile Include="OGL_Application\src\saveloadhelper\saver.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\buttonfunctionLoader.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\editSound\ButtonEditSound.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_printMenu.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject_moveObject.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\buttonfunctionLoader.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\editSound\ButtonEditSound.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\buttonStart_printMenu.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\EditObject\buttonEditObject.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\EditObject\buttonEditObject_editCluster.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\EditObject\ButtonEditObject_editSize.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\EditObject\buttonEditObject_moveObject.cpp" />
     <ClCompile Include="OGL_Application\src\UI\printHelperCollector.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_MAIN_CALLBACK_FUNCTION.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_activeCharacterCluster.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\startButton\editGames_menuFunctions.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\startButton\file_menuFunctions.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\buttonStart_MAIN_CALLBACK_FUNCTION.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\buttonStart_activeCharacterCluster.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\editGames_menuFunctions.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\file_menuFunctions.cpp" />
     <ClCompile Include="OGL_Application\src\UI\userInterface.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\buttonMap.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\buttons.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\buttonMap.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\buttons.cpp" />
     <ClCompile Include="OGL_Application\src\UI\printHelper.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\projectile\projectile.cpp" />
     <ClCompile Include="OGL_Application\src\Objects\sphere\sphere.cpp" />
@@ -267,7 +267,7 @@
     <ClCompile Include="OGL_Application\src\log.cpp" />
     <ClCompile Include="OGL_Application\src\main.cpp" />
     <ClCompile Include="OGL_Application\src\LibAndFacility\mymathlib.cpp" />
-    <ClCompile Include="OGL_Application\src\UI\buttonsList.cpp" />
+    <ClCompile Include="OGL_Application\src\UI\Buttons\buttonsList.cpp" />
     <ClCompile Include="OGL_Application\src\Physics\AdvancedPhysics\boxSphere.cpp" />
     <ClCompile Include="OGL_Application\src\Physics\body.cpp" />
     <ClCompile Include="OGL_Application\src\Physics\collide_coarse.cpp" />
@@ -326,8 +326,8 @@
     <None Include="OGL_Application\src\Objects\grid\grid.vert" />
     <None Include="OGL_Application\src\Objects\groundSurface\groundSurface.frag" />
     <None Include="OGL_Application\src\Objects\groundSurface\groundSurface.vert" />
-    <None Include="OGL_Application\src\Objects\object1\object1.frag" />
-    <None Include="OGL_Application\src\Objects\object1\object1.vert" />
+    <None Include="OGL_Application\src\Objects\Box_nonPhysical\Box_nonPhysical.frag" />
+    <None Include="OGL_Application\src\Objects\Box_nonPhysical\Box_nonPhysical.vert" />
     <None Include="OGL_Application\src\Objects\particle\particle.frag" />
     <None Include="OGL_Application\src\Objects\particle\particle.vert" />
     <None Include="OGL_Application\src\Objects\polygon\polygon.frag" />

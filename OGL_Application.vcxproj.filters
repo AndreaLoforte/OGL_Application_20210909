@@ -141,21 +141,6 @@
     <ClInclude Include="OGL_Application\include\cameraTransformations\fpcamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\LibAndFacility\conversionLIB.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\LibAndFacility\mymathlib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\LibAndFacility\toStringLib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\Objects\characters\enemy.h">
-      <Filter>Header Files\characters</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\Objects\characters\playerCharacter.h">
-      <Filter>Header Files\characters</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\Objects\assets.h">
       <Filter>Header Files\DRAWING_H</Filter>
     </ClInclude>
@@ -175,9 +160,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\Objects\my_particle.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\Objects\object1.h">
       <Filter>Header Files\DRAWING_H</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\Objects\point.h">
@@ -246,9 +228,6 @@
     <ClInclude Include="OGL_Application\include\application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\baseObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\extern_definitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -283,9 +262,6 @@
       <Filter>Header Files\PHYSICS_H</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\Physics\contacts.h">
-      <Filter>Header Files\PHYSICS_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\Physics\core.h">
       <Filter>Header Files\PHYSICS_H</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\Physics\ObjectContainer.h">
@@ -348,14 +324,38 @@
     <ClInclude Include="OGL_Application\include\SaveLoadHelper\saver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\Objects\characters\activeObjectManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\UI\buttonEditSounds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\Objects\Box_physical.h">
       <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\Box_nonPhysical.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\shaderObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\DEPENDENCIES\MathLibAndMore\conversionLIB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\DEPENDENCIES\MathLibAndMore\core.h">
+      <Filter>Header Files\PHYSICS_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\DEPENDENCIES\MathLibAndMore\mymathlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\DEPENDENCIES\MathLibAndMore\toStringLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\ActiveObjects\activeObjectManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\ActiveObjects\enemy.h">
+      <Filter>Header Files\characters</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\include\Objects\ActiveObjects\playerCharacter.h">
+      <Filter>Header Files\characters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -417,9 +417,6 @@
       <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Objects\grid\grid.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\Objects\object1\object1.cpp">
       <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Objects\particle\my_particle.cpp">
@@ -503,30 +500,6 @@
     <ClCompile Include="OGL_Application\src\Physics\world.cpp">
       <Filter>Source Files\PHYSICS_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject_editCluster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\EditObject\ButtonEditObject_editSize.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\EditObject\buttonEditObject_moveObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\buttonfunctionLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\buttonMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\buttons.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\buttonsList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\printHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -596,9 +569,6 @@
     <ClCompile Include="OGL_Application\src\Objects\groundSurface\ground.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_activeCharacterCluster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\Collectors\activeObjectCollector.cpp">
       <Filter>Source Files\Collectors</Filter>
     </ClCompile>
@@ -617,12 +587,6 @@
     <ClCompile Include="OGL_Application\src\saveloadhelper\activeObjectLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\startButton\editGames_menuFunctions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\startButton\file_menuFunctions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\ApplicationObject\applicationObjectManager_saveLoad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -635,23 +599,59 @@
     <ClCompile Include="OGL_Application\src\saveloadhelper\collectorSaver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_printMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\Objects\characters\activeObjectManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\editSound\ButtonEditSound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\startButton\buttonStart_MAIN_CALLBACK_FUNCTION.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\baseObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Objects\Box_physical\Box_physical.cpp">
       <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\Box_nonPhysical\Box_nonPhysical.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\shaderObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\EditObject\buttonEditObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\EditObject\buttonEditObject_editCluster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\EditObject\ButtonEditObject_editSize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\EditObject\buttonEditObject_moveObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\buttonStart_activeCharacterCluster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\buttonStart_MAIN_CALLBACK_FUNCTION.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\buttonStart_printMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\editGames_menuFunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\startButton\file_menuFunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\buttonfunctionLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\buttonMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\buttons.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\buttonsList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\Buttons\editSound\ButtonEditSound.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -678,12 +678,6 @@
     </None>
     <None Include="OGL_Application\src\Objects\gun_for\gun_for.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\gun_for</Filter>
-    </None>
-    <None Include="OGL_Application\src\Objects\object1\object1.frag">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
-    </None>
-    <None Include="OGL_Application\src\Objects\object1\object1.vert">
-      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
     </None>
     <None Include="OGL_Application\src\Objects\particle\particle.frag">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\particle</Filter>
@@ -754,6 +748,12 @@
     </None>
     <None Include="OGL_Application\src\Objects\Box_physical\Box_physical.vert">
       <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\build</Filter>
+    </None>
+    <None Include="OGL_Application\src\Objects\Box_nonPhysical\Box_nonPhysical.frag">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
+    </None>
+    <None Include="OGL_Application\src\Objects\Box_nonPhysical\Box_nonPhysical.vert">
+      <Filter>Source Files\DRAWING_SRC\SHADERS_DIR\object1</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -15,10 +15,10 @@ void Enemy::render(const fpcameraNS::Transformation& cam)
 	glUseProgram(shader_prog);
 	glBindVertexArray(VAO);
 
-	static GLuint physics_transf_location = glGetUniformLocation(shader_prog, "physics_transformation");
-	static GLuint transf_matrix_location = glGetUniformLocation(shader_prog, "transformMatrix");
-	glUniformMatrix4fv(physics_transf_location, 1, GL_FALSE, AOTrMatrix);
-	glUniformMatrix4fv(transf_matrix_location, 1, GL_FALSE, fpcameraNS::CameraManager::getActiveCamera().getPlayerCamera());
+	static GLuint modelView_matrix_attrib_location = glGetUniformLocation(shader_prog, "modelView_Matrix");
+	static GLuint AOTrMatrix_attrib_location = glGetUniformLocation(shader_prog, "AOTrMatrix");
+	glUniformMatrix4fv(AOTrMatrix_attrib_location, 1, GL_FALSE, AOTrMatrix);
+	glUniformMatrix4fv(modelView_matrix_attrib_location, 1, GL_FALSE, fpcameraNS::CameraManager::getActiveCamera().getPlayerCamera());
 	glVertexAttrib4fv(2, AOcolor);
 
 	/*se size < 2.0 non si vede il disegno!*/
@@ -75,6 +75,7 @@ void Enemy::setRigidBodyParameters() {
 	body->setOrientation(AOorientation[0], AOorientation[1], AOorientation[2], AOorientation[3]);
 	body->setAcceleration(Vector3::GRAVITY);
 	body->_calculateTransformMatrix(body->transformMatrix,body->position,body->orientation);
+	body->getGLTransform(AOTrMatrix);
 
 }
 

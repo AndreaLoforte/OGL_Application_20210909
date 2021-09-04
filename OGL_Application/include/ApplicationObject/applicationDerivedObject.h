@@ -51,30 +51,13 @@ namespace myobjectNS
 		//collectorNS::ObjectSphereCollector* getCollector() override;
 		void specializedSave(std::ofstream&) override;
 		std::string getRBObjectID() override { return body->RBobjectID;}
-		virtual void changeRadius(float Rad) 
-		{ 
-			DOradius = Rad; 
-			radius = DOradius;
-			create();
-		}
-		void setSize(const std::vector<float>& sz) override
-		{
-			changeRadius(sz[0]);
-		}
-
+		virtual void changeRadius(float Rad);
+		void setSize(const std::vector<float>& sz) override;
+		void scaleDimension(const float& s) override;
 		void switchPhysics(const bool v) override { body->setAwake(v); }
 		RigidBody * getRB()override;
-		void DOcanSleep(const bool& v) override
-		{
-			body->canSleep = v;
-
-		}
-
-		void updatePhysics(const float& duration) override
-		{
-			body->integrate(duration);
-			calculateInternals();
-		}
+		void DOcanSleep(const bool& v) override;
+		void updatePhysics(const float& duration) override;
 
 	};
 
@@ -98,42 +81,15 @@ namespace myobjectNS
 		void specializedSave(std::ofstream&) override;
 
 		/*chiamata a runtime per modificare size*/
-		void changeDimensions(const GLfloat& w, const GLfloat& h) 
-		{
-			CollisionFinitePlane::size[0] = w;
-			CollisionFinitePlane::size[1] = 0;
-			CollisionFinitePlane::size[2] = h;
-
-			ApplicationObject::setSize({ w,0,h });
-			create();
-		}
+		void changeDimensions(const GLfloat& w, const GLfloat& h);
 
 		/*chiamata da application manager in loading*/
-		void setSize(const std::vector<float>& sz) override
-		{
-			size[0] = sz[0];
-			size[1] = sz[1];
-			size[2] = sz[2];
-
-			ApplicationObject::setSize(sz);
-			/*AOsize.push_back(sz[0]);
-			AOsize.push_back(sz[1]);
-			AOsize.push_back(sz[2]);*/
-			
-		}
-
+		void setSize(const std::vector<float>& sz) override;
+		void scaleDimension(const float& s) override;
 		void switchPhysics(const bool v) override { body->setAwake(v); }
 		RigidBody * getRB()override;
-		void DOcanSleep(const bool& v) override
-		{
-			body->canSleep = v;
-		}
-		void updatePhysics(const float& duration) override
-		{
-			body->integrate(duration);
-			calculateInternals();
-		}
-
+		void DOcanSleep(const bool& v) override;
+		void updatePhysics(const float& duration) override;
 	};
 
 
@@ -155,42 +111,18 @@ namespace myobjectNS
 		ObjectBox* getNewInstance()override;
 		//collectorNS::ObjectBoxCollector* getCollector() override;
 		void specializedSave(std::ofstream&) override;
-		void setSize(const std::vector<float>& sz) override
-		{
-			AOsize = sz;
-			L1 = AOsize.at(0);
-			L2 = AOsize.at(1);
-			L3 = AOsize.at(2);
-		}
-		void changeDimensions(const GLfloat& w, const GLfloat& h, const GLfloat& d)
-		{
-			L1 = w;
-			L2 = h;
-			L3 = d;
-			halfSize[0] = L1/2;
-			halfSize[1] = L2/2;
-			halfSize[2] = L3/2;
-			create();
-		}
-
+		void setSize(const std::vector<float>& sz) override;
+		void changeDimensions(const GLfloat& w, const GLfloat& h, const GLfloat& d);
+		void scaleDimension(const float& s) override;
 		void switchPhysics(const bool v) override { body->setAwake(v); }
-		void DOcanSleep(const bool& v) override
-		{
-			body->canSleep = v;
-			body->isAwake = !v;			
-		}
+		void DOcanSleep(const bool& v) override;
 		RigidBody * getRB()override;
 		
-		void updatePhysics(const float& duration) override
-		{
-			body->integrate(duration);
-			calculateInternals();
-		}
-
+		void updatePhysics(const float& duration) override;
 	};
 
 
-
+	/*COME IL BOX MA CON UN SISTEMA DI COLLISION DETECTION AVANZATO (DA VERIFICARE CHE TALE SISTEMA SIA STATO IMPLEMENTATO)*/
 	class ObjectAABB : public ApplicationObject, public advancedPhysicsNS::CollisionAABB {
 	protected:
 		GLfloat L1 = 10, L2 = 10, L3 = 10;
@@ -206,32 +138,15 @@ namespace myobjectNS
 		ObjectAABB* getNewInstance()override;
 		
 		void specializedSave(std::ofstream&) override;
-		void changeDimensions(const GLfloat& w, const GLfloat& h, const GLfloat& d)
-		{
-			L1 = w;
-			L2 = h;
-			L3 = d;
-			create();
-		}
-		void setSize(const std::vector<float>& sz) override
-		{
-			changeDimensions(sz[0], sz[1], sz[2]);
-		}
-
+		void changeDimensions(const GLfloat& w, const GLfloat& h, const GLfloat& d);	
+		void setSize(const std::vector<float>& sz) override;
+		void scaleDimension(const float& s) override;
 		void switchPhysics(const bool v) override { body->setAwake(v); }
-		void DOcanSleep(const bool& v) override
-		{
-			body->canSleep = v;
-
-		}
+		void DOcanSleep(const bool& v) override;
 		RigidBody * getRB()override;
 
 
-		void updatePhysics(const float& duration) override
-		{
-			body->integrate(duration);
-			calculateInternals();
-		}
+		void updatePhysics(const float& duration) override;
 
 	};
 

@@ -6,7 +6,7 @@
 #include<triangle_tb.h>
 #include<point.h>
 #include<Box_physical.h>
-#include<object1.h>
+#include<Box_nonPhysical.h>
 #include<grid.h>
 #include<surface.h>
 #include<ground.h>
@@ -49,7 +49,7 @@ namespace AssetNS {
 		assetAOList.push_back(new myobjectNS::Surface("surface"));
 		//assetAOList.push_back(new myobjectNS::GroundSurface("groundSurface"));
 		assetAOList.push_back(new myobjectNS::Polygon("polygon"));
-		assetAOList.push_back(new myobjectNS::Build("object1"));//dentro file object1
+		assetAOList.push_back(new myobjectNS::Box_nonPhysical("Box_nonPhysical"));//dentro file object1
 		assetAOList.push_back(new myobjectNS::Sphere("sphere"));
 		//assetAOList.push_back(new myobjectNS::FrameOfRef("frameOfRef"));
 		assetAOList.push_back(new myobjectNS::Box_physical("Box_physical"));

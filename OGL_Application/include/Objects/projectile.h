@@ -1,7 +1,7 @@
 #ifndef PROJECTILE
 #define PROJECTILE
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 #include<assert.h>
 #include<physics.h>

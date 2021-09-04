@@ -29,6 +29,8 @@ void ApplicationObject::save(std::ofstream& out) {
 	/*out << saveloadNS::CollectorSavings::AOTRMATRIXTAG << std::endl;
 	logNS::Logger::saveMatrix44(out, AOTrMatrix);
 	out << std::endl;*/
+	out << saveloadNS::CollectorLoader::AOSCALE << std::endl;
+	out << scale << std::endl;
 	out << saveloadNS::CollectorLoader::AOPOSITIONTAG << std::endl;
 	out << AOposition[0] << " " << AOposition[1] << " " << AOposition[2] << std::endl;
 	out << saveloadNS::CollectorLoader::AOORIENTATIONTAG << std::endl;
@@ -39,6 +41,56 @@ void ApplicationObject::save(std::ofstream& out) {
 	out << AOisOn << std::endl;
 	specializedSave(out);
 }
+
+
+void ApplicationObject::setColor(const vmath::vec4& col)
+{
+	AOcolor[0] = col[0];
+	AOcolor[1] = col[1];
+	AOcolor[2] = col[2];
+	AOcolor[3] = col[3];
+
+}
+
+
+void ApplicationObject::changeColor(const std::vector<float>& col)
+{
+	AOcolor[0] = col[0];
+	AOcolor[1] = col[1];
+	AOcolor[2] = col[2];
+	AOcolor[3] = col[3];
+}
+
+void ApplicationObject::setSize(const std::vector<float>& sz)
+{
+	AOsize = sz;
+}
+
+
+
+void ApplicationObject::AOcanSleep(const bool v)
+{
+	AOisOn = !v;
+	DOcanSleep(v);
+}
+
+void ApplicationObject::setCollectorOwnership(const std::string s)
+{
+	AOcollectorOwnershipID = s;
+}
+
+void ApplicationObject::scaleDimension(const float& s)
+{
+	scale = s;
+	vmath::mat4 scalingMat = vmath::mat4{ 
+		vmath::vec4(s,0.0,0.0,0.0),
+		vmath::vec4(0.0,s,0.0,0.0),
+		vmath::vec4(0.0,0.0,s,0.0),
+		vmath::vec4(0.0,0.0,0.0,1) };
+	//AOTrMatrix = mymathlibNS::vmatMatrix::getProduct(scalingVector, AOTrMatrix);
+	AOTrMatrix = vmath::matrixCompMult(AOTrMatrix, scalingMat);
+}
+
 
 
 
@@ -95,6 +147,15 @@ void ApplicationObject::setPosition(const GLfloat arr[3])
 	AOposition[1] = arr[1]; 
 	AOposition[2] = arr[2]; 
 	setParameters();
+}
+
+void ApplicationObject::setParameters()
+{
+	Matrix4 tempMat;
+	Vector3 tempPosVec{ AOposition[0],AOposition[1],AOposition[2] };
+	
+	mymathlibNS::calculateTransformMatrix(tempMat, tempPosVec, AOorientation);
+	mymathlibNS::getGLTransform(tempMat, AOTrMatrix);
 }
 
 

@@ -1,7 +1,7 @@
 #ifndef SPHERE_OBJ
 #define SPHERE_OBJ
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 #include<assert.h>
 #include<physics.h>

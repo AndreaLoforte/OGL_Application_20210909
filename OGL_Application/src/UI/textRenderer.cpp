@@ -16,26 +16,25 @@ namespace textRendererNS {
 	std::map<GLchar, Character> TextRenderer::charMap;
 	bool TextRenderer::printInfos(false);
 	vector<printHelperNS::PrintHelper*> TextRenderer::printList;
+	myobjectNS::ShaderObject TextRenderer::shaderObj("text");
+
+
+	GLfloat TextRenderer::x_off, TextRenderer::y_off;
+	GLfloat TextRenderer::xy_offset[2];
+	GLfloat TextRenderer::integral_x_advance;
 	
 
-	void TextRenderer::render(const fpcameraNS::Transformation& cam) {
+	void TextRenderer::render(const vector<printHelperNS::PrintHelper*> ph) {
 
 		
-		TextRenderer::refreshText();
-		for(int i = 0 ; i < printList.size(); i++)
-			if(printList[i]->mapIDbutton_button.buttonslistSize != 0)
-				RenderText(*printList[i]);
+		/*TextRenderer::refreshText();*/
+		for (int i = 0; i < ph.size(); i++)
+			ph[i]->update();
+		for(int i = 0 ; i < ph.size(); i++)
+			if(ph[i]->mapIDbutton_button.buttonslistSize != 0)
+				RenderText(*ph[i]);
 		
 
-	}
-
-	
-
-	void TextRenderer::refreshText() {		
-		
-		for (int i = 0; i < printList.size(); i++)
-			printList[i]->update();
-	
 	}
 
 
@@ -53,17 +52,17 @@ namespace textRendererNS {
 		//	throw std::string("exception ! error ");
 		}
 
-		glUseProgram(shader_prog);
+			glUseProgram(shaderObj.shader_prog);
 		/*do not bind same VAO multiple time !*/
 		glBindVertexArray(ph.VAO);
 
-		static GLint textSampler_loc = glGetUniformLocation(shader_prog, "textSampler");//fragment
-		static GLint textcolor_loc = glGetUniformLocation(shader_prog, "textColor");//fragment
-		static GLint textFrameColor_loc = glGetUniformLocation(shader_prog, "textFrameColor");//fragment
-		static GLint vertex_loc = glGetAttribLocation(shader_prog, "vertex");	//vertex	
-		static GLint char_advance_loc = glGetUniformLocation(shader_prog, "char_advance");
-		static GLint main_scale_loc = glGetUniformLocation(shader_prog, "main_scale");
-		static GLint xy_offset_loc = glGetUniformLocation(shader_prog, "xy_offset");
+		static GLint textSampler_loc = glGetUniformLocation(shaderObj.shader_prog, "textSampler");//fragment
+		static GLint textcolor_loc = glGetUniformLocation(shaderObj.shader_prog, "textColor");//fragment
+		static GLint textFrameColor_loc = glGetUniformLocation(shaderObj.shader_prog, "textFrameColor");//fragment
+		static GLint vertex_loc = glGetAttribLocation(shaderObj.shader_prog, "vertex");	//vertex	
+		static GLint char_advance_loc = glGetUniformLocation(shaderObj.shader_prog, "char_advance");
+		static GLint main_scale_loc = glGetUniformLocation(shaderObj.shader_prog, "main_scale");
+		static GLint xy_offset_loc = glGetUniformLocation(shaderObj.shader_prog, "xy_offset");
 
 		
 
@@ -197,13 +196,8 @@ namespace textRendererNS {
 
 
 	void TextRenderer::create() {
-
-		setShaders();
 		
 		Load("./OGL_Application/DEPENDENCIES/arial.ttf", 1);
-
-		for (int i = 0; i < printList.size(); i++)
-			printList[i]->create();
 
 	}
 

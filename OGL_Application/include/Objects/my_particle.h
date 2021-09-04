@@ -11,7 +11,7 @@
 
 
 
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<applicationDerivedObject.h>
 #include<core.h>
 

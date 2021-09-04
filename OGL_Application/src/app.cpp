@@ -34,7 +34,7 @@ void App::render(double currentTime)
 
   /*Il testo va renderizzato necessariamente 
   dopo tutto il resto altrimenti vedi i frame dei caratteri*/
-  textRenderer.render(fpcameraNS::CameraManager::getActiveCamera());
+  textRenderer.render();
   
 }
 
@@ -46,7 +46,7 @@ void App::update(){
 
 	if (!UserInterface::UIon)
 	{
-		///TimingData::update();
+		TimingData::update();
 		globalNS::DURATION = 0.1;// TimingData::get().lastFrameDuration * 0.005f;
 		if (globalNS::DURATION <= 0.0f) return;
 

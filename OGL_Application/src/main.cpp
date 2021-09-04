@@ -22,8 +22,9 @@ int main(){
   while(!glfwWindowShouldClose(app.window))
     {
 	  
+      app.update();
       app.render(glfwGetTime());
-	  app.update();
+	  
       glfwPollEvents();
       glfwSwapBuffers(app.window);
 	  

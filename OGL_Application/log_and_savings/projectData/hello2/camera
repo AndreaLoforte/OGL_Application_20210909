@@ -20,9 +20,9 @@ ReversePreviousXrotationMatrix
 CameraID
 FLYINGCAMERA
 GlobalCoordinates
--35.1252 -179.92 -398.351 
+0 -76.4979 -143.564 
 Orientation
-0.954799 0.206436 -0.209053 -0.045199
+0.984808 0.173648 0 0
 PreviousMatrix
 1 0 0 0 
 0 1 0 0 

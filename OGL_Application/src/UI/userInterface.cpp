@@ -15,6 +15,7 @@ namespace uiNS {
 	bool UserInterface::physicsOn{ true };
 	bool UserInterface::AIon{ true };
 	printHelperNS::PrintHelperCollector UserInterface::phc;
+	printHelperNS::Timed_PrintHelper UserInterface::timed_ph("Timed_PrintHelper",-.5,-.8);
 	InputsNS::Controls* UserInterface::control;
 	InputsNS::Typer UserInterface::typer;
 	buttonFunctiosLoader UserInterface::bfl;
@@ -54,6 +55,7 @@ namespace uiNS {
 
 		//inserisco nella lista dei pulsanti da renderizzare tutti i pulsanti inseriti in printHmap
 		phc.updateRenderer();
+		
 
 		start = new StartButton();
 		buttonFlow.push_back(start);
@@ -66,6 +68,13 @@ namespace uiNS {
 		//UserInterface::setFlags(false, false, false);
 		start->mainMenu(Application::window, 0, 1, 0);
 		start->setControls();
+
+		/*invoco funzioni di creazione per tutti i print helper*/
+
+		timed_ph.create();
+
+		for (auto it = phc.printHmap.begin(); it != phc.printHmap.end(); it++)
+			it->second.create();
 
 	}
 
@@ -126,6 +135,10 @@ namespace uiNS {
 		if (frameID > 10000000)
 			frameID = 0;
 		frameID++;
+
+		/*timed_ph è il printHelper che stampa testi di warning e altri messaggi temporanei*/
+		timed_ph.updateRenderer();
+
 	}
 
 	

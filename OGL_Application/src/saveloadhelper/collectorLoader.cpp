@@ -18,6 +18,7 @@ namespace saveloadNS {
 		CollectorLoader::AOINSTANCENUMBERTAG = "AOinstanceNumber",
 		CollectorLoader::AOCOLORTAG = "AOcolor",
 		CollectorLoader::DOSIZETAG = "DOsize",
+		CollectorLoader::AOSCALE = "AOscale",
 		CollectorLoader::AOISONFLAGTAG = "AOisOnFlag",
 		CollectorLoader::COLLECTORISONTAG = "OCisOnFlag";
 
@@ -53,6 +54,7 @@ namespace saveloadNS {
 					loadAttributeArray(collettore.AOobjects.back().AOposition, collettore.pos_start, collettore.pos_end, TAGLIST.at(AOPOSITIONTAG));
 					loadAttributeQuaternion(collettore.AOobjects.back().AOorientation, collettore.pos_start, collettore.pos_end, TAGLIST.at(AOORIENTATIONTAG));
 					loadAttributevmathVec4(collettore.AOobjects.back().AOcolor, collettore.pos_start, collettore.pos_end, TAGLIST.at(AOCOLORTAG));
+					loadAttributeFloat(collettore.AOobjects.back().AOscale, collettore.pos_start, collettore.pos_end, TAGLIST.at(AOSCALE));
 					loadAttributevectorFloat(collettore.AOobjects.back().AOsize, collettore.pos_start, collettore.pos_end, TAGLIST.at(DOSIZETAG));
 					loadAttributeBool(collettore.AOobjects.back().isOn, collettore.pos_start, collettore.pos_end, TAGLIST.at(AOISONFLAGTAG));
 					loadAttributeBool(collettore.isOn, collettore.pos_start, collettore.pos_end, TAGLIST.at(COLLECTORISONTAG));

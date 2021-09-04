@@ -1,6 +1,6 @@
 #pragma once
 #include<applicationDerivedObject.h>
-#include<baseObject.h>
+#include<shaderObject.h>
 #include<physics.h>
 #include<array>
 
