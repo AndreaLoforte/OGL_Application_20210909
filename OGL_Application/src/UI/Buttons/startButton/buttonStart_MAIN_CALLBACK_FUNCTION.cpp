@@ -6,7 +6,7 @@
 #include<buttonEditObject.h>
 #include<buttonEditSounds.h>
 #include<userInterface.h>
-#include<ground.h>
+#include<surface/groundsurface/ground.h>
 namespace uiNS {
 
 	const string SWITCHAI = "SWITCH AI ON/OFF";

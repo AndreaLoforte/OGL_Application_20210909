@@ -4,8 +4,8 @@
 #include<app.h>
 #include<physics.h>
 #include<assets.h>
-#include<extern_definitions.h>
-#include<gun.h>
+#include<Global_definitions/global_definition.h>
+#include<gun/gun.h>
 #include<activeobjectloader.h>
 #include<collectorLoader.h>
 #include<set>

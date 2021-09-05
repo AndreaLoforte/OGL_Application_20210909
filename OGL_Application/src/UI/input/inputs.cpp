@@ -1,7 +1,7 @@
 #include<inputs.h>
 #include<app.h>
-#include<gun.h>
-#include<playercharacter.h>
+#include<gun/gun.h>
+#include<playercharacter/playercharacter.h>
 
 namespace InputsNS{
 

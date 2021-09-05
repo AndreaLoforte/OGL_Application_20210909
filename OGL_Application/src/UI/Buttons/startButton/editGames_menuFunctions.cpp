@@ -18,6 +18,7 @@ namespace uiNS {
 			return;
 		}
 
+		/*createNewObject ritorna true se riesce a creare l'oggetto altrimenti false*/
 		if(!myobjectNS::ApplicationObjectManager::createNewObject(buttonID))
 		{
 			resetCallbackFunc();

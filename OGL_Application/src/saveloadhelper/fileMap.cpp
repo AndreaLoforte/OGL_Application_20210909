@@ -16,6 +16,15 @@ namespace saveloadNS {
 			TAGLIST.emplace(tagList[i], FileMap(tagList[i]));
 	}
 
+
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+
+
 	void FileHelper::loadAttributeFloat(float& f_number, const size_t& pos_start, const size_t& pos_end, FileMap& fm)
 	{
 		for (int k = 0; k < fm.getSize(); k++)
@@ -171,7 +180,12 @@ namespace saveloadNS {
 	}
 
 
-
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
+	/*############### FUNZIONI DI CARICAMENTO DATI NEL COLLECTOR DATA STRUCTURE #########################*/
 
 	void  FileHelper::loadAllCollectorsMap(map<string,FileMap>& TAGLIST)
 	{

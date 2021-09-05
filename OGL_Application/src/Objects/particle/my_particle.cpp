@@ -1,5 +1,5 @@
-#include<sphere.h>
-#include<my_particle.h>
+#include<sphere/sphere/sphere.h>
+#include<particle/my_particle.h>
 
 
 namespace myobjectNS{

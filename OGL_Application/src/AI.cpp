@@ -1,6 +1,6 @@
 #include<AI.h>
-#include<playerCharacter.h>
-#include<gun.h>
+#include<playercharacter/playerCharacter.h>
+#include<gun/gun.h>
 #include<contacts.h>
 #include<applicationObjectManager.h>
 #include<mymathlib.h>
@@ -9,7 +9,7 @@
 #include<functional>
 #include<userInterface.h>
 #include<conversionLIB.h>
-#include<ground.h>
+#include<surface/groundsurface/ground.h>
 namespace aiNS {
 
 	

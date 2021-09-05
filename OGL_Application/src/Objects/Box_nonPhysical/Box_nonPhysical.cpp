@@ -1,4 +1,4 @@
-#include<Box_nonPhysical.h>
+#include<box_nonphysical/Box_nonPhysical.h>
 
 
 namespace myobjectNS {

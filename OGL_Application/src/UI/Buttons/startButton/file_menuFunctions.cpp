@@ -5,7 +5,8 @@
 #include<app.h>
 #include<buttonEditObject.h>
 #include<userInterface.h>
-#include<ground.h>
+#include<surface/groundsurface/ground.h>
+
 namespace uiNS {
 
 	void exploreFolder()

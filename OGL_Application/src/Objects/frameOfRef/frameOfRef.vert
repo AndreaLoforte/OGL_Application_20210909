@@ -6,23 +6,24 @@
 //in vec4 vertices;
 uniform mat4 modelviewM;
 uniform mat4 transfM;
+uniform float AOscale;
 
 flat out int index;
 
 void main(){
 
-    float l = 10.0f; //length_;
+    float L = 10.0f*AOscale;
 
      const vec4 vertices[6] = vec4[6](
                 //asse x
      	   	    vec4(0.0,0.0,0.0,1.0),
-		        vec4(l,0.0,0.0,1.0),
+		        vec4(L,0.0,0.0,1.0),
                     //asse y
                 vec4(0.0,0.0,0.0,1.0),
-                vec4(0.0,l,0.0,1.0),
+                vec4(0.0,L,0.0,1.0),
                         //asse z
                 vec4(0.0,0.0,0.0,1.0),
-                vec4(0.0,0.0,l,1.0));
+                vec4(0.0,0.0,L,1.0));
 
 
 			   index = gl_VertexID;

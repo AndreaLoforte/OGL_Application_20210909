@@ -1,4 +1,4 @@
-#include<boxAABB.h>
+#include<boxAABB/boxAABB.h>
 
 namespace myobjectNS {
 

@@ -1,4 +1,4 @@
-#include<point.h>
+#include<point/point.h>
 
 namespace myobjectNS {
 

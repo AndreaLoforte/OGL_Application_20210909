@@ -1,4 +1,4 @@
-#include<triangle_b.h>
+#include<triangle/triangle_b.h>
 
 namespace myobjectNS {
 

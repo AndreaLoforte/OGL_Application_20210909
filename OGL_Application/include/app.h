@@ -9,7 +9,7 @@
 #include<inputs.h>
 #include<textRenderer.h>
 #include<physics.h>
-#include<extern_definitions.h>
+#include<Global_definitions/global_definition.h>
 #include<sound.h>
 #include<timing.h>
 #include<AI.h>

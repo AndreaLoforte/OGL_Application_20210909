@@ -1,6 +1,6 @@
 #include<app.h>
 #include<inputs.h>
-#include<extern_definitions.h>
+#include<Global_definitions/global_definition.h>
 #include<physics.h>
 #include<set>
 #include<fstream>

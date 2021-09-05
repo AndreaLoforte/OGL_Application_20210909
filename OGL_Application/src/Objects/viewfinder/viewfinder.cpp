@@ -1,4 +1,4 @@
-#include<viewfinder.h>
+#include<viewfinder/viewfinder.h>
 
 
 
