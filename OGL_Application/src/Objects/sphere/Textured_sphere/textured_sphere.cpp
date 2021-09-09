@@ -87,10 +87,6 @@ void Tx_sphere::setParameters() {
 
 
 void Tx_sphere::create() {
-
-
-	
-	setShaders();
 	
 	
 	//creo la prima circonferenza sul piano xy
@@ -164,7 +160,7 @@ void Tx_sphere::create() {
 	glBindTexture(GL_TEXTURE_2D, texture);
 
 
-	string stem = "/OGL_Application/textures/Crater_Cluster.png";
+	string stem = "/OGL_Application/textures/io.png";
 	stem = Application::application_root_dir.c_str() + stem;
 
 	texture = SOIL_load_OGL_texture

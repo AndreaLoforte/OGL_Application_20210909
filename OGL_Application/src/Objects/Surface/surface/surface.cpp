@@ -151,9 +151,6 @@ namespace myobjectNS {
 
 
 	void Surface::create() {
-
-
-		setShaders();
 		
 		GLfloat l1 = size[0], l2 = size[2];
 	
@@ -166,18 +163,6 @@ namespace myobjectNS {
 			{l1, 0.0f, l2, 1.0f},
 			{l1, 0.0f, -l2, 1.0f}
 		};
-
-
-	/*	for (int i = 0; i < 6; i++)
-		{
-			AOvertices.push_back(std::array<float, 3>());
-			for (int j = 0; j < 3; j++)
-			{
-				AOvertices[i][j] = vertices_[i][j];
-			}
-		}
-		vertices = AOvertices;
-		AOvertices = mymathlibNS::vmatMatrix::getProduct(vertices, AOTrMatrix);*/
 		
 
 		glCreateVertexArrays(1, &VAO);

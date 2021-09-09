@@ -102,25 +102,12 @@ namespace myobjectNS {
 
 	void ObjectSphere::scaleDimension(const float& s)
 	{
-		/*Matrix4 scaleMat = Matrix4();
-		scaleMat.setDiagonal(s, s, s);
-		body->transformMatrix = body->transformMatrix * scaleMat;*/
-		//radius = radius * s;
-
-		static float prev_scaling_factor = 1;
-		radius = radius * s / prev_scaling_factor;
-		prev_scaling_factor = s;
+		AOscale = s;
+		const float rad = 1.0f;
+		radius = rad * AOscale;
 		changeRadius(radius);
 
-		/*static float prev_scaling_factor = 1;
-		Matrix4 scaleMat = Matrix4();
-		scaleMat.setDiagonal(s / prev_scaling_factor, s / prev_scaling_factor, s / prev_scaling_factor);
-		body->transformMatrix = body->transformMatrix * scaleMat;
-		body->getGLTransform(AOTrMatrix);
-		prev_scaling_factor = s;*/
 	}
-
-
 	void ObjectBox::scaleDimension(const float& s)
 	{
 		static float prev_scaling_factor = 1;
@@ -133,6 +120,7 @@ namespace myobjectNS {
 
 	void ObjectPlane::scaleDimension(const float& s)
 	{
+		AOscale = s;
 		static float prev_scaling_factor = 1;
 		Matrix4 scaleMat = Matrix4();
 		scaleMat.setDiagonal(s / prev_scaling_factor, s / prev_scaling_factor, s / prev_scaling_factor);

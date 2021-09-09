@@ -13,7 +13,7 @@
 #include <body.h>
 #include <memory.h>
 #include <assert.h>
-#include<extern_definitions.h>
+#include<global_definitions/global_definition.h>
 
 
 unsigned RigidBody::RBinstanceCounter;

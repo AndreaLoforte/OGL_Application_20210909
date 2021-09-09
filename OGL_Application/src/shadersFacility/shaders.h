@@ -50,12 +50,12 @@ class Shader{
 
   const char* loadShader(std::string);
 
-  inline void setShader(std::string shaderPath)
-  {
-     shaderPath = shaderPath;
-     shader_source = loadShader(shaderPath);
-  }
-  
+  //inline void setShader(std::string shaderPath)
+  //{
+  //   shaderPath = shaderPath;
+  //   shader_source = loadShader(shaderPath);
+  //}
+  //
   inline void printShader()
   {
     std::clog<<"Shader::printShader::shader_size is: "<<shader_size<<std::endl;

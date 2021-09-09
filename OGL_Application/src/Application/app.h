@@ -1,6 +1,6 @@
 #ifndef APP_H
 #define APP_H
-#include<application.h>
+#include<application/application.h>
 #include<cameraManager.h>
 #include<applicationObjectManager.h>
 #include<applicationObject.h>
@@ -15,7 +15,16 @@
 #include<AI.h>
 #include<userInterface.h>
 
-
+/*questa classe, viene inserita come attributo statico della classe app.
+Poichè gli oggetti statici vengono inizializzati immediatamente all'avvio del programma,
+inserisco l'inizializzazione di GLFW all'interno di una funzione che richiamo nel costruttore della classe.
+In questo modo garantisco l'immediata inizializzazione delle librerie openGL*/
+class GLFWInit {
+public:
+	GLFWInit() {
+		Application::Application();
+	}
+};
 
 	class App : public Application {
 		
@@ -27,6 +36,8 @@
 		myphysicsNS::CollisorePolimorfo polyCollisor;
 		soundNS::soundMap soundEngine;
 		aiNS::AI ai;
+
+		static GLFWInit glfw_initializer;
 	protected:
 		
 		InputsNS::Controls controls;		

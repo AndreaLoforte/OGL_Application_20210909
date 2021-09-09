@@ -155,10 +155,9 @@ namespace myobjectNS {
 
 	void GroundSurface::create() {
 
-
-		setShaders();
-
 		GLfloat l1 = size[0], l2 = size[2];
+
+		l1 = l1 * AOscale; l2 = l2 * AOscale;
 
 		//il disegno sta sull'asse xz
 		GLfloat  vertices_[6][4]{

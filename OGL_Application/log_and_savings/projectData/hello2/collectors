@@ -1,0 +1,67 @@
+--------COLLECTOR--------
+sphere
+COLLECTOR_NUMBER
+22
+OCisOnFlag
+0
+AOobjectName
+sphere
+AOinstanceNumber
+2
+AOscale
+1
+AOposition
+0 75 138
+AOorientation
+1 0 0 0
+AOcolor
+10 0.01 0 1
+AOisOnFlag
+0
+DOsize
+1
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+frameOfRef
+COLLECTOR_NUMBER
+23
+OCisOnFlag
+0
+AOobjectName
+frameOfRef
+AOinstanceNumber
+0
+AOscale
+1
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+--------ENDCOLLECTOR--------
+--------COLLECTOR--------
+grid
+COLLECTOR_NUMBER
+24
+OCisOnFlag
+0
+AOobjectName
+grid
+AOinstanceNumber
+4
+AOscale
+1
+AOposition
+0 0 0
+AOorientation
+1 0 0 0
+AOcolor
+0.5 0.5 0.5 0.5
+AOisOnFlag
+0
+DOsize
+100 0 100
+--------ENDCOLLECTOR--------

@@ -1,4 +1,4 @@
-#include<app.h>
+#include<application/app.h>
 #include<inputs.h>
 #include<Global_definitions/global_definition.h>
 #include<physics.h>
@@ -12,6 +12,7 @@ std::string App::projectDataFileName{ "AppObj" };
 string App::defaultProjectFileName{ "projectsList" };
 string App::audio_dir{"./OGL_Application/audio/"};
 printHelperNS::PrintHelper App::ph{ "App" };
+GLFWInit App::glfw_initializer;
 
 void App::switchPhysics() {}
 

@@ -132,34 +132,7 @@
     <ClInclude Include="OGL_Application\include\SB7\sb7ktx.h">
       <Filter>Header Files\SB7</Filter>
     </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\buttonEditObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\buttonfunctionLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\buttonMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\buttons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\buttonsList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\PrintHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\userInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OGL_Application\include\AI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\app.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\log.h">
@@ -169,15 +142,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\include\vmath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\inputs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\textRenderer.h">
-      <Filter>Header Files\DRAWING_H</Filter>
-    </ClInclude>
-    <ClInclude Include="OGL_Application\include\UI\buttonEditSounds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OGL_Application\DEPENDENCIES\MathLibAndMore\conversionLIB.h">
@@ -363,6 +327,45 @@
     <ClInclude Include="OGL_Application\src\Objects\Surface\GroundSurface\ground.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OGL_Application\src\Application\application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\Application\app.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\input\inputs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\Buttons\buttonfunctionLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\Buttons\buttonMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\Buttons\buttons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\Buttons\buttonsList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\printHelper\PrintHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\textRenderer\textRenderer.h">
+      <Filter>Header Files\DRAWING_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\userInterface\userInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\Buttons\buttonEditObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\UI\Buttons\buttonEditSounds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OGL_Application\src\Objects\sphere\sphere_external\Sphere_external.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGL_Application\DEPENDENCIES\SOIL2-master\SOIL2-master\src\SOIL2\etc1_utils.c">
@@ -461,22 +464,7 @@
     <ClCompile Include="OGL_Application\src\Physics\world.cpp">
       <Filter>Source Files\PHYSICS_SRC</Filter>
     </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\printHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\printHelperCollector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\userInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="OGL_Application\src\AI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\app.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\log.cpp">
@@ -508,9 +496,6 @@
     </ClCompile>
     <ClCompile Include="OGL_Application\src\UI\input\objectControlsInterface.cpp">
       <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="OGL_Application\src\UI\textRenderer.cpp">
-      <Filter>Source Files\DRAWING_SRC</Filter>
     </ClCompile>
     <ClCompile Include="OGL_Application\src\Objects\polygon\polygon.cpp">
       <Filter>Source Files</Filter>
@@ -668,6 +653,27 @@
     <ClCompile Include="OGL_Application\src\Objects\Surface\GroundSurface\groundSurface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OGL_Application\src\Application\application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Application\app.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\printHelper\printHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\textRenderer\textRenderer.cpp">
+      <Filter>Source Files\DRAWING_SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\userInterface\userInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\UI\printHelper\printHelperCollector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OGL_Application\src\Objects\sphere\sphere_external\Sphere_external.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="OGL_Application\src\Objects\frameOfRef\frameOfRef.frag">
@@ -774,5 +780,7 @@
     <None Include="OGL_Application\src\Objects\Surface\textured_surface\textured_surface.vert" />
     <None Include="OGL_Application\src\Objects\Surface\GroundSurface\groundSurface.frag" />
     <None Include="OGL_Application\src\Objects\Surface\GroundSurface\groundSurface.vert" />
+    <None Include="OGL_Application\src\Objects\sphere\sphere_external\Sphere_external.frag" />
+    <None Include="OGL_Application\src\Objects\sphere\sphere_external\Sphere_external.vert" />
   </ItemGroup>
 </Project>

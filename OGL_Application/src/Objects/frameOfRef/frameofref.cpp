@@ -29,7 +29,6 @@ namespace myobjectNS{
   }
 
   void FrameOfRef::create() {
-	 setShaders();
 	 glCreateVertexArrays(1, &VAO);
   }
 

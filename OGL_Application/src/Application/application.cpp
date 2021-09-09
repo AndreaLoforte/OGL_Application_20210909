@@ -1,4 +1,4 @@
-#include<application.h>
+#include<application/application.h>
 #include<inputs.h>
 
 GLFWwindow* Application::window;
@@ -72,7 +72,7 @@ Application::Application()
  
 	//glEnable(GL_MULTISAMPLE);
 	glfwSetInputMode(window, GLFW_MOD_CONTROL, GLFW_TRUE);
-	glfwSetInputMode(window, GLFW_STICKY_KEYS, GLFW_FALSE);
+	//glfwSetInputMode(window, GLFW_STICKY_KEYS, GLFW_FALSE);
     glfwSetWindowSizeCallback(window,onResize);
     glfwMakeContextCurrent(window);
 	 glfwSwapInterval(1);

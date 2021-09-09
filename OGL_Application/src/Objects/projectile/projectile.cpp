@@ -113,8 +113,6 @@ void Projectile::setRigidBodyParameters() {
  
 
 void Projectile::create() {
-
-		setShaders();
 		
 		glCreateVertexArrays(1, &VAO);
 		glBindVertexArray(VAO);

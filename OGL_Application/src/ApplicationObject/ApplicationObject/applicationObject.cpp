@@ -85,13 +85,7 @@ void ApplicationObject::scaleDimension(const float& s)
 	for (int i = 0; i < AOsize.size(); i++)
 		AOsize[i] = AOsize[i] * AOscale;
 	create();
-	//vmath::mat4 scalingMat = vmath::mat4{ 
-	//	vmath::vec4(s,0.0,0.0,0.0),
-	//	vmath::vec4(0.0,s,0.0,0.0),
-	//	vmath::vec4(0.0,0.0,s,0.0),
-	//	vmath::vec4(0.0,0.0,0.0,1) };
-	////AOTrMatrix = mymathlibNS::vmatMatrix::getProduct(scalingVector, AOTrMatrix);
-	//AOTrMatrix = vmath::matrixCompMult(AOTrMatrix, scalingMat);
+
 }
 
 

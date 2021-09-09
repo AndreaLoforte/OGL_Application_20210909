@@ -44,7 +44,7 @@ namespace myobjectNS{
 		int getCollisorID() override { return AOCollisorID; }
 	};
  
-
+		
 
 
 

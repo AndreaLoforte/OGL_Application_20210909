@@ -67,6 +67,7 @@ namespace myobjectNS
 							newColl->getSubObject(j)->setOrientation(collectorData.AOobjects[j].AOorientation);
 							newColl->getSubObject(j)->setColor(collectorData.AOobjects[j].AOcolor);
 							newColl->getSubObject(j)->setSize(collectorData.AOobjects[j].AOsize);
+
 							newColl->getSubObject(j)->scaleDimension(collectorData.AOobjects[j].AOscale);
 
 						}

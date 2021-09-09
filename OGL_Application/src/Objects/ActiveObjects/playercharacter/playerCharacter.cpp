@@ -132,8 +132,6 @@ namespace myobjectNS {
 
 	void PlayerCharacter::create() {
 
-		setShaders();
-
 
 		//creo la prima circonferenza sul piano xy
 		for (int j = 0; j < N; j++)

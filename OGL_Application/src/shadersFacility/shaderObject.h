@@ -7,7 +7,7 @@
 #include<shadermanager.h>
 //#include<sb7ktx.h>
 #include<SOIL2.h>
-#include<application.h>
+#include<application/application.h>
 #include<initializer_list>
 #include<fpcamera.h>
 #include<vector>
@@ -50,6 +50,7 @@ namespace myobjectNS{
 		  fpath = fullpath+shadersDir +sh_prog_name+ FRAGMENTSHADERSEXT;
 		  smanager.setVShader(vpath);
 		  smanager.setFShader(fpath);
+		  setShaders();
 		  
 
 	  }
@@ -62,7 +63,7 @@ namespace myobjectNS{
 		fpath = fullpath + shader_prog_name + "/" + shader_prog_name + ".frag";
 		smanager.setVShader(vpath);
 		smanager.setFShader(fpath);
-		
+		setShaders();
 		
     }
 

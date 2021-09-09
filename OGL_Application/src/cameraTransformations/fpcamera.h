@@ -6,7 +6,7 @@
 #include<iostream>
 #include<fstream>
 #include<mymathlib.h>
-#include<application.h>
+#include<application/application.h>
 #include<vector>
 #include<log.h>
 //#include<fileMap.h>
@@ -53,7 +53,7 @@ namespace fpcameraNS{
 	GLfloat x_rot_integral = 0;
 	
 
-    GLfloat tr_step = 3.0;
+    GLfloat tr_step = 2.0;
     GLfloat rot_step = 2.0;
 
 	

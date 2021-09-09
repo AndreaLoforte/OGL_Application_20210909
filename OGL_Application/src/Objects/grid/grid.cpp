@@ -28,8 +28,6 @@ namespace myobjectNS {
 
 
 	void Grid::create() {
-
-		setShaders();
 		glCreateVertexArrays(1,&VAO);
 		
 		//setRigidBodyParameters();

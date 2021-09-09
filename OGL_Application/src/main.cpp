@@ -3,12 +3,13 @@
 #include<fstream>
 #include<iostream>
 #include<string>
-#include<app.h>
+#include<application/app.h>
 #include<log.h>
 
 
 int main(){
 
+    glfwInit();
 	logNS::Logger::initLogger();
   
  App app;

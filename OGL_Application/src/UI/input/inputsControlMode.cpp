@@ -86,29 +86,6 @@ namespace InputsNS{
 
 
 
-
-
-		int  stateW = glfwGetKey(window, GLFW_KEY_W);
-		int  stateA = glfwGetKey(window, GLFW_KEY_A);
-		int  stateD = glfwGetKey(window, GLFW_KEY_D);
-		int  stateS = glfwGetKey(window, GLFW_KEY_S);
-
-	/*	static unsigned i = 0;
-		UserInterface::showButton("sdadsad","-----------"+std::to_string(i++)+"-----------");*/
-		
-
-		if(stateW == GLFW_PRESS)
-			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
-		if(stateA == GLFW_PRESS)
-			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
-		if(stateS == GLFW_PRESS)
-			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
-		if(stateD == GLFW_PRESS)
-			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
-
-
-
-	
 		switch (key) 
 		{
 		case GLFW_KEY_P:
@@ -119,10 +96,13 @@ namespace InputsNS{
 			break;
 		case GLFW_KEY_W:
 			fpcameraNS::CameraManager::getActiveCameraLH().moveFw();
+			break;
 		case GLFW_KEY_S:
 			fpcameraNS::CameraManager::getActiveCameraLH().moveBw();
+			break;
 		case GLFW_KEY_D:
 			fpcameraNS::CameraManager::getActiveCameraLH().moveRt();
+			break;
 		case GLFW_KEY_A:
 			fpcameraNS::CameraManager::getActiveCameraLH().moveLt();
 			break;

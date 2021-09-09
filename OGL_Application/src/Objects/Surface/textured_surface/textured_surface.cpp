@@ -151,9 +151,6 @@ namespace myobjectNS {
 
 
 	void Tx_surface::create() {
-
-
-		setShaders();
 		
 		GLfloat l1 = size[0], l2 = size[2];
 	

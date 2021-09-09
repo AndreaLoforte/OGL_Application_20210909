@@ -13,7 +13,7 @@ namespace myobjectNS {
 		GLuint VAO, VBO;
 		static int instanceCounter;
 		/*static constexpr GLuint puntiSfera = 5000;*/
-		static constexpr GLuint N = 100, M = 50;/* 0.3*puntiSfera;*/
+		static constexpr GLuint N = 20, M = 10;/* 0.3*puntiSfera;*/
 		GLfloat sphere[M][N][4];
 		static constexpr GLfloat theta_stride = 360 / N;// 2 * 3.1415926535 / N;
 		static constexpr GLfloat phi_stride = 360 / M;// 2 * 3.1415926535 / M;

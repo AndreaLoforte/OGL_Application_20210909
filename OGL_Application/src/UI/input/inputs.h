@@ -60,13 +60,11 @@ namespace InputsNS{
 		static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 		static void setAllCallbackFunction(GLFWwindow* window);
 
-		void key_callbackMove(GLFWwindow*, int, int, int, int);
-		void key_callbackEdit(GLFWwindow*, int, int, int, int);
+		//void key_callbackMove(GLFWwindow*, int, int, int, int);
 		void key_callbackESC(GLFWwindow* window, int key, int scancode, int action, int mods);
         
-		void cursor_callback_editMode(GLFWwindow*, double, double);
-        
-		void mouse_button_callback_editMode(GLFWwindow* window, int button, int action, int mods);
+		/*void cursor_callback_editMode(GLFWwindow*, double, double);
+		void mouse_button_callback_editMode(GLFWwindow* window, int button, int action, int mods);*/
         void initControls(GLFWwindow* window);
 		
 		void setup(App* application);

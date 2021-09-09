@@ -21,6 +21,7 @@
 #include<boxaabb/boxAABB.h>
 #include<activeObjectManager.h>
 #include<surface/textured_surface/textured_surface.h>
+#include<sphere/sphere_external/Sphere_external.h>
 
 
 namespace AssetNS {
@@ -61,6 +62,7 @@ namespace AssetNS {
 		assetAOList.push_back(new myobjectNS::Triangle_tb("triangle_tb"));
 		assetAOList.push_back(new myobjectNS::Tx_surface("textured_surface"));
 		assetAOList.push_back(new myobjectNS::Tx_sphere("textured_sphere"));
+		assetAOList.push_back(new myobjectNS::Sphere2("Sphere_external"));
 
 		/*NOW CALLING getCollector() FOR EACH APPLICATION OBJECT*/
 	

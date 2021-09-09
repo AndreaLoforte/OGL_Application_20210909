@@ -65,7 +65,7 @@ namespace saveloadNS {
 			}
 
 			collectors.push_back(collettore);
-		}
+		}	
 	}
 
 
